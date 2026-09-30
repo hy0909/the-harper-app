@@ -16,10 +16,18 @@
   arrows.forEach((a) => {
     a.addEventListener('click', () => {
       const next = Math.min(Math.max(index() + Number(a.dataset.dir), 0), cards.length - 1);
-      track.scrollTo({ left: next * step(), behavior: 'smooth' });
+      const target = cards[next].offsetLeft - 20; /* scroll-padding-left 만큼 뺀다 */
+      const before = track.scrollLeft;
+      track.scrollTo({ left: target, behavior: 'smooth' });
+      /* 부드러운 스크롤이 안 도는 환경이면 바로 이동 */
+      setTimeout(() => {
+        if (Math.abs(track.scrollLeft - before) < 2 && Math.abs(target - before) >= 2) track.scrollLeft = target;
+        update();
+      }, 350);
     });
   });
   track.addEventListener('scroll', update, { passive: true });
+  track.addEventListener('scrollend', update);
   window.addEventListener('resize', update);
   update();
 })();

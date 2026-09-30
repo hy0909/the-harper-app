@@ -222,6 +222,7 @@ img { display: block; }
   padding: 0 20px;
   overflow-x: auto;
   scroll-snap-type: x mandatory;
+  scroll-padding-left: 20px;
   scrollbar-width: none;
   -webkit-overflow-scrolling: touch;
 }
