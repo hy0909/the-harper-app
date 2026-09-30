@@ -1,0 +1,303 @@
+/* THE HARPER 앱 홈 화면 미리보기 — 피그마 w:340 프레임을 웹으로 옮김 */
+:root {
+  --ink: #3a362f;      /* 100 */
+  --ink-70: #5b5650;   /* 70 */
+  --ink-60: #87827c;   /* 60 */
+  --ground: #faf9f6;   /* secondary */
+  --bg: #f7f4ec;       /* 앱 바탕 */
+  --blush: #e8b4b8;
+  --beige: #d8c3a5;
+  --jade: #8fa693;
+  --terracotta: #c97b5c;
+  --amber: #c9a15c;
+  --font-ui: "Pretendard", -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+  --font-sans: "Noto Sans KR", "Noto Sans", sans-serif;
+  --font-logo: "Tinos", "Times New Roman", Times, serif;
+}
+
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; }
+body {
+  background: #e9e6df;
+  color: var(--ink);
+  font-family: var(--font-ui);
+  -webkit-font-smoothing: antialiased;
+}
+p, h1, h2 { margin: 0; }
+button { font: inherit; color: inherit; background: none; border: 0; padding: 0; cursor: pointer; }
+img { display: block; }
+
+/* 폰 화면 폭(440px)으로 가운데 정렬 */
+.phone {
+  width: min(440px, 100%);
+  min-height: 100vh;
+  margin: 0 auto;
+  background: var(--bg);
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  padding-bottom: 40px;
+}
+
+/* 헤더 */
+.header {
+  height: 44px;
+  padding: 0 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.header__logo {
+  font-family: var(--font-logo);
+  font-size: 18px;
+  line-height: 1.36;
+  letter-spacing: 1.8px;
+  color: var(--ink);
+}
+.header__icon {
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: 36px;
+}
+
+/* 공통 소제목 */
+.eyebrow {
+  font-family: var(--font-sans);
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 1.24;
+  letter-spacing: -0.6px;
+  color: var(--ink);
+}
+
+/* 오늘의 Day Drop */
+.today { display: flex; flex-direction: column; }
+.today__head {
+  padding: 0 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+.today__headline {
+  font-family: var(--font-sans);
+  font-weight: 800;
+  font-size: 32px;
+  line-height: 1.24;
+  letter-spacing: -1.28px;
+  color: var(--ink);
+}
+.today__price-row {
+  padding: 12px 20px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.today__price-row .price { flex: 1 0 0; min-width: 0; }
+
+/* 사진 블록: 아래쪽 어둡게 + 에디터 표시 */
+.photo {
+  position: relative;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-start;
+  overflow: hidden;
+}
+.photo--hero { height: 246px; padding: 16px 20px; }
+.photo--card { height: 239px; padding: 16px; border-radius: 12px; }
+.photo--short { height: 180px; }
+.photo__img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.photo__shade {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 0.6) 100%);
+  pointer-events: none;
+}
+.editor {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.editor__avatar {
+  width: 28px;
+  height: 28px;
+  border-radius: 99px;
+  background: var(--ink-60);
+}
+.editor__name {
+  font-family: var(--font-ui);
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 1.36;
+  letter-spacing: -0.12px;
+  color: var(--ground);
+}
+
+/* 가격 */
+.price { display: flex; flex-direction: column; gap: 4px; }
+.price--right { align-items: flex-end; text-align: right; flex: 1 0 0; min-width: 0; padding: 4px 0; }
+.price__value {
+  font-family: var(--font-sans);
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 1.36;
+  letter-spacing: -0.8px;
+  color: var(--ink);
+  white-space: nowrap;
+}
+.price__value--sm { font-size: 18px; line-height: 1; letter-spacing: -0.72px; }
+.price__value--xs { font-size: 16px; line-height: 1; letter-spacing: -0.64px; }
+.price__note {
+  font-family: var(--font-ui);
+  font-weight: 400;
+  font-size: 11px;
+  line-height: 1.36;
+  letter-spacing: -0.11px;
+  color: var(--ink-60);
+  mix-blend-mode: multiply;
+  white-space: nowrap;
+}
+
+/* 버튼 */
+.button {
+  width: 80px;
+  padding: 8px 16px;
+  border-radius: 8px;
+  background: var(--ink);
+  color: var(--ground);
+  font-family: var(--font-ui);
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.3;
+  letter-spacing: -0.28px;
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.button:active { opacity: 0.85; }
+
+/* 투어 종류 */
+.tours { display: flex; flex-direction: column; }
+.tours__head {
+  padding: 0 20px;
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+.tours__head .eyebrow { flex: 1 0 0; min-width: 0; }
+.tours__nav { display: flex; align-items: center; gap: 12px; }
+.tours__arrow { width: 20px; height: 20px; display: flex; align-items: center; justify-content: center; }
+.tours__arrow:disabled { opacity: 0.35; cursor: default; }
+
+.tours__carousel {
+  padding: 8px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+.tours__track {
+  width: 100%;
+  display: flex;
+  gap: 8px;
+  padding: 0 20px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+}
+.tours__track::-webkit-scrollbar { display: none; }
+.tour-card {
+  flex: 0 0 calc(100% - 40px);
+  scroll-snap-align: start;
+  background: #fff;
+  border-radius: 16px;
+  padding: 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.tour-card__tier {
+  font-family: var(--font-ui);
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 1.36;
+  letter-spacing: -0.12px;
+  color: var(--ink-70);
+}
+.tour-card__row { display: flex; align-items: flex-end; gap: 12px; }
+.tour-card__title {
+  font-family: var(--font-sans);
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 1.24;
+  letter-spacing: -0.72px;
+  color: var(--ink-70);
+  white-space: nowrap;
+}
+.tour-card .price__value { color: var(--ink-70); }
+
+/* 에디터 큐레이션 피드 */
+.feed { display: flex; flex-direction: column; gap: 12px; }
+.feed__head { padding: 0 20px; }
+.feed__list { display: flex; flex-direction: column; gap: 8px; }
+.feed-card {
+  border-radius: 20px;
+  padding: 28px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.feed-card--tight { padding: 20px; }
+.feed-card--blush { background: var(--blush); }
+.feed-card--beige { background: var(--beige); }
+.feed-card--jade { background: var(--jade); }
+.feed-card--terracotta { background: var(--terracotta); }
+.feed-card--amber { background: var(--amber); }
+.feed-card__head { display: flex; flex-direction: column; gap: 12px; }
+.feed-card__num {
+  width: 28px;
+  height: 28px;
+  border: 1px solid var(--ink);
+  border-radius: 99px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-sans);
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 1.2;
+  letter-spacing: -0.36px;
+  color: var(--ink);
+}
+.feed-card__row { display: flex; align-items: flex-start; gap: 12px; }
+.feed-card__title {
+  width: 181px;
+  flex-shrink: 0;
+  font-family: var(--font-sans);
+  font-weight: 800;
+  font-size: 22px;
+  line-height: 1.24;
+  letter-spacing: -0.88px;
+  color: var(--ink);
+}
+.feed-card__row .price--right { align-self: center; }
