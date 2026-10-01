@@ -63,9 +63,9 @@
 
   /* 지역 드로어에서 고르면 그 동네로 이동하고, 그 지역 첫 매장을 보여 준다 */
   var countEl = document.querySelector('.filter__count-num');
-  var curArea = 'seongsu';
+  var curArea = 'all'; /* 처음엔 전체 지역 */
   var curTier = 'all';
-  function matches(s) { return s.area === curArea && (curTier === 'all' || String(s.tier) === curTier); }
+  function matches(s) { return (curArea === 'all' || s.area === curArea) && (curTier === 'all' || String(s.tier) === curTier); }
   /* 지역·티어에 맞는 핀만 지도에 올리고 개수를 바꾼다 */
   function applyFilter() {
     var n = 0;
@@ -81,18 +81,24 @@
     shops.some(function (s, i) { if (matches(s)) { first = i; return true; } return false; });
     if (first >= 0) select(first); else { card.hidden = true; clearActive(); }
   }
+  /* 전체면 핀이 다 보이게 범위를 맞추고, 지역이면 그 동네 중심으로 */
+  function fitAll() {
+    var pts = shops.filter(matches).map(function (s) { return [s.lat, s.lng]; });
+    if (pts.length) map.fitBounds(pts, { padding: [40, 40], maxZoom: 15 });
+  }
   function showArea(area) {
     curArea = area;
-    var c = areas[area];
-    if (c) map.setView(c, 15);
     applyFilter();
+    var c = areas[area];
+    if (c) map.setView(c, 15); else fitAll();
     showFirst();
   }
   document.addEventListener('areachange', function (e) { showArea(e.detail.area); });
   document.addEventListener('tierchange', function (e) { curTier = e.detail.tier; applyFilter(); showFirst(); });
 
   /* 상세·목록에서 ?id=N 으로 들어오면 그 매장을 바로 보여 준다 */
-  var id = Number(new URLSearchParams(location.search).get('id'));
+  var rawId = new URLSearchParams(location.search).get('id');
+  var id = rawId === null ? NaN : Number(rawId); /* id가 없으면 0번으로 오해하지 않게 */
   var idx = shops.findIndex(function (s) { return s.id === id; });
   if (idx >= 0) {
     map.setView([shops[idx].lat, shops[idx].lng], 16);
@@ -104,6 +110,7 @@
     applyFilter();
   } else {
     applyFilter();
+    fitAll();
     select(0);
   }
 })();

@@ -4,13 +4,13 @@
   var count = document.querySelector('.filter__count-num');
   var shops = window.HARPER_SHOPS || [];
   if (!rows.length || !shops.length) return;
-  var area = 'seongsu';
+  var area = 'all'; /* 처음엔 전체 지역 */
   var tier = 'all';
   function apply() {
     var n = 0;
     rows.forEach(function (r, i) {
       var s = shops[i];
-      var show = s && s.area === area && (tier === 'all' || String(s.tier) === tier);
+      var show = s && (area === 'all' || s.area === area) && (tier === 'all' || String(s.tier) === tier);
       r.hidden = !show;
       if (show) n += 1;
     });

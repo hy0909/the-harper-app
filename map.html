@@ -36,7 +36,7 @@
           </div>
           <div class="filter__groups">
             <button type="button" class="filter__group" id="area-toggle" data-drawer="area-drawer" aria-haspopup="dialog" aria-expanded="false">
-              <span id="area-label" data-drawer-label>성수</span>
+              <span id="area-label" data-drawer-label>지역</span>
               <img src="assets/chevron-down.svg" width="20" height="20" alt="">
             </button>
             <button type="button" class="filter__group" id="tier-toggle" data-drawer="tier-drawer" aria-haspopup="dialog" aria-expanded="false">
@@ -84,14 +84,15 @@
       </a>
     </nav>
 
-    <!-- 지역 선택 드로어: 성수 · 한남 · 압구정 -->
+    <!-- 지역 선택 드로어: 전체 · 성수 · 한남 · 압구정 (처음엔 전체) -->
     <div class="drawer" id="area-drawer" data-event="areachange" hidden>
       <div class="drawer__dim" data-drawer-close></div>
       <div class="drawer__sheet" role="dialog" aria-modal="true" aria-labelledby="area-drawer-title">
         <span class="drawer__handle" aria-hidden="true"></span>
         <p class="drawer__title" id="area-drawer-title">지역</p>
         <ul class="drawer__list" role="listbox" aria-label="지역">
-          <li><button type="button" class="drawer__item" role="option" data-area="seongsu" aria-selected="true">성수</button></li>
+          <li><button type="button" class="drawer__item" role="option" data-area="all" data-label="지역" aria-selected="true">전체</button></li>
+          <li><button type="button" class="drawer__item" role="option" data-area="seongsu">성수</button></li>
           <li><button type="button" class="drawer__item" role="option" data-area="hannam">한남</button></li>
           <li><button type="button" class="drawer__item" role="option" data-area="apgujeong">압구정</button></li>
         </ul>
@@ -118,6 +119,6 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js" integrity="sha512-puJW3E/qXDqYp9IfhAI54BJEaWIfloJ7JWs7OeD5i6ruC9JZL1gERT1wjtwXFlh7CjE7ZJ+/vcRZRkIYIb6p4g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   <script src="drawer.js?v=2"></script>
   <script src="shops.js?v=2"></script>
-  <script src="map.js?v=6"></script>
+  <script src="map.js?v=8"></script>
 </body>
 </html>
