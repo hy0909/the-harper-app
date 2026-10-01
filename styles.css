@@ -112,7 +112,8 @@ img { display: block; }
   color: var(--ink);
 }
 .today__media { padding: 0 24px; display: flex; flex-direction: column; }
-.photo--hero { height: 246px; padding: 16px 20px; border-radius: 16px 16px 0 0; }
+/* 큰 사진은 모두 16:9 (높이는 폭에 따라 정해진다) */
+.photo--hero { aspect-ratio: 16 / 9; padding: 16px 20px; border-radius: 16px 16px 0 0; }
 .today__price-row {
   padding: 12px 24px;
   display: flex;
@@ -165,8 +166,8 @@ img { display: block; }
   align-items: flex-start;
   overflow: hidden;
 }
-.photo--card { height: 230px; padding: 16px 20px; border-radius: 12px; }
-.photo--pick { height: 252px; padding: 16px 20px; border: 1px solid #d6d3cf; border-radius: 12px; }
+.photo--card { aspect-ratio: 16 / 9; padding: 16px 20px; border-radius: 12px; }
+.photo--pick { aspect-ratio: 16 / 9; padding: 16px 20px; border: 1px solid #d6d3cf; border-radius: 12px; }
 .photo__img {
   position: absolute;
   inset: 0;
@@ -331,8 +332,8 @@ img { display: block; }
   z-index: 0;
 }
 .feed-card:nth-child(-n+3) { margin-bottom: -40px; }
-/* 피그마 card 효과(0 -4 16 / 40%)만으로는 사진 위에서 잘 안 보여, 가장자리에 짙은 층 하나를 더 깐다 */
-.feed-card:nth-child(n+2) { box-shadow: 0 -4px 16px rgba(0, 0, 0, 0.4), 0 -2px 6px rgba(0, 0, 0, 0.35); z-index: 1; }
+/* 피그마 card 효과: DROP_SHADOW 0 -4 16 0, #00000066 */
+.feed-card:nth-child(n+2) { box-shadow: 0 -4px 16px 0 rgba(0, 0, 0, 0.4); z-index: 1; }
 .feed-card:nth-child(3) { z-index: 2; }
 .feed-card:nth-child(4) { z-index: 3; }
 .feed-card--blush { background: var(--blush); }

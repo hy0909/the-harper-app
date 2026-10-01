@@ -31,7 +31,7 @@
 
 /* 대표 사진: 위쪽만 살짝 어둡게 + "Day Drop" 배지 */
 .photo--mag {
-  height: 268px;
+  aspect-ratio: 16 / 9; /* 큰 사진은 모두 16:9 */
   padding: 16px 24px;
   position: relative;
 }
