@@ -80,11 +80,12 @@ img { display: block; }
 
 /* 공통 소제목 */
 .eyebrow {
+  /* 피그마 subtitle/xl: SemiBold 20 */
   font-family: var(--font-sans);
   font-weight: 600;
-  font-size: 16px;
-  line-height: 1.5;
-  letter-spacing: 0.0912px;
+  font-size: 20px;
+  line-height: 1.4;
+  letter-spacing: -0.24px;
   color: var(--ink-70);
 }
 .eyebrow--sm {
@@ -340,10 +341,16 @@ img { display: block; }
 .feed-card--beige { background: var(--beige); }
 .feed-card--jade { background: var(--jade); }
 .feed-card--terracotta { background: var(--terracotta); }
+/* 제목 색은 카드 바탕색마다 다르게(피그마 29:5687) */
+.feed-card--blush .feed-card__title { color: #6f4245; }
+.feed-card--beige .feed-card__title { color: #675843; }
+.feed-card--jade .feed-card__title { color: #3a593f; }
+.feed-card--terracotta .feed-card__title { color: #643826; }
 .feed-card__head { display: flex; flex-direction: column; gap: 0; }
 .feed-card__row { display: flex; align-items: flex-start; gap: 0; }
 .feed-card__title {
   flex-shrink: 0;
+  word-break: keep-all; /* 낱말 중간에서 줄이 끊기지 않게 */
   font-family: var(--font-sans);
   font-weight: 800;
   font-size: 22px;
@@ -395,6 +402,7 @@ img { display: block; }
 }
 .pick-card__text { display: flex; flex-direction: column; gap: 0; }
 .pick-card__title {
+  word-break: keep-all;
   font-family: var(--font-sans);
   font-weight: 800;
   font-size: 22px;
