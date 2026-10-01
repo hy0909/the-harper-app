@@ -59,4 +59,25 @@
   });
 
   select(0); /* 처음엔 PICK 매장을 보여 준다 */
+
+  /* 지역 드로어에서 고르면 그 동네로 이동. 핀은 아직 성수만 있음 [확인 필요: 한남·압구정 매장] */
+  var areas = {
+    seongsu: [37.5428, 127.0555],
+    hannam: [37.5345, 127.0012],
+    apgujeong: [37.5270, 127.0285]
+  };
+  document.addEventListener('areachange', function (e) {
+    var c = areas[e.detail.area];
+    if (!c) return;
+    map.setView(c, 15);
+    if (e.detail.area !== 'seongsu') {
+      card.hidden = true;
+      markers.forEach(function (m) {
+        var node = m.getElement();
+        if (node) node.querySelector('.map-pin').classList.remove('map-pin--active');
+      });
+    } else {
+      select(0);
+    }
+  });
 })();

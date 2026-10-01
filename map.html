@@ -10,7 +10,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Tinos&display=swap" rel="stylesheet">
   <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css" integrity="sha512-h9FcoyWjHcOcmEVkxOfTLnmZFWIH0iZhZT1H2TbOq55xssQGEJHEaIm+PgoUaZbRvQTNTluNOEfb1ZRy6D3BOw==" crossorigin="anonymous" referrerpolicy="no-referrer">
-  <link rel="stylesheet" href="styles.css?v=15">
+  <link rel="stylesheet" href="styles.css?v=16">
 </head>
 <body>
   <main class="phone phone--explore phone--map" aria-label="THE HARPER 지도">
@@ -35,10 +35,10 @@
             <span class="filter__count-num">100</span>
           </div>
           <div class="filter__groups">
-            <div class="filter__group">
-              <span>지역</span>
+            <button type="button" class="filter__group" id="area-toggle" aria-haspopup="dialog" aria-expanded="false">
+              <span id="area-label">성수</span>
               <img src="assets/chevron-down.svg" width="20" height="20" alt="">
-            </div>
+            </button>
             <div class="filter__group">
               <span>티어</span>
               <img src="assets/chevron-down.svg" width="20" height="20" alt="">
@@ -83,9 +83,24 @@
         <span class="tab__label">내 정보</span>
       </a>
     </nav>
+
+    <!-- 지역 선택 드로어: 성수 · 한남 · 압구정 -->
+    <div class="drawer" id="area-drawer" hidden>
+      <div class="drawer__dim" data-drawer-close></div>
+      <div class="drawer__sheet" role="dialog" aria-modal="true" aria-labelledby="area-drawer-title">
+        <span class="drawer__handle" aria-hidden="true"></span>
+        <p class="drawer__title" id="area-drawer-title">지역</p>
+        <ul class="drawer__list" role="listbox" aria-label="지역">
+          <li><button type="button" class="drawer__item" role="option" data-area="seongsu" aria-selected="true">성수</button></li>
+          <li><button type="button" class="drawer__item" role="option" data-area="hannam">한남</button></li>
+          <li><button type="button" class="drawer__item" role="option" data-area="apgujeong">압구정</button></li>
+        </ul>
+      </div>
+    </div>
   </main>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js" integrity="sha512-puJW3E/qXDqYp9IfhAI54BJEaWIfloJ7JWs7OeD5i6ruC9JZL1gERT1wjtwXFlh7CjE7ZJ+/vcRZRkIYIb6p4g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-  <script src="map.js?v=2"></script>
+  <script src="drawer.js?v=1"></script>
+  <script src="map.js?v=3"></script>
 </body>
 </html>
