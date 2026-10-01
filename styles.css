@@ -6,7 +6,8 @@
   --ink-50: #a9a39d;   /* 50 */
   --ground: #faf9f6;   /* secondary */
   --bg: #f7f4ec;       /* 앱 바탕 */
-  --cocoa: #6f4a3a;    /* 새로운 코코아 브라운 */
+  --cocoa: #6f4a3a;    /* 코코아 브라운 */
+  --rose: #d6a3ab;     /* 안틱 로즈 */
   --blush: #e8b4b8;
   --beige: #d8c3a5;
   --jade: #8fa693;
@@ -218,7 +219,7 @@ img { display: block; }
 }
 
 /* 투어 종류 */
-.tours { display: flex; flex-direction: column; gap: 0; }
+.tours { display: flex; flex-direction: column; gap: 8px; } /* 제목 줄 ↔ 카드 8 */
 .tours__head {
   padding: 0 20px;
   display: flex;
@@ -261,20 +262,13 @@ img { display: block; }
   gap: 8px;
 }
 .tour-card__tier {
+  /* 피그마에서 보이는 카드(2번) 기준: 로즈 SemiBold 14. 세 장 공통 */
   font-family: var(--font-ui);
-  font-weight: 700;
-  font-size: 13px;
-  line-height: 1.36;
-  letter-spacing: -0.13px;
-  color: var(--cocoa);
-}
-/* 투어 카드2: 로즈 색 티어 */
-.tour-card:nth-child(2) .tour-card__tier {
   font-weight: 600;
   font-size: 14px;
   line-height: 1.429;
   letter-spacing: -0.168px;
-  color: #d6a3ab;
+  color: var(--rose);
 }
 .tour-card__row { display: flex; align-items: flex-end; gap: 0; }
 .tour-card__title {
@@ -285,8 +279,7 @@ img { display: block; }
   letter-spacing: -0.24px;
   color: var(--ink-70);
 }
-.tour-card .price--right { gap: 2px; }
-.tour-card:nth-child(2) .price--right { gap: 1px; } /* 피그마 2번 카드만 1 */
+.tour-card .price--right { gap: 1px; }
 .tour-card .price__value {
   color: var(--ink-70);
   font-size: 20px;
