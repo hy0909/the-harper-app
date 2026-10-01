@@ -9,16 +9,16 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Tinos&display=swap" rel="stylesheet">
   <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
-  <link rel="stylesheet" href="styles.css?v=6">
+  <link rel="stylesheet" href="styles.css?v=7">
 </head>
 <body>
   <main class="phone" aria-label="THE HARPER 앱 홈">
 
     <header class="header">
       <p class="header__logo">THE HARPER</p>
-      <button type="button" class="header__icon" aria-label="검색">
+      <a class="header__icon" href="search.html" aria-label="검색">
         <img src="assets/search.svg" width="24" height="24" alt="">
-      </button>
+      </a>
     </header>
 
     <div class="content">
@@ -29,20 +29,22 @@
           <p class="eyebrow" id="today-title">오늘의 Day Drop</p>
           <h1 class="today__headline">디자이너 스튜디오와<br>플래그십 투어</h1>
         </div>
-        <div class="photo photo--hero">
-          <img class="photo__img" src="assets/photo.png" alt="">
-          <div class="photo__shade" aria-hidden="true"></div>
-          <div class="editor">
-            <span class="editor__avatar" aria-hidden="true"></span>
-            <span class="editor__name">에디터H</span>
+        <div class="today__media">
+          <div class="photo photo--hero">
+            <img class="photo__img" src="assets/photo.png" alt="">
+            <div class="photo__shade" aria-hidden="true"></div>
+            <div class="editor">
+              <span class="editor__avatar" aria-hidden="true"></span>
+              <span class="editor__name">에디터H</span>
+            </div>
           </div>
-        </div>
-        <div class="today__price-row">
-          <div class="price">
-            <p class="price__value">128,000원~</p>
-            <p class="price__note">4인 기준</p>
+          <div class="today__price-row">
+            <div class="price">
+              <p class="price__value">128,000원~</p>
+              <p class="price__note">4인 기준</p>
+            </div>
+            <button type="button" class="button">예약하기</button>
           </div>
-          <button type="button" class="button">예약하기</button>
         </div>
       </section>
 
@@ -74,7 +76,7 @@
             <article class="tour-card">
               <p class="tour-card__tier">DAY DROP</p>
               <div class="tour-card__row">
-                <h2 class="tour-card__title">12시간 동행<br>쇼핑 큐레이션</h2>
+                <h2 class="tour-card__title">5시간 동행<br>쇼핑 큐레이션</h2>
                 <div class="price price--right">
                   <p class="price__value">128,000원~</p>
                   <p class="price__note">4인 기준</p>
@@ -106,7 +108,7 @@
               <div class="feed-card__row">
                 <h2 class="feed-card__title">디자이너 스튜디오와 플래그십 투어</h2>
                 <div class="price price--right">
-                  <p class="price__value">￦128,000 ~</p>
+                  <p class="price__value">128,000원~</p>
                   <p class="price__note">4인 기준</p>
                 </div>
               </div>
@@ -116,14 +118,14 @@
               <div class="photo__shade" aria-hidden="true"></div>
               <div class="editor"><span class="editor__avatar" aria-hidden="true"></span><span class="editor__name">에디터H</span></div>
             </div>
-          </article>
+          </a>
 
           <a class="feed-card feed-card--beige" href="magazine.html">
             <div class="feed-card__head">
               <div class="feed-card__row">
                 <h2 class="feed-card__title">디자이너 스튜디오와 플래그십 투어</h2>
                 <div class="price price--right">
-                  <p class="price__value">￦128,000 ~</p>
+                  <p class="price__value">128,000원~</p>
                   <p class="price__note">4인 기준</p>
                 </div>
               </div>
@@ -133,14 +135,14 @@
               <div class="photo__shade" aria-hidden="true"></div>
               <div class="editor"><span class="editor__avatar" aria-hidden="true"></span><span class="editor__name">에디터H</span></div>
             </div>
-          </article>
+          </a>
 
           <a class="feed-card feed-card--jade" href="magazine.html">
             <div class="feed-card__head">
               <div class="feed-card__row">
                 <h2 class="feed-card__title">디자이너 스튜디오와 플래그십 투어</h2>
                 <div class="price price--right">
-                  <p class="price__value">￦128,000 ~</p>
+                  <p class="price__value">128,000원~</p>
                   <p class="price__note">4인 기준</p>
                 </div>
               </div>
@@ -150,14 +152,14 @@
               <div class="photo__shade" aria-hidden="true"></div>
               <div class="editor"><span class="editor__avatar" aria-hidden="true"></span><span class="editor__name">에디터H</span></div>
             </div>
-          </article>
+          </a>
 
           <a class="feed-card feed-card--terracotta" href="magazine.html">
             <div class="feed-card__head">
               <div class="feed-card__row">
                 <h2 class="feed-card__title">디자이너 스튜디오와 플래그십 투어</h2>
                 <div class="price price--right">
-                  <p class="price__value">￦128,000 ~</p>
+                  <p class="price__value">128,000원~</p>
                   <p class="price__note">4인 기준</p>
                 </div>
               </div>
@@ -174,7 +176,7 @@
 
       <!-- 에디터’s PICK -->
       <section class="picks" aria-labelledby="picks-title">
-        <p class="eyebrow picks__head" id="picks-title">에디터’s PICK</p>
+        <p class="eyebrow eyebrow--sm picks__head" id="picks-title">에디터’s PICK</p>
         <div class="picks__scroll">
           <article class="pick-card">
             <div class="photo photo--pick">
@@ -225,6 +227,22 @@
       </section>
 
     </div>
+
+    <!-- 하단 탭 (아이콘: Phosphor Fill) -->
+    <nav class="tabbar" aria-label="주요 메뉴">
+      <a class="tab" href="index.html" aria-current="page">
+        <span class="tab__icon tab__icon--home" aria-hidden="true"></span>
+        <span class="tab__label">홈</span>
+      </a>
+      <a class="tab" href="search.html">
+        <span class="tab__icon tab__icon--search" aria-hidden="true"></span>
+        <span class="tab__label">검색</span>
+      </a>
+      <a class="tab" href="#" aria-disabled="true">
+        <span class="tab__icon tab__icon--user" aria-hidden="true"></span>
+        <span class="tab__label">내 정보</span>
+      </a>
+    </nav>
   </main>
 
   <script src="app.js?v=4"></script>
