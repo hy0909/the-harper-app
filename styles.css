@@ -391,7 +391,7 @@ img { display: block; }
 /* 피드 카드는 매거진 상세로 가는 링크 */
 a.feed-card { color: inherit; text-decoration: none; display: flex; }
 
-/* 하단 탭: 아이콘은 Phosphor Fill, 활성 상태 디자인은 추후 반영 */
+/* 하단 탭: 아이콘은 Solar Bold, 활성 상태 디자인은 추후 반영 */
 .tabbar {
   position: fixed;
   left: 50%;
@@ -423,9 +423,9 @@ a.feed-card { color: inherit; text-decoration: none; display: flex; }
   -webkit-mask: var(--tab-icon) center / contain no-repeat;
   mask: var(--tab-icon) center / contain no-repeat;
 }
-.tab__icon--home { --tab-icon: url("assets/phosphor/house-fill.svg"); }
-.tab__icon--search { --tab-icon: url("assets/phosphor/magnifying-glass-fill.svg"); }
-.tab__icon--user { --tab-icon: url("assets/phosphor/user-fill.svg"); }
+.tab__icon--home { --tab-icon: url("assets/solar/home-2-bold.svg"); }
+.tab__icon--search { --tab-icon: url("assets/solar/magnifer-bold.svg"); }
+.tab__icon--user { --tab-icon: url("assets/solar/user-bold.svg"); }
 .tab__label {
   font-family: var(--font-ui);
   font-weight: 500;
@@ -549,8 +549,8 @@ a.feed-card { color: inherit; text-decoration: none; display: flex; }
   width: 32px;
   height: 32px;
   background-color: var(--ink-60);
-  -webkit-mask: url("assets/phosphor/map-pin-fill.svg") center / contain no-repeat;
-  mask: url("assets/phosphor/map-pin-fill.svg") center / contain no-repeat;
+  -webkit-mask: url("assets/solar/map-point-bold.svg") center / contain no-repeat;
+  mask: url("assets/solar/map-point-bold.svg") center / contain no-repeat;
   filter: drop-shadow(0 2px 2px rgba(0, 0, 0, 0.2));
 }
 .map__pin--active .map__pin-icon { width: 40px; height: 40px; background-color: var(--cocoa); }
