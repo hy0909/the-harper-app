@@ -8,7 +8,7 @@
 .phone--magazine {
   background: #fff;
   gap: 0;
-  padding-bottom: 96px; /* 하단 고정 버튼 자리 */
+  padding-bottom: 76px; /* 하단 고정 버튼(52) 자리 + 여백 */
   position: relative;
 }
 
@@ -46,7 +46,7 @@
   border-radius: 4px;
   padding: 2px 6px;
   font-family: var(--font-ui);
-  font-weight: 400;
+  font-weight: 500; /* 피그마 32:10246: Medium */
   font-size: 11px;
   line-height: 1.273;
   letter-spacing: 0.3421px;
@@ -87,7 +87,7 @@
 .mag__title-group { display: flex; flex-direction: column; gap: 6px; }
 .mag__title {
   font-family: var(--font-sans);
-  font-weight: 700;
+  font-weight: 800; /* 피그마: ExtraBold */
   font-size: 22px;
   line-height: 1.364;
   letter-spacing: -0.4268px;
@@ -97,7 +97,7 @@
 .editor--ink .editor__name { color: var(--ink); }
 .mag__date {
   font-family: var(--font-ui);
-  font-weight: 400;
+  font-weight: 500; /* 피그마: Medium */
   font-size: 11px;
   line-height: 1.273;
   letter-spacing: 0.3421px;
@@ -212,29 +212,27 @@
   color: var(--ink-70);
 }
 
-/* 하단 고정 버튼 */
+/* 하단 고정 버튼: 피그마 32:10246 — 화면 폭 전체, 높이 52, 모서리 없음 */
 .mag__cta-bar {
   position: fixed;
   left: 50%;
   bottom: 0;
   transform: translateX(-50%);
   width: min(440px, 100%);
-  padding: 24px;
-  background: linear-gradient(to top, #fff 60%, rgba(255, 255, 255, 0));
-  pointer-events: none;
+  padding: 0 0 env(safe-area-inset-bottom);
+  background: var(--cocoa);
 }
 .mag__cta {
-  pointer-events: auto;
   display: flex;
   align-items: center;
   justify-content: center;
   width: 100%;
+  height: 52px;
   padding: 12px;
-  border-radius: 999px;
   background: var(--cocoa);
   color: var(--ground);
   font-family: var(--font-ui);
-  font-weight: 400;
+  font-weight: 500; /* 피그마: Medium */
   font-size: 14px;
   line-height: 1.429;
   letter-spacing: 0.203px;
