@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>THE HARPER 앱 미리보기 — 매장 상세</title>
+  <meta name="description" content="THE HARPER 모바일앱 매장 상세 화면을 웹에서 미리 보는 페이지. 피그마 시안이 아직 없어 매거진 상세 틀로 임의 구성">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Tinos&display=swap" rel="stylesheet">
+  <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+  <link rel="stylesheet" href="styles.css?v=19">
+  <link rel="stylesheet" href="magazine.css?v=4">
+</head>
+<body class="body--magazine">
+  <main class="phone phone--magazine" aria-label="THE HARPER 매장 상세">
+
+    <header class="mag-header">
+      <a class="mag-header__back" href="search.html" aria-label="뒤로">
+        <img src="assets/chevron-left.svg" width="24" height="24" alt="">
+      </a>
+      <button type="button" class="mag-header__share" aria-label="공유">
+        <img src="assets/share.svg" width="24" height="24" alt="">
+      </button>
+    </header>
+
+    <div class="photo photo--mag">
+      <img class="photo__img" id="shop-photo" src="assets/photos/seongsu-brick-showroom.jpg" alt="">
+      <div class="photo__shade photo__shade--top" aria-hidden="true"></div>
+      <span class="mag-badge mag-badge--pick" id="shop-badge">PICK</span>
+    </div>
+
+    <article class="mag">
+
+      <!-- 매장명 · 주소 · 지역 -->
+      <div class="mag__block">
+        <div class="mag__title-group">
+          <h1 class="mag__title" id="shop-name">썬러브 링크스 성수</h1>
+          <p class="shop__addr" id="shop-addr">성수동2가 269-77</p>
+        </div>
+        <div class="shop__chips">
+          <span class="shop__chip" id="shop-area">성수</span>
+          <span class="shop__chip shop__chip--pick" id="shop-tier">에디터 PICK</span>
+        </div>
+      </div>
+
+      <!-- 에디터 한 줄 · 안내 · 소개 -->
+      <div class="mag__block">
+        <div class="mag__inner-group">
+          <div class="mag__cards">
+            <div class="mag__quote">
+              <img class="mag__quote-icon" src="assets/annotation.svg" width="20" height="20" alt="">
+              <p class="mag__summary" id="shop-note">성수 숨은 디자이너 브랜드 편집샵</p>
+            </div>
+
+            <dl class="mag__info">
+              <div class="mag__info-labels">
+                <dt>지역</dt>
+                <dt>주소</dt>
+                <dt>영업시간</dt>
+                <dt>휴무</dt>
+              </div>
+              <div class="mag__info-values">
+                <dd id="shop-info-area">성수</dd>
+                <dd id="shop-info-addr">성수동2가 269-77</dd>
+                <dd>[확인 필요]</dd>
+                <dd>[확인 필요]</dd>
+              </div>
+            </dl>
+          </div>
+
+          <div class="mag__body" id="shop-intro">
+            <p>에디터가 적은 매장 소개가 들어갑니다.</p>
+          </div>
+        </div>
+
+        <!-- 지도에서 보기 -->
+        <a class="mag__related" id="shop-map-link" href="map.html?id=0">
+          <span class="mag__related-label">지도에서 보기</span>
+          <img src="assets/chevron-right.svg" width="24" height="24" alt="">
+        </a>
+      </div>
+
+    </article>
+
+    <!-- 하단 고정 버튼 -->
+    <div class="mag__cta-bar">
+      <a class="mag__cta" href="#" aria-disabled="true">Instagram에서 보기</a>
+    </div>
+
+  </main>
+
+  <script src="shops.js?v=1"></script>
+  <script src="shop.js?v=1"></script>
+</body>
+</html>

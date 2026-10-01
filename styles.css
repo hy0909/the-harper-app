@@ -120,8 +120,7 @@ img { display: block; }
   justify-content: space-between;
   gap: 12px;
   background: var(--ink);
-  border-top: 1px solid var(--ink-70);
-  border-radius: 0 0 16px 16px;
+  border-radius: 0 0 16px 16px; /* 사진과 가격 줄 사이 선 없음 */
 }
 .today__price-row .price { flex: 1 0 0; min-width: 0; display: flex; flex-direction: column; gap: 1px; }
 .today__price-row .price__value {
@@ -312,7 +311,10 @@ img { display: block; }
   letter-spacing: -0.24px;
 }
 
-.tours__dots { display: block; margin: 0 auto; }
+/* 가로 카드 묶음 위치 점 5개: 현재 장만 잉크색 */
+.dots { display: flex; gap: 6px; justify-content: center; height: 6px; }
+.dots__dot { width: 6px; height: 6px; border-radius: 50%; background: #dedbd3; }
+.dots__dot--on { background: var(--ink); }
 
 /* 에디터 큐레이션 피드 */
 .feed { display: flex; flex-direction: column; gap: 8px; }
@@ -329,7 +331,8 @@ img { display: block; }
   z-index: 0;
 }
 .feed-card:nth-child(-n+3) { margin-bottom: -40px; }
-.feed-card:nth-child(n+2) { box-shadow: 0 -4px 16px rgba(0, 0, 0, 0.4); z-index: 1; } /* 피그마 card 효과 */
+/* 피그마 card 효과(0 -4 16 / 40%)만으로는 사진 위에서 잘 안 보여, 가장자리에 짙은 층 하나를 더 깐다 */
+.feed-card:nth-child(n+2) { box-shadow: 0 -4px 16px rgba(0, 0, 0, 0.4), 0 -2px 6px rgba(0, 0, 0, 0.35); z-index: 1; }
 .feed-card:nth-child(3) { z-index: 2; }
 .feed-card:nth-child(4) { z-index: 3; }
 .feed-card--blush { background: var(--blush); }
@@ -422,7 +425,6 @@ img { display: block; }
   mix-blend-mode: multiply;
 }
 
-.picks__dots { display: block; margin: 0 auto; }
 
 /* 피드 카드는 매거진 상세로 가는 링크 */
 a.feed-card { color: inherit; text-decoration: none; display: flex; }
@@ -489,7 +491,7 @@ a.feed-card { color: inherit; text-decoration: none; display: flex; }
 .explore__tabs {
   padding: 0 24px;
   display: flex;
-  gap: 28px;
+  gap: 20px;
 }
 .explore__tab {
   font-family: var(--font-sans);
@@ -617,6 +619,8 @@ button.filter__group { padding: 0; }
   gap: 20px;
 }
 .shop-row { display: flex; align-items: center; gap: 12px; }
+a.shop-row { color: inherit; text-decoration: none; }
+.shop-row[hidden] { display: none; }
 .shop-row__thumb {
   position: relative;
   flex: 0 0 100px;
@@ -662,23 +666,30 @@ button.filter__group { padding: 0; }
   line-height: 1.4;
   color: var(--ink);
 }
-.shop-row__addr,
+.shop-row__addr {
+  font-family: var(--font-ui);
+  font-weight: 400; /* 피그마: Regular 14 */
+  font-size: 14px;
+  line-height: 1.571;
+  letter-spacing: 0.203px;
+  color: var(--ink-60);
+}
 .shop-row__note span {
   font-family: var(--font-ui);
-  font-weight: 600;
-  font-size: 14px;
-  line-height: 1.429;
-  letter-spacing: -0.168px;
+  font-weight: 500; /* 피그마: Medium 13 */
+  font-size: 13px;
+  line-height: 1.385;
+  letter-spacing: 0.2522px;
   color: var(--ink-60);
 }
 .shop-row__note {
   display: flex;
   align-items: center;
-  gap: 4px;
+  gap: 2px;
   width: 100%;
   background: var(--ground);
   border-radius: 8px;
-  padding: 4px 8px;
+  padding: 2px 8px;
 }
 .shop-row__note span { flex: 1 0 0; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 
@@ -687,10 +698,15 @@ button.filter__group { padding: 0; }
 .map {
   position: relative;
   width: 100%;
-  height: 666px;
+  height: 666px; /* 피그마 기준값. 지도 화면에서는 아래 규칙으로 화면 끝까지 늘어난다 */
   background: #d9d9d9; /* 타일이 뜨기 전 피그마 자리색 */
   z-index: 0;
 }
+/* 지도 화면: 화면 높이에 맞춰 지도가 하단 탭까지 꽉 차게 */
+.phone--map { min-height: 100vh; min-height: 100dvh; padding-bottom: 56px; }
+.phone--map .explore { flex: 1 0 auto; padding-bottom: 0; }
+.phone--map .explore__below { flex: 1 0 auto; }
+.phone--map .map { flex: 1 0 auto; height: auto; min-height: 420px; }
 .map .leaflet-container { font-family: var(--font-ui); background: #e9e6df; }
 .map .leaflet-control-attribution { font-size: 9px; color: var(--ink-60); background: rgba(250, 249, 246, 0.8); }
 .map .leaflet-control-attribution a { color: var(--ink-60); }

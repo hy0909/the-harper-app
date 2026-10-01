@@ -190,7 +190,7 @@
   word-break: break-word;
 }
 .mag__body p + p { margin-top: 26px; } /* 빈 줄 하나(16px × 1.625) */
-.mag__body p + p:nth-child(3) { margin-top: 0; } /* 소제목과 항목 묶음은 붙여 쓴다 */
+.mag__body--magazine p + p:nth-child(3) { margin-top: 0; } /* 매거진: 소제목과 항목 묶음은 붙여 쓴다 */
 
 /* 관련 샵 보기 */
 .mag__related {
@@ -242,3 +242,28 @@
   white-space: nowrap;
 }
 .mag__cta:active { opacity: 0.85; }
+
+/* 매장 상세(shop.html)에서만 쓰는 것 */
+.mag-badge--pick { background: #6f4a3a; color: #e8b4b8; font-weight: 700; }
+.shop__addr {
+  font-family: var(--font-ui);
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.571;
+  letter-spacing: 0.203px;
+  color: var(--ink-60);
+}
+.shop__chips { display: flex; gap: 6px; flex-wrap: wrap; }
+.shop__chip {
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: var(--gray-10);
+  font-family: var(--font-ui);
+  font-weight: 500;
+  font-size: 13px;
+  line-height: 1.385;
+  letter-spacing: 0.2522px;
+  color: var(--ink-70);
+}
+.shop__chip--pick { background: #fdf2f3; color: #6f4a3a; }
+a.mag__related { text-decoration: none; color: inherit; }
