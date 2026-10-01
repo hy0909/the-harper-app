@@ -45,7 +45,7 @@ img { display: block; }
   display: flex;
   flex-direction: column;
   gap: 32px;
-  padding-bottom: 88px; /* 하단 탭 48 + 여백 40 */
+  padding-bottom: 96px; /* 하단 탭 48 + 여백 40 */
 }
 
 /* 헤더 */
@@ -57,6 +57,7 @@ img { display: block; }
   justify-content: space-between;
 }
 .header__logo {
+  text-decoration: none; /* 로고를 누르면 홈으로 */
   font-family: var(--font-logo);
   font-size: 20px;
   line-height: 1.36;
@@ -104,7 +105,7 @@ img { display: block; }
 }
 .today__headline {
   font-family: var(--font-sans);
-  font-weight: 700;
+  font-weight: 800;
   font-size: 32px;
   line-height: 1.313;
   letter-spacing: -0.8096px;
@@ -234,9 +235,27 @@ img { display: block; }
   gap: 24px;
 }
 .tours__head .eyebrow { flex: 1 0 0; min-width: 0; }
-.tours__nav { display: flex; align-items: center; gap: 12px; }
-.tours__arrow { width: 24px; height: 24px; display: flex; align-items: center; justify-content: center; }
-.tours__arrow:disabled { opacity: 0.35; cursor: default; }
+.tours__nav,
+.picks__nav { display: flex; align-items: center; gap: 8px; }
+/* 화살표 버튼: 32 네모, 연회색 바탕 + 테두리, 모서리 8, 안에 20px 꺾쇠 */
+.tours__arrow,
+.picks__arrow {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  background: #f2f2f2;
+  border: 1px solid #d6d3cf;
+  border-radius: 8px;
+}
+.tours__arrow[data-dir="-1"],
+.picks__arrow[data-dir="-1"] { padding-right: 2px; }
+.tours__arrow[data-dir="1"],
+.picks__arrow[data-dir="1"] { padding-left: 2px; }
+.tours__arrow:disabled,
+.picks__arrow:disabled { opacity: 0.35; cursor: default; }
 
 .tours__carousel {
   padding: 0;
@@ -305,12 +324,12 @@ img { display: block; }
   padding: 24px;
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 16px;
   position: relative;
   z-index: 0;
 }
 .feed-card:nth-child(-n+3) { margin-bottom: -40px; }
-.feed-card:nth-child(n+2) { box-shadow: 0 -6px 12px rgba(0, 0, 0, 0.3); z-index: 1; }
+.feed-card:nth-child(n+2) { box-shadow: 0 -4px 16px rgba(0, 0, 0, 0.4); z-index: 1; } /* 피그마 card 효과 */
 .feed-card:nth-child(3) { z-index: 2; }
 .feed-card:nth-child(4) { z-index: 3; }
 .feed-card--blush { background: var(--blush); }
@@ -322,7 +341,7 @@ img { display: block; }
 .feed-card__title {
   flex-shrink: 0;
   font-family: var(--font-sans);
-  font-weight: 700;
+  font-weight: 800;
   font-size: 22px;
   line-height: 1.364;
   letter-spacing: -0.4268px;
@@ -344,7 +363,14 @@ img { display: block; }
 
 /* 에디터's PICK */
 .picks { display: flex; flex-direction: column; gap: 8px; }
-.picks__head { padding: 0 20px; }
+.picks__head {
+  padding: 0 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+.picks__head .eyebrow { flex: 1 0 0; min-width: 0; }
 .picks__scroll {
   display: flex;
   gap: 8px;
@@ -366,7 +392,7 @@ img { display: block; }
 .pick-card__text { display: flex; flex-direction: column; gap: 0; }
 .pick-card__title {
   font-family: var(--font-sans);
-  font-weight: 700;
+  font-weight: 800;
   font-size: 22px;
   line-height: 1.364;
   letter-spacing: -0.4268px;
@@ -396,44 +422,6 @@ img { display: block; }
   mix-blend-mode: multiply;
 }
 
-/* 에디터's PICK 두 번째 카드 사진: 화살표 네비게이션 */
-.photo--pick-nav {
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-.pick-nav {
-  width: 100%;
-  display: flex;
-  align-items: flex-start;
-  justify-content: flex-start;
-  gap: 0;
-  margin-bottom: auto;
-}
-.pick-nav__btn {
-  width: 36px;
-  height: 36px;
-  border: 1px solid #e2e2e2;
-  border-radius: 99px;
-  background: #fff;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0;
-  flex-shrink: 0;
-}
-.pick-nav__btn:last-child {
-  margin-left: auto;
-}
-.pick-nav__block {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  width: 100%;
-  position: relative;
-}
-
 .picks__dots { display: block; margin: 0 auto; }
 
 /* 피드 카드는 매거진 상세로 가는 링크 */
@@ -446,7 +434,7 @@ a.feed-card { color: inherit; text-decoration: none; display: flex; }
   bottom: 0;
   transform: translateX(-50%);
   width: min(440px, 100%);
-  height: 48px;
+  height: 56px;
   display: flex;
   background: var(--ink); /* 피그마: 탭 바 잉크 배경 */
   padding-bottom: env(safe-area-inset-bottom);
@@ -455,7 +443,7 @@ a.feed-card { color: inherit; text-decoration: none; display: flex; }
 .tab {
   flex: 1 0 0;
   min-width: 0;
-  height: 48px;
+  height: 56px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -469,8 +457,8 @@ a.feed-card { color: inherit; text-decoration: none; display: flex; }
   color: var(--ground); /* 활성: #faf9f6 */
 }
 .tab__icon {
-  width: 20px;
-  height: 20px;
+  width: 24px;
+  height: 24px;
   background-color: var(--ink-50);
   -webkit-mask: var(--tab-icon) center / contain no-repeat;
   mask: var(--tab-icon) center / contain no-repeat;
@@ -479,7 +467,7 @@ a.feed-card { color: inherit; text-decoration: none; display: flex; }
   background-color: var(--ground);
 }
 .tab__icon--home { --tab-icon: url("assets/material/home-rounded.svg"); }
-.tab__icon--search { --tab-icon: url("assets/material/search-rounded.svg"); }
+.tab__icon--search { --tab-icon: url("assets/lucide/search.svg"); } /* 검색만 Lucide(shadcn) 선 아이콘 */
 .tab__icon--user { --tab-icon: url("assets/material/person-rounded.svg"); }
 .tab__label {
   font-family: var(--font-ui);
