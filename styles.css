@@ -441,9 +441,9 @@ a.feed-card { color: inherit; text-decoration: none; display: flex; }
 .tab[aria-current="page"] .tab__icon {
   background-color: var(--ground);
 }
-.tab__icon--home { --tab-icon: url("assets/mingcute/home-4-fill.svg"); }
-.tab__icon--search { --tab-icon: url("assets/mingcute/search-fill.svg"); }
-.tab__icon--user { --tab-icon: url("assets/mingcute/user-3-fill.svg"); }
+.tab__icon--home { --tab-icon: url("assets/heroicons/home-solid.svg"); }
+.tab__icon--search { --tab-icon: url("assets/heroicons/magnifying-glass-solid.svg"); }
+.tab__icon--user { --tab-icon: url("assets/heroicons/user-solid.svg"); }
 .tab__label {
   font-family: var(--font-ui);
   font-weight: 500;
@@ -567,8 +567,8 @@ a.feed-card { color: inherit; text-decoration: none; display: flex; }
   width: 32px;
   height: 32px;
   background-color: var(--ink-60);
-  -webkit-mask: url("assets/mingcute/location-fill.svg") center / contain no-repeat;
-  mask: url("assets/mingcute/location-fill.svg") center / contain no-repeat;
+  -webkit-mask: url("assets/heroicons/map-pin-solid.svg") center / contain no-repeat;
+  mask: url("assets/heroicons/map-pin-solid.svg") center / contain no-repeat;
   filter: drop-shadow(0 2px 2px rgba(0, 0, 0, 0.2));
 }
 .map__pin--active .map__pin-icon { width: 40px; height: 40px; background-color: var(--cocoa); }
