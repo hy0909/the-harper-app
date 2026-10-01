@@ -152,7 +152,7 @@
 .mag__info-labels {
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 0;
 }
 .mag__info-labels dt {
   font-family: var(--font-sans);
@@ -166,7 +166,7 @@
 .mag__info-values {
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 0;
 }
 .mag__info-values dd {
   font-family: var(--font-ui);

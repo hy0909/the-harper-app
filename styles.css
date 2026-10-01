@@ -332,7 +332,7 @@ img { display: block; }
 /* 피드 카드 제목 폭 */
 .feed-card:nth-child(1) .feed-card__title { width: 191px; }
 .feed-card:nth-child(n+2) .feed-card__title { width: 189px; }
-.feed-card__row .price--right { flex: 1; padding: 4px 0; gap: 1px; align-items: flex-end; }
+.feed-card__row .price--right { flex: 1; padding: 0; gap: 1px; align-items: flex-end; }
 .feed-card__row .price__value {
   font-family: var(--font-sans);
   font-size: 20px;
@@ -397,6 +397,44 @@ img { display: block; }
   mix-blend-mode: multiply;
 }
 
+/* 에디터's PICK 두 번째 카드 사진: 화살표 네비게이션 */
+.photo--pick-nav {
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.pick-nav {
+  width: 100%;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 0;
+  margin-bottom: auto;
+}
+.pick-nav__btn {
+  width: 36px;
+  height: 36px;
+  border: 1px solid #e2e2e2;
+  border-radius: 99px;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  flex-shrink: 0;
+}
+.pick-nav__btn:last-child {
+  margin-left: auto;
+}
+.pick-nav__block {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  width: 100%;
+  position: relative;
+}
+
 .picks__dots { display: block; margin: 0 auto; }
 
 /* 피드 카드는 매거진 상세로 가는 링크 */
@@ -441,9 +479,9 @@ a.feed-card { color: inherit; text-decoration: none; display: flex; }
 .tab[aria-current="page"] .tab__icon {
   background-color: var(--ground);
 }
-.tab__icon--home { --tab-icon: url("assets/heroicons/home-solid.svg"); }
-.tab__icon--search { --tab-icon: url("assets/heroicons/magnifying-glass-solid.svg"); }
-.tab__icon--user { --tab-icon: url("assets/heroicons/user-solid.svg"); }
+.tab__icon--home { --tab-icon: url("assets/material/home-rounded.svg"); }
+.tab__icon--search { --tab-icon: url("assets/material/search-rounded.svg"); }
+.tab__icon--user { --tab-icon: url("assets/material/person-rounded.svg"); }
 .tab__label {
   font-family: var(--font-ui);
   font-weight: 500;
@@ -459,7 +497,7 @@ a.feed-card { color: inherit; text-decoration: none; display: flex; }
   padding: 32px 0;
   display: flex;
   flex-direction: column;
-  gap: 36px;
+  gap: 32px;
 }
 .explore__tabs {
   padding: 0 24px;
@@ -477,6 +515,57 @@ a.feed-card { color: inherit; text-decoration: none; display: flex; }
   white-space: nowrap;
 }
 .explore__tab[aria-current="page"] { color: var(--ink); }
+.explore__below {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* 필터 행 */
+.filter {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.filter__count {
+  flex: 1 0 0;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-sans);
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 1.429;
+  letter-spacing: -0.168px;
+  color: var(--ink-60);
+}
+.filter__count-num {
+  font-family: var(--font-sans);
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 1.429;
+  letter-spacing: -0.168px;
+  color: var(--ink-60);
+}
+.filter__groups {
+  display: flex;
+  gap: 16px;
+}
+.filter__group {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-family: var(--font-sans);
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 1.5;
+  letter-spacing: 0.0912px;
+  color: var(--ink);
+}
+.filter__group img {
+  width: 20px;
+  height: 20px;
+}
 
 .shop-list {
   padding: 0 24px;
@@ -514,6 +603,13 @@ a.feed-card { color: inherit; text-decoration: none; display: flex; }
   color: #45413b; /* 80 */
   white-space: nowrap;
 }
+.badge--search {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  background: #6f4a3a;
+  color: #e8b4b8;
+}
 .shop-row__body { flex: 1 0 0; min-width: 0; display: flex; flex-direction: column; gap: 12px; }
 .shop-row__text { display: flex; flex-direction: column; gap: 4px; }
 .shop-row__name {
@@ -543,79 +639,9 @@ a.feed-card { color: inherit; text-decoration: none; display: flex; }
 }
 .shop-row__note span { flex: 1 0 0; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 
-/* 지도(임시 구성) */
-.explore--map { gap: 20px; }
-.map {
-  position: relative;
-  height: 520px;
-  background: #e7e3da;
-  overflow: hidden;
-}
-.map__streets { position: absolute; inset: 0; width: 100%; height: 100%; }
-.map__block { fill: #efede9; }
-.map__road { fill: none; stroke: #fff; stroke-width: 14; stroke-linecap: round; }
-.map__road--thin { stroke-width: 6; }
-.map__pin {
-  position: absolute;
-  transform: translate(-50%, -100%);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 2px;
-}
-.map__pin-icon {
-  width: 32px;
-  height: 32px;
-  background-color: var(--ink-60);
-  -webkit-mask: url("assets/heroicons/map-pin-solid.svg") center / contain no-repeat;
-  mask: url("assets/heroicons/map-pin-solid.svg") center / contain no-repeat;
-  filter: drop-shadow(0 2px 2px rgba(0, 0, 0, 0.2));
-}
-.map__pin--active .map__pin-icon { width: 40px; height: 40px; background-color: var(--cocoa); }
-.map__pin-label {
-  font-family: var(--font-ui);
-  font-weight: 600;
-  font-size: 12px;
-  line-height: 1.36;
-  letter-spacing: -0.12px;
-  color: var(--ink);
-  background: #fff;
-  border-radius: 999px;
-  padding: 3px 8px;
-  white-space: nowrap;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12);
-}
-.map__hint {
-  position: absolute;
-  left: 50%;
-  bottom: 12px;
-  transform: translateX(-50%);
-  font-family: var(--font-ui);
-  font-size: 11px;
-  line-height: 1.273;
-  letter-spacing: 0.3421px;
-  color: var(--ink-60);
-  background: rgba(255, 255, 255, 0.8);
-  border-radius: 999px;
-  padding: 3px 10px;
-  white-space: nowrap;
-}
-.map__cards {
-  display: flex;
-  gap: 8px;
-  padding: 0 24px;
-  scroll-padding-left: 24px;
-  overflow-x: auto;
-  scroll-snap-type: x mandatory;
-  scrollbar-width: none;
-  -webkit-overflow-scrolling: touch;
-}
-.map__cards::-webkit-scrollbar { display: none; }
-.shop-row--card {
-  flex: 0 0 392px;
-  scroll-snap-align: start;
-  background: #fff;
-  border: 1px solid #e2e2e2;
-  border-radius: 16px;
-  padding: 16px;
+/* 지도 자리: 피그마 31:9779 */
+.map-placeholder {
+  width: 100%;
+  height: 666px;
+  background: #d9d9d9;
 }

@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Tinos&display=swap" rel="stylesheet">
   <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
-  <link rel="stylesheet" href="styles.css?v=11">
+  <link rel="stylesheet" href="styles.css?v=13">
 </head>
 <body>
   <main class="phone phone--explore" aria-label="THE HARPER 검색">
@@ -27,12 +27,30 @@
         <a class="explore__tab" href="map.html">지도</a>
       </nav>
 
-      <div class="shop-list">
+      <div class="explore__below">
+        <div class="filter" style="padding: 0 24px;">
+          <div class="filter__count">
+            <span>전체</span>
+            <span class="filter__count-num">100</span>
+          </div>
+          <div class="filter__groups">
+            <div class="filter__group">
+              <span>지역</span>
+              <img src="assets/chevron-down.svg" width="20" height="20" alt="">
+            </div>
+            <div class="filter__group">
+              <span>티어</span>
+              <img src="assets/chevron-down.svg" width="20" height="20" alt="">
+            </div>
+          </div>
+        </div>
+
+        <div class="shop-list">
         <article class="shop-row">
           <div class="shop-row__thumb">
             <img class="photo__img" src="assets/photo.png" alt="">
             <div class="photo__shade" aria-hidden="true"></div>
-            <span class="badge">PICK</span>
+            <span class="badge badge--search">PICK</span>
           </div>
           <div class="shop-row__body">
             <div class="shop-row__text">
@@ -46,7 +64,7 @@
           <div class="shop-row__thumb">
             <img class="photo__img" src="assets/photo.png" alt="">
             <div class="photo__shade" aria-hidden="true"></div>
-            <span class="badge">PICK</span>
+            <span class="badge badge--search">PICK</span>
           </div>
           <div class="shop-row__body">
             <div class="shop-row__text">
@@ -60,7 +78,7 @@
           <div class="shop-row__thumb">
             <img class="photo__img" src="assets/photo.png" alt="">
             <div class="photo__shade" aria-hidden="true"></div>
-            <span class="badge">PICK</span>
+            <span class="badge badge--search">PICK</span>
           </div>
           <div class="shop-row__body">
             <div class="shop-row__text">
@@ -74,7 +92,7 @@
           <div class="shop-row__thumb">
             <img class="photo__img" src="assets/photo.png" alt="">
             <div class="photo__shade" aria-hidden="true"></div>
-            <span class="badge">PICK</span>
+            <span class="badge badge--search">PICK</span>
           </div>
           <div class="shop-row__body">
             <div class="shop-row__text">
@@ -88,7 +106,7 @@
           <div class="shop-row__thumb">
             <img class="photo__img" src="assets/photo.png" alt="">
             <div class="photo__shade" aria-hidden="true"></div>
-            <span class="badge">PICK</span>
+            <span class="badge badge--search">PICK</span>
           </div>
           <div class="shop-row__body">
             <div class="shop-row__text">
@@ -102,7 +120,7 @@
           <div class="shop-row__thumb">
             <img class="photo__img" src="assets/photo.png" alt="">
             <div class="photo__shade" aria-hidden="true"></div>
-            <span class="badge">PICK</span>
+            <span class="badge badge--search">PICK</span>
           </div>
           <div class="shop-row__body">
             <div class="shop-row__text">
@@ -116,7 +134,7 @@
           <div class="shop-row__thumb">
             <img class="photo__img" src="assets/photo.png" alt="">
             <div class="photo__shade" aria-hidden="true"></div>
-            <span class="badge">PICK</span>
+            <span class="badge badge--search">PICK</span>
           </div>
           <div class="shop-row__body">
             <div class="shop-row__text">
@@ -130,7 +148,7 @@
           <div class="shop-row__thumb">
             <img class="photo__img" src="assets/photo.png" alt="">
             <div class="photo__shade" aria-hidden="true"></div>
-            <span class="badge">PICK</span>
+            <span class="badge badge--search">PICK</span>
           </div>
           <div class="shop-row__body">
             <div class="shop-row__text">
@@ -144,7 +162,7 @@
           <div class="shop-row__thumb">
             <img class="photo__img" src="assets/photo.png" alt="">
             <div class="photo__shade" aria-hidden="true"></div>
-            <span class="badge">PICK</span>
+            <span class="badge badge--search">PICK</span>
           </div>
           <div class="shop-row__body">
             <div class="shop-row__text">
@@ -154,6 +172,7 @@
             <p class="shop-row__note"><img src="assets/check-circle.svg" width="16" height="16" alt=""><span>성수 숨은 디자이너 브랜드 편집샵</span></p>
           </div>
         </article>
+      </div>
       </div>
     </div>
 
