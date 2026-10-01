@@ -11,7 +11,7 @@
   --terracotta: #c97b5c;
   --amber: #c9a15c;
   --font-ui: "Pretendard", -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
-  --font-sans: "Noto Sans KR", "Noto Sans", sans-serif;
+  --font-sans: "Pretendard", -apple-system, BlinkMacSystemFont, system-ui, sans-serif; /* 2026-10-01 Noto Sans KR → Pretendard, 굵기는 그대로 */
   --font-logo: "Tinos", "Times New Roman", Times, serif;
 }
 
@@ -155,7 +155,7 @@ img { display: block; }
 .price--right { align-items: flex-end; text-align: right; flex: 1 0 0; min-width: 0; padding: 4px 0; }
 .price__value {
   font-family: var(--font-sans);
-  font-weight: 500;
+  font-weight: 700;
   font-size: 20px;
   line-height: 1.36;
   letter-spacing: -0.8px;
