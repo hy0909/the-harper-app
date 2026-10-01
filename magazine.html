@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>THE HARPER 앱 미리보기 — 매거진 상세</title>
+  <meta name="description" content="THE HARPER 모바일앱 매거진 상세 화면을 웹에서 미리 보는 페이지">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Tinos&display=swap" rel="stylesheet">
+  <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+  <link rel="stylesheet" href="styles.css?v=6">
+  <link rel="stylesheet" href="magazine.css?v=1">
+</head>
+<body class="body--magazine">
+  <main class="phone phone--magazine" aria-label="THE HARPER 매거진 상세">
+
+    <header class="mag-header">
+      <a class="mag-header__back" href="index.html" aria-label="뒤로">
+        <img src="assets/chevron-left.svg" width="24" height="24" alt="">
+      </a>
+      <button type="button" class="mag-header__share" aria-label="공유">
+        <img src="assets/share.svg" width="24" height="24" alt="">
+      </button>
+    </header>
+
+    <div class="photo photo--mag">
+      <img class="photo__img" src="assets/photo.png" alt="">
+      <div class="photo__shade photo__shade--top" aria-hidden="true"></div>
+    </div>
+
+    <article class="mag">
+
+      <!-- 제목 · 에디터 · 가격 -->
+      <div class="mag__block">
+        <div class="mag__title-group">
+          <h1 class="mag__title">디자이너 스튜디오와 플래그십 투어</h1>
+          <div class="mag__byline">
+            <div class="editor editor--ink">
+              <span class="editor__avatar" aria-hidden="true"></span>
+              <span class="editor__name">에디터H</span>
+            </div>
+            <time class="mag__date" datetime="2026-06-12">6. 12</time>
+          </div>
+        </div>
+        <div class="mag__price">
+          <p class="mag__price-value">128,000원~</p>
+          <p class="price__note">4인 기준</p>
+        </div>
+      </div>
+
+      <!-- 한 줄 요약 · 안내 · 본문 -->
+      <div class="mag__block">
+        <div class="mag__quote">
+          <p class="mag__quote-mark" aria-hidden="true">“</p>
+          <p class="mag__summary">에디터와 성수 숨은 디자이너 브랜드 스튜디오를 돌아보는 투어에요</p>
+        </div>
+
+        <dl class="mag__info">
+          <div class="mag__info-labels">
+            <dt>시간</dt>
+            <dt>인원</dt>
+            <dt>예약</dt>
+          </div>
+          <div class="mag__info-values">
+            <dd>오후 1시 ~5시</dd>
+            <dd>4인 기준</dd>
+            <dd>앱 홈 화면 '예약하기' 선택</dd>
+          </div>
+        </dl>
+
+        <div class="mag__body">
+          <p>안녕하세요, 에디터H입니다. 오늘의 Day Drop은 성수예요.<br>성수에는 일본에 매장이 없는 한국 브랜드가 골목마다 숨어 있어요. 검색으론 안 나오고, 와서도 간판이 없어 그냥 지나치기 쉬운 곳들이라 이번엔 저와 함께 반나절 동안 돌아보아요!</p>
+          <p>🧵 THE HARPER DAY DROP<br>성수 디자이너 스튜디오와 플래그십 투어</p>
+          <p>🤎 일본에서는 살 수 없는 한국 브랜드의 쇼룸과 플래그십 [확인 필요: 방문 매장 수]<br>🤎 에디터가 옆에서 같이 입어 보고, 어울리는지 솔직하게 말해 드려요<br>🤎 큰길에 없는, 서울 사람들끼리만 아는 매장 위주<br>🤎 ₩128,000~ (4인 기준)</p>
+          <p>이런 분께 권해요<br>✨ 한국 옷은 사고 싶은데 어디서 사야 할지 모르겠는 분<br>✨ 혼자 가면 매장 문 열기가 망설여지는 분<br>✨ 사진으로 본 옷이 나한테 어울릴지 누가 봐 줬으면 하는 분<br>✨ 여행에서 산 옷을 돌아가서도 계속 입고 싶은 분</p>
+          <p>제가 하는 일은 단순해요. 매장을 고르고, 입어 보실 때 옆에 서서 "그건 사고, 그건 두세요"라고 말해 드리는 것. 옷 좋아하는 서울 사람들이 주말에 가는 곳을 여행 하루에 다 보고 가실 수 있게요.</p>
+        </div>
+      </div>
+
+      <!-- 관련 샵 -->
+      <button type="button" class="mag__related">
+        <span class="mag__related-label">관련 샵 보기</span>
+        <img src="assets/chevron-right.svg" width="24" height="24" alt="">
+      </button>
+
+    </article>
+
+    <!-- 하단 고정 버튼 -->
+    <div class="mag__cta-bar">
+      <a class="mag__cta" href="#" aria-disabled="true">Instagram에서 보기</a>
+    </div>
+
+  </main>
+</body>
+</html>

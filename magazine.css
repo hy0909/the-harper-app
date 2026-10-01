@@ -1,0 +1,198 @@
+/* THE HARPER 앱 매거진 상세 미리보기 — 피그마 w:440(17:190) 프레임을 웹으로 옮김. styles.css 다음에 불러온다 */
+:root {
+  --ink-50: #a9a39d;   /* 50 */
+  --gray-20: #e2e2e2;  /* 20 */
+  --gray-10: #f2f2f2;  /* 10 */
+}
+
+.phone--magazine {
+  background: #fff;
+  gap: 0;
+  padding-bottom: 96px; /* 하단 고정 버튼 자리 */
+  position: relative;
+}
+
+/* 헤더: 뒤로 · 공유 */
+.mag-header {
+  height: 48px;
+  padding: 0 24px 0 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.mag-header__back,
+.mag-header__share {
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* 대표 사진: 위쪽만 살짝 어둡게 */
+.photo--mag { height: 268px; padding: 16px 20px; }
+.photo__shade--top {
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3) 50%, rgba(0, 0, 0, 0) 100%);
+}
+
+/* 본문 묶음 */
+.mag {
+  padding: 20px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.mag__block {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--gray-20);
+}
+
+/* 제목 · 에디터 · 날짜 */
+.mag__title-group { display: flex; flex-direction: column; gap: 6px; }
+.mag__title {
+  font-family: var(--font-sans);
+  font-weight: 700;
+  font-size: 22px;
+  line-height: 1.364;
+  letter-spacing: -0.4268px;
+  color: var(--ink);
+}
+.mag__byline { display: flex; align-items: center; gap: 12px; }
+.editor--ink .editor__name { color: var(--ink); }
+.mag__date {
+  font-family: var(--font-ui);
+  font-weight: 400;
+  font-size: 11px;
+  line-height: 1.273;
+  letter-spacing: 0.3421px;
+  color: var(--ink-50);
+  white-space: nowrap;
+}
+
+/* 가격 */
+.mag__price { display: flex; align-items: center; gap: 8px; }
+.mag__price-value {
+  font-family: var(--font-sans);
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 1.4;
+  letter-spacing: -0.24px;
+  color: var(--ink);
+  white-space: nowrap;
+}
+
+/* 한 줄 요약 */
+.mag__quote { display: flex; flex-direction: column; gap: 0; }
+.mag__quote-mark {
+  font-family: var(--font-sans);
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 1.4;
+  letter-spacing: -0.24px;
+  color: var(--ink);
+}
+.mag__summary {
+  font-family: var(--font-sans);
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 1.5;
+  letter-spacing: 0.0912px;
+  color: var(--ink);
+}
+
+/* 시간 · 인원 · 예약 안내 */
+.mag__info {
+  margin: 0;
+  background: var(--gray-10);
+  border-radius: 12px;
+  padding: 12px 20px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: var(--ink-70);
+}
+.mag__info dt,
+.mag__info dd { margin: 0; }
+.mag__info-labels dt {
+  font-family: var(--font-sans);
+  font-weight: 600;
+  font-size: 15px;
+  line-height: 1.467;
+  white-space: nowrap;
+}
+.mag__info-values { flex: 1 0 0; min-width: 0; }
+.mag__info-values dd {
+  font-family: var(--font-ui);
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.571;
+  letter-spacing: 0.203px;
+}
+
+/* 본문 글 */
+.mag__body {
+  display: flex;
+  flex-direction: column;
+  font-family: var(--font-ui);
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.625;
+  letter-spacing: 0.0912px;
+  color: var(--ink-70);
+  word-break: break-word;
+}
+.mag__body p + p { margin-top: 26px; } /* 빈 줄 하나(16px × 1.625) */
+.mag__body p + p:nth-child(3) { margin-top: 0; } /* 소제목과 항목 묶음은 붙여 쓴다 */
+
+/* 관련 샵 보기 */
+.mag__related {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  text-align: left;
+}
+.mag__related-label {
+  flex: 1 0 0;
+  min-width: 0;
+  font-family: var(--font-sans);
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 1.4;
+  letter-spacing: -0.24px;
+  color: var(--ink-60);
+}
+
+/* 하단 고정 버튼 */
+.mag__cta-bar {
+  position: fixed;
+  left: 50%;
+  bottom: 0;
+  transform: translateX(-50%);
+  width: min(440px, 100%);
+  padding: 24px;
+  background: linear-gradient(to top, #fff 60%, rgba(255, 255, 255, 0));
+  pointer-events: none;
+}
+.mag__cta {
+  pointer-events: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 12px;
+  border-radius: 999px;
+  background: var(--cocoa);
+  color: var(--ground);
+  font-family: var(--font-ui);
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.429;
+  letter-spacing: 0.203px;
+  text-decoration: none;
+  white-space: nowrap;
+}
+.mag__cta:active { opacity: 0.85; }

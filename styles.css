@@ -379,3 +379,6 @@ img { display: block; }
 }
 
 .picks__dots { display: block; margin: 0 auto; }
+
+/* 피드 카드는 매거진 상세로 가는 링크 */
+a.feed-card { color: inherit; text-decoration: none; display: flex; }
