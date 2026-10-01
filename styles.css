@@ -411,7 +411,7 @@ a.feed-card { color: inherit; text-decoration: none; display: flex; }
   width: min(440px, 100%);
   height: 48px;
   display: flex;
-  background: #fff;
+  background: var(--ink); /* 피그마: 탭 바 잉크 배경 */
   padding-bottom: env(safe-area-inset-bottom);
   z-index: 10;
 }
@@ -429,7 +429,7 @@ a.feed-card { color: inherit; text-decoration: none; display: flex; }
 }
 .tab[aria-current="page"],
 .tab[aria-current="page"] .tab__label {
-  color: var(--ink);
+  color: var(--ground); /* 활성: #faf9f6 */
 }
 .tab__icon {
   width: 20px;
@@ -439,7 +439,7 @@ a.feed-card { color: inherit; text-decoration: none; display: flex; }
   mask: var(--tab-icon) center / contain no-repeat;
 }
 .tab[aria-current="page"] .tab__icon {
-  background-color: var(--ink);
+  background-color: var(--ground);
 }
 .tab__icon--home { --tab-icon: url("assets/mingcute/home-4-fill.svg"); }
 .tab__icon--search { --tab-icon: url("assets/mingcute/search-fill.svg"); }
