@@ -467,7 +467,7 @@ a.feed-card { color: inherit; text-decoration: none; display: flex; }
   background-color: var(--ground);
 }
 .tab__icon--home { --tab-icon: url("assets/material/home-rounded.svg"); }
-.tab__icon--search { --tab-icon: url("assets/lucide/search.svg"); } /* 검색만 Lucide(shadcn) 선 아이콘 */
+.tab__icon--search { --tab-icon: url("assets/lucide/search.svg"); mask-size: 22px; -webkit-mask-size: 22px; } /* 검색만 Lucide 선 아이콘, 선형이라 커 보여서 2px 작게 */
 .tab__icon--user { --tab-icon: url("assets/material/person-rounded.svg"); }
 .tab__label {
   font-family: var(--font-ui);
