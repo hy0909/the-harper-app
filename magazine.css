@@ -29,10 +29,28 @@
   justify-content: center;
 }
 
-/* 대표 사진: 위쪽만 살짝 어둡게 */
-.photo--mag { height: 268px; padding: 16px 20px; }
+/* 대표 사진: 위쪽만 살짝 어둡게 + "Day Drop" 배지 */
+.photo--mag {
+  height: 268px;
+  padding: 16px 24px;
+  position: relative;
+}
 .photo__shade--top {
   background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3) 50%, rgba(0, 0, 0, 0) 100%);
+}
+.mag-badge {
+  position: absolute;
+  bottom: 16px;
+  left: 24px;
+  background: #e8b4b8;
+  border-radius: 4px;
+  padding: 2px 6px;
+  font-family: var(--font-ui);
+  font-weight: 400;
+  font-size: 11px;
+  line-height: 1.273;
+  letter-spacing: 0.3421px;
+  color: #6b1b21;
 }
 
 /* 본문 묶음 */
@@ -46,9 +64,24 @@
   display: flex;
   flex-direction: column;
   gap: 20px;
-  padding-bottom: 16px;
+}
+.mag__block:first-of-type {
+  padding-bottom: 0;
+  border-bottom: none;
+}
+.mag__block:nth-of-type(2) {
+  padding-bottom: 0;
+  gap: 20px;
+}
+/* 블록2 내부 그룹 - 아래 선 + pb 20 */
+.mag__inner-group {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding-bottom: 20px;
   border-bottom: 1px solid var(--gray-20);
 }
+.mag__cards { display: flex; flex-direction: column; gap: 8px; }
 
 /* 제목 · 에디터 · 날짜 */
 .mag__title-group { display: flex; flex-direction: column; gap: 6px; }
@@ -84,52 +117,64 @@
   white-space: nowrap;
 }
 
-/* 한 줄 요약 */
-.mag__quote { display: flex; flex-direction: column; gap: 0; }
-.mag__quote-mark {
-  font-family: var(--font-sans);
-  font-weight: 600;
-  font-size: 20px;
-  line-height: 1.4;
-  letter-spacing: -0.24px;
-  color: var(--ink);
+/* 한 줄 요약 카드 */
+.mag__quote {
+  background: #fdf2f3;
+  border-radius: 16px;
+  padding: 20px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  align-items: flex-start;
 }
+.mag__quote-icon { width: 20px; height: 20px; }
 .mag__summary {
   font-family: var(--font-sans);
   font-weight: 600;
-  font-size: 16px;
-  line-height: 1.5;
-  letter-spacing: 0.0912px;
-  color: var(--ink);
+  font-size: 15px;
+  line-height: 1.467;
+  color: var(--ink-70);
 }
 
-/* 시간 · 인원 · 예약 안내 */
+/* 시간 · 인원 · 예약 안내 카드 */
 .mag__info {
   margin: 0;
-  background: var(--gray-10);
-  border-radius: 12px;
-  padding: 12px 20px;
-  display: flex;
-  align-items: center;
-  gap: 12px;
+  background: #f2f2f2;
+  border-radius: 16px;
+  padding: 20px 24px;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 20px;
   color: var(--ink-70);
 }
 .mag__info dt,
 .mag__info dd { margin: 0; }
+.mag__info-labels {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
 .mag__info-labels dt {
   font-family: var(--font-sans);
   font-weight: 600;
   font-size: 15px;
   line-height: 1.467;
+  letter-spacing: 0.0912px;
+  color: var(--ink-70);
   white-space: nowrap;
 }
-.mag__info-values { flex: 1 0 0; min-width: 0; }
+.mag__info-values {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
 .mag__info-values dd {
   font-family: var(--font-ui);
   font-weight: 400;
   font-size: 14px;
   line-height: 1.571;
   letter-spacing: 0.203px;
+  color: var(--ink-70);
 }
 
 /* 본문 글 */
@@ -154,16 +199,17 @@
   align-items: center;
   gap: 16px;
   text-align: left;
+  margin-top: 0;
 }
 .mag__related-label {
   flex: 1 0 0;
   min-width: 0;
   font-family: var(--font-sans);
   font-weight: 600;
-  font-size: 20px;
-  line-height: 1.4;
-  letter-spacing: -0.24px;
-  color: var(--ink-60);
+  font-size: 16px;
+  line-height: 1.5;
+  letter-spacing: 0.0912px;
+  color: var(--ink-70);
 }
 
 /* 하단 고정 버튼 */

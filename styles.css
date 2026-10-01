@@ -3,6 +3,7 @@
   --ink: #3a362f;      /* 100 */
   --ink-70: #5b5650;   /* 70 */
   --ink-60: #87827c;   /* 60 */
+  --ink-50: #a9a39d;   /* 50 */
   --ground: #faf9f6;   /* secondary */
   --bg: #f7f4ec;       /* 앱 바탕 */
   --cocoa: #6f4a3a;    /* 새로운 코코아 브라운 */
@@ -73,10 +74,10 @@ img { display: block; }
 .eyebrow {
   font-family: var(--font-sans);
   font-weight: 600;
-  font-size: 20px;
-  line-height: 1.4;
-  letter-spacing: -0.24px;
-  color: var(--ink-60);
+  font-size: 16px;
+  line-height: 1.5;
+  letter-spacing: 0.0912px;
+  color: var(--ink-70);
 }
 .eyebrow--sm {
   font-size: 16px;
@@ -96,7 +97,7 @@ img { display: block; }
 }
 .today__headline {
   font-family: var(--font-sans);
-  font-weight: 800;
+  font-weight: 700;
   font-size: 32px;
   line-height: 1.313;
   letter-spacing: -0.8096px;
@@ -253,9 +254,8 @@ img { display: block; }
   flex: 0 0 398px;
   scroll-snap-align: start;
   background: #fff;
-  border: 1px solid #e2e2e2;
   border-radius: 16px;
-  padding: 28px 24px;
+  padding: 24px;
   display: flex;
   flex-direction: column;
   gap: 8px;
@@ -268,6 +268,14 @@ img { display: block; }
   letter-spacing: -0.13px;
   color: var(--cocoa);
 }
+/* 투어 카드2: 로즈 색 티어 */
+.tour-card:nth-child(2) .tour-card__tier {
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 1.429;
+  letter-spacing: -0.168px;
+  color: #d6a3ab;
+}
 .tour-card__row { display: flex; align-items: flex-end; gap: 0; }
 .tour-card__title {
   font-family: var(--font-sans);
@@ -278,6 +286,7 @@ img { display: block; }
   color: var(--ink-70);
 }
 .tour-card .price--right { gap: 2px; }
+.tour-card:nth-child(2) .price--right { gap: 1px; } /* 피그마 2번 카드만 1 */
 .tour-card .price__value {
   color: var(--ink-70);
   font-size: 20px;
@@ -288,7 +297,7 @@ img { display: block; }
 .tours__dots { display: block; margin: 0 auto; }
 
 /* 에디터 큐레이션 피드 */
-.feed { display: flex; flex-direction: column; gap: 8px; margin-bottom: 4px; }
+.feed { display: flex; flex-direction: column; gap: 8px; }
 .feed__head { padding: 0 20px; }
 .feed__list { display: flex; flex-direction: column; gap: 0; width: 100%; }
 .feed-card {
@@ -312,7 +321,6 @@ img { display: block; }
 .feed-card__head { display: flex; flex-direction: column; gap: 0; }
 .feed-card__row { display: flex; align-items: flex-start; gap: 0; }
 .feed-card__title {
-  width: 190px;
   flex-shrink: 0;
   font-family: var(--font-sans);
   font-weight: 700;
@@ -321,6 +329,9 @@ img { display: block; }
   letter-spacing: -0.4268px;
   color: var(--ink);
 }
+/* 피드 카드 제목 폭 */
+.feed-card:nth-child(1) .feed-card__title { width: 191px; }
+.feed-card:nth-child(n+2) .feed-card__title { width: 189px; }
 .feed-card__row .price--right { flex: 1; padding: 4px 0; gap: 1px; align-items: flex-end; }
 .feed-card__row .price__value {
   font-family: var(--font-sans);
@@ -391,16 +402,16 @@ img { display: block; }
 /* 피드 카드는 매거진 상세로 가는 링크 */
 a.feed-card { color: inherit; text-decoration: none; display: flex; }
 
-/* 하단 탭: 아이콘은 Solar Bold, 활성 상태 디자인은 추후 반영 */
+/* 하단 탭 */
 .tabbar {
   position: fixed;
   left: 50%;
   bottom: 0;
   transform: translateX(-50%);
   width: min(440px, 100%);
+  height: 48px;
   display: flex;
   background: #fff;
-  border-top: 1px solid #e2e8f0;
   padding-bottom: env(safe-area-inset-bottom);
   z-index: 10;
 }
@@ -413,19 +424,26 @@ a.feed-card { color: inherit; text-decoration: none; display: flex; }
   align-items: center;
   justify-content: center;
   gap: 2px;
-  color: var(--ink);
+  color: var(--ink-50);
   text-decoration: none;
+}
+.tab[aria-current="page"],
+.tab[aria-current="page"] .tab__label {
+  color: var(--ink);
 }
 .tab__icon {
   width: 20px;
   height: 20px;
-  background-color: #c6c1bc; /* 40 */
+  background-color: var(--ink-50);
   -webkit-mask: var(--tab-icon) center / contain no-repeat;
   mask: var(--tab-icon) center / contain no-repeat;
 }
-.tab__icon--home { --tab-icon: url("assets/solar/home-2-bold.svg"); }
-.tab__icon--search { --tab-icon: url("assets/solar/magnifer-bold.svg"); }
-.tab__icon--user { --tab-icon: url("assets/solar/user-bold.svg"); }
+.tab[aria-current="page"] .tab__icon {
+  background-color: var(--ink);
+}
+.tab__icon--home { --tab-icon: url("assets/mingcute/home-4-fill.svg"); }
+.tab__icon--search { --tab-icon: url("assets/mingcute/search-fill.svg"); }
+.tab__icon--user { --tab-icon: url("assets/mingcute/user-3-fill.svg"); }
 .tab__label {
   font-family: var(--font-ui);
   font-weight: 500;
@@ -549,8 +567,8 @@ a.feed-card { color: inherit; text-decoration: none; display: flex; }
   width: 32px;
   height: 32px;
   background-color: var(--ink-60);
-  -webkit-mask: url("assets/solar/map-point-bold.svg") center / contain no-repeat;
-  mask: url("assets/solar/map-point-bold.svg") center / contain no-repeat;
+  -webkit-mask: url("assets/mingcute/location-fill.svg") center / contain no-repeat;
+  mask: url("assets/mingcute/location-fill.svg") center / contain no-repeat;
   filter: drop-shadow(0 2px 2px rgba(0, 0, 0, 0.2));
 }
 .map__pin--active .map__pin-icon { width: 40px; height: 40px; background-color: var(--cocoa); }
