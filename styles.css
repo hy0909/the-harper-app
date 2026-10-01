@@ -19,12 +19,18 @@
 }
 
 * { box-sizing: border-box; }
+html {
+  overflow-y: scroll;
+  overflow-x: hidden;
+  scrollbar-gutter: stable;
+}
 html, body { margin: 0; padding: 0; }
 body {
   background: #e9e6df;
   color: var(--ink);
   font-family: var(--font-ui);
   -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
 }
 p, h1, h2 { margin: 0; }
 button { font: inherit; color: inherit; background: none; border: 0; padding: 0; cursor: pointer; }
@@ -633,8 +639,58 @@ a.feed-card { color: inherit; text-decoration: none; display: flex; }
 .shop-row__note span { flex: 1 0 0; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 
 /* 지도 자리: 피그마 31:9779 */
-.map-placeholder {
+/* 지도 (Leaflet) */
+.map {
+  position: relative;
   width: 100%;
   height: 666px;
-  background: #d9d9d9;
+  background: #d9d9d9; /* 타일이 뜨기 전 피그마 자리색 */
+  z-index: 0;
 }
+.map .leaflet-container { font-family: var(--font-ui); background: #e9e6df; }
+.map .leaflet-control-attribution { font-size: 9px; color: var(--ink-60); background: rgba(250, 249, 246, 0.8); }
+.map .leaflet-control-attribution a { color: var(--ink-60); }
+.map .leaflet-control-zoom { display: none; } /* 손가락으로 확대·축소 */
+
+/* 핀: 코코아 점 + 매장명 */
+.map-pin { display: flex; flex-direction: column; align-items: center; gap: 4px; width: max-content; transform: translate(-50%, -100%); cursor: pointer; }
+.map-pin__dot {
+  width: 20px;
+  height: 20px;
+  border-radius: 999px;
+  background: var(--cocoa);
+  border: 3px solid #fff;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
+}
+.map-pin__label {
+  font-family: var(--font-ui);
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 1.36;
+  letter-spacing: -0.12px;
+  color: var(--ink);
+  background: #fff;
+  border-radius: 999px;
+  padding: 3px 8px;
+  white-space: nowrap;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12);
+}
+.map-pin--pick .map-pin__dot { background: var(--rose); }
+.map-pin--active .map-pin__dot { width: 28px; height: 28px; }
+.map-pin--active .map-pin__label { background: var(--ink); color: var(--ground); }
+.leaflet-marker-icon.map-pin-icon { background: none; border: 0; }
+
+/* 핀을 누르면 뜨는 매장 카드 */
+.map__card {
+  position: absolute;
+  left: 24px;
+  right: 24px;
+  bottom: 16px;
+  z-index: 1000;
+  background: #fff;
+  border: 1px solid #e2e2e2;
+  border-radius: 16px;
+  padding: 16px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
+}
+.map__card[hidden] { display: none; }

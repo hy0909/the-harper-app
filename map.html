@@ -9,7 +9,8 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Tinos&display=swap" rel="stylesheet">
   <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
-  <link rel="stylesheet" href="styles.css?v=14">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css" integrity="sha512-h9FcoyWjHcOcmEVkxOfTLnmZFWIH0iZhZT1H2TbOq55xssQGEJHEaIm+PgoUaZbRvQTNTluNOEfb1ZRy6D3BOw==" crossorigin="anonymous" referrerpolicy="no-referrer">
+  <link rel="stylesheet" href="styles.css?v=15">
 </head>
 <body>
   <main class="phone phone--explore phone--map" aria-label="THE HARPER 지도">
@@ -45,8 +46,25 @@
           </div>
         </div>
 
-        <!-- 지도 자리: 피그마 31:9779 -->
-        <div class="map-placeholder"></div>
+        <!-- 지도: 피그마 31:9779의 회색 자리에 실제 지도(Leaflet + OpenStreetMap 타일)를 올림. 핀을 누르면 아래에 매장 카드 -->
+        <div class="map" id="map" role="region" aria-label="성수 편집샵 지도">
+          <div class="map__card" id="map-card" hidden>
+            <article class="shop-row">
+              <div class="shop-row__thumb">
+                <img class="photo__img" src="assets/photo.png" alt="">
+                <div class="photo__shade" aria-hidden="true"></div>
+                <span class="badge badge--search" id="map-card-badge">PICK</span>
+              </div>
+              <div class="shop-row__body">
+                <div class="shop-row__text">
+                  <h2 class="shop-row__name" id="map-card-name"></h2>
+                  <p class="shop-row__addr" id="map-card-addr"></p>
+                </div>
+                <p class="shop-row__note"><img src="assets/check-circle.svg" width="16" height="16" alt=""><span id="map-card-note"></span></p>
+              </div>
+            </article>
+          </div>
+        </div>
       </div>
     </div>
 
@@ -66,5 +84,8 @@
       </a>
     </nav>
   </main>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js" integrity="sha512-puJW3E/qXDqYp9IfhAI54BJEaWIfloJ7JWs7OeD5i6ruC9JZL1gERT1wjtwXFlh7CjE7ZJ+/vcRZRkIYIb6p4g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="map.js?v=2"></script>
 </body>
 </html>
