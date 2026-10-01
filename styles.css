@@ -761,6 +761,7 @@ a.shop-row { color: inherit; text-decoration: none; }
   background: #efede9;
   border-radius: 12px;
   padding: 12px;
-  box-shadow: 0 4px 12px rgba(58, 54, 47, 0.14); /* 지도와 명도가 비슷해 연한 그림자로 띄운다(피그마엔 없음) */
+  border: 1px solid #ddd9d3; /* 바탕(#efede9)보다 한 단계 어두운 연한 선 */
+  box-shadow: 0 4px 16px rgba(58, 54, 47, 0.22); /* 지도와 명도가 비슷해 그림자로 띄운다(피그마엔 없음) */
 }
 .map__card[hidden] { display: none; }
