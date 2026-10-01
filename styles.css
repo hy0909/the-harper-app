@@ -30,7 +30,7 @@ body {
   color: var(--ink);
   font-family: var(--font-ui);
   -webkit-font-smoothing: antialiased;
-  overflow-x: hidden;
+  overflow-x: clip; /* hidden 이면 position: sticky 가 안 먹는다 */
 }
 p, h1, h2 { margin: 0; }
 button { font: inherit; color: inherit; background: none; border: 0; padding: 0; cursor: pointer; }

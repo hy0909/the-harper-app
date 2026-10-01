@@ -10,7 +10,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Tinos&display=swap" rel="stylesheet">
   <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css" integrity="sha512-h9FcoyWjHcOcmEVkxOfTLnmZFWIH0iZhZT1H2TbOq55xssQGEJHEaIm+PgoUaZbRvQTNTluNOEfb1ZRy6D3BOw==" crossorigin="anonymous" referrerpolicy="no-referrer">
-  <link rel="stylesheet" href="styles.css?v=23">
+  <link rel="stylesheet" href="styles.css?v=24">
 </head>
 <body>
   <main class="phone phone--explore phone--map" aria-label="THE HARPER 지도">
@@ -35,14 +35,14 @@
             <span class="filter__count-num">100</span>
           </div>
           <div class="filter__groups">
-            <button type="button" class="filter__group" id="area-toggle" aria-haspopup="dialog" aria-expanded="false">
-              <span id="area-label">성수</span>
+            <button type="button" class="filter__group" id="area-toggle" data-drawer="area-drawer" aria-haspopup="dialog" aria-expanded="false">
+              <span id="area-label" data-drawer-label>성수</span>
               <img src="assets/chevron-down.svg" width="20" height="20" alt="">
             </button>
-            <div class="filter__group">
-              <span>티어</span>
+            <button type="button" class="filter__group" id="tier-toggle" data-drawer="tier-drawer" aria-haspopup="dialog" aria-expanded="false">
+              <span id="tier-label" data-drawer-label>티어</span>
               <img src="assets/chevron-down.svg" width="20" height="20" alt="">
-            </div>
+            </button>
           </div>
         </div>
 
@@ -85,7 +85,7 @@
     </nav>
 
     <!-- 지역 선택 드로어: 성수 · 한남 · 압구정 -->
-    <div class="drawer" id="area-drawer" hidden>
+    <div class="drawer" id="area-drawer" data-event="areachange" hidden>
       <div class="drawer__dim" data-drawer-close></div>
       <div class="drawer__sheet" role="dialog" aria-modal="true" aria-labelledby="area-drawer-title">
         <span class="drawer__handle" aria-hidden="true"></span>
@@ -97,11 +97,27 @@
         </ul>
       </div>
     </div>
+    <!-- 티어 선택 드로어: 1~5 -->
+    <div class="drawer" id="tier-drawer" data-event="tierchange" hidden>
+      <div class="drawer__dim" data-drawer-close></div>
+      <div class="drawer__sheet" role="dialog" aria-modal="true" aria-labelledby="tier-drawer-title">
+        <span class="drawer__handle" aria-hidden="true"></span>
+        <p class="drawer__title" id="tier-drawer-title">티어</p>
+        <ul class="drawer__list" role="listbox" aria-label="티어">
+          <li><button type="button" class="drawer__item" role="option" data-tier="all" data-label="티어" aria-selected="true">전체</button></li>
+          <li><button type="button" class="drawer__item" role="option" data-tier="1">티어 1</button></li>
+          <li><button type="button" class="drawer__item" role="option" data-tier="2">티어 2</button></li>
+          <li><button type="button" class="drawer__item" role="option" data-tier="3">티어 3</button></li>
+          <li><button type="button" class="drawer__item" role="option" data-tier="4">티어 4</button></li>
+          <li><button type="button" class="drawer__item" role="option" data-tier="5">티어 5</button></li>
+        </ul>
+      </div>
+    </div>
   </main>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js" integrity="sha512-puJW3E/qXDqYp9IfhAI54BJEaWIfloJ7JWs7OeD5i6ruC9JZL1gERT1wjtwXFlh7CjE7ZJ+/vcRZRkIYIb6p4g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-  <script src="drawer.js?v=1"></script>
-  <script src="shops.js?v=1"></script>
-  <script src="map.js?v=4"></script>
+  <script src="drawer.js?v=2"></script>
+  <script src="shops.js?v=2"></script>
+  <script src="map.js?v=6"></script>
 </body>
 </html>

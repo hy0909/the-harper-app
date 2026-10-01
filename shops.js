@@ -1,8 +1,9 @@
 /* 매장 데이터: 목록·지도·상세가 같이 쓴다. 좌표는 주소를 지오코딩한 값이라 입구와 몇 m 차이가 날 수 있음.
-   한남·압구정은 표본이고 주소·영업시간은 [확인 필요]. 실제 100곳 목록이 오면 이 배열만 바꾸면 된다 */
+   한남·압구정은 표본이고 주소·영업시간은 [확인 필요]. tier(1~5)도 임시값 [확인 필요]. 실제 100곳 목록이 오면 이 배열만 바꾸면 된다 */
 window.HARPER_SHOPS = [
   {
     "id": 0,
+    "tier": 1,
     "area": "seongsu",
     "areaName": "성수",
     "name": "썬러브 링크스 성수",
@@ -19,6 +20,7 @@ window.HARPER_SHOPS = [
   },
   {
     "id": 1,
+    "tier": 3,
     "area": "seongsu",
     "areaName": "성수",
     "name": "포인트오브뷰 성수",
@@ -34,6 +36,7 @@ window.HARPER_SHOPS = [
   },
   {
     "id": 2,
+    "tier": 2,
     "area": "seongsu",
     "areaName": "성수",
     "name": "LCDC SEOUL",
@@ -49,6 +52,7 @@ window.HARPER_SHOPS = [
   },
   {
     "id": 3,
+    "tier": 1,
     "area": "seongsu",
     "areaName": "성수",
     "name": "아더 스페이스 3.0",
@@ -64,6 +68,7 @@ window.HARPER_SHOPS = [
   },
   {
     "id": 4,
+    "tier": 2,
     "area": "hannam",
     "areaName": "한남",
     "name": "비이커 한남",
@@ -79,6 +84,7 @@ window.HARPER_SHOPS = [
   },
   {
     "id": 5,
+    "tier": 2,
     "area": "hannam",
     "areaName": "한남",
     "name": "아모멘토 한남",
@@ -94,6 +100,7 @@ window.HARPER_SHOPS = [
   },
   {
     "id": 6,
+    "tier": 3,
     "area": "hannam",
     "areaName": "한남",
     "name": "엠프티 한남",
@@ -109,6 +116,7 @@ window.HARPER_SHOPS = [
   },
   {
     "id": 7,
+    "tier": 1,
     "area": "apgujeong",
     "areaName": "압구정",
     "name": "분더샵 청담",
@@ -124,6 +132,7 @@ window.HARPER_SHOPS = [
   },
   {
     "id": 8,
+    "tier": 2,
     "area": "apgujeong",
     "areaName": "압구정",
     "name": "10 꼬르소 꼬모 서울",

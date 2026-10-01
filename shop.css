@@ -1,0 +1,194 @@
+/* 샵(브랜드) 상세 — 설계서 08 구조. magazine.css 다음에 불러온다 */
+.phone--shop { padding-bottom: 100px; } /* 하단 버튼 바(72) 자리 + 여백 */
+
+/* ① 사진 캐러셀 */
+.gallery { position: relative; display: flex; flex-direction: column; gap: 8px; }
+.gallery__track {
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+}
+.gallery__track::-webkit-scrollbar { display: none; }
+.gallery__slide { flex: 0 0 100%; scroll-snap-align: start; }
+.gallery__count {
+  position: absolute;
+  top: 16px;
+  right: 24px;
+  padding: 2px 8px;
+  border-radius: 999px;
+  background: rgba(58, 54, 47, 0.6);
+  color: var(--ground);
+  font-family: var(--font-ui);
+  font-weight: 500;
+  font-size: 11px;
+  line-height: 1.273;
+  letter-spacing: 0.3421px;
+}
+.gallery__dots { position: absolute; left: 0; right: 0; bottom: 12px; }
+
+/* ② 이름 줄 · 태그 */
+.shop__name-row { display: flex; align-items: center; gap: 8px; }
+.shop__name-row .mag__title { flex: 1 0 0; min-width: 0; }
+.badge--pick { background: #6f4a3a; color: #e8b4b8; flex-shrink: 0; }
+
+/* ③ 에디터 노트: 글 아래 에디터 이름 */
+.shop__note { gap: 8px; }
+.shop__note .editor { margin-top: 4px; }
+.shop__note .editor__avatar { width: 24px; height: 24px; }
+
+/* ⑤ 탭: 위에 붙는 줄 */
+.shop-tabs {
+  position: sticky;
+  top: 0;
+  z-index: 5;
+  display: flex;
+  background: #fff;
+  border-bottom: 1px solid var(--gray-20);
+  padding: 0 24px;
+}
+.shop-tabs__tab {
+  flex: 1 0 0;
+  padding: 12px 0;
+  text-align: center;
+  text-decoration: none;
+  font-family: var(--font-sans);
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 1.5;
+  letter-spacing: 0.0912px;
+  color: #c6c1bc; /* 40 — 검색 탭의 비활성색과 같다 */
+  border-bottom: 2px solid transparent;
+  margin-bottom: -1px;
+}
+.shop-tabs__tab[aria-current="true"] { color: var(--ink); border-bottom-color: var(--ink); }
+
+/* 탭 아래 묶음 */
+.mag--sections { gap: 32px; padding-top: 24px; min-height: calc(100vh - 48px); } /* 마지막 탭도 위까지 올라오게 */
+.shop-section { display: flex; flex-direction: column; gap: 12px; scroll-margin-top: 56px; }
+.shop-section__title {
+  font-family: var(--font-sans);
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 1.4;
+  letter-spacing: -0.24px;
+  color: var(--ink);
+}
+.shop-section__lead {
+  font-family: var(--font-ui);
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.571;
+  letter-spacing: 0.203px;
+  color: var(--ink-60);
+}
+.shop-section .shop-list { padding: 0; }
+.shop-section .mag__body p + p { margin-top: 26px; }
+
+/* ⑥ 리뷰 없음 */
+.review-empty {
+  background: var(--gray-10);
+  border-radius: 16px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  text-align: center;
+}
+.review-empty__text {
+  font-family: var(--font-ui);
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.571;
+  letter-spacing: 0.203px;
+  color: var(--ink-60);
+}
+.review-empty__btn {
+  padding: 8px 16px;
+  border-radius: 8px;
+  background: var(--ground);
+  border: 1px solid #d6d3cf;
+  font-family: var(--font-ui);
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 1.429;
+  letter-spacing: 0.203px;
+  color: var(--ink);
+}
+.review-empty__btn:disabled { opacity: 0.5; cursor: default; }
+
+/* ⑦ 하단 버튼 바: 찜 · 예약 · 길찾기 */
+.cta-bar {
+  position: fixed;
+  left: 50%;
+  bottom: 0;
+  transform: translateX(-50%);
+  width: min(440px, 100%);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 24px calc(12px + env(safe-area-inset-bottom));
+  background: #fff;
+  border-top: 1px solid var(--gray-20);
+  z-index: 10;
+}
+.cta-bar__icon {
+  flex: 0 0 48px;
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #d6d3cf;
+  border-radius: 12px;
+  background: #fff;
+  padding: 0;
+}
+.cta-bar__icon-img {
+  width: 24px;
+  height: 24px;
+  background-color: var(--ink);
+  -webkit-mask: var(--cta-icon) center / contain no-repeat;
+  mask: var(--cta-icon) center / contain no-repeat;
+}
+.cta-bar__icon-img--heart { --cta-icon: url("assets/lucide/heart.svg"); }
+.cta-bar__icon-img--nav { --cta-icon: url("assets/lucide/navigation.svg"); }
+.cta-bar__icon[aria-pressed="true"] { border-color: var(--rose); background: #fdf2f3; }
+.cta-bar__icon[aria-pressed="true"] .cta-bar__icon-img { background-color: var(--cocoa); }
+.cta-bar__main {
+  flex: 1 0 0;
+  min-width: 0;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  border-radius: 12px;
+  background: var(--cocoa);
+  color: var(--ground);
+  text-decoration: none;
+  white-space: nowrap;
+}
+.cta-bar__main-label {
+  font-family: var(--font-ui);
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 1.429;
+  letter-spacing: 0.203px;
+}
+.cta-bar__main-price {
+  font-family: var(--font-sans);
+  font-weight: 600;
+  font-size: 15px;
+  line-height: 1.467;
+}
+.cta-bar__main-price small {
+  font-family: var(--font-ui);
+  font-weight: 400;
+  font-size: 11px;
+  line-height: 1.36;
+  letter-spacing: -0.11px;
+  opacity: 0.8;
+}

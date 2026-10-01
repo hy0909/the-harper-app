@@ -36,7 +36,7 @@
     if (node) node.querySelector('.map-pin').classList.add('map-pin--active');
     var s = shops[i];
     if (!s) return;
-    link.href = 'shop.html?id=' + s.id;
+    link.href = 'shop.html?id=' + s.id + '&from=map'; /* 상세에서 뒤로 가면 지도로 */
     photoEl.src = s.photo;
     nameEl.textContent = s.name;
     addrEl.textContent = s.addr;
@@ -58,21 +58,38 @@
   });
 
   map.on('click', function () { card.hidden = true; clearActive(); });
+  /* 카드 안을 눌렀을 때는 지도 클릭으로 치지 않는다(카드가 사라지지 않게) */
+  L.DomEvent.disableClickPropagation(card);
 
   /* 지역 드로어에서 고르면 그 동네로 이동하고, 그 지역 첫 매장을 보여 준다 */
   var countEl = document.querySelector('.filter__count-num');
-  function setCount(area) {
-    if (countEl) countEl.textContent = shops.filter(function (s) { return s.area === area; }).length;
+  var curArea = 'seongsu';
+  var curTier = 'all';
+  function matches(s) { return s.area === curArea && (curTier === 'all' || String(s.tier) === curTier); }
+  /* 지역·티어에 맞는 핀만 지도에 올리고 개수를 바꾼다 */
+  function applyFilter() {
+    var n = 0;
+    shops.forEach(function (s, i) {
+      var on = matches(s);
+      if (on) { n += 1; if (!map.hasLayer(markers[i])) markers[i].addTo(map); }
+      else if (map.hasLayer(markers[i])) map.removeLayer(markers[i]);
+    });
+    if (countEl) countEl.textContent = n;
   }
-  function showArea(area) {
-    var c = areas[area];
-    if (c) map.setView(c, 15);
-    setCount(area);
+  function showFirst() {
     var first = -1;
-    shops.some(function (s, i) { if (s.area === area) { first = i; return true; } return false; });
+    shops.some(function (s, i) { if (matches(s)) { first = i; return true; } return false; });
     if (first >= 0) select(first); else { card.hidden = true; clearActive(); }
   }
+  function showArea(area) {
+    curArea = area;
+    var c = areas[area];
+    if (c) map.setView(c, 15);
+    applyFilter();
+    showFirst();
+  }
   document.addEventListener('areachange', function (e) { showArea(e.detail.area); });
+  document.addEventListener('tierchange', function (e) { curTier = e.detail.tier; applyFilter(); showFirst(); });
 
   /* 상세·목록에서 ?id=N 으로 들어오면 그 매장을 바로 보여 준다 */
   var id = Number(new URLSearchParams(location.search).get('id'));
@@ -83,9 +100,10 @@
     var label = document.getElementById('area-label');
     if (label) label.textContent = shops[idx].areaName;
     document.querySelectorAll('.drawer__item').forEach(function (b) { b.setAttribute('aria-selected', b.dataset.area === shops[idx].area ? 'true' : 'false'); });
-    setCount(shops[idx].area);
+    curArea = shops[idx].area;
+    applyFilter();
   } else {
+    applyFilter();
     select(0);
-    setCount('seongsu');
   }
 })();
