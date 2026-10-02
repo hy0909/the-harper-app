@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Tinos&display=swap" rel="stylesheet">
   <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
-  <link rel="stylesheet" href="styles.css?v=28">
+  <link rel="stylesheet" href="styles.css?v=29">
 </head>
 <body>
   <main class="phone" aria-label="THE HARPER 앱 홈">
@@ -66,40 +66,34 @@
             <article class="tour-card">
               <p class="tour-card__tier">DAY DROP</p>
               <div class="tour-card__row">
-                <h2 class="tour-card__title">12시간 동행 쇼핑 큐레이션</h2>
-                <p class="tour-card__price">128,000원 부터</p>
-              </div>
-            </article>
-            <article class="tour-card">
-              <p class="tour-card__tier">DAY DROP</p>
-              <div class="tour-card__row">
                 <h2 class="tour-card__title">5시간 동행 쇼핑 큐레이션</h2>
                 <p class="tour-card__price">128,000원 부터</p>
               </div>
             </article>
-            <article class="tour-card">
-              <p class="tour-card__tier">DAY DROP</p>
+            <!-- 아래 세 가지는 아직 열리지 않은 투어: 흐리게 보여 주고 '추후 확장' 표시 -->
+            <article class="tour-card tour-card--soon" aria-disabled="true">
+              <p class="tour-card__tier">CAPSULE</p>
               <div class="tour-card__row">
-                <h2 class="tour-card__title">12시간 동행 쇼핑 큐레이션</h2>
-                <p class="tour-card__price">128,000원 부터</p>
+                <h2 class="tour-card__title">하루종일 1:1 큐레이션</h2>
+                <p class="tour-card__soon"><span class="tour-card__soon-chip">추후 확장</span></p>
               </div>
             </article>
-            <article class="tour-card">
-              <p class="tour-card__tier">DAY DROP</p>
+            <article class="tour-card tour-card--soon" aria-disabled="true">
+              <p class="tour-card__tier">SIGNATURE</p>
               <div class="tour-card__row">
-                <h2 class="tour-card__title">5시간 동행 쇼핑 큐레이션</h2>
-                <p class="tour-card__price">128,000원 부터</p>
+                <h2 class="tour-card__title">1박 헤리티지 투어</h2>
+                <p class="tour-card__soon"><span class="tour-card__soon-chip">추후 확장</span></p>
               </div>
             </article>
-            <article class="tour-card">
-              <p class="tour-card__tier">DAY DROP</p>
+            <article class="tour-card tour-card--soon" aria-disabled="true">
+              <p class="tour-card__tier">BESPOKE</p>
               <div class="tour-card__row">
-                <h2 class="tour-card__title">12시간 동행 쇼핑 큐레이션</h2>
-                <p class="tour-card__price">128,000원 부터</p>
+                <h2 class="tour-card__title">VIP 맞춤 투어</h2>
+                <p class="tour-card__soon"><span class="tour-card__soon-chip">추후 확장</span></p>
               </div>
             </article>
           </div>
-          <div class="dots tours__dots" aria-hidden="true"><span class="dots__dot dots__dot--on"></span><span class="dots__dot"></span><span class="dots__dot"></span><span class="dots__dot"></span><span class="dots__dot"></span></div>
+          <div class="dots tours__dots" aria-hidden="true"><span class="dots__dot dots__dot--on"></span><span class="dots__dot"></span><span class="dots__dot"></span><span class="dots__dot"></span></div>
         </div>
       </section>
 

@@ -321,7 +321,32 @@ img { display: block; }
   color: var(--ink-70);
 }
 
-/* 가로 카드 묶음 위치 점 5개: 현재 장만 잉크색 */
+/* 아직 열리지 않은 투어(CAPSULE·SIGNATURE·BESPOKE): 글자를 옅게, 가격 자리에 '추후 확장' 칩 */
+.tour-card--soon .tour-card__tier,
+.tour-card--soon .tour-card__title { color: var(--ink-50); }
+.tour-card--soon .tour-card__row { align-items: center; }
+.tour-card__soon {
+  flex: 1 0 0;
+  min-width: 0;
+  display: flex;
+  justify-content: flex-end;
+}
+/* 칩: 테두리만 있는 둥근 모양(홈페이지 '추후 공개' 뱃지와 같은 꼴) */
+.tour-card__soon-chip {
+  display: inline-block;
+  padding: 2px 8px;
+  border: 1px solid #d6d3cf; /* 30 */
+  border-radius: 999px;
+  font-family: var(--font-ui);
+  font-weight: 600;
+  font-size: 11px;
+  line-height: 1.36;
+  letter-spacing: 0.06em;
+  color: var(--ink-60);
+  white-space: nowrap;
+}
+
+/* 가로 카드 묶음 위치 점(투어 4개·픽 5개): 현재 장만 잉크색 */
 .dots { display: flex; gap: 6px; justify-content: center; height: 6px; }
 .dots__dot { width: 6px; height: 6px; border-radius: 50%; background: #dedbd3; }
 .dots__dot--on { background: var(--ink); }
