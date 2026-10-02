@@ -1,5 +1,5 @@
 /* 매장 데이터: 목록·지도·상세가 같이 쓴다. 좌표는 주소를 지오코딩한 값이라 입구와 몇 m 차이가 날 수 있음.
-   한남·압구정은 표본이고 주소·영업시간은 [확인 필요]. tier(1~5)도 임시값 [확인 필요]. 실제 100곳 목록이 오면 이 배열만 바꾸면 된다 */
+   한남은 표본이고 주소·영업시간은 [확인 필요]. tier(1~5)도 임시값 [확인 필요]. 실제 100곳 목록이 오면 이 배열만 바꾸면 된다 */
 window.HARPER_SHOPS = [
   {
     "id": 0,
@@ -60,7 +60,7 @@ window.HARPER_SHOPS = [
     "lat": 37.54418,
     "lng": 127.05062,
     "pick": false,
-    "photo": "assets/photos/apgujeong-studio.jpg",
+    "photo": "assets/photos/hannam-studio.jpg",
     "note": "아더에러 플래그십, 공간 자체가 볼거리",
     "intro": [
       "아더에러의 성수 플래그십이에요. 옷만큼 공간 연출이 유명해서 사진 찍으러 오는 분도 많습니다."
@@ -114,37 +114,5 @@ window.HARPER_SHOPS = [
       "무신사가 꾸린 오프라인 편집샵이에요. 온라인에서만 보던 신진 브랜드를 직접 입어 볼 수 있습니다."
     ]
   },
-  {
-    "id": 7,
-    "tier": 1,
-    "area": "apgujeong",
-    "areaName": "압구정",
-    "name": "분더샵 청담",
-    "addr": "압구정로60길 21",
-    "lat": 37.5255,
-    "lng": 127.0392,
-    "pick": false,
-    "photo": "assets/photos/apgujeong-street.jpg",
-    "note": "하이엔드 중심의 대형 편집샵",
-    "intro": [
-      "압구정·청담 쪽에서 하이엔드 브랜드를 한 번에 보려면 여기부터 들르세요. 국내 디자이너 라인도 일부 있습니다."
-    ]
-  },
-  {
-    "id": 8,
-    "tier": 2,
-    "area": "apgujeong",
-    "areaName": "압구정",
-    "name": "10 꼬르소 꼬모 서울",
-    "addr": "압구정로 416",
-    "lat": 37.5242,
-    "lng": 127.041,
-    "pick": false,
-    "photo": "assets/photos/seongsu-contemporary.jpg",
-    "note": "밀라노 편집샵의 서울 매장",
-    "intro": [
-      "밀라노에서 온 편집샵의 서울 매장이에요. 해외 브랜드가 많지만 한국 디자이너 협업 제품이 종종 나옵니다."
-    ]
-  }
 ];
-window.HARPER_AREAS = {"seongsu": [37.5428, 127.0555], "hannam": [37.5345, 127.0012], "apgujeong": [37.527, 127.0285]};
+window.HARPER_AREAS = {"seongsu": [37.5428, 127.0555], "hannam": [37.5345, 127.0012]};
