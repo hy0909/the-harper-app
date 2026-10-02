@@ -113,8 +113,8 @@ img { display: block; }
   color: var(--ink);
 }
 .today__media { padding: 0 24px; display: flex; flex-direction: column; }
-/* 큰 사진은 모두 16:9 (높이는 폭에 따라 정해진다) */
-.photo--hero { aspect-ratio: 16 / 9; padding: 16px 20px; border-radius: 16px 16px 0 0; }
+/* 사진 높이는 피그마 29:5687 고정값: 히어로 246, 피드 카드 230, 픽 카드 252 */
+.photo--hero { height: 246px; padding: 16px 20px; border-radius: 16px 16px 0 0; }
 .today__price-row {
   padding: 12px 24px;
   display: flex;
@@ -129,7 +129,7 @@ img { display: block; }
   color: var(--ground);
   font-family: var(--font-sans);
   font-size: 20px;
-  font-weight: 600;
+  font-weight: 700; /* 피그마 title/sm: Bold 20 */
   line-height: 1.4;
   letter-spacing: -0.24px;
 }
@@ -167,8 +167,8 @@ img { display: block; }
   align-items: flex-start;
   overflow: hidden;
 }
-.photo--card { aspect-ratio: 16 / 9; padding: 16px 20px; border-radius: 12px; }
-.photo--pick { aspect-ratio: 16 / 9; padding: 16px 20px; border: 1px solid #d6d3cf; border-radius: 12px; }
+.photo--card { height: 230px; padding: 16px 20px; border-radius: 12px; }
+.photo--pick { height: 252px; padding: 16px 20px; border: 1px solid #d6d3cf; border-radius: 12px; }
 .photo__img {
   position: absolute;
   inset: 0;
@@ -280,7 +280,7 @@ img { display: block; }
 .tour-card {
   flex: 0 0 398px;
   scroll-snap-align: start;
-  background: #fff;
+  background: var(--ground); /* 피그마: secondary #faf9f6 */
   border-radius: 16px;
   padding: 24px;
   display: flex;
@@ -288,16 +288,18 @@ img { display: block; }
   gap: 8px;
 }
 .tour-card__tier {
-  /* 피그마에서 보이는 카드(2번) 기준: 로즈 SemiBold 14. 세 장 공통 */
+  /* 피그마 subtitle/lg: 로즈 SemiBold 16 */
   font-family: var(--font-ui);
   font-weight: 600;
-  font-size: 14px;
-  line-height: 1.429;
-  letter-spacing: -0.168px;
+  font-size: 16px;
+  line-height: 1.5;
+  letter-spacing: 0.0912px;
   color: var(--rose);
 }
 .tour-card__row { display: flex; align-items: flex-end; gap: 0; }
 .tour-card__title {
+  flex-shrink: 0;
+  white-space: nowrap; /* 피그마: 제목 한 줄 */
   font-family: var(--font-sans);
   font-weight: 600;
   font-size: 20px;
@@ -305,12 +307,18 @@ img { display: block; }
   letter-spacing: -0.24px;
   color: var(--ink-70);
 }
-.tour-card .price--right { gap: 1px; }
-.tour-card .price__value {
+/* 가격은 "128,000원 부터" 한 줄, SemiBold 16, 오른쪽 끝(피그마 29:5741). 4인 기준 글자 없음 */
+.tour-card__price {
+  flex: 1 0 0;
+  min-width: 0;
+  text-align: right;
+  white-space: nowrap;
+  font-family: var(--font-sans);
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 1.5;
+  letter-spacing: 0.0912px;
   color: var(--ink-70);
-  font-size: 20px;
-  line-height: 1.4;
-  letter-spacing: -0.24px;
 }
 
 /* 가로 카드 묶음 위치 점 5개: 현재 장만 잉크색 */
@@ -325,7 +333,7 @@ img { display: block; }
 .feed-card {
   width: 100%;
   border-radius: 24px;
-  padding: 24px;
+  padding: 28px; /* 피그마 space-7 */
   display: flex;
   flex-direction: column;
   gap: 16px;
@@ -361,7 +369,7 @@ img { display: block; }
 .feed-card__row .price__value {
   font-family: var(--font-sans);
   font-size: 20px;
-  font-weight: 600;
+  font-weight: 700; /* 피그마 title/sm: Bold 20 */
   line-height: 1.4;
   letter-spacing: -0.24px;
   color: var(--ink);
@@ -399,9 +407,9 @@ img { display: block; }
   scroll-snap-align: start;
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 16px; /* 피그마 space-4 */
 }
-.pick-card__text { display: flex; flex-direction: column; gap: 0; }
+.pick-card__text { display: flex; flex-direction: column; gap: 2px; } /* 피그마 space-0/5 */
 .pick-card__title {
   word-break: keep-all;
   font-family: var(--font-sans);
@@ -415,7 +423,7 @@ img { display: block; }
   display: flex;
   align-items: center;
   gap: 6px;
-  padding: 4px 0;
+  padding: 0;
 }
 .pick-card__value {
   font-family: var(--font-sans);
