@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>THE HARPER 앱 미리보기 — 내 정보</title>
+  <meta name="description" content="THE HARPER 모바일앱 내 정보(마이페이지) 화면을 웹에서 미리 보는 페이지. 설계서 09 구성(프로필 · 저장한 샵 · 방문 히스토리 · 언어/알림 설정 · 고객센터 · 로그아웃)">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Tinos&display=swap" rel="stylesheet">
+  <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+  <link rel="stylesheet" href="styles.css?v=29">
+  <link rel="stylesheet" href="my.css?v=1">
+</head>
+<body>
+  <main class="phone phone--my" aria-label="THE HARPER 내 정보">
+
+    <header class="header">
+      <a class="header__logo" href="index.html">THE HARPER</a>
+      <a class="header__icon" href="search.html" aria-label="검색">
+        <img src="assets/search.svg" width="24" height="24" alt="">
+      </a>
+    </header>
+
+    <div class="content content--my">
+
+      <!-- ① 프로필: 이름 · 프로필 이미지 -->
+      <section class="profile" aria-labelledby="profile-name">
+        <span class="profile__avatar" aria-hidden="true"></span>
+        <div class="profile__text">
+          <h1 class="profile__name" id="profile-name">김하퍼</h1>
+          <p class="profile__meta">성수 · 한남을 둘러보는 중</p>
+        </div>
+        <button type="button" class="profile__edit">프로필 수정</button>
+      </section>
+
+      <!-- ② 저장한 샵 -->
+      <section class="saved" aria-labelledby="saved-title">
+        <div class="my-head">
+          <p class="eyebrow" id="saved-title">저장한 샵 <span class="my-head__count">3</span></p>
+          <a class="my-head__link" href="search.html">전체 보기</a>
+        </div>
+        <div class="saved__scroll">
+          <a class="saved-card" href="shop.html?id=0">
+            <div class="saved-card__photo">
+              <img src="assets/photos/seongsu-brick-showroom.jpg" alt="">
+              <span class="badge badge--search">PICK</span>
+            </div>
+            <p class="saved-card__name">썬러브 링크스 성수</p>
+            <p class="saved-card__area">성수</p>
+          </a>
+          <a class="saved-card" href="shop.html?id=4">
+            <div class="saved-card__photo">
+              <img src="assets/photos/hannam-hillside.jpg" alt="">
+            </div>
+            <p class="saved-card__name">비이커 한남</p>
+            <p class="saved-card__area">한남</p>
+          </a>
+          <a class="saved-card" href="shop.html?id=2">
+            <div class="saved-card__photo">
+              <img src="assets/photos/seongsu-alley.jpg" alt="">
+            </div>
+            <p class="saved-card__name">LCDC SEOUL</p>
+            <p class="saved-card__area">성수</p>
+          </a>
+        </div>
+      </section>
+
+      <!-- ③ 방문 히스토리 -->
+      <section class="history" aria-labelledby="history-title">
+        <div class="my-head">
+          <p class="eyebrow" id="history-title">방문 히스토리 <span class="my-head__count">5</span></p>
+          <a class="my-head__link" href="search.html">전체 보기</a>
+        </div>
+        <ul class="my-card my-list">
+          <li>
+            <a class="history-row" href="shop.html?id=0">
+              <time class="history-row__date" datetime="2026-09-28">09.28</time>
+              <span class="history-row__text">
+                <span class="history-row__name">썬러브 링크스 성수</span>
+                <span class="history-row__sub">성수 · DAY DROP</span>
+              </span>
+              <img class="history-row__chev" src="assets/chevron-right.svg" width="20" height="20" alt="">
+            </a>
+          </li>
+          <li>
+            <a class="history-row" href="shop.html?id=3">
+              <time class="history-row__date" datetime="2026-09-21">09.21</time>
+              <span class="history-row__text">
+                <span class="history-row__name">아더 스페이스 3.0</span>
+                <span class="history-row__sub">성수 · DAY DROP</span>
+              </span>
+              <img class="history-row__chev" src="assets/chevron-right.svg" width="20" height="20" alt="">
+            </a>
+          </li>
+          <li>
+            <a class="history-row" href="shop.html?id=4">
+              <time class="history-row__date" datetime="2026-09-14">09.14</time>
+              <span class="history-row__text">
+                <span class="history-row__name">비이커 한남</span>
+                <span class="history-row__sub">한남 · 직접 방문</span>
+              </span>
+              <img class="history-row__chev" src="assets/chevron-right.svg" width="20" height="20" alt="">
+            </a>
+          </li>
+        </ul>
+      </section>
+
+      <!-- ④ 언어 / 알림 설정 · 고객센터 -->
+      <section class="settings" aria-labelledby="settings-title">
+        <p class="eyebrow my-head" id="settings-title">설정</p>
+        <ul class="my-card my-list">
+          <li>
+            <button type="button" class="setting-row" id="lang-toggle" data-drawer="lang-drawer" aria-haspopup="dialog" aria-expanded="false">
+              <span class="setting-row__label">언어</span>
+              <span class="setting-row__value" data-drawer-label>한국어</span>
+              <img class="setting-row__chev" src="assets/chevron-right.svg" width="20" height="20" alt="">
+            </button>
+          </li>
+          <li>
+            <div class="setting-row">
+              <span class="setting-row__label" id="noti-label">알림</span>
+              <span class="setting-row__hint">새 에디터 픽 · 예약 안내</span>
+              <button type="button" class="switch" role="switch" aria-checked="true" aria-labelledby="noti-label"><span class="switch__knob"></span></button>
+            </div>
+          </li>
+          <li>
+            <a class="setting-row" href="mailto:hello@theharper.co.kr">
+              <span class="setting-row__label">고객센터</span>
+              <span class="setting-row__value">hello@theharper.co.kr</span>
+              <img class="setting-row__chev" src="assets/chevron-right.svg" width="20" height="20" alt="">
+            </a>
+          </li>
+        </ul>
+      </section>
+
+      <!-- ⑤ 로그아웃 -->
+      <div class="logout">
+        <button type="button" class="logout__btn">로그아웃</button>
+        <p class="logout__ver">THE HARPER 미리보기 · v0.1</p>
+      </div>
+
+    </div>
+
+    <!-- 언어 선택 드로어: 설계서 04의 지원 언어 5개 -->
+    <div class="drawer" id="lang-drawer" data-event="langchange" hidden>
+      <div class="drawer__dim" data-drawer-close></div>
+      <div class="drawer__sheet" role="dialog" aria-modal="true" aria-labelledby="lang-drawer-title">
+        <div class="drawer__handle" aria-hidden="true"></div>
+        <p class="drawer__title" id="lang-drawer-title">언어</p>
+        <ul class="drawer__list">
+          <li><button type="button" class="drawer__item" aria-selected="true" data-lang="ko">한국어</button></li>
+          <li><button type="button" class="drawer__item" aria-selected="false" data-lang="en">English</button></li>
+          <li><button type="button" class="drawer__item" aria-selected="false" data-lang="ja">日本語</button></li>
+          <li><button type="button" class="drawer__item" aria-selected="false" data-lang="zh-Hans">简体中文</button></li>
+          <li><button type="button" class="drawer__item" aria-selected="false" data-lang="zh-Hant">繁體中文</button></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- 하단 탭 -->
+    <nav class="tabbar" aria-label="주요 메뉴">
+      <a class="tab" href="index.html">
+        <span class="tab__icon tab__icon--home" aria-hidden="true"></span>
+        <span class="tab__label">홈</span>
+      </a>
+      <a class="tab" href="search.html">
+        <span class="tab__icon tab__icon--search" aria-hidden="true"></span>
+        <span class="tab__label">검색</span>
+      </a>
+      <a class="tab" href="my.html" aria-current="page">
+        <span class="tab__icon tab__icon--user" aria-hidden="true"></span>
+        <span class="tab__label">내 정보</span>
+      </a>
+    </nav>
+  </main>
+
+  <script src="drawer.js?v=2"></script>
+  <script src="my.js?v=1"></script>
+</body>
+</html>
