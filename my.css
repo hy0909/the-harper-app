@@ -38,12 +38,6 @@
   letter-spacing: -0.3px;
   color: var(--ink);
 }
-.profile__meta {
-  font-family: var(--font-ui);
-  font-size: 13px;
-  line-height: 1.4;
-  color: var(--ink-60);
-}
 .profile__edit {
   flex-shrink: 0;
   height: 32px;
