@@ -75,7 +75,10 @@
     related.href = m.related_link || '#';
     byId('mag-related-label').textContent = m.related_label || '';
     var cta = byId('mag-cta');
-    cta.textContent = m.cta_label || '';
+    /* 인스타그램 아이콘(assets/instagram.svg, Ionicons logo-instagram) + 글자 */
+    cta.innerHTML = m.cta_label
+      ? '<span class="mag__cta-icon" aria-hidden="true"></span><span>' + esc(m.cta_label) + '</span>'
+      : '';
     if (m.cta_link) {
       cta.href = m.cta_link;
       cta.removeAttribute('aria-disabled');
