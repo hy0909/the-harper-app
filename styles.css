@@ -8,6 +8,7 @@
   --bg: #f7f4ec;       /* 앱 바탕 */
   --cocoa: #6f4a3a;    /* 코코아 브라운 */
   --rose: #d6a3ab;     /* 안틱 로즈 */
+  --petal: #f2bac3;    /* 밝은 로즈: 헤더 로고·투어 티어 글자(피그마 69:658) */
   --blush: #e8b4b8;
   --beige: #d8c3a5;
   --jade: #8fa693;
@@ -15,7 +16,7 @@
   --amber: #c9a15c;
   --font-ui: "Pretendard", -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
   --font-sans: "Pretendard", -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
-  --font-logo: "Tinos", "Times New Roman", Times, serif;
+  --font-logo: "Cormorant Garamond", "Times New Roman", Times, serif;
 }
 
 * { box-sizing: border-box; }
@@ -50,8 +51,9 @@ img { display: block; }
 
 /* 헤더 */
 .header {
-  height: 44px;
+  height: 48px;
   padding: 0 24px;
+  background: var(--cocoa); /* 피그마 69:658: 코코아 바탕 */
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -59,10 +61,11 @@ img { display: block; }
 .header__logo {
   text-decoration: none; /* 로고를 누르면 홈으로 */
   font-family: var(--font-logo);
-  font-size: 20px;
+  font-weight: 500;
+  font-size: 22px;
   line-height: 1.36;
-  letter-spacing: 2px;
-  color: var(--ink);
+  letter-spacing: 2.64px;
+  color: var(--petal);
 }
 .header__icon {
   width: 32px;
@@ -294,17 +297,17 @@ img { display: block; }
   font-size: 16px;
   line-height: 1.5;
   letter-spacing: 0.0912px;
-  color: var(--rose);
+  color: var(--petal);
 }
 .tour-card__row { display: flex; align-items: flex-end; gap: 0; }
 .tour-card__title {
   flex-shrink: 0;
   white-space: nowrap; /* 피그마: 제목 한 줄 */
   font-family: var(--font-sans);
-  font-weight: 600;
+  font-weight: 700; /* 피그마 69:658: 제목 Bold, 가격 SemiBold로 위계 */
   font-size: 20px;
   line-height: 1.4;
-  letter-spacing: -0.24px;
+  letter-spacing: 0;
   color: var(--ink-70);
 }
 /* 가격은 "128,000원 부터" 한 줄, SemiBold 16, 오른쪽 끝(피그마 29:5741). 4인 기준 글자 없음 */
