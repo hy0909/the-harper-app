@@ -13,7 +13,9 @@ window.HARPER_onShops(function () {
         (s.pick ? '<span class="badge badge--search">PICK</span>' : '') +
       '</div>' +
       '<div class="shop-row__body">' +
-        '<div class="shop-row__text"><h2 class="shop-row__name">' + esc(s.name) + '</h2><p class="shop-row__addr">' + esc(s.addr) + '</p></div>' +
+        '<div class="shop-row__text">' +
+          (s.tier ? '<p class="shop-row__tier">TIER ' + esc(s.tier) + '</p>' : '') + /* 홈 투어 카드의 'DAY DROP' 글자와 같은 톤 */
+          '<h2 class="shop-row__name">' + esc(s.name) + '</h2><p class="shop-row__addr">' + esc(s.addr) + '</p></div>' +
         '<p class="shop-row__note"><img src="assets/check-circle.svg" width="16" height="16" alt=""><span>' + esc(s.note) + '</span></p>' +
       '</div>' +
       '</a>';

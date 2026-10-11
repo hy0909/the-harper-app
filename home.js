@@ -63,9 +63,11 @@ window.HARPER_sbWarn = window.HARPER_sbWarn || function (err) {
         editorHTML(editors, t.editor);
       el('today-price').textContent = t.price || '';
       el('today-note').textContent = t.note || '';
-      var cta = el('today-cta');
-      cta.textContent = t.cta || '';
-      if (t.link) cta.addEventListener('click', function () { location.href = t.link; });
+      /* 예약하기 버튼은 뺐다(2026-10). 카드 전체가 글로 이어진다 */
+      if (t.link && el('today-section')) el('today-section').querySelectorAll('.photo, #today-headline').forEach(function (n) {
+        n.style.cursor = 'pointer';
+        n.addEventListener('click', function () { location.href = t.link; });
+      });
     }
 
     /* 투어 종류 */
