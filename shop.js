@@ -55,7 +55,7 @@ window.HARPER_onShops(function () {
   body.innerHTML = '';
   (s.intro || []).forEach(function (t) { var p = document.createElement('p'); p.textContent = t; body.appendChild(p); });
   byId('shop-drops').innerHTML =
-    '<a class="shop-row" href="magazine.html">' +
+    '<a class="shop-row" href="magazine.html?id=seongsu-daydrop">' +
       '<div class="shop-row__thumb"><img class="photo__img" src="assets/photos/seongsu-brick-showroom.jpg" alt=""><div class="photo__shade" aria-hidden="true"></div><span class="badge badge--search">DAY DROP</span></div>' +
       '<div class="shop-row__body"><div class="shop-row__text"><h3 class="shop-row__name">성수 창고 쇼룸에서 고르는 한국 브랜드</h3><p class="shop-row__addr">128,000원~ · 4인 기준</p></div>' +
       '<p class="shop-row__note"><img src="assets/check-circle.svg" width="16" height="16" alt=""><span>에디터와 함께 5곳을 돌아보는 투어</span></p></div>' +

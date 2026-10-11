@@ -139,6 +139,8 @@ window.HARPER_sbWarn = window.HARPER_sbWarn || function (err) {
   }
 
   window.HARPER_editorHTML = editorHTML;
+  /* 데이터가 온 뒤에 data-editor 를 바꾼 화면(매거진 상세)이 다시 채울 때 부른다. 아직 안 왔으면 'harper:content' 때 같이 채워진다 */
+  window.HARPER_fillEditors = function () { if (window.HARPER_CONTENT) fillEditors(window.HARPER_CONTENT); };
 
   /* ① Supabase: editors 표 + site_content 표의 home 값 → { editors, home } (JSON 파일과 같은 모양) */
   function fromSupabase() {
