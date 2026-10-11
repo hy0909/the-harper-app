@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500&display=swap" rel="stylesheet">
   <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
-  <link rel="stylesheet" href="styles.css?v=31">
+  <link rel="stylesheet" href="styles.css?v=32">
 </head>
 <body>
   <main class="phone" aria-label="THE HARPER 앱 홈">
@@ -23,27 +23,20 @@
 
     <div class="content">
 
-      <!-- 오늘의 추천 -->
-      <section class="today" aria-labelledby="today-title">
+      <!-- 오늘의 추천 (내용은 data/content.json → home.js 가 채운다) -->
+      <section class="today" aria-labelledby="today-title" id="today-section">
         <div class="today__head">
-          <p class="eyebrow" id="today-title">오늘의 추천</p>
-          <h1 class="today__headline">성수 창고 쇼룸에서<br>고르는 한국 브랜드</h1>
+          <p class="eyebrow" id="today-title"></p>
+          <h1 class="today__headline" id="today-headline"></h1>
         </div>
         <div class="today__media">
-          <div class="photo photo--hero">
-            <img class="photo__img" src="assets/photos/seongsu-brick-showroom.jpg" alt="">
-            <div class="photo__shade" aria-hidden="true"></div>
-            <div class="editor">
-              <span class="editor__avatar" aria-hidden="true"></span>
-              <span class="editor__name">에디터H</span>
-            </div>
-          </div>
+          <div class="photo photo--hero" id="today-photo"></div>
           <div class="today__price-row">
             <div class="price">
-              <p class="price__value">128,000원~</p>
-              <p class="price__note">4인 기준</p>
+              <p class="price__value" id="today-price"></p>
+              <p class="price__note" id="today-note"></p>
             </div>
-            <button type="button" class="button">예약하기</button>
+            <button type="button" class="button" id="today-cta"></button>
           </div>
         </div>
       </section>
@@ -51,7 +44,7 @@
       <!-- 투어 종류 -->
       <section class="tours" aria-labelledby="tours-title">
         <div class="tours__head">
-          <p class="eyebrow" id="tours-title">투어 종류</p>
+          <p class="eyebrow" id="tours-title"></p>
           <div class="tours__nav">
             <button type="button" class="tours__arrow" data-dir="-1" aria-label="이전 투어">
               <img src="assets/chevron-left-20.svg" width="20" height="20" alt="">
@@ -62,108 +55,21 @@
           </div>
         </div>
         <div class="tours__carousel">
-          <div class="tours__track" id="tours-track">
-            <article class="tour-card">
-              <p class="tour-card__tier">DAY DROP</p>
-              <div class="tour-card__row">
-                <h2 class="tour-card__title">3시간 동행 쇼핑 큐레이션</h2>
-                <p class="tour-card__price">128,000원 부터</p>
-              </div>
-            </article>
-            <!-- 아래 세 가지는 아직 열리지 않은 투어: 흐리게 보여 주고 '추후 확장' 표시 -->
-            <article class="tour-card tour-card--soon" aria-disabled="true">
-              <p class="tour-card__tier">CAPSULE</p>
-              <div class="tour-card__row">
-                <h2 class="tour-card__title">하루종일 1:1 큐레이션</h2>
-                <p class="tour-card__soon"><span class="tour-card__soon-chip">추후 확장</span></p>
-              </div>
-            </article>
-            <article class="tour-card tour-card--soon" aria-disabled="true">
-              <p class="tour-card__tier">SIGNATURE</p>
-              <div class="tour-card__row">
-                <h2 class="tour-card__title">1박 헤리티지 투어</h2>
-                <p class="tour-card__soon"><span class="tour-card__soon-chip">추후 확장</span></p>
-              </div>
-            </article>
-            <article class="tour-card tour-card--soon" aria-disabled="true">
-              <p class="tour-card__tier">BESPOKE</p>
-              <div class="tour-card__row">
-                <h2 class="tour-card__title">VIP 맞춤 투어</h2>
-                <p class="tour-card__soon"><span class="tour-card__soon-chip">추후 확장</span></p>
-              </div>
-            </article>
-          </div>
-          <div class="dots tours__dots" aria-hidden="true"><span class="dots__dot dots__dot--on"></span><span class="dots__dot"></span><span class="dots__dot"></span><span class="dots__dot"></span></div>
+          <div class="tours__track" id="tours-track"></div>
+          <div class="dots tours__dots" id="tours-dots" aria-hidden="true"></div>
         </div>
       </section>
 
       <!-- 에디터 큐레이션 피드 -->
       <section class="feed" aria-labelledby="feed-title">
-        <p class="eyebrow feed__head" id="feed-title">에디터 큐레이션 피드</p>
-        <div class="feed__list">
-          <a class="feed-card feed-card--blush" href="magazine.html">
-            <h2 class="feed-card__title">셀럽이 입어서<br>유명한 브랜드</h2>
-            <div class="photo photo--card">
-              <img class="photo__img" src="assets/photos/seongsu-contemporary.jpg" alt="">
-              <div class="photo__shade photo__shade--top" aria-hidden="true"></div>
-              <div class="photo__top">
-                <div class="photo__price-row">
-                  <p class="photo__price">128,000원~</p>
-                  <span class="badge badge--drop">Day Drop</span>
-                </div>
-                <div class="editor"><span class="editor__avatar" aria-hidden="true"></span><span class="editor__name">에디터H</span></div>
-              </div>
-            </div>
-          </a>
-          <a class="feed-card feed-card--beige" href="magazine.html">
-            <h2 class="feed-card__title">K-BRAND<br>디자이너 인터뷰</h2>
-            <div class="photo photo--card">
-              <img class="photo__img" src="assets/photos/hannam-hillside.jpg" alt="">
-              <div class="photo__shade photo__shade--top" aria-hidden="true"></div>
-              <div class="photo__top">
-                <div class="photo__price-row">
-                  <p class="photo__price">128,000원~</p>
-                  <span class="badge badge--drop">Day Drop</span>
-                </div>
-                <div class="editor"><span class="editor__avatar" aria-hidden="true"></span><span class="editor__name">에디터H</span></div>
-              </div>
-            </div>
-          </a>
-          <a class="feed-card feed-card--jade" href="magazine.html">
-            <h2 class="feed-card__title">K-BRAND<br>쇼룸 소개</h2>
-            <div class="photo photo--card">
-              <img class="photo__img" src="assets/photos/hannam-studio.jpg" alt="">
-              <div class="photo__shade photo__shade--top" aria-hidden="true"></div>
-              <div class="photo__top">
-                <div class="photo__price-row">
-                  <p class="photo__price">128,000원~</p>
-                  <span class="badge badge--drop">Day Drop</span>
-                </div>
-                <div class="editor"><span class="editor__avatar" aria-hidden="true"></span><span class="editor__name">에디터H</span></div>
-              </div>
-            </div>
-          </a>
-          <a class="feed-card feed-card--terracotta" href="magazine.html">
-            <h2 class="feed-card__title">디자이너 스튜디오와<br>플래그십 투어</h2>
-            <div class="photo photo--card">
-              <img class="photo__img" src="assets/photos/hannam-vintage.jpg" alt="">
-              <div class="photo__shade photo__shade--top" aria-hidden="true"></div>
-              <div class="photo__top">
-                <div class="photo__price-row">
-                  <p class="photo__price">128,000원~</p>
-                  <span class="badge badge--drop">Day Drop</span>
-                </div>
-                <div class="editor"><span class="editor__avatar" aria-hidden="true"></span><span class="editor__name">에디터H</span></div>
-              </div>
-            </div>
-          </a>
-        </div>
+        <p class="eyebrow feed__head" id="feed-title"></p>
+        <div class="feed__list" id="feed-list"></div>
       </section>
 
       <!-- 에디터’s PICK -->
       <section class="picks" aria-labelledby="picks-title">
         <div class="picks__head">
-          <p class="eyebrow" id="picks-title">에디터’s PICK</p>
+          <p class="eyebrow" id="picks-title"></p>
           <div class="picks__nav">
             <button type="button" class="picks__arrow" data-dir="-1" aria-label="이전 추천">
               <img src="assets/chevron-left-20.svg" width="20" height="20" alt="">
@@ -173,79 +79,8 @@
             </button>
           </div>
         </div>
-        <div class="picks__scroll" id="picks-track">
-          <article class="pick-card">
-            <div class="photo photo--pick">
-              <img class="photo__img" src="assets/photos/seongsu-alley.jpg" alt="">
-              <div class="photo__shade" aria-hidden="true"></div>
-              <div class="editor"><span class="editor__avatar" aria-hidden="true"></span><span class="editor__name">에디터H</span></div>
-            </div>
-            <div class="pick-card__text">
-              <h2 class="pick-card__title">성수 공장 골목의 쇼룸 산책</h2>
-              <div class="pick-card__price">
-                <span class="pick-card__value">￦128,000 ~</span>
-                <span class="pick-card__note">4인 기준</span>
-              </div>
-            </div>
-          </article>
-          <article class="pick-card">
-            <div class="photo photo--pick">
-              <img class="photo__img" src="assets/photos/hannam-alley.jpg" alt="">
-              <div class="photo__shade" aria-hidden="true"></div>
-              <div class="editor"><span class="editor__avatar" aria-hidden="true"></span><span class="editor__name">에디터H</span></div>
-            </div>
-            <div class="pick-card__text">
-              <h2 class="pick-card__title">남산 보이는 한남 골목 숍</h2>
-              <div class="pick-card__price">
-                <span class="pick-card__value">￦128,000 ~</span>
-                <span class="pick-card__note">4인 기준</span>
-              </div>
-            </div>
-          </article>
-          <article class="pick-card">
-            <div class="photo photo--pick">
-              <img class="photo__img" src="assets/photos/seongsu-street.jpg" alt="">
-              <div class="photo__shade" aria-hidden="true"></div>
-              <div class="editor"><span class="editor__avatar" aria-hidden="true"></span><span class="editor__name">에디터H</span></div>
-            </div>
-            <div class="pick-card__text">
-              <h2 class="pick-card__title">성수 연무장길 플래그십 한 바퀴</h2>
-              <div class="pick-card__price">
-                <span class="pick-card__value">￦128,000 ~</span>
-                <span class="pick-card__note">4인 기준</span>
-              </div>
-            </div>
-          </article>
-          <article class="pick-card">
-            <div class="photo photo--pick">
-              <img class="photo__img" src="assets/photos/hannam-hillside.jpg" alt="">
-              <div class="photo__shade" aria-hidden="true"></div>
-              <div class="editor"><span class="editor__avatar" aria-hidden="true"></span><span class="editor__name">에디터H</span></div>
-            </div>
-            <div class="pick-card__text">
-              <h2 class="pick-card__title">한남 계단 위 벽돌집 부티크</h2>
-              <div class="pick-card__price">
-                <span class="pick-card__value">￦128,000 ~</span>
-                <span class="pick-card__note">4인 기준</span>
-              </div>
-            </div>
-          </article>
-          <article class="pick-card">
-            <div class="photo photo--pick">
-              <img class="photo__img" src="assets/photos/seongsu-contemporary.jpg" alt="">
-              <div class="photo__shade" aria-hidden="true"></div>
-              <div class="editor"><span class="editor__avatar" aria-hidden="true"></span><span class="editor__name">에디터H</span></div>
-            </div>
-            <div class="pick-card__text">
-              <h2 class="pick-card__title">성수 유리문 안의 디자이너 랙</h2>
-              <div class="pick-card__price">
-                <span class="pick-card__value">￦128,000 ~</span>
-                <span class="pick-card__note">4인 기준</span>
-              </div>
-            </div>
-          </article>
-        </div>
-        <div class="dots picks__dots" aria-hidden="true"><span class="dots__dot dots__dot--on"></span><span class="dots__dot"></span><span class="dots__dot"></span><span class="dots__dot"></span><span class="dots__dot"></span></div>
+        <div class="picks__scroll" id="picks-track"></div>
+        <div class="dots picks__dots" id="picks-dots" aria-hidden="true"></div>
       </section>
 
     </div>
@@ -267,6 +102,7 @@
     </nav>
   </main>
 
-  <script src="app.js?v=6"></script>
+  <script src="home.js?v=1"></script>
+  <script src="app.js?v=7"></script>
 </body>
 </html>

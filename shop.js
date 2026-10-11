@@ -1,5 +1,5 @@
 /* 샵 상세: ?id=N 매장을 shops.js 데이터로 채운다. 사진 캐러셀 · 탭 고정 · 찜 · 뒤로 가기 경로 */
-(function () {
+window.HARPER_onShops(function () {
   var shops = window.HARPER_SHOPS || [];
   var params = new URLSearchParams(location.search);
   var id = Number(params.get('id'));
@@ -100,4 +100,4 @@
   /* 지도에서 들어왔으면 뒤로 가기도 그 매장이 선택된 지도로, 아니면 목록으로 */
   var back = document.querySelector('.mag-header__back');
   if (back) back.href = params.get('from') === 'map' ? 'map.html?id=' + s.id : 'search.html';
-})();
+});

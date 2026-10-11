@@ -197,6 +197,8 @@ img { display: block; }
   border-radius: 99px;
   background: var(--ink-60);
 }
+/* 에디터 사진이 있으면(관리자에서 올린 경우) 같은 크기의 둥근 사진으로 */
+img.editor__avatar { display: block; object-fit: cover; }
 .editor__name {
   font-family: var(--font-ui);
   font-weight: 600;

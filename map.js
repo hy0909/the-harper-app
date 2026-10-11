@@ -1,5 +1,5 @@
 /* 지도: Leaflet + OpenStreetMap 타일(키 없이 쓸 수 있음, 출처 표기 필수). 핀을 누르면 아래 카드에 매장 정보, 카드를 누르면 상세로 */
-(function () {
+window.HARPER_onShops(function () {
   var el = document.getElementById('map');
   if (!el || typeof L === 'undefined') return;
   var shops = window.HARPER_SHOPS || [];
@@ -113,4 +113,4 @@
     fitAll();
     select(0);
   }
-})();
+});

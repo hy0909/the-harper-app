@@ -1,4 +1,4 @@
-/* 가로 카드 묶음(투어 종류 · 에디터's PICK): 화살표로 한 장씩 넘기고, 점 5개가 현재 장을 가리킨다 */
+/* 가로 카드 묶음(투어 종류 · 에디터's PICK): 화살표로 한 장씩 넘기고, 점이 현재 장을 가리킨다 */
 (function () {
   function carousel(trackId, cardSelector, arrowSelector, dotsSelector, padLeft) {
     const track = document.getElementById(trackId);
@@ -49,6 +49,11 @@
     window.addEventListener('resize', render);
     render();
   }
-  carousel('tours-track', '.tour-card', '.tours__arrow', '.tours__dots', 20);
-  carousel('picks-track', '.pick-card', '.picks__arrow', '.picks__dots', 24);
+  function init() {
+    carousel('tours-track', '.tour-card', '.tours__arrow', '.tours__dots', 20);
+    carousel('picks-track', '.pick-card', '.picks__arrow', '.picks__dots', 24);
+  }
+  /* 카드는 home.js 가 data/content.json 을 읽어 그리므로, 다 그린 뒤('harper:content')에 묶는다 */
+  if (window.HARPER_CONTENT) init();
+  else document.addEventListener('harper:content', init, { once: true });
 })();
