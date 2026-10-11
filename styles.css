@@ -378,39 +378,45 @@ img { display: block; }
 .feed-card--jade { background: var(--jade); }
 .feed-card--terracotta { background: var(--terracotta); }
 
-.feed-card__head { display: flex; flex-direction: column; gap: 0; }
-.feed-card__row { display: flex; align-items: flex-start; gap: 0; }
 .feed-card__title {
-  flex-shrink: 0;
-  word-break: keep-all; /* 낱말 중간에서 줄이 끊기지 않게 */
+  /* 피그마 69:727: ExtraBold 32, 두 줄 */
+  word-break: keep-all;
   font-family: var(--font-sans);
   font-weight: 800;
-  font-size: 22px;
-  line-height: 1.364;
-  letter-spacing: -0.4268px;
-  color: var(--ink);
+  font-size: 32px;
+  line-height: 42px;
+  letter-spacing: -0.81px;
 }
-/* 피드 카드 제목 폭 */
-.feed-card:nth-child(1) .feed-card__title { width: 191px; }
-.feed-card:nth-child(n+2) .feed-card__title { width: 189px; }
-.feed-card__row .price--right { flex: 1; padding: 0; gap: 1px; align-items: flex-end; }
-.feed-card__row .price__value {
+/* 제목 글자색은 카드 바탕색마다 하나 */
+.feed-card--blush .feed-card__title { color: #6f4245; }
+.feed-card--beige .feed-card__title { color: #675843; }
+.feed-card--jade .feed-card__title { color: #2c4831; }
+.feed-card--terracotta .feed-card__title { color: #582f1e; }
+/* 피드 사진: 위쪽에 가격·Day Drop 칩·에디터, 위가 어두운 그라데이션 */
+.photo--card { justify-content: flex-start; }
+.photo__shade--top { background: linear-gradient(to bottom, rgba(48, 34, 28, 0.8) 0%, rgba(48, 34, 28, 0) 78%); }
+.photo__top { position: relative; width: 100%; display: flex; flex-direction: column; gap: 8px; }
+.photo__price-row { display: flex; align-items: flex-start; justify-content: space-between; gap: 8px; }
+.photo__price {
   font-family: var(--font-sans);
+  font-weight: 700;
   font-size: 20px;
-  font-weight: 700; /* 피그마 title/sm: Bold 20 */
   line-height: 1.4;
-  letter-spacing: -0.24px;
-  color: var(--ink);
-  text-align: right;
+  color: var(--ground);
 }
-/* 제목·가격·기준 글자색은 카드 바탕색마다 하나로 통일(피그마 29:5687) */
-.feed-card--blush .feed-card__title, .feed-card--blush .price__value, .feed-card--blush .price__note { color: #6f4245; }
-.feed-card--beige .feed-card__title, .feed-card--beige .price__value, .feed-card--beige .price__note { color: #675843; }
-.feed-card--jade .feed-card__title, .feed-card--jade .price__value, .feed-card--jade .price__note { color: #2c4831; }
-.feed-card--terracotta .feed-card__title, .feed-card--terracotta .price__value, .feed-card--terracotta .price__note { color: #582f1e; }
+.photo--card .editor__name { font-size: 13px; letter-spacing: -0.13px; }
+.badge--drop {
+  background: var(--blush);
+  font-weight: 500;
+  line-height: 14px;
+  letter-spacing: 0.34px;
+  color: #6b1b21;
+}
 
 /* 에디터's PICK */
 .picks { display: flex; flex-direction: column; gap: 8px; }
+.picks__dots { margin-top: 12px; height: 8px; } /* 카드 ↔ 점 20 */
+.picks__dots .dots__dot { width: 8px; height: 8px; }
 .picks__head {
   padding: 0 20px;
   display: flex;
