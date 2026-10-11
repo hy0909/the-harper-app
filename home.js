@@ -95,7 +95,7 @@ window.HARPER_sbWarn = window.HARPER_sbWarn || function (err) {
             '<img class="photo__img" src="' + esc(img(c.image)) + '" alt="">' +
             '<div class="photo__shade photo__shade--top" aria-hidden="true"></div>' +
             '<div class="photo__top">' +
-              '<div class="photo__price-row"><p class="photo__price">' + esc(c.price) + '</p><span class="badge badge--drop">' + esc(c.badge) + '</span></div>' +
+              '<div class="photo__price-row"><p class="photo__price">' + esc(c.price) + '</p></div>' +
               editorHTML(editors, c.editor) +
             '</div>' +
           '</div>' +
