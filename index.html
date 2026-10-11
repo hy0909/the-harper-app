@@ -7,11 +7,53 @@
   <meta name="description" content="THE HARPER 모바일앱 홈 화면을 웹에서 미리 보는 페이지">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500&family=Tinos&display=swap" rel="stylesheet">
   <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
   <link rel="stylesheet" href="styles.css?v=32">
+  <link rel="stylesheet" href="onboarding.css?v=1">
 </head>
 <body>
+  <!-- 처음 켤 때만: 스플래시 → 언어 → 관심 스타일 (피그마 17:698 · 18:767 · 20:980). onboarding.js 가 보여 주고 숨긴다 -->
+  <div class="start" id="start" hidden>
+    <section class="splash" id="splash" aria-label="THE HARPER">
+      <p class="splash__logo">THE HARPER</p>
+      <p class="splash__tagline">K-FASHION CURATION</p>
+    </section>
+
+    <section class="onb" id="onb-lang" aria-labelledby="onb-lang-title" hidden>
+      <div class="onb__header"></div>
+      <div class="onb__body">
+        <div class="onb__head"><h1 class="onb__title" id="onb-lang-title">언어를 선택하세요</h1></div>
+        <div class="onb__list" role="radiogroup" aria-labelledby="onb-lang-title">
+          <button type="button" class="onb__item" role="radio" aria-checked="true" data-value="ko"><span>한국어</span><img src="assets/check-circle.svg" alt=""></button>
+          <button type="button" class="onb__item" role="radio" aria-checked="false" data-value="en"><span>English</span><img src="assets/check-circle.svg" alt=""></button>
+          <button type="button" class="onb__item" role="radio" aria-checked="false" data-value="ja"><span>日本語</span><img src="assets/check-circle.svg" alt=""></button>
+          <button type="button" class="onb__item" role="radio" aria-checked="false" data-value="zh-Hans"><span>简体中文</span><img src="assets/check-circle.svg" alt=""></button>
+          <button type="button" class="onb__item" role="radio" aria-checked="false" data-value="zh-Hant"><span>繁體中文</span><img src="assets/check-circle.svg" alt=""></button>
+        </div>
+      </div>
+      <button type="button" class="onb__cta">다음</button>
+    </section>
+
+    <section class="onb" id="onb-style" aria-labelledby="onb-style-title" hidden>
+      <div class="onb__header"></div>
+      <div class="onb__body">
+        <div class="onb__head">
+          <h1 class="onb__title" id="onb-style-title">관심 스타일을 선택하세요</h1>
+          <p class="onb__sub">복수 선택 허용</p>
+        </div>
+        <div class="onb__list" role="group" aria-labelledby="onb-style-title">
+          <button type="button" class="onb__item" role="checkbox" aria-checked="true" data-value="editorial"><span>에디토리얼</span><img src="assets/check-circle.svg" alt=""></button>
+          <button type="button" class="onb__item" role="checkbox" aria-checked="false" data-value="minimal"><span>미니멀</span><img src="assets/check-circle.svg" alt=""></button>
+          <button type="button" class="onb__item" role="checkbox" aria-checked="false" data-value="street"><span>스트리트</span><img src="assets/check-circle.svg" alt=""></button>
+          <button type="button" class="onb__item" role="checkbox" aria-checked="false" data-value="vintage"><span>빈티지</span><img src="assets/check-circle.svg" alt=""></button>
+          <button type="button" class="onb__item" role="checkbox" aria-checked="false" data-value="feminine"><span>페미닌</span><img src="assets/check-circle.svg" alt=""></button>
+        </div>
+      </div>
+      <button type="button" class="onb__cta">시작하기</button>
+    </section>
+  </div>
+
   <main class="phone" aria-label="THE HARPER 앱 홈">
 
     <header class="header">
@@ -105,5 +147,6 @@
   <script src="config.js?v=1"></script>
   <script src="home.js?v=2"></script>
   <script src="app.js?v=7"></script>
+  <script src="onboarding.js?v=1"></script>
 </body>
 </html>
