@@ -151,8 +151,21 @@ window.HARPER_sbWarn = window.HARPER_sbWarn || function (err) {
       var editors = (res[0] || []).map(function (e) { return { id: e.id, name: e.name || '', avatar: e.avatar || '' }; });
       var row = (res[1] || [])[0];
       if (!row || !row.value) throw new Error('site_content 에 home 이 없음');
-      return { editors: editors, home: row.value };
+      return fillMissingLinks(row.value).then(function (home) { return { editors: editors, home: home }; });
     });
+  }
+  /* Supabase 홈 값에 매거진 링크(?id=)가 아직 없으면(관리자 SQL 실행 전) 저장소 JSON 의 같은 자리 링크를 빌려 쓴다.
+     안 그러면 피드 카드가 전부 첫 글로만 열린다 */
+  function fillMissingLinks(home) {
+    var needs = function (l) { return !l || l.indexOf('id=') < 0; };
+    return fromJSON().then(function (json) {
+      var j = (json && json.home) || {};
+      if (home.today && j.today && needs(home.today.link) && j.today.link) home.today.link = j.today.link;
+      var items = (home.feed && home.feed.items) || [];
+      var jitems = (j.feed && j.feed.items) || [];
+      items.forEach(function (c, i) { if (needs(c.link) && jitems[i] && jitems[i].link) c.link = jitems[i].link; });
+      return home;
+    }).catch(function () { return home; });
   }
   /* ② 못 읽으면 저장소 안 JSON 파일 */
   function fromJSON() {
