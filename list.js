@@ -8,7 +8,7 @@ window.HARPER_onShops(function () {
   list.innerHTML = shops.map(function (s) {
     return '<a class="shop-row" href="shop.html?id=' + esc(s.id) + '">' +
       '<div class="shop-row__thumb">' +
-        '<img class="photo__img" src="' + esc(s.photo) + '" alt="">' +
+        '<img class="photo__img" src="' + esc(window.HARPER_img(s.photo)) + '" alt="">' +
         '<div class="photo__shade" aria-hidden="true"></div>' +
         (s.pick ? '<span class="badge badge--search">PICK</span>' : '') +
       '</div>' +

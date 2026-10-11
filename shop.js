@@ -19,7 +19,7 @@ window.HARPER_onShops(function () {
   photos.forEach(function (src, i) {
     var slide = document.createElement('div');
     slide.className = 'gallery__slide photo photo--mag';
-    slide.innerHTML = '<img class="photo__img" src="' + src + '" alt="">';
+    slide.innerHTML = '<img class="photo__img" src="' + window.HARPER_img(src) + '" alt="">';
     track.appendChild(slide);
     var d = document.createElement('span');
     d.className = 'dots__dot' + (i === 0 ? ' dots__dot--on' : '');

@@ -37,7 +37,7 @@ window.HARPER_onShops(function () {
     var s = shops[i];
     if (!s) return;
     link.href = 'shop.html?id=' + s.id + '&from=map'; /* 상세에서 뒤로 가면 지도로 */
-    photoEl.src = s.photo;
+    photoEl.src = window.HARPER_img(s.photo);
     nameEl.textContent = s.name;
     addrEl.textContent = s.addr;
     noteEl.textContent = s.note;
