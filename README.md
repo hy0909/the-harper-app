@@ -6,3 +6,8 @@
 - 내 정보: `my.html` (설계서 09: 프로필 · 저장한 샵 · 방문 히스토리 · 언어/알림 설정 · 고객센터 · 로그아웃). 스타일 `my.css`, 동작 `my.js`
 - 스타일: `styles.css`, 동작: `app.js`
 - 배포: GitHub Pages(main 브랜치 루트)
+
+## 아이콘 출처
+
+- 하단 탭 내 정보: [IconaMoon](https://github.com/dariushhpg1/IconaMoon) `profile-fill`, CC BY 4.0
+- 하단 탭 검색: [Fluent UI System Icons](https://github.com/microsoft/fluentui-system-icons) `search-24-filled`, MIT
