@@ -283,7 +283,8 @@ img.editor__avatar { display: block; object-fit: cover; }
 }
 .tours__track::-webkit-scrollbar { display: none; }
 .tour-card {
-  flex: 0 0 398px;
+  flex: 0 0 100%; /* 트랙 좌우 20px 여백은 두고, 카드는 남은 너비를 다 채운다(기기 너비 따라 달라짐) */
+  min-width: 0; /* 안쪽 글자 길이 때문에 카드가 트랙보다 넓어지지 않게 */
   scroll-snap-align: start;
   background: var(--ground); /* 피그마: secondary #faf9f6 */
   border-radius: 16px;
@@ -301,7 +302,7 @@ img.editor__avatar { display: block; object-fit: cover; }
   letter-spacing: 0.0912px;
   color: var(--petal);
 }
-.tour-card__row { display: flex; align-items: flex-end; gap: 0; }
+.tour-card__row { display: flex; flex-wrap: wrap; align-items: flex-end; gap: 2px 12px; } /* 좁은 기기에서는 가격이 다음 줄 오른쪽으로 내려간다 */
 .tour-card__title {
   flex-shrink: 0;
   white-space: nowrap; /* 피그마: 제목 한 줄 */
@@ -326,7 +327,7 @@ img.editor__avatar { display: block; object-fit: cover; }
   color: var(--ink-70);
 }
 
-/* 아직 열리지 않은 투어(CAPSULE·SIGNATURE·BESPOKE): 글자를 옅게, 가격 자리에 '추후 확장' 칩 */
+/* 아직 열리지 않은 투어(CAPSULE·SIGNATURE·BESPOKE): 글자를 옅게, 가격 자리에 '오픈 예정' 칩 */
 .tour-card--soon .tour-card__tier,
 .tour-card--soon .tour-card__title { color: var(--ink-50); }
 .tour-card--soon .tour-card__row { align-items: center; }
@@ -439,7 +440,7 @@ img.editor__avatar { display: block; object-fit: cover; }
 }
 .picks__scroll::-webkit-scrollbar { display: none; }
 .pick-card {
-  flex: 0 0 400px;
+  flex: 0 0 100%; /* 트랙 좌우 24px 여백은 두고, 카드는 남은 너비를 다 채운다 */
   scroll-snap-align: start;
   display: flex;
   flex-direction: column;
@@ -737,15 +738,16 @@ a.shop-row { color: inherit; text-decoration: none; }
   color: var(--ink-60);
 }
 .shop-row__note {
-  display: flex;
+  display: inline-flex; /* 말풍선은 글자 길이만큼(hug). 줄 폭을 넘으면 말줄임 */
   align-items: center;
   gap: 2px;
-  width: 100%;
+  width: fit-content;
+  max-width: 100%;
   background: var(--ground);
   border-radius: 8px;
   padding: 2px 8px;
 }
-.shop-row__note span { flex: 1 0 0; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.shop-row__note span { flex: 0 1 auto; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 
 /* 지도 자리: 피그마 31:9779 */
 /* 지도 (Leaflet) */

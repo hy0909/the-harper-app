@@ -21,7 +21,7 @@
         { "tier": "SIGNATURE", "title": "1박 헤리티지 투어", "price": "", "open": false },
         { "tier": "BESPOKE", "title": "VIP 맞춤 투어", "price": "", "open": false }
       ],
-      "soonLabel": "추후 확장"
+      "soonLabel": "오픈 예정"
     },
     "feed": {
       "title": "에디터 큐레이션 피드",
