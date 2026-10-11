@@ -492,7 +492,7 @@ a.feed-card { color: inherit; text-decoration: none; display: flex; }
   width: min(440px, 100%);
   height: 56px;
   display: flex;
-  background: var(--ink); /* 피그마: 탭 바 잉크 배경 */
+  background: var(--ground); /* 피그마 69:882: 탭 바 밝은 바탕 #faf9f6 */
   padding-bottom: env(safe-area-inset-bottom);
   z-index: 10;
 }
@@ -510,7 +510,7 @@ a.feed-card { color: inherit; text-decoration: none; display: flex; }
 }
 .tab[aria-current="page"],
 .tab[aria-current="page"] .tab__label {
-  color: var(--ground); /* 활성: #faf9f6 */
+  color: var(--ink); /* 활성: #3a362f */
 }
 .tab__icon {
   width: 24px;
@@ -520,7 +520,7 @@ a.feed-card { color: inherit; text-decoration: none; display: flex; }
   mask: var(--tab-icon) center / contain no-repeat;
 }
 .tab[aria-current="page"] .tab__icon {
-  background-color: var(--ground);
+  background-color: var(--ink);
 }
 .tab__icon--home { --tab-icon: url("assets/material/home-rounded.svg"); }
 .tab__icon--search { --tab-icon: url("assets/fluent/search-filled.svg"); } /* Fluent UI Filled (MIT) */
