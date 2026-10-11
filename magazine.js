@@ -65,7 +65,11 @@
             '</div>'
           : '') +
         (s.body ? '<div class="mag-section__body">' + paragraphsHTML(s.body) + '</div>' : '') +
-        (s.link ? '<a class="mag-section__link" href="' + esc(s.link) + '" target="_blank" rel="noopener">' + esc(s.link_label || '자세히 보기') + '</a>' : '') +
+        (s.link
+          ? '<a class="mag-section__link" href="' + esc(s.link) + '" target="_blank" rel="noopener">' +
+            (/instagram\.com/i.test(s.link) ? '<span class="mag-section__link-icon" aria-hidden="true"></span>' : '') + /* 인스타그램 링크면 아이콘 */
+            '<span>' + esc(s.link_label || '자세히 보기') + '</span></a>'
+          : '') +
         '</section>';
     }).join('');
 
