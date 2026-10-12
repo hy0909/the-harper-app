@@ -11,7 +11,7 @@
   <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
   <link rel="stylesheet" href="styles.css?v=36">
   <link rel="stylesheet" href="magazine.css?v=7">
-  <link rel="stylesheet" href="shop.css?v=3">
+  <link rel="stylesheet" href="shop.css?v=4">
 </head>
 <body class="body--magazine">
   <main class="phone phone--magazine phone--shop" aria-label="THE HARPER 샵 상세">
@@ -104,11 +104,15 @@
       </section>
     </article>
 
-    <!-- ⑦ 찜하기 · 길찾기 (예약하기 버튼은 뺌) -->
+    <!-- ⑦ 찜하기 · 예약하기 · 길찾기 -->
     <div class="cta-bar">
       <button type="button" class="cta-bar__icon" id="shop-like" aria-pressed="false" aria-label="찜하기">
         <span class="cta-bar__icon-img cta-bar__icon-img--heart" aria-hidden="true"></span>
       </button>
+      <a class="cta-bar__main" href="magazine.html" id="shop-book">
+        <span class="cta-bar__main-label">예약하기</span>
+        <span class="cta-bar__main-price">128,000원~ <small>4인 기준</small></span>
+      </a>
       <a class="cta-bar__icon" id="shop-route" href="map.html" aria-label="길찾기">
         <span class="cta-bar__icon-img cta-bar__icon-img--nav" aria-hidden="true"></span>
       </a>

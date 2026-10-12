@@ -119,7 +119,7 @@
 }
 .review-empty__btn:disabled { opacity: 0.5; cursor: default; }
 
-/* ⑦ 하단 버튼 바: 찜 · 길찾기. 예약하기 버튼을 빼서 두 버튼이 바를 반씩 나눠 가진다 */
+/* ⑦ 하단 버튼 바: 찜 · 예약 · 길찾기 */
 .cta-bar {
   position: fixed;
   left: 50%;
@@ -135,8 +135,8 @@
   z-index: 10;
 }
 .cta-bar__icon {
-  flex: 1 0 0;
-  min-width: 48px;
+  flex: 0 0 48px;
+  width: 48px;
   height: 48px;
   display: flex;
   align-items: center;
