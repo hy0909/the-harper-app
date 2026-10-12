@@ -3,6 +3,7 @@
 모바일앱 화면을 웹으로 옮겨 브라우저에서 미리 보는 저장소. 피그마 시안이 기준이고, 화면이 늘어나면 페이지를 하나씩 추가한다.
 
 - 홈: `index.html`
+- 시작 화면(처음 켤 때만): `onboarding.html` (스플래시 → 언어 → 관심 스타일). 스타일 `onboarding.css`, 동작 `onboarding.js`. 끝내거나 건너뛰면 `index.html` 로 돌아간다. `index.html` 은 `localStorage` 의 `harper:onboarded` 가 없으면 이 페이지로 보낸다. 다시 보려면 `index.html?onboarding=1`
 - 매거진 상세: `magazine.html?id=<글 id>`. 스타일 `magazine.css`, 동작 `magazine.js`
 - 내 정보: `my.html` (설계서 09: 프로필 · 저장한 샵 · 방문 히스토리 · 언어/알림 설정 · 고객센터 · 로그아웃). 스타일 `my.css`, 동작 `my.js`
 - 스타일: `styles.css`, 동작: `app.js`

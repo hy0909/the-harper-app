@@ -1,9 +1,10 @@
-/* 처음 켤 때만 보이는 스플래시 → 온보딩(언어 · 관심 스타일). 피그마 17:698 · 18:767 · 20:980 */
+/* 온보딩 페이지(onboarding.html): 스플래시 → 언어 · 관심 스타일. 피그마 17:698 · 18:767 · 20:980
+   홈 화면 위에 겹치지 않고 별도 페이지로 떠 있어서, 아래 홈 레이어의 그림자가 비치지 않는다 */
+body { background: var(--ground); }
 .start {
-  position: fixed;
-  inset: 0;
-  z-index: 100;
   width: min(440px, 100%);
+  min-height: 100vh;
+  min-height: 100dvh;
   margin: 0 auto;
   background: var(--ground);
   display: flex;
@@ -39,8 +40,24 @@
   color: #fff;
 }
 
-/* 온보딩: 위 44px 빈 헤더, 본문, 아래 가득 찬 버튼 */
-.onb__header { height: 44px; flex: 0 0 44px; }
+/* 온보딩: 위 44px 헤더(오른쪽에 건너뛰기 X), 본문, 아래 가득 찬 버튼 */
+.onb__header {
+  height: 44px;
+  flex: 0 0 44px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding-right: 10px; /* 44px 터치 영역의 가운데 아이콘이 본문 오른쪽 여백(20px)에 맞도록 */
+}
+.onb__close {
+  width: 44px;
+  height: 44px;
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.onb__close img { width: 24px; height: 24px; }
 .onb__body {
   flex: 1 1 0;
   min-height: 0;
