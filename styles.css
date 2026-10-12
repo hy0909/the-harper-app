@@ -707,14 +707,14 @@ a.shop-row { color: inherit; text-decoration: none; }
 }
 .shop-row__body { flex: 1 0 0; min-width: 0; display: flex; flex-direction: column; gap: 12px; }
 .shop-row__text { display: flex; flex-direction: column; gap: 4px; }
-/* 티어 표기: 사진 위 PICK 뱃지와 겹치지 않게 이름 위에 작은 글자로(홈 투어 카드 'DAY DROP'과 같은 로즈색) */
-.shop-row__tier {
-  font-family: var(--font-ui);
-  font-weight: 600;
-  font-size: 11px;
-  line-height: 1.3;
-  letter-spacing: 0.6px;
-  color: var(--petal);
+/* 티어 뱃지: 주소 왼쪽에 작게. 로즈(--blush) 바탕에 코코아 글자(사진 위 PICK 뱃지의 반대 조합) */
+.badge--tier {
+  background: var(--blush);
+  color: var(--cocoa);
+  padding: 1px 5px;
+  font-size: 10px;
+  line-height: 1.4;
+  letter-spacing: 0.4px;
 }
 .shop-row__name {
   font-family: var(--font-sans);
@@ -724,6 +724,10 @@ a.shop-row { color: inherit; text-decoration: none; }
   color: var(--ink);
 }
 .shop-row__addr {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  min-width: 0;
   font-family: var(--font-ui);
   font-weight: 400; /* 피그마: Regular 14 */
   font-size: 14px;
@@ -731,6 +735,7 @@ a.shop-row { color: inherit; text-decoration: none; }
   letter-spacing: 0.203px;
   color: var(--ink-60);
 }
+.shop-row__addr > span:last-child { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .shop-row__note span {
   font-family: var(--font-ui);
   font-weight: 500; /* 피그마: Medium 13 */
