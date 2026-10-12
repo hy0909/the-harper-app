@@ -152,8 +152,7 @@
     'confirm': ['확인', 'OK', '確認', '确定', '確定'],
     'profile.photoUpload': ['사진 올리기', 'Upload photo', '写真をアップロード', '上传照片', '上傳照片'],
     'profile.photoChange': ['사진 바꾸기', 'Change photo', '写真を変更', '更换照片', '更換照片'],
-    'profile.photoRemove': ['사진 지우기', 'Remove photo', '写真を削除', '删除照片', '刪除照片'],
-    'profile.photoHint': ['JPG·PNG, 정사각형으로 자동으로 잘라요', 'JPG or PNG, cropped to a square automatically', 'JPG・PNG、正方形に自動で切り取ります', 'JPG·PNG，自动裁剪为正方形', 'JPG·PNG，自動裁剪為正方形']
+    'profile.photoRemove': ['사진 지우기', 'Remove photo', '写真を削除', '删除照片', '刪除照片']
   };
 
   function read() {
