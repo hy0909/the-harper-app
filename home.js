@@ -99,9 +99,6 @@ window.HARPER_sbWarn = window.HARPER_sbWarn || function (err) {
     var cta = document.getElementById('tour-info-cta');
     var tourMag = (magazines || []).filter(function (m) { return m.kind === 'tour'; })[0];
     if (cta) cta.href = tourMag ? 'magazine.html?id=' + encodeURIComponent(tourMag.id) : 'magazine.html';
-    var noteEl = document.getElementById('tour-info-note');
-    noteEl.textContent = info.note || '';
-    noteEl.hidden = !info.note; /* 안내 한 줄이 비어 있으면 줄 자체를 숨긴다 */
     document.getElementById('tour-info-list').innerHTML = (tours.items || []).map(function (c) {
       var right = c.open
         ? '<p class="tour-info__price">' + esc(c.price) + '</p>'
