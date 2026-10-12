@@ -294,6 +294,9 @@ a.mag__related { text-decoration: none; color: inherit; }
   border-radius: 12px;
   background: var(--gray-10);
 }
+/* 얼굴이 있는 사진만 위치를 맞춘다(16:9 칸에서 얼굴이 잘리지 않게). 나머지 사진은 가운데 */
+.mag-section__image[src$="glowny-directors.jpg"] { object-position: 50% 0%; }
+.mag-section__image[src$="openyy-directors.jpg"] { object-position: 50% 20%; }
 .mag-section__head { display: flex; flex-direction: column; gap: 4px; }
 .mag-section__heading {
   font-family: var(--font-sans);
