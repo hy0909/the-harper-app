@@ -21,6 +21,8 @@ a.onb__close { text-decoration: none; }
   letter-spacing: 0.08em;
   color: var(--ink-50);
 }
+/* 제목과 한 줄 설명은 가운데 */
+.login .onb__head { min-height: 0; align-items: center; text-align: center; }
 .login__list { display: flex; flex-direction: column; gap: 10px; }
 .sns {
   position: relative;
