@@ -22,7 +22,6 @@
 - 매장 목록과 지역 중심 좌표: Supabase `shops` 표(`area_name` 같은 snake_case 열은 `areaName` 으로 바꿔 쓴다) + `areas` 표 → 대신 `data/shops.json`. `shops.js` 가 읽어 목록(`list.js`) · 지도(`map.js`) · 상세(`shop.js`)가 같이 쓴다
 - Supabase 는 SDK 없이 `fetch` 로 PostgREST(`/rest/v1/…`)를 바로 부른다. 못 읽으면 콘솔에 경고 한 줄만 남기고 JSON 으로 넘어간다
 - 사진 주소는 Supabase Storage 의 절대 주소(`https://…`)여도 되고 저장소 안 상대 경로(`assets/…`)여도 된다. 화면에 사진을 넣는 자리는 모두 `window.HARPER_img()` 를 거친다
-- 상세 화면(매거진 대표·본문 사진, 샵 캐러셀)은 사진 원본 크기를 보고 칸 비율을 정한다. 세로 사진은 원본 비율 그대로, 정사각에 가까우면 1:1, 가로는 기존 16:9 가득 채움(`photo-fit.js`). 홈·검색·지도·내 정보 썸네일은 그대로 둔다
 
 이 내용은 관리자 페이지([the-harper-admin](https://github.com/hy0909/the-harper-admin))에서 고친다. `data/` JSON 은 Supabase 를 못 읽을 때의 대비용이니 지우지 않는다. 사진은 `assets/uploads/` 아래(또는 Supabase Storage)에 올라간다.
 
