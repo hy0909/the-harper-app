@@ -1,4 +1,4 @@
-/* 내 정보: 알림 스위치 켜고 끄기. 언어 드로어는 drawer.js가 처리한다(고르면 줄 안의 글자가 바뀐다) */
+/* 내 정보: 알림 스위치 켜고 끄기. 언어 드로어는 drawer.js가 연다 */
 (function () {
   var sw = document.querySelector('.switch');
   if (sw) {
@@ -7,6 +7,24 @@
       sw.setAttribute('aria-checked', on ? 'false' : 'true');
     });
   }
+})();
+
+/* 언어: 줄에는 지금 쓰는 언어 이름(i18n.js 의 harper:lang)을 보여 주고, 드로어에서 고르면 저장한 뒤 페이지를 다시 열어
+   데이터에서 오는 글(찜한 매장 이름 등)까지 그 언어로 바꾼다 */
+(function () {
+  var lang = window.HARPER_LANG || 'ko';
+  var names = window.HARPER_LANG_NAMES || {};
+  var label = document.querySelector('#lang-toggle [data-drawer-label]');
+  if (label && names[lang]) label.textContent = names[lang];
+  Array.prototype.forEach.call(document.querySelectorAll('#lang-drawer .drawer__item'), function (b) {
+    b.setAttribute('aria-selected', b.dataset.lang === lang ? 'true' : 'false');
+  });
+  document.addEventListener('langchange', function (e) {
+    var v = e.detail && e.detail.lang;
+    if (!v || v === lang || !window.HARPER_setLang) return;
+    window.HARPER_setLang(v);
+    location.reload();
+  });
 })();
 
 /* 찜한 매장: harper:likes 에 든 매장 id 를 shops.js 데이터(HARPER_SHOPS)에서 찾아 카드로 그린다.

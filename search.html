@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>THE HARPER 앱 미리보기 — 검색</title>
+  <title data-i18n-page="page.search">THE HARPER 앱 미리보기 — 검색</title>
   <meta name="description" content="THE HARPER 모바일앱 검색(목록) 화면을 웹에서 미리 보는 페이지">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -16,30 +16,30 @@
 
     <header class="header">
       <a class="header__logo" href="index.html">THE HARPER</a>
-      <a class="header__icon" href="search.html" aria-label="검색">
+      <a class="header__icon" href="search.html" aria-label="검색" data-i18n-attrs="aria-label=header.search">
         <img src="assets/search.svg" width="24" height="24" alt="">
       </a>
     </header>
 
     <div class="explore">
-      <nav class="explore__tabs" aria-label="보기 방식">
-        <a class="explore__tab" href="search.html" aria-current="page">목록</a>
-        <a class="explore__tab" href="map.html">지도</a>
+      <nav class="explore__tabs" aria-label="보기 방식" data-i18n-attrs="aria-label=explore.view">
+        <a class="explore__tab" href="search.html" aria-current="page" data-i18n="explore.list">목록</a>
+        <a class="explore__tab" href="map.html" data-i18n="explore.map">지도</a>
       </nav>
 
       <div class="explore__below">
         <div class="filter" style="padding: 0 24px;">
           <div class="filter__count">
-            <span>전체</span>
+            <span data-i18n="filter.all">전체</span>
             <span class="filter__count-num">100</span>
           </div>
           <div class="filter__groups">
             <button type="button" class="filter__group" id="area-toggle" data-drawer="area-drawer" aria-haspopup="dialog" aria-expanded="false">
-              <span id="area-label" data-drawer-label>지역</span>
+              <span id="area-label" data-drawer-label data-i18n="filter.area">지역</span>
               <img src="assets/chevron-down.svg" width="20" height="20" alt="">
             </button>
             <button type="button" class="filter__group" id="tier-toggle" data-drawer="tier-drawer" aria-haspopup="dialog" aria-expanded="false">
-              <span id="tier-label" data-drawer-label>티어</span>
+              <span id="tier-label" data-drawer-label data-i18n="filter.tier">티어</span>
               <img src="assets/chevron-down.svg" width="20" height="20" alt="">
             </button>
           </div>
@@ -51,18 +51,18 @@
     </div>
 
     <!-- 하단 탭 (아이콘: 홈 Material Symbols · 검색 Fluent Filled · 내 정보 IconaMoon Fill) -->
-    <nav class="tabbar" aria-label="주요 메뉴">
+    <nav class="tabbar" aria-label="주요 메뉴" data-i18n-attrs="aria-label=nav.main">
       <a class="tab" href="index.html">
         <span class="tab__icon tab__icon--home" aria-hidden="true"></span>
-        <span class="tab__label">홈</span>
+        <span class="tab__label" data-i18n="tab.home">홈</span>
       </a>
       <a class="tab" href="search.html" aria-current="page">
         <span class="tab__icon tab__icon--search" aria-hidden="true"></span>
-        <span class="tab__label">매장 검색</span>
+        <span class="tab__label" data-i18n="tab.search">매장 검색</span>
       </a>
       <a class="tab" href="my.html">
         <span class="tab__icon tab__icon--user" aria-hidden="true"></span>
-        <span class="tab__label">내 정보</span>
+        <span class="tab__label" data-i18n="tab.my">내 정보</span>
       </a>
     </nav>
 
@@ -71,12 +71,12 @@
       <div class="drawer__dim" data-drawer-close></div>
       <div class="drawer__sheet" role="dialog" aria-modal="true" aria-labelledby="area-drawer-title">
         <span class="drawer__handle" aria-hidden="true"></span>
-        <p class="drawer__title" id="area-drawer-title">지역</p>
-        <ul class="drawer__list" role="listbox" aria-label="지역">
-          <li><button type="button" class="drawer__item" role="option" data-area="all" data-label="지역" aria-selected="true">전체</button></li>
-          <li><button type="button" class="drawer__item" role="option" data-area="seongsu">성수</button></li>
-          <li><button type="button" class="drawer__item" role="option" data-area="hannam">한남</button></li>
-          <li><button type="button" class="drawer__item" role="option" data-area="apgujeong">압구정</button></li>
+        <p class="drawer__title" id="area-drawer-title" data-i18n="filter.area">지역</p>
+        <ul class="drawer__list" role="listbox" aria-label="지역" data-i18n-attrs="aria-label=filter.area">
+          <li><button type="button" class="drawer__item" role="option" data-area="all" data-label="지역" aria-selected="true" data-i18n="filter.all" data-i18n-attrs="data-label=filter.area">전체</button></li>
+          <li><button type="button" class="drawer__item" role="option" data-area="seongsu" data-i18n="area.seongsu">성수</button></li>
+          <li><button type="button" class="drawer__item" role="option" data-area="hannam" data-i18n="area.hannam">한남</button></li>
+          <li><button type="button" class="drawer__item" role="option" data-area="apgujeong" data-i18n="area.apgujeong">압구정</button></li>
         </ul>
       </div>
     </div>
@@ -85,22 +85,23 @@
       <div class="drawer__dim" data-drawer-close></div>
       <div class="drawer__sheet" role="dialog" aria-modal="true" aria-labelledby="tier-drawer-title">
         <span class="drawer__handle" aria-hidden="true"></span>
-        <p class="drawer__title" id="tier-drawer-title">티어</p>
-        <ul class="drawer__list" role="listbox" aria-label="티어">
-          <li><button type="button" class="drawer__item" role="option" data-tier="all" data-label="티어" aria-selected="true">전체</button></li>
-          <li><button type="button" class="drawer__item" role="option" data-tier="1">티어 1</button></li>
-          <li><button type="button" class="drawer__item" role="option" data-tier="2">티어 2</button></li>
-          <li><button type="button" class="drawer__item" role="option" data-tier="3">티어 3</button></li>
-          <li><button type="button" class="drawer__item" role="option" data-tier="4">티어 4</button></li>
-          <li><button type="button" class="drawer__item" role="option" data-tier="5">티어 5</button></li>
+        <p class="drawer__title" id="tier-drawer-title" data-i18n="filter.tier">티어</p>
+        <ul class="drawer__list" role="listbox" aria-label="티어" data-i18n-attrs="aria-label=filter.tier">
+          <li><button type="button" class="drawer__item" role="option" data-tier="all" data-label="티어" aria-selected="true" data-i18n="filter.all" data-i18n-attrs="data-label=filter.tier">전체</button></li>
+          <li><button type="button" class="drawer__item" role="option" data-tier="1" data-i18n="tier.1">티어 1</button></li>
+          <li><button type="button" class="drawer__item" role="option" data-tier="2" data-i18n="tier.2">티어 2</button></li>
+          <li><button type="button" class="drawer__item" role="option" data-tier="3" data-i18n="tier.3">티어 3</button></li>
+          <li><button type="button" class="drawer__item" role="option" data-tier="4" data-i18n="tier.4">티어 4</button></li>
+          <li><button type="button" class="drawer__item" role="option" data-tier="5" data-i18n="tier.5">티어 5</button></li>
         </ul>
       </div>
     </div>
   </main>
 
+  <script src="i18n.js?v=1"></script>
   <script src="drawer.js?v=2"></script>
   <script src="config.js?v=2"></script>
-  <script src="shops.js?v=6"></script>
+  <script src="shops.js?v=7"></script>
   <script src="list.js?v=7"></script>
 </body>
 </html>

@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>THE HARPER 앱 미리보기 — 내 정보</title>
+  <title data-i18n-page="page.my">THE HARPER 앱 미리보기 — 내 정보</title>
   <meta name="description" content="THE HARPER 모바일앱 내 정보(마이페이지) 화면을 웹에서 미리 보는 페이지. 설계서 09 구성(프로필 · 찜한 매장 · 방문 히스토리 · 언어/알림 설정 · 고객센터 · 로그아웃)">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -17,7 +17,7 @@
 
     <header class="header">
       <a class="header__logo" href="index.html">THE HARPER</a>
-      <a class="header__icon" href="search.html" aria-label="검색">
+      <a class="header__icon" href="search.html" aria-label="검색" data-i18n-attrs="aria-label=header.search">
         <img src="assets/search.svg" width="24" height="24" alt="">
       </a>
     </header>
@@ -28,34 +28,34 @@
       <section class="profile" aria-labelledby="profile-name">
         <span class="profile__avatar" aria-hidden="true"></span>
         <div class="profile__text">
-          <h1 class="profile__name" id="profile-name">김하퍼</h1>
+          <h1 class="profile__name" id="profile-name" data-i18n="profile.name">김하퍼</h1>
         </div>
-        <button type="button" class="profile__edit">프로필 수정</button>
+        <button type="button" class="profile__edit" data-i18n="profile.edit">프로필 수정</button>
       </section>
 
       <!-- ② 찜한 매장: 기기에 저장한 매장을 my.js 가 shops.js 데이터로 그린다. 하나도 없으면 한 줄 안내 -->
       <section class="saved" aria-labelledby="saved-title">
         <div class="my-head">
-          <p class="eyebrow" id="saved-title">찜한 매장 <span class="my-head__count" id="saved-count">0</span></p>
-          <a class="my-head__link" href="search.html">전체 보기</a>
+          <p class="eyebrow" id="saved-title"><span data-i18n="saved.title">찜한 매장</span> <span class="my-head__count" id="saved-count">0</span></p>
+          <a class="my-head__link" href="search.html" data-i18n="viewAll">전체 보기</a>
         </div>
         <div class="saved__scroll" id="saved-list" hidden></div>
-        <p class="saved__empty" id="saved-empty" hidden>아직 찜한 매장이 없어요. <a href="search.html">매장 검색</a></p>
+        <p class="saved__empty" id="saved-empty" hidden><span data-i18n="saved.empty">아직 찜한 매장이 없어요.</span> <a href="search.html" data-i18n="tab.search">매장 검색</a></p>
       </section>
 
       <!-- ③ 방문 히스토리 -->
       <section class="history" aria-labelledby="history-title">
         <div class="my-head">
-          <p class="eyebrow" id="history-title">방문 히스토리 <span class="my-head__count">5</span></p>
-          <a class="my-head__link" href="search.html">전체 보기</a>
+          <p class="eyebrow" id="history-title"><span data-i18n="history.title">방문 히스토리</span> <span class="my-head__count">5</span></p>
+          <a class="my-head__link" href="search.html" data-i18n="viewAll">전체 보기</a>
         </div>
         <ul class="my-card my-list">
           <li>
             <a class="history-row" href="shop.html?id=0">
               <time class="history-row__date" datetime="2026-09-28">09.28</time>
               <span class="history-row__text">
-                <span class="history-row__name">썬러브 링크스 성수</span>
-                <span class="history-row__sub">성수 · DAY DROP</span>
+                <span class="history-row__name" data-i18n="history.1.name">썬러브 링크스 성수</span>
+                <span class="history-row__sub" data-i18n="history.1.sub">성수 · DAY DROP</span>
               </span>
               <img class="history-row__chev" src="assets/chevron-right.svg" width="20" height="20" alt="">
             </a>
@@ -64,8 +64,8 @@
             <a class="history-row" href="shop.html?id=3">
               <time class="history-row__date" datetime="2026-09-21">09.21</time>
               <span class="history-row__text">
-                <span class="history-row__name">아더 스페이스 3.0</span>
-                <span class="history-row__sub">성수 · DAY DROP</span>
+                <span class="history-row__name" data-i18n="history.2.name">아더 스페이스 3.0</span>
+                <span class="history-row__sub" data-i18n="history.2.sub">성수 · DAY DROP</span>
               </span>
               <img class="history-row__chev" src="assets/chevron-right.svg" width="20" height="20" alt="">
             </a>
@@ -74,8 +74,8 @@
             <a class="history-row" href="shop.html?id=4">
               <time class="history-row__date" datetime="2026-09-14">09.14</time>
               <span class="history-row__text">
-                <span class="history-row__name">비이커 한남</span>
-                <span class="history-row__sub">한남 · 직접 방문</span>
+                <span class="history-row__name" data-i18n="history.3.name">비이커 한남</span>
+                <span class="history-row__sub" data-i18n="history.3.sub">한남 · 직접 방문</span>
               </span>
               <img class="history-row__chev" src="assets/chevron-right.svg" width="20" height="20" alt="">
             </a>
@@ -85,25 +85,25 @@
 
       <!-- ④ 언어 / 알림 설정 · 고객센터 -->
       <section class="settings" aria-labelledby="settings-title">
-        <p class="eyebrow my-head" id="settings-title">설정</p>
+        <p class="eyebrow my-head" id="settings-title" data-i18n="settings">설정</p>
         <ul class="my-card my-list">
           <li>
             <button type="button" class="setting-row" id="lang-toggle" data-drawer="lang-drawer" aria-haspopup="dialog" aria-expanded="false">
-              <span class="setting-row__label">언어</span>
+              <span class="setting-row__label" data-i18n="settings.lang">언어</span>
               <span class="setting-row__value" data-drawer-label>한국어</span>
               <img class="setting-row__chev" src="assets/chevron-right.svg" width="20" height="20" alt="">
             </button>
           </li>
           <li>
             <div class="setting-row">
-              <span class="setting-row__label" id="noti-label">알림</span>
-              <span class="setting-row__hint">새 에디터 픽 · 예약 안내</span>
+              <span class="setting-row__label" id="noti-label" data-i18n="settings.noti">알림</span>
+              <span class="setting-row__hint" data-i18n="settings.notiHint">새 에디터 픽 · 예약 안내</span>
               <button type="button" class="switch" role="switch" aria-checked="true" aria-labelledby="noti-label"><span class="switch__knob"></span></button>
             </div>
           </li>
           <li>
             <a class="setting-row" href="mailto:contact@theharper.co.kr">
-              <span class="setting-row__label">고객센터</span>
+              <span class="setting-row__label" data-i18n="settings.support">고객센터</span>
               <span class="setting-row__value">contact@theharper.co.kr</span>
               <img class="setting-row__chev" src="assets/chevron-right.svg" width="20" height="20" alt="">
             </a>
@@ -113,7 +113,7 @@
 
       <!-- ⑤ 로그아웃 -->
       <div class="logout">
-        <button type="button" class="logout__btn">로그아웃</button>
+        <button type="button" class="logout__btn" data-i18n="logout">로그아웃</button>
       </div>
 
     </div>
@@ -123,7 +123,7 @@
       <div class="drawer__dim" data-drawer-close></div>
       <div class="drawer__sheet" role="dialog" aria-modal="true" aria-labelledby="lang-drawer-title">
         <div class="drawer__handle" aria-hidden="true"></div>
-        <p class="drawer__title" id="lang-drawer-title">언어</p>
+        <p class="drawer__title" id="lang-drawer-title" data-i18n="settings.lang">언어</p>
         <ul class="drawer__list">
           <li><button type="button" class="drawer__item" aria-selected="true" data-lang="ko">한국어</button></li>
           <li><button type="button" class="drawer__item" aria-selected="false" data-lang="en">English</button></li>
@@ -135,25 +135,26 @@
     </div>
 
     <!-- 하단 탭 -->
-    <nav class="tabbar" aria-label="주요 메뉴">
+    <nav class="tabbar" aria-label="주요 메뉴" data-i18n-attrs="aria-label=nav.main">
       <a class="tab" href="index.html">
         <span class="tab__icon tab__icon--home" aria-hidden="true"></span>
-        <span class="tab__label">홈</span>
+        <span class="tab__label" data-i18n="tab.home">홈</span>
       </a>
       <a class="tab" href="search.html">
         <span class="tab__icon tab__icon--search" aria-hidden="true"></span>
-        <span class="tab__label">매장 검색</span>
+        <span class="tab__label" data-i18n="tab.search">매장 검색</span>
       </a>
       <a class="tab" href="my.html" aria-current="page">
         <span class="tab__icon tab__icon--user" aria-hidden="true"></span>
-        <span class="tab__label">내 정보</span>
+        <span class="tab__label" data-i18n="tab.my">내 정보</span>
       </a>
     </nav>
   </main>
 
+  <script src="i18n.js?v=1"></script>
   <script src="drawer.js?v=2"></script>
   <script src="config.js?v=2"></script>
-  <script src="shops.js?v=6"></script>
-  <script src="my.js?v=2"></script>
+  <script src="shops.js?v=7"></script>
+  <script src="my.js?v=3"></script>
 </body>
 </html>

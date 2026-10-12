@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>THE HARPER 앱 미리보기 — 매거진</title>
+  <title data-i18n-page="page.magazine">THE HARPER 앱 미리보기 — 매거진</title>
   <meta name="description" content="THE HARPER 모바일앱 매거진 상세 화면을 웹에서 미리 보는 페이지">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -16,10 +16,10 @@
   <main class="phone phone--magazine" aria-label="THE HARPER 매거진 상세">
 
     <header class="mag-header">
-      <a class="mag-header__back" href="index.html" aria-label="뒤로">
+      <a class="mag-header__back" href="index.html" aria-label="뒤로" data-i18n-attrs="aria-label=back">
         <img src="assets/chevron-left.svg" width="24" height="24" alt="">
       </a>
-      <button type="button" class="mag-header__share" aria-label="공유">
+      <button type="button" class="mag-header__share" aria-label="공유" data-i18n-attrs="aria-label=share">
         <img src="assets/share.svg" width="24" height="24" alt="">
       </button>
     </header>
@@ -85,8 +85,9 @@
     </div>
 
   </main>
+  <script src="i18n.js?v=1"></script>
   <script src="config.js?v=2"></script>
-  <script src="home.js?v=14"></script>
-  <script src="magazine.js?v=5"></script>
+  <script src="home.js?v=15"></script>
+  <script src="magazine.js?v=6"></script>
 </body>
 </html>

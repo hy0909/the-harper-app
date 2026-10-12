@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>THE HARPER 앱 미리보기 · 시작하기</title>
+  <title data-i18n-page="page.onboarding">THE HARPER 앱 미리보기 · 시작하기</title>
   <meta name="description" content="THE HARPER 처음 켤 때 보이는 시작 화면: 언어와 관심 스타일을 고른다">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -22,10 +22,10 @@
 
     <section class="onb" id="onb-lang" aria-labelledby="onb-lang-title" hidden>
       <div class="onb__header">
-        <button type="button" class="onb__close" aria-label="건너뛰기"><img src="assets/close.svg" width="24" height="24" alt=""></button>
+        <button type="button" class="onb__close" aria-label="건너뛰기" data-i18n-attrs="aria-label=onb.skip"><img src="assets/close.svg" width="24" height="24" alt=""></button>
       </div>
       <div class="onb__body">
-        <div class="onb__head"><h1 class="onb__title" id="onb-lang-title">언어를 선택하세요</h1></div>
+        <div class="onb__head"><h1 class="onb__title" id="onb-lang-title" data-i18n="onb.langTitle">언어를 선택하세요</h1></div>
         <div class="onb__list" role="radiogroup" aria-labelledby="onb-lang-title">
           <button type="button" class="onb__item" role="radio" aria-checked="true" data-value="ko"><span>한국어</span><img src="assets/check-circle.svg" alt=""></button>
           <button type="button" class="onb__item" role="radio" aria-checked="false" data-value="en"><span>English</span><img src="assets/check-circle.svg" alt=""></button>
@@ -34,30 +34,31 @@
           <button type="button" class="onb__item" role="radio" aria-checked="false" data-value="zh-Hant"><span>繁體中文</span><img src="assets/check-circle.svg" alt=""></button>
         </div>
       </div>
-      <button type="button" class="onb__cta">다음</button>
+      <button type="button" class="onb__cta" data-i18n="onb.next">다음</button>
     </section>
 
     <section class="onb" id="onb-style" aria-labelledby="onb-style-title" hidden>
       <div class="onb__header">
-        <button type="button" class="onb__close" aria-label="건너뛰기"><img src="assets/close.svg" width="24" height="24" alt=""></button>
+        <button type="button" class="onb__close" aria-label="건너뛰기" data-i18n-attrs="aria-label=onb.skip"><img src="assets/close.svg" width="24" height="24" alt=""></button>
       </div>
       <div class="onb__body">
         <div class="onb__head">
-          <h1 class="onb__title" id="onb-style-title">관심 스타일을 선택하세요</h1>
-          <p class="onb__sub">복수 선택 허용</p>
+          <h1 class="onb__title" id="onb-style-title" data-i18n="onb.styleTitle">관심 스타일을 선택하세요</h1>
+          <p class="onb__sub" data-i18n="onb.styleSub">복수 선택 허용</p>
         </div>
         <div class="onb__list" role="group" aria-labelledby="onb-style-title">
-          <button type="button" class="onb__item" role="checkbox" aria-checked="true" data-value="editorial"><span>에디토리얼</span><img src="assets/check-circle.svg" alt=""></button>
-          <button type="button" class="onb__item" role="checkbox" aria-checked="false" data-value="minimal"><span>미니멀</span><img src="assets/check-circle.svg" alt=""></button>
-          <button type="button" class="onb__item" role="checkbox" aria-checked="false" data-value="street"><span>스트리트</span><img src="assets/check-circle.svg" alt=""></button>
-          <button type="button" class="onb__item" role="checkbox" aria-checked="false" data-value="vintage"><span>빈티지</span><img src="assets/check-circle.svg" alt=""></button>
-          <button type="button" class="onb__item" role="checkbox" aria-checked="false" data-value="feminine"><span>페미닌</span><img src="assets/check-circle.svg" alt=""></button>
+          <button type="button" class="onb__item" role="checkbox" aria-checked="true" data-value="editorial"><span data-i18n="onb.editorial">에디토리얼</span><img src="assets/check-circle.svg" alt=""></button>
+          <button type="button" class="onb__item" role="checkbox" aria-checked="false" data-value="minimal"><span data-i18n="onb.minimal">미니멀</span><img src="assets/check-circle.svg" alt=""></button>
+          <button type="button" class="onb__item" role="checkbox" aria-checked="false" data-value="street"><span data-i18n="onb.street">스트리트</span><img src="assets/check-circle.svg" alt=""></button>
+          <button type="button" class="onb__item" role="checkbox" aria-checked="false" data-value="vintage"><span data-i18n="onb.vintage">빈티지</span><img src="assets/check-circle.svg" alt=""></button>
+          <button type="button" class="onb__item" role="checkbox" aria-checked="false" data-value="feminine"><span data-i18n="onb.feminine">페미닌</span><img src="assets/check-circle.svg" alt=""></button>
         </div>
       </div>
-      <button type="button" class="onb__cta">시작하기</button>
+      <button type="button" class="onb__cta" data-i18n="onb.start">시작하기</button>
     </section>
   </main>
 
-  <script src="onboarding.js?v=2"></script>
+  <script src="i18n.js?v=1"></script>
+  <script src="onboarding.js?v=3"></script>
 </body>
 </html>

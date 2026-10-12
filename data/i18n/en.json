@@ -1,0 +1,368 @@
+{
+  "editors": {
+    "h": {
+      "name": "Editor H"
+    }
+  },
+  "home": {
+    "today": {
+      "eyebrow": "Today's Pick",
+      "title": "Brands Made Famous\nby Celebrities"
+    },
+    "tours": {
+      "title": "Tour Types",
+      "soonLabel": "Coming Soon",
+      "info": {
+        "title": "About Tour Types",
+        "note": ""
+      },
+      "items": {
+        "DAY DROP": {
+          "title": "3-Hour Shopping Tour with a Curator",
+          "price": "₩128,000~",
+          "desc": "A one-session curation where you spend half a day with an editor, visiting shops in Seongsu, Hannam, and Apgujeong to choose clothes together. Your editor speaks up honestly while you try things on. Price based on 4 people."
+        },
+        "CAPSULE": {
+          "title": "All-Day 1:1 Curation",
+          "price": "",
+          "desc": "A full day spent one-on-one with a single editor. We hear your taste in advance and map out the route."
+        },
+        "SIGNATURE": {
+          "title": "1-Night Heritage Tour",
+          "price": "",
+          "desc": "A two-day, one-night trip tracing the roots of K-fashion in Seoul. The schedule includes showrooms, workshops, and meetings with designers."
+        },
+        "BESPOKE": {
+          "title": "VIP Custom Tour",
+          "price": "",
+          "desc": "A tour built from scratch around your schedule, route, and group size. We settle the details in a consultation after your inquiry."
+        }
+      }
+    },
+    "feed": {
+      "title": "Editor's Curation Feed",
+      "items": {
+        "k-brand-interview": {
+          "title": "K-BRAND\nDesigner Interviews"
+        },
+        "k-brand-showroom": {
+          "title": "K-BRAND\nShowroom Guide"
+        },
+        "seongsu-daydrop": {
+          "title": "Korean Brands to Discover\nat a Seongsu Warehouse Showroom"
+        }
+      }
+    },
+    "picks": {
+      "title": "Editor’s PICK"
+    }
+  },
+  "magazines": {
+    "seongsu-daydrop": {
+      "badge": "Day Drop",
+      "title": "Korean Brands to Discover at a Seongsu Warehouse Showroom",
+      "price": "₩128,000~",
+      "note": "Based on 4 people",
+      "summary": "A tour with an editor through five hidden designer brand studios in Seongsu",
+      "info": [
+        {
+          "label": "Meeting time",
+          "value": "1:00 PM"
+        },
+        {
+          "label": "Meeting point",
+          "value": "In front of Seongsu Station, Exit 4"
+        },
+        {
+          "label": "Duration",
+          "value": "5 hours in total (1:00-5:00 PM)"
+        },
+        {
+          "label": "Group size",
+          "value": "Based on 4 people"
+        }
+      ],
+      "intro": "Hi, I’m Editor H. Today’s Day Drop is Seongsu.\nAcross Seongsu, Korean brands with no store in Japan are tucked into almost every alley. They don’t show up in search, and their signs are small enough that you could walk right past them. So for half a day, let’s explore them together!\n\n🧵 THE HARPER DAY DROP\nKorean Brands to Discover at a Seongsu Warehouse Showroom\n\n🤎 Showrooms and flagships for Korean brands you can’t buy in Japan\n🤎 I’ll try things on with you and tell you honestly what suits you\n🤎 Mostly shops off the main streets, the kind Seoul locals keep to themselves\n🤎 ₩128,000~ (Based on 4 people)\n\nThis tour is for you if\n✨ You want to buy Korean clothes but don’t know where to start\n✨ You’d hesitate to walk into a shop alone\n✨ You want someone to tell you whether a piece in a photo will suit you\n✨ You want to keep wearing your travel finds long after you get home\n\nWhat I do is simple. I pick the shops, and while you try things on, I stand beside you and say, “Buy this one, leave that one.” That way you can see in one day the places Seoul’s clothing lovers visit on weekends.",
+      "sections": [],
+      "related_label": "View Related Shops",
+      "cta_label": "View on Instagram"
+    },
+    "k-brand-celeb": {
+      "badge": "K-BRAND",
+      "title": "Brands Made Famous by Celebrities",
+      "price": "",
+      "note": "",
+      "summary": "From celebrity picks to standout designs, nine K-brands leading today's fashion scene",
+      "info": [],
+      "intro": "These are the brands that get the most “Where is that from?” questions in Seoul right now. From a knit that sold out in a day after a celebrity wore it, to techwear that overseas fashion insiders spotted first. They share one thing: in Seoul, you can buy them at the lowest price, get them fastest, and see them the most.\n\nThe nine brands below are the ones THE HARPER editors picked after touring showrooms in person. If something catches your eye, save it. We can stop by together on a Day Drop.",
+      "sections": [
+        {
+          "heading": "GLOWNY",
+          "sub": "Seoul-based women's wear · Strong support from women in their 20s",
+          "body": "This is the Seoul brand with the most loyal fan base among women in their 20s. Its signature is a sweet, vintage mood with a healthy femininity. Slim tops, knits, mini dresses, and denim, everyday pieces you reach for again and again, are its strongest items. A GLOWNY knit is basically a staple for women in Seoul.",
+          "link_label": "Instagram"
+        },
+        {
+          "heading": "OPEN YY",
+          "sub": "Contemporary label by sister directors · Collaborations with PUMA and KEEN",
+          "body": "A contemporary brand led by sisters Jiyoung and Boyoung. Among young Korean fashion fans, it’s the first name that comes up for “distinctive women’s wear.” Its experimental silhouettes move between women’s wear and unisex, and its ongoing collaborations with global brands like PUMA and KEEN keep it in the conversation every season.",
+          "link_label": "Instagram"
+        },
+        {
+          "heading": "SAN SAN GEAR",
+          "sub": "A rising name in gorpcore and techwear",
+          "body": "A next-generation brand that represents the gorpcore and techwear trend in Korea. Its outerwear and pants combine functional details with futuristic silhouettes. Wearing them doesn’t feel like “I’m in functional clothes,” but “the look is complete.” The brand is building its own utility style.",
+          "link_label": "Instagram"
+        },
+        {
+          "heading": "HYEIN SEO",
+          "sub": "The original Korean avant-garde streetwear label",
+          "body": "A designer brand that was the first to introduce Korean avant-garde streetwear to the world. Its dark, rebellious aesthetic and structured silhouettes leave a strong impression right away. It started with women's wear and now extends into men's, and overseas select shops are often the first to look for it.",
+          "link_label": "Instagram"
+        },
+        {
+          "heading": "POST ARCHIVE FACTION (PAF)",
+          "sub": "Global awareness No. 1 K-contemporary label",
+          "body": "One of the most recognized Korean contemporary brands overseas. Its core is an experimental design language that takes garments apart and reassembles them. Technical jackets and pants with asymmetric patterns and functional fabrics are its signature pieces. Try them on in Seoul and you’ll find they’re a completely different garment from what you saw in photos.",
+          "link_label": "Instagram"
+        },
+        {
+          "heading": "GROVE",
+          "sub": "1960s vintage, reimagined for Seoul today",
+          "body": "A contemporary casual brand with strong recognition among women in their 20s and 30s. The base is a clean, classic design that reinterprets 1960s vintage for today. Many of its pieces are highly versatile everyday wear like knits, tops, and skirts, which is why it's often named “the brand travelers bring home and wear the most.”",
+          "link_label": "Instagram"
+        },
+        {
+          "heading": "MATIN KIM",
+          "sub": "A leading K-fashion brand for Gen Z · Strong in logo accessories",
+          "body": "The K-fashion brand with the widest mainstream reach among Gen Z in Korea and abroad. Its core is trendy yet everyday casualwear, but its real strength is the accessory line: bags, wallets, and caps featuring its logo. Many people pick one up as a gift.",
+          "link_label": "Instagram"
+        },
+        {
+          "heading": "SINOON",
+          "sub": "Romantic girlish mood, with a Seoul twist",
+          "body": "A brand that turns romantic, girlish sensibility into a modern Seoul mood, and has quickly grown its following among women in their 20s. Its main lines are women's wear and accessories with soft silhouettes, including knits, cardigans, skirts, and dresses. The Dosan flagship is worth a visit, since the space itself is the content.",
+          "link_label": "Instagram"
+        },
+        {
+          "heading": "GENTLE MONSTER (+ Atissu)",
+          "sub": "A global eyewear brand that represents K-fashion",
+          "body": "A bold brand world that brings fashion, art, and space together around sunglasses and eyeglasses. Its experimental frame designs, large flagship stores, and steady stream of global collaborations put it in a position all its own. You can also enjoy the dessert brand Atissu in the same building.",
+          "link_label": "Instagram"
+        }
+      ],
+      "related_label": "View Related Shops",
+      "cta_label": "View on Instagram"
+    },
+    "k-brand-interview": {
+      "badge": "K-BRAND",
+      "title": "K-BRAND Designer Interviews",
+      "price": "",
+      "note": "",
+      "summary": "The sister directors behind two Korean brands drawing intense attention overseas",
+      "info": [],
+      "intro": "When overseas fashion people talk about “Seoul brands,” two names always come up: GLOWNY and OPEN YY. What’s interesting is that both brands are led by sisters. One handles the business, the other handles the creative side. The synergy came from different tastes and senses colliding and blending, and that’s what built the brands you see today.\n\nIn this issue, we look at how the two sister directors got started, where they are now, and how they make “the clothes we want to wear.”",
+      "sections": [
+        {
+          "heading": "GLOWNY Directors & Designers",
+          "sub": "CEO Choi Jein · Creative Director Choi Jiho",
+          "body": "GLOWNY’s creative director is Choi Jiho (right in the photo). Together with her older sister, CEO Choi Jein (left), she launched GLOWNY in 2020 as a sister founding team. The roles are clear. Choi Jein oversees the whole business, while Choi Jiho takes charge of GLOWNY’s creative side, from product design to content and visuals.\n\n“My sister reads the numbers, I look at the clothes.” That setup is the secret behind what makes GLOWNY feel so much like GLOWNY. The balance between lovely but not lightweight, and vintage but not dated, came from the two of them clashing and creating every day.",
+          "link_label": "View brand story"
+        },
+        {
+          "heading": "OPEN YY Directors & Designers",
+          "sub": "Sister directors Kim Jiyoung and Kim Boyoung",
+          "body": "OPEN YY’s creative directors are also sisters, Kim Jiyoung and Kim Boyoung. Neither of them trained as a fashion designer. They are people who love clothes and have watched them closely for a long time. They started the brand with one wish: to make clothes they themselves would love to wear and feel excited about.\n\nThey had been running a label called THE OPEN PRODUCT, and in 2023 they renamed it OPEN YY, opening a new chapter. Today, with silhouettes that move between women's wear and unisex, it's a brand that overseas buyers seek out first.",
+          "link_label": "Instagram"
+        }
+      ],
+      "related_label": "View Related Shops",
+      "cta_label": "View on Instagram"
+    },
+    "k-brand-showroom": {
+      "badge": "K-BRAND",
+      "title": "K-BRAND Showroom Guide",
+      "price": "",
+      "note": "",
+      "summary": "A one-day route through Apgujeong and Dosan, the hottest neighborhood right now, following K-brand showrooms",
+      "info": [],
+      "intro": "Apgujeong has become Seoul’s hottest neighborhood again. Around Dosan Park especially, the showrooms of K-brands drawing attention right now sit within a 10-minute walk of each other. This route is about more than clothes. You get to experience the whole world each brand has built, from the space and music to the coffee.\n\nWalking the stops in the order below takes about half a day. Save the map link, and if you hesitate inside a showroom, call an editor from THE HARPER.",
+      "sections": [
+        {
+          "heading": "House Nowhere Dosan",
+          "sub": "50 Apgujeong-ro 46-gil, Gangnam-gu, Seoul",
+          "body": "The starting point of the route. It’s an editorial showroom that presents several K-brands in one space, so it's a good place to get a feel for the brands you'll see today.",
+          "link_label": "View map"
+        },
+        {
+          "heading": "GLOWNY Dosan",
+          "sub": "19 Eonju-ro 164-gil, Gangnam-gu, Seoul",
+          "body": "Here you can try on the knit that sold out online in real life. If you're unsure about sizing, the staff will tell you honestly, so ask them with confidence.",
+          "link_label": "View map"
+        },
+        {
+          "heading": "SINOON Flagship Store Dosan",
+          "sub": "47 Apgujeong-ro 42-gil, Gangnam-gu, Seoul",
+          "body": "The space itself reflects the brand’s mood. Try on the knits and dresses with soft silhouettes, and be sure to take photos while you're there.",
+          "link_label": "View map"
+        },
+        {
+          "heading": "ELBORN Dosan Flagship Store",
+          "sub": "42 Apgujeong-ro 42-gil, Gangnam-gu, Seoul",
+          "body": "It's right next to SINOON, so it's easy to stop by next. If you're looking for simple everyday wear, you'll likely find at least one piece to take home.",
+          "link_label": "View map"
+        },
+        {
+          "heading": "Atelier Edition",
+          "sub": "34 Apgujeong-ro 46-gil, Gangnam-gu, Seoul, 1F-2F",
+          "body": "The first and second floors have different moods, so you'll be surprised twice. It curates Korean designer brands, which makes it a great place to find brands you've never heard of but love.",
+          "link_label": "View map"
+        },
+        {
+          "heading": "YUMER Dosan Branch",
+          "sub": "11 Dosan-daero 49-gil, Gangnam-gu, Seoul, B1-1F",
+          "body": "A showroom that connects a basement level and the ground floor. It's good for a slow browse later in the route, and there are plenty of cafés nearby if you want a break.",
+          "link_label": "View map"
+        },
+        {
+          "heading": "Urbanic30",
+          "sub": "3 Seolleung-ro 160-gil, Gangnam-gu, Seoul",
+          "body": "The end of the route. The minimalist space has clothes hung sparsely, so it's a good place to sort through everything you've seen all day and pick one last piece.",
+          "link_label": "View map"
+        }
+      ],
+      "related_label": "View Related Shops",
+      "cta_label": "View on Instagram"
+    }
+  },
+  "shops": {
+    "0": {
+      "areaName": "Seongsu",
+      "name": "Sunlove Links Seongsu",
+      "addr": "269-77 Seongsu-dong 2-ga",
+      "note": "Hidden designer brand select shop in Seongsu",
+      "intro": [
+        "Deep in a Seongsu alley, this select shop has a small sign that's easy to walk right past. It gathers emerging Korean designer brands, most of which have no store in Japan, so you can only buy them here.",
+        "Don't try to see everything at once. Take your time with one rack at a time. Staff tend to be honest if you're unsure about sizing, so feel free to ask them."
+      ]
+    },
+    "1": {
+      "areaName": "Seongsu",
+      "name": "Point of View Seongsu",
+      "addr": "18 Yeonmujang-gil",
+      "note": "Select shop with stationery and objets",
+      "intro": [
+        "There are no clothes here, but it's a good stop midway through the Seongsu tour. As you browse stationery and small objets, your shopping pace gets a short break."
+      ]
+    },
+    "2": {
+      "areaName": "Seongsu",
+      "name": "LCDC SEOUL",
+      "addr": "10 Yeonmujang 17-gil",
+      "note": "A complex where brand shops gather",
+      "intro": [
+        "Brand shops and cafés are gathered in one building. It's a good addition to the tour route on a rainy day."
+      ]
+    },
+    "3": {
+      "areaName": "Seongsu",
+      "name": "ADER Space 3.0",
+      "addr": "53 Yeonmujang-gil",
+      "note": "ADER ERROR flagship, where the space itself is the attraction",
+      "intro": [
+        "This is ADER ERROR's Seongsu flagship. The spatial design is as famous as the clothes, so many people come just to take photos."
+      ]
+    },
+    "4": {
+      "areaName": "Hannam",
+      "name": "BEAKER Hannam",
+      "addr": "57 Itaewon-ro 54-gil",
+      "note": "Hannam select shop with a wide range of Korean and global brands",
+      "intro": [
+        "The widest select shop in Hannam. Korean and overseas brands hang side by side, which makes them easy to compare."
+      ]
+    },
+    "5": {
+      "areaName": "Hannam",
+      "name": "AMOMENTO Hannam",
+      "addr": "Hannam-dong [TBD]",
+      "note": "Flagship for a Korean brand with no unnecessary details",
+      "intro": [
+        "The flagship of a brand that makes clothes with color and line reduced to the minimum. It's the first place I recommend to anyone who wants to wear basics for a long time."
+      ]
+    },
+    "6": {
+      "areaName": "Hannam",
+      "name": "EMPTY Hannam",
+      "addr": "Hannam-dong [TBD]",
+      "note": "Select shop gathering emerging brands, run by Musinsa",
+      "intro": [
+        "An offline select shop run by Musinsa. You can try on in person the emerging brands you've only seen online."
+      ]
+    },
+    "7": {
+      "areaName": "Apgujeong",
+      "name": "House Nowhere Dosan",
+      "addr": "50 Apgujeong-ro 46-gil",
+      "note": "K-brand select shop in the Dosan alleys",
+      "intro": [
+        "The first stop on the Apgujeong Dosan showroom route. We are still preparing the store introduction [TBD]."
+      ]
+    },
+    "8": {
+      "areaName": "Apgujeong",
+      "name": "GLOWNY Dosan",
+      "addr": "19 Eonju-ro 164-gil",
+      "note": "Seoul women's wear brand with a strong fan base among women in their 20s",
+      "intro": [
+        "A style that adds healthy femininity to a lovely, vintage mood. Slim tops, knits, mini dresses, and denim are its strong everyday pieces.",
+        "A brand led by sisters, started in 2020."
+      ]
+    },
+    "9": {
+      "areaName": "Apgujeong",
+      "name": "SINOON Flagship Store Dosan",
+      "addr": "47 Apgujeong-ro 42-gil",
+      "note": "Women's wear that turns a romantic girlish mood into a Seoul vibe",
+      "intro": [
+        "Women's wear and accessories with soft silhouettes, such as knits, cardigans, skirts, and dresses, are its specialty. It has steadily grown its recognition among women in their 20s."
+      ]
+    },
+    "10": {
+      "areaName": "Apgujeong",
+      "name": "ELBORN Dosan Flagship Store",
+      "addr": "42 Apgujeong-ro 42-gil",
+      "note": "A K-brand flagship in Dosan",
+      "intro": [
+        "A flagship included in the Apgujeong Dosan showroom route. We are still preparing the store introduction [TBD]."
+      ]
+    },
+    "11": {
+      "areaName": "Apgujeong",
+      "name": "Atelier Edition",
+      "addr": "34 Apgujeong-ro 46-gil, 1F-2F",
+      "note": "A Dosan select shop spanning the 1st and 2nd floors",
+      "intro": [
+        "A select shop that uses both the 1st and 2nd floors. We are still preparing the store introduction [TBD]."
+      ]
+    },
+    "12": {
+      "areaName": "Apgujeong",
+      "name": "YUMER Dosan Branch",
+      "addr": "11 Dosan-daero 49-gil, B1-1F",
+      "note": "A K-brand showroom in Dosan",
+      "intro": [
+        "A store that uses both the basement level and the 1st floor. We are still preparing the store introduction [TBD]."
+      ]
+    },
+    "13": {
+      "areaName": "Apgujeong",
+      "name": "Urbanic30",
+      "addr": "3 Seolleung-ro 160-gil",
+      "note": "A K-brand select shop in a Cheongdam-side alley",
+      "intro": [
+        "The last stop on the Apgujeong Dosan route, located on the Cheongdam side. We are still preparing the store introduction [TBD]."
+      ]
+    }
+  }
+}

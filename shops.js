@@ -73,8 +73,18 @@ window.HARPER_sbWarn = window.HARPER_sbWarn || function (err) {
       .then(function (r) { if (!r.ok) throw new Error('shops.json ' + r.status); return r.json(); });
   }
 
+  /* 언어가 한국어가 아니면 data/i18n/<lang>.json 의 매장 글(이름 · 주소 · 한 줄 설명 · 소개)을 덮어씌운다(i18n.js) */
+  function translate(data) {
+    var ready = window.HARPER_i18nReady || Promise.resolve(null);
+    return ready.then(function (tr) {
+      if (tr && window.HARPER_trShop) (data.shops || []).forEach(function (s) { window.HARPER_trShop(s, tr); });
+      return data;
+    });
+  }
+
   fromSupabase()
     .catch(function (err) { window.HARPER_sbWarn(err); return fromJSON(); })
+    .then(translate)
     .then(function (data) {
       window.HARPER_SHOPS = data.shops || [];
       window.HARPER_AREAS = data.areas || {};

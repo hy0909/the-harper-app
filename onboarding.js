@@ -38,6 +38,14 @@
   var pickedLang = bind(lang, false);
   var pickedStyle = bind(style, true);
 
+  /* 언어: 전에 고른 언어(harper:lang)가 있으면 그 줄이 선택돼 있고, 누르는 즉시 화면 글이 그 언어로 바뀐다(i18n.js) */
+  var langItems = Array.prototype.slice.call(lang.querySelectorAll('.onb__item'));
+  var current = window.HARPER_LANG || 'ko';
+  langItems.forEach(function (b) { b.setAttribute('aria-checked', b.dataset.value === current ? 'true' : 'false'); });
+  langItems.forEach(function (b) {
+    b.addEventListener('click', function () { if (window.HARPER_setLang) window.HARPER_setLang(b.dataset.value); });
+  });
+
   /* 홈으로 돌아가기. 상대 경로라서 GitHub Pages 하위 경로에서도 맞게 간다 */
   function finish() {
     store.set(KEY, '1');

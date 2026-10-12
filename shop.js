@@ -55,7 +55,8 @@ window.HARPER_onShops(function () {
   var byId = function (i) { return document.getElementById(i); };
   var set = function (i, v) { var el = byId(i); if (el) el.textContent = v; };
 
-  document.title = 'THE HARPER 앱 미리보기 — ' + s.name;
+  var t = window.HARPER_t || function (k) { return k; }; /* 화면 글자 사전(i18n.js) */
+  document.title = t('title.prefix') + s.name;
 
   /* ① 사진: 이 매장 사진 + 다른 매장 사진 3장(실사진이 오기 전 자리) */
   var photos = [s.photo].concat(
@@ -98,7 +99,7 @@ window.HARPER_onShops(function () {
   set('shop-name', s.name);
   byId('shop-badge').hidden = !s.pick;
   set('shop-addr', s.addr);
-  var tags = [s.areaName, s.pick ? '에디터 PICK' : '에디터 추천', '일본 미입점'];
+  var tags = [s.areaName, s.pick ? t('shop.chipPick') : t('shop.chipRec'), t('shop.chipNoJapan')];
   byId('shop-tags').innerHTML = tags.map(function (t, i) {
     return '<span class="shop__chip' + (i === 1 && s.pick ? ' shop__chip--pick' : '') + '">' + t + '</span>';
   }).join('');
@@ -118,8 +119,8 @@ window.HARPER_onShops(function () {
   byId('shop-drops').innerHTML =
     '<a class="shop-row" href="magazine.html?id=seongsu-daydrop">' +
       '<div class="shop-row__thumb"><img class="photo__img" src="assets/photos/seongsu-brick-showroom.jpg" alt=""><div class="photo__shade" aria-hidden="true"></div><span class="badge badge--search">DAY DROP</span></div>' +
-      '<div class="shop-row__body"><div class="shop-row__text"><h3 class="shop-row__name">성수 창고 쇼룸에서 고르는 한국 브랜드</h3><p class="shop-row__addr">128,000원~ · 4인 기준</p></div>' +
-      '<p class="shop-row__note"><img src="assets/check-circle.svg" width="16" height="16" alt=""><span>에디터와 함께 5곳을 돌아보는 투어</span></p></div>' +
+      '<div class="shop-row__body"><div class="shop-row__text"><h3 class="shop-row__name">' + t('shop.dropTitle') + '</h3><p class="shop-row__addr">' + t('shop.dropPrice') + '</p></div>' +
+      '<p class="shop-row__note"><img src="assets/check-circle.svg" width="16" height="16" alt=""><span>' + t('shop.dropNote') + '</span></p></div>' +
     '</a>';
 
   /* 탭: 누르면 그 부분으로, 스크롤하면 보이는 부분에 맞춰 표시 */
@@ -156,7 +157,7 @@ window.HARPER_onShops(function () {
   function paintLike(on) {
     likeBtns.forEach(function (b) {
       b.setAttribute('aria-pressed', on ? 'true' : 'false');
-      b.setAttribute('aria-label', on ? '찜 해제' : '찜하기');
+      b.setAttribute('aria-label', on ? t('unlike') : t('like'));
     });
   }
   paintLike(isLiked(window.HARPER_getLikes()));

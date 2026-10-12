@@ -82,8 +82,10 @@ window.HARPER_sbWarn = window.HARPER_sbWarn || function (err) {
   /* 아직 안 연 투어의 칩 글자. Supabase 에 남은 옛 글자 '추후 확장'은 '오픈 예정'으로 보여 준다 */
   function soonLabelOf(tours) {
     var v = (tours && tours.soonLabel) || '';
-    return (!v || v === '추후 확장') ? '오픈 예정' : v;
+    return (!v || v === '추후 확장') ? t('tours.soon') : v;
   }
+  /* 화면에 박힌 글자(사전, i18n.js). i18n.js 를 안 읽은 페이지면 한국어 그대로 */
+  var t = window.HARPER_t || function (k) { return ({ 'tours.soon': '오픈 예정', 'tours.infoTitle': '투어 종류 안내' })[k] || k; };
 
   /* 투어 종류 안내 모달: ⓘ 버튼으로 열고, 닫기 X · 바깥 어두운 영역 · Esc 로 닫는다. 열려 있는 동안 뒤 화면은 스크롤하지 않는다 */
   function renderTourInfo(tours, magazines) {
@@ -92,7 +94,7 @@ window.HARPER_sbWarn = window.HARPER_sbWarn || function (err) {
     if (!btn || !modal) return;
     var info = tours.info || {};
     var soon = soonLabelOf(tours);
-    document.getElementById('tour-info-title').textContent = info.title || '투어 종류 안내';
+    document.getElementById('tour-info-title').textContent = info.title || t('tours.infoTitle');
     /* 맨 아래 예약하기: 투어(kind=tour) 글이 있으면 그 글로, 없으면 매거진 첫 글로 */
     var cta = document.getElementById('tour-info-cta');
     var tourMag = (magazines || []).filter(function (m) { return m.kind === 'tour'; })[0];
@@ -302,8 +304,15 @@ window.HARPER_sbWarn = window.HARPER_sbWarn || function (err) {
     });
   }
 
+  /* 언어가 한국어가 아니면 data/i18n/<lang>.json 의 홈 글 · 에디터 이름 · 매거진 제목을 덮어씌운다(i18n.js) */
+  function translate(data) {
+    var ready = window.HARPER_i18nReady || Promise.resolve(null);
+    return ready.then(function (tr) { return (tr && window.HARPER_trHome) ? window.HARPER_trHome(data, tr) : data; });
+  }
+
   fromSupabase()
     .catch(function (err) { window.HARPER_sbWarn(err); return fromJSON(); })
+    .then(translate)
     .then(function (data) {
       window.HARPER_CONTENT = data;
       try { renderHome(data); fillEditors(data); }

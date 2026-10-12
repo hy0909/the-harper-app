@@ -1,0 +1,368 @@
+{
+  "editors": {
+    "h": {
+      "name": "編輯H"
+    }
+  },
+  "home": {
+    "today": {
+      "eyebrow": "今日推薦",
+      "title": "因名人穿搭\n而爆紅的品牌"
+    },
+    "tours": {
+      "title": "行程類型",
+      "soonLabel": "即將開放",
+      "info": {
+        "title": "行程類型說明",
+        "note": ""
+      },
+      "items": {
+        "DAY DROP": {
+          "title": "3小時同行選物策展",
+          "price": "₩128,000起",
+          "desc": "和編輯用半天時間，一起逛聖水、漢南、狎鷗亭的店家，挑選單品的策展。試穿時，編輯會在旁邊坦白給你意見。以4人標準計價。"
+        },
+        "CAPSULE": {
+          "title": "全天1:1策展",
+          "price": "",
+          "desc": "從早到晚，與一位編輯1:1同行的策展。先聽你的喜好，再規劃路線。"
+        },
+        "SIGNATURE": {
+          "title": "一晚傳承之旅",
+          "price": "",
+          "desc": "用兩天一夜，追溯首爾K-FASHION的根源。行程包含拜訪展示間、工作室與設計師。"
+        },
+        "BESPOKE": {
+          "title": "VIP客製行程",
+          "price": "",
+          "desc": "從一開始就依行程、動線與同行人數量身規劃的行程。諮詢後再確定細節。"
+        }
+      }
+    },
+    "feed": {
+      "title": "編輯策展動態",
+      "items": {
+        "k-brand-interview": {
+          "title": "K-BRAND\n設計師專訪"
+        },
+        "k-brand-showroom": {
+          "title": "K-BRAND\n展示間介紹"
+        },
+        "seongsu-daydrop": {
+          "title": "在聖水倉庫展示間\n挑選的韓國品牌"
+        }
+      }
+    },
+    "picks": {
+      "title": "編輯’s PICK"
+    }
+  },
+  "magazines": {
+    "seongsu-daydrop": {
+      "badge": "Day Drop",
+      "title": "在聖水倉庫展示間挑選的韓國品牌",
+      "price": "₩128,000起",
+      "note": "4人標準",
+      "summary": "與編輯一起逛聖水隱藏的設計師品牌工作室，共5處的行程",
+      "info": [
+        {
+          "label": "集合時間",
+          "value": "下午1點"
+        },
+        {
+          "label": "集合地點",
+          "value": "聖水站4號出口前"
+        },
+        {
+          "label": "所需時間",
+          "value": "共5小時（下午1點～5點）"
+        },
+        {
+          "label": "人數",
+          "value": "4人標準"
+        }
+      ],
+      "intro": "你好，我是編輯H。今天的Day Drop在聖水。\n聖水的小巷裡，藏著很多在日本沒有分店的韓國品牌。網路上搜不到，走到門口也常因為沒有招牌而錯過，所以這次就跟我一起，花半天時間逛一逛吧！\n\n🧵 THE HARPER DAY DROP\n在聖水倉庫展示間挑選的韓國品牌\n\n🤎 在日本買不到的韓國品牌展示間與旗艦店\n🤎 編輯會在旁邊陪你一起試穿，坦白告訴你適不適合\n🤎 不在大馬路上，只有首爾人才知道的店家為主\n🤎 ₩128,000起（4人標準）\n\n我推薦給這些人\n✨ 想買韓國衣服，卻不知道該去哪裡買的人\n✨ 一個人去，會猶豫要不要推開店門的人\n✨ 想請人幫忙看看，照片裡的衣服是否適合自己的人\n✨ 旅行中買的衣服，回家後還想繼續穿的人\n\n我做的事很單純。替你挑店，試穿時站在旁邊，告訴你「這件買，那件先放下」。讓你在一天的旅程裡，就能逛完首爾愛衣服的人週末會去的地方。",
+      "sections": [],
+      "related_label": "查看相關店家",
+      "cta_label": "在Instagram查看"
+    },
+    "k-brand-celeb": {
+      "badge": "K-BRAND",
+      "title": "因名人穿搭而聞名的品牌",
+      "price": "",
+      "note": "",
+      "summary": "從名人的選擇到獨樹一格的設計，精選目前時尚圈最夯的9個K-BRAND",
+      "info": [],
+      "intro": "最近在首爾，「那件衣服哪裡買的？」問得最多的品牌，我們都收進來了。從名人穿出場、一天就售罄的針織衫，到海外時尚圈率先發現的科技風服飾，都在這裡。共通點只有一個：在首爾買最便宜、最快拿到，也最容易看到。\n\n以下九個品牌，是THE HARPER編輯實際逛過展示間後精選的清單。看到喜歡的品牌就先收藏起來吧。之後的Day Drop，我可以陪你一起去逛。",
+      "sections": [
+        {
+          "heading": "GLOWNY",
+          "sub": "首爾女裝品牌 · 20多歲的壓倒性支持",
+          "body": "20多歲女性粉絲最忠誠的首爾品牌。招牌是可愛又帶點復古的氛圍，再加上健康的女性感。修身上衣與針織、迷你洋裝、牛仔等每天都會想穿的日常款特別強。「GLOWNY針織」可以說是首爾女生的基本款。",
+          "link_label": "Instagram"
+        },
+        {
+          "heading": "OPEN YY",
+          "sub": "姊妹主理人的當代品牌 · 與PUMA、KEEN聯名",
+          "body": "由智英、寶英姊妹領導的當代品牌。在韓國年輕時尚圈，提到「有個性的女裝」，最先想到的就是這個名字。剪裁在女裝與中性之間來回，實驗感十足。加上和PUMA、KEEN等國際品牌的聯名持續不斷，每一季都有話題。",
+          "link_label": "Instagram"
+        },
+        {
+          "heading": "SAN SAN GEAR",
+          "sub": "Gorpcore·科技服飾的新世代代表",
+          "body": "代表韓國Gorpcore與科技服飾潮流的新世代品牌。以結合機能細節與未來感剪裁的外套和褲款為主。穿上的瞬間不會覺得「穿了機能服」，而是「造型完成了」，正打造自己獨有的實用風格。",
+          "link_label": "Instagram"
+        },
+        {
+          "heading": "HYEIN SEO",
+          "sub": "韓國前衛街頭服飾的鼻祖",
+          "body": "最早把韓國前衛街頭服飾介紹到海外的設計師品牌。暗黑又叛逆的美學、結構感十足的剪裁，一眼就會記住。從女裝起步，現在也延伸到男裝，成為海外選物店主動找上門的品牌。",
+          "link_label": "Instagram"
+        },
+        {
+          "heading": "POST ARCHIVE FACTION (PAF)",
+          "sub": "全球知名度第一的K-Contemporary",
+          "body": "韓國當代時尚中海外知名度最高的品牌之一。核心是把衣服拆解再重新組裝的實驗性設計語言。以不對稱版型與機能材質做的技術感夾克、褲款是代表作。在首爾親自試穿，就會發現這和照片上看到的完全是不同的衣服。",
+          "link_label": "Instagram"
+        },
+        {
+          "heading": "GROVE",
+          "sub": "把1960年代的復古帶到現在的首爾",
+          "body": "在20至30多歲女性之間知名度高的當代休閒品牌。底色是以現代手法重新詮釋1960年代復古風的素雅經典設計。針織、上衣、裙款等百搭日常單品很多，因此被視為「旅行買回來，穿最久的品牌」。",
+          "link_label": "Instagram"
+        },
+        {
+          "heading": "MATIN KIM",
+          "sub": "MZ世代代表K-FASHION · logo配件強項",
+          "body": "在國內外MZ世代中大眾知名度最高的K-FASHION品牌。以時尚又貼近日常的休閒服為主，但真正的強項是運用logo的包包、皮夾、帽子等配件系列。許多人會買一件當伴手禮帶走。",
+          "link_label": "Instagram"
+        },
+        {
+          "heading": "SINOON",
+          "sub": "浪漫少女感，帶著首爾的氛圍",
+          "body": "把浪漫又少女的感性，用現代首爾的氛圍詮釋，在20多歲女性之間迅速打開知名度的品牌。主力是針織、開襟衫、裙款與洋裝等線條柔和的女裝，以及配件。島山旗艦店本身就是內容，很值得一逛。",
+          "link_label": "Instagram"
+        },
+        {
+          "heading": "GENTLE MONSTER（+ARTISSU）",
+          "sub": "代表K-FASHION的國際眼鏡品牌",
+          "body": "以太陽眼鏡與眼鏡為核心，把時尚、藝術與空間融為一體的鮮明品牌世界觀。憑藉實驗性的鏡框設計、大型旗艦店，以及不間斷的國際聯名，在眾多品牌中自成一格。甜點品牌ARTISSU也在同一棟建築裡，可以一次逛完。",
+          "link_label": "Instagram"
+        }
+      ],
+      "related_label": "查看相關店家",
+      "cta_label": "在Instagram查看"
+    },
+    "k-brand-interview": {
+      "badge": "K-BRAND",
+      "title": "K-BRAND 設計師專訪",
+      "price": "",
+      "note": "",
+      "summary": "在海外備受矚目的韓國品牌，以及站在背後的姊妹主理人的故事",
+      "info": [],
+      "intro": "最近海外時尚圈一提到「首爾品牌」，一定會提到的兩個名字：GLOWNY和OPEN YY。有趣的是，這兩個品牌都是由姊妹一起經營。一人負責業務，一人負責創意。不同的感覺與品味互相碰撞、交融，產生的綜效造就了今天的品牌。\n\n這一期，我們來看看兩位姊妹主理人的起點與現在，以及她們打造「自己想穿的衣服」的方式。",
+      "sections": [
+        {
+          "heading": "GLOWNY 主理人＆設計師",
+          "sub": "崔濟仁執行長 · 崔智浩創意總監",
+          "body": "GLOWNY的創意總監是崔智浩（照片右）。與姊姊崔濟仁（左，執行長）一起在2020年推出GLOWNY的姊妹創辦人。分工很明確：崔濟仁負責整體業務，崔智浩則從產品設計到內容與視覺，全權負責GLOWNY的創意。\n\n「姊姊看數字，我看衣服」這樣的分工，正是讓GLOWNY最有GLOWNY味道的祕訣。可愛卻不輕浮、復古卻不土氣，這份平衡是兩人每天互相碰撞磨出來的結果。",
+          "link_label": "查看品牌故事"
+        },
+        {
+          "heading": "OPEN YY 主理人＆設計師",
+          "sub": "金志英・金寶英 姊妹主理人",
+          "body": "OPEN YY的創意總監同樣是姊妹，金志英和金寶英。兩人與其說是主修時尚出身的設計師，不如說是喜歡衣服、長期觀察的人。只因為想做出「自己想穿、穿了會心動的衣服」，就開始了這個品牌。\n\n她們原本經營The Open Product，2023年改名為OPEN YY，開啟了新的篇章。現在以在女裝與中性之間穿梭的剪裁，成為海外買手率先找上門的品牌。",
+          "link_label": "Instagram"
+        }
+      ],
+      "related_label": "查看相關店家",
+      "cta_label": "在Instagram查看"
+    },
+    "k-brand-showroom": {
+      "badge": "K-BRAND",
+      "title": "K-BRAND 展示間介紹",
+      "price": "",
+      "note": "",
+      "summary": "目前最夯的街區狎鷗亭・島山，沿著K-BRAND展示間走一天的路線",
+      "info": [],
+      "intro": "首爾再次成為最夯街區的狎鷗亭。尤其是島山公園一帶，目前備受矚目的K-BRAND展示間都集中在步行10分鐘內的距離。這條路線不只看衣服，還能完整體驗品牌打造的世界，包括空間、音樂與咖啡。\n\n照以下順序走，剛好半天。先把地圖連結存起來，在展示間裡猶豫不決時，就找THE HARPER編輯來幫你。",
+      "sections": [
+        {
+          "heading": "House Nowhere 島山",
+          "sub": "Seoul, Gangnam-gu, Apgujeong-ro 46-gil 50",
+          "body": "路線的起點。在同一個空間展示多個K-BRAND的選物展示間，很適合先掌握今天要逛的品牌氛圍。",
+          "link_label": "查看地圖"
+        },
+        {
+          "heading": "GLOWNY 島山",
+          "sub": "Seoul, Gangnam-gu, Eonju-ro 164-gil 19",
+          "body": "能親自試穿網路上引發搶購斷貨風潮的那款針織衫。尺寸拿不定主意的話，店員會坦白告訴你，放心問吧。",
+          "link_label": "查看地圖"
+        },
+        {
+          "heading": "SINOON 島山旗艦店",
+          "sub": "Seoul, Gangnam-gu, Apgujeong-ro 42-gil 47",
+          "body": "空間本身就是品牌的氛圍。試穿線條柔和的針織與洋裝時，記得拍張照留念。",
+          "link_label": "查看地圖"
+        },
+        {
+          "heading": "ELBORN 島山旗艦店",
+          "sub": "Seoul, Gangnam-gu, Apgujeong-ro 42-gil 42",
+          "body": "就在SINOON旁邊，接著逛很方便。如果在找素雅的日常服，這裡一定能帶走一件。",
+          "link_label": "查看地圖"
+        },
+        {
+          "heading": "Atelier Edition",
+          "sub": "Seoul, Gangnam-gu, Apgujeong-ro 46-gil 34, 1F-2F",
+          "body": "1樓和2樓的氛圍截然不同，會讓人驚喜兩次。店內策展的是韓國設計師品牌，很容易遇到「第一次見到，但很好」的品牌。",
+          "link_label": "查看地圖"
+        },
+        {
+          "heading": "YUMER 島山分店",
+          "sub": "Seoul, Gangnam-gu, Dosan-daero 49-gil 11, B1F-1F",
+          "body": "從地下一樓連到1樓的展示間。適合在路線後段慢慢逛，附近咖啡廳多，也很適合坐下來休息。",
+          "link_label": "查看地圖"
+        },
+        {
+          "heading": "Urbanic30",
+          "sub": "Seoul, Gangnam-gu, Seolleung-ro 160-gil 3",
+          "body": "路線的收尾。極簡的空間裡，衣服稀稀疏疏地掛著，很適合一邊整理一整天看過的東西，一邊挑出最後一件。",
+          "link_label": "查看地圖"
+        }
+      ],
+      "related_label": "查看相關店家",
+      "cta_label": "在Instagram查看"
+    }
+  },
+  "shops": {
+    "0": {
+      "areaName": "聖水",
+      "name": "Sunlove Links 聖水",
+      "addr": "Seongsu-dong 2-ga 269-77",
+      "note": "聖水隱藏的設計師品牌選物店",
+      "intro": [
+        "位於聖水巷弄深處，招牌小，很容易就這樣錯過的選物店。店內匯集國內新銳設計師品牌，大多在日本沒有分店，所以這裡才買得到。",
+        "不要一次想全部看完，一個衣架一個衣架慢慢看。尺寸拿不定主意的話，店員通常會坦白告訴你，放心問就好。"
+      ]
+    },
+    "1": {
+      "areaName": "聖水",
+      "name": "Point of View 聖水",
+      "addr": "Yeonmujang-gil 18",
+      "note": "匯集文具與擺飾小物的選物店",
+      "intro": [
+        "雖然沒有衣服，但很適合在聖水行程中途順路進來。挑著文具和小擺飾，購物的節奏就能暫時歇一下。"
+      ]
+    },
+    "2": {
+      "areaName": "聖水",
+      "name": "LCDC SEOUL",
+      "addr": "Yeonmujang 17-gil 10",
+      "note": "複合空間裡匯集多個品牌店面的地方",
+      "intro": [
+        "一棟建築裡同時有品牌店和咖啡廳。下雨天很適合排進行程裡。"
+      ]
+    },
+    "3": {
+      "areaName": "聖水",
+      "name": "ADER SPACE 3.0",
+      "addr": "Yeonmujang-gil 53",
+      "note": "ADER ERROR旗艦店，空間本身就值得一看",
+      "intro": [
+        "ADER ERROR的聖水旗艦店。空間的布置和衣服一樣有名，不少人是為了拍照而來。"
+      ]
+    },
+    "4": {
+      "areaName": "漢南",
+      "name": "BEAKER 漢南",
+      "addr": "Itaewon-ro 54-gil 57",
+      "note": "廣納國內外品牌的漢南選物店",
+      "intro": [
+        "是漢南範圍內規模最大的選物店。國內與海外品牌並排陳列，很適合比較看看。"
+      ]
+    },
+    "5": {
+      "areaName": "漢南",
+      "name": "AMOMENTO 漢南",
+      "addr": "Hannam-dong [待確認]",
+      "note": "沒有多餘設計的韓國品牌旗艦店",
+      "intro": [
+        "這是一個把色彩與線條降到最少的品牌旗艦店。如果你想長久穿一件基本款，我會優先推薦這裡。"
+      ]
+    },
+    "6": {
+      "areaName": "漢南",
+      "name": "EMPTY 漢南",
+      "addr": "Hannam-dong [待確認]",
+      "note": "匯集新銳品牌的MUSINSA選物店",
+      "intro": [
+        "由MUSINSA經營的實體選物店。能親自試穿以前只在網路上看過的新銳品牌。"
+      ]
+    },
+    "7": {
+      "areaName": "狎鷗亭",
+      "name": "House Nowhere 島山",
+      "addr": "Apgujeong-ro 46-gil 50",
+      "note": "島山巷弄裡的K-BRAND選物店",
+      "intro": [
+        "狎鷗亭島山展示間路線的第一站。店家介紹還在整理中 [待確認]。"
+      ]
+    },
+    "8": {
+      "areaName": "狎鷗亭",
+      "name": "GLOWNY 島山",
+      "addr": "Eonju-ro 164-gil 19",
+      "note": "20多歲女性粉絲基礎穩固的首爾女裝品牌",
+      "intro": [
+        "可愛又帶復古氛圍，再加上健康女性感的風格。修身上衣與針織、迷你洋裝和牛仔等日常單品很有特色。",
+        "由姊妹一起經營的品牌，2020年開始。"
+      ]
+    },
+    "9": {
+      "areaName": "狎鷗亭",
+      "name": "SINOON 島山旗艦店",
+      "addr": "Apgujeong-ro 42-gil 47",
+      "note": "以首爾氛圍詮釋浪漫少女感的女裝",
+      "intro": [
+        "主力是針織、開襟衫、裙款與洋裝等線條柔和的女裝與配件。在20多歲女性之間持續擴大知名度的品牌。"
+      ]
+    },
+    "10": {
+      "areaName": "狎鷗亭",
+      "name": "ELBORN 島山旗艦店",
+      "addr": "Apgujeong-ro 42-gil 42",
+      "note": "島山的K-BRAND旗艦店",
+      "intro": [
+        "狎鷗亭島山展示間路線中的旗艦店。店家介紹還在整理中 [待確認]。"
+      ]
+    },
+    "11": {
+      "areaName": "狎鷗亭",
+      "name": "Atelier Edition",
+      "addr": "Apgujeong-ro 46-gil 34 1F-2F",
+      "note": "連結1、2樓的島山選物店",
+      "intro": [
+        "1樓與2樓一起使用的選物店。店家介紹還在整理中 [待確認]。"
+      ]
+    },
+    "12": {
+      "areaName": "狎鷗亭",
+      "name": "YUMER 島山分店",
+      "addr": "Dosan-daero 49-gil 11 B1F-1F",
+      "note": "島山的K-BRAND展示間",
+      "intro": [
+        "地下一樓與1樓一起使用的店面。店家介紹還在整理中 [待確認]。"
+      ]
+    },
+    "13": {
+      "areaName": "狎鷗亭",
+      "name": "Urbanic30",
+      "addr": "Seolleung-ro 160-gil 3",
+      "note": "清潭一帶巷弄裡的K-BRAND選物店",
+      "intro": [
+        "狎鷗亭島山路線的最後一站，位在清潭一帶。店家介紹還在整理中 [待確認]。"
+      ]
+    }
+  }
+}

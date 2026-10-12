@@ -17,7 +17,7 @@
   var byId = function (i) { return document.getElementById(i); };
 
   function render(m) {
-    document.title = 'THE HARPER 앱 미리보기 — ' + (m.title || '');
+    document.title = (window.HARPER_t ? window.HARPER_t('title.prefix') : 'THE HARPER 앱 미리보기 — ') + (m.title || '');
 
     /* 대표 사진 · 배지 */
     byId('mag-hero').src = img(m.hero || '');
@@ -70,7 +70,7 @@
         (s.link
           ? '<a class="mag-section__link" href="' + esc(s.link) + '" target="_blank" rel="noopener">' +
             (/instagram\.com/i.test(s.link) ? '<span class="mag-section__link-icon" aria-hidden="true"></span>' : '') + /* 인스타그램 링크면 아이콘 */
-            '<span>' + esc(s.link_label || '자세히 보기') + '</span></a>'
+            '<span>' + esc(s.link_label || (window.HARPER_t ? window.HARPER_t('mag.more') : '자세히 보기')) + '</span></a>'
           : '') +
         '</section>';
     }).join('');
@@ -112,8 +112,13 @@
       var id = new URLSearchParams(location.search).get('id');
       var m = list.filter(function (x) { return x.id === id; })[0] || list[0];
       if (!m) throw new Error('매거진 글이 없음');
-      window.HARPER_MAGAZINE = m;
-      render(m);
+      /* 언어가 한국어가 아니면 data/i18n/<lang>.json 의 이 글 번역을 덮어씌운다(i18n.js) */
+      var ready = window.HARPER_i18nReady || Promise.resolve(null);
+      return ready.then(function (tr) {
+        if (tr && window.HARPER_trMagazine) window.HARPER_trMagazine(m, tr);
+        window.HARPER_MAGAZINE = m;
+        render(m);
+      });
     })
     .catch(function (err) { console.error('매거진 글을 불러오지 못했습니다', err); });
 })();

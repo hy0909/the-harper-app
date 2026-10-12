@@ -7,6 +7,7 @@
 - 매거진 상세: `magazine.html?id=<글 id>`. 스타일 `magazine.css`, 동작 `magazine.js`
 - 내 정보: `my.html` (설계서 09: 프로필 · 찜한 매장 · 방문 히스토리 · 언어/알림 설정 · 고객센터 · 로그아웃). 스타일 `my.css`, 동작 `my.js`
 - 스타일: `styles.css`, 동작: `app.js`
+- 언어: `i18n.js`. 시작 화면이나 내 정보의 언어 줄에서 고른 언어(`localStorage` 의 `harper:lang`, ko · en · ja · zh-Hans · zh-Hant)로 모든 화면이 보인다. 아래 '언어' 참고
 - 배포: GitHub Pages(main 브랜치 루트)
 
 ## 글·사진·매장 목록은 Supabase 에서, 못 읽으면 `data/` JSON 에서
@@ -26,6 +27,15 @@
 이 내용은 관리자 페이지([the-harper-admin](https://github.com/hy0909/the-harper-admin))에서 고친다. `data/` JSON 은 Supabase 를 못 읽을 때의 대비용이니 지우지 않는다. 사진은 `assets/uploads/` 아래(또는 Supabase Storage)에 올라간다.
 
 JSON을 `fetch` 로 읽기 때문에 파일을 더블클릭해서(`file://`) 열면 내용이 비어 보인다. 로컬에서 볼 때는 저장소 폴더에서 `python3 -m http.server 8787` 을 띄우고 `http://localhost:8787/` 로 연다.
+
+## 언어
+
+시작 화면에서 언어를 고르면 바로 그 언어로 바뀌고, 내 정보 > 설정 > 언어에서 바꾸면 페이지를 다시 열어 그 언어로 보여 준다. 고른 값은 `localStorage` 의 `harper:lang` 에 남고, 없으면 한국어다.
+
+- 화면에 박힌 글(탭 · 버튼 · 제목 · 안내문): `i18n.js` 의 `UI` 사전. 키 하나에 `[한국어, 영어, 일본어, 중국어 간체, 중국어 번체]` 순서로 적는다. HTML 에는 `data-i18n="키"` 를 달아 두면 `i18n.js` 가 페이지를 열 때 바꾼다(속성은 `data-i18n-attrs="aria-label=키"`, 줄바꿈 있는 글은 `data-i18n-html`, 탭 제목은 `data-i18n-page`)
+- 데이터에서 오는 글(홈 칸 제목 · 투어 설명 · 매거진 글 · 매장 이름 · 주소 · 소개): `data/i18n/<언어>.json`. `ko.json` 이 한국어 원문 틀이고, 나머지 네 파일은 같은 구조로 번역만 적는다. 매장은 id, 매거진은 글 id, 투어는 tier, 피드 칸은 글 id 로 맞춰 덮어씌운다. 값이 비어 있으면 한국어 원문이 그대로 보인다
+- Supabase 에서 읽은 데이터도 같은 id 로 덮어씌우므로 관리자 페이지에서 한국어 글을 고치면 번역 파일도 같이 고쳐야 한다. 번역 파일은 지금 관리자 페이지에서 고칠 수 없다 [확인 필요]
+- 새 매장이나 글을 더하면 `ko.json` 에 한국어 원문을, 나머지 파일에 번역을 같은 자리에 더한다
 
 ## 아이콘 출처
 

@@ -13,7 +13,7 @@
       if (force || !done) location.replace('onboarding.html');
     })();
   </script>
-  <title>THE HARPER 앱 미리보기 — 홈</title>
+  <title data-i18n-page="page.home">THE HARPER 앱 미리보기 — 홈</title>
   <meta name="description" content="THE HARPER 모바일앱 홈 화면을 웹에서 미리 보는 페이지">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -26,7 +26,7 @@
 
     <header class="header">
       <a class="header__logo" href="index.html">THE HARPER</a>
-      <a class="header__icon" href="search.html" aria-label="검색">
+      <a class="header__icon" href="search.html" aria-label="검색" data-i18n-attrs="aria-label=header.search">
         <img src="assets/search.svg" width="24" height="24" alt="">
       </a>
     </header>
@@ -50,15 +50,15 @@
         <div class="tours__head">
           <div class="tours__title">
             <p class="eyebrow" id="tours-title"></p>
-            <button type="button" class="tours__info" id="tours-info" aria-label="투어 종류 안내 보기" aria-haspopup="dialog" aria-expanded="false">
+            <button type="button" class="tours__info" id="tours-info" aria-label="투어 종류 안내 보기" data-i18n-attrs="aria-label=tours.infoBtn" aria-haspopup="dialog" aria-expanded="false">
               <img src="assets/info.svg" width="20" height="20" alt="">
             </button>
           </div>
           <div class="tours__nav">
-            <button type="button" class="tours__arrow" data-dir="-1" aria-label="이전 투어">
+            <button type="button" class="tours__arrow" data-dir="-1" aria-label="이전 투어" data-i18n-attrs="aria-label=tours.prev">
               <img src="assets/chevron-left-20.svg" width="20" height="20" alt="">
             </button>
-            <button type="button" class="tours__arrow" data-dir="1" aria-label="다음 투어">
+            <button type="button" class="tours__arrow" data-dir="1" aria-label="다음 투어" data-i18n-attrs="aria-label=tours.next">
               <img src="assets/chevron-right-20.svg" width="20" height="20" alt="">
             </button>
           </div>
@@ -80,10 +80,10 @@
         <div class="picks__head">
           <p class="eyebrow" id="picks-title"></p>
           <div class="picks__nav">
-            <button type="button" class="picks__arrow" data-dir="-1" aria-label="이전 추천">
+            <button type="button" class="picks__arrow" data-dir="-1" aria-label="이전 추천" data-i18n-attrs="aria-label=picks.prev">
               <img src="assets/chevron-left-20.svg" width="20" height="20" alt="">
             </button>
-            <button type="button" class="picks__arrow" data-dir="1" aria-label="다음 추천">
+            <button type="button" class="picks__arrow" data-dir="1" aria-label="다음 추천" data-i18n-attrs="aria-label=picks.next">
               <img src="assets/chevron-right-20.svg" width="20" height="20" alt="">
             </button>
           </div>
@@ -95,18 +95,18 @@
     </div>
 
     <!-- 하단 탭 (아이콘: 홈 Material Symbols · 검색 Fluent Filled · 내 정보 IconaMoon Fill) -->
-    <nav class="tabbar" aria-label="주요 메뉴">
+    <nav class="tabbar" aria-label="주요 메뉴" data-i18n-attrs="aria-label=nav.main">
       <a class="tab" href="index.html" aria-current="page">
         <span class="tab__icon tab__icon--home" aria-hidden="true"></span>
-        <span class="tab__label">홈</span>
+        <span class="tab__label" data-i18n="tab.home">홈</span>
       </a>
       <a class="tab" href="search.html">
         <span class="tab__icon tab__icon--search" aria-hidden="true"></span>
-        <span class="tab__label">매장 검색</span>
+        <span class="tab__label" data-i18n="tab.search">매장 검색</span>
       </a>
       <a class="tab" href="my.html">
         <span class="tab__icon tab__icon--user" aria-hidden="true"></span>
-        <span class="tab__label">내 정보</span>
+        <span class="tab__label" data-i18n="tab.my">내 정보</span>
       </a>
     </nav>
   </main>
@@ -117,18 +117,19 @@
     <div class="tour-info__card" role="dialog" aria-modal="true" aria-labelledby="tour-info-title">
       <div class="tour-info__head">
         <h2 class="tour-info__title" id="tour-info-title"></h2>
-        <button type="button" class="tour-info__close" aria-label="닫기">
+        <button type="button" class="tour-info__close" aria-label="닫기" data-i18n-attrs="aria-label=close">
           <img src="assets/close.svg" width="24" height="24" alt="">
         </button>
       </div>
       <p class="tour-info__note" id="tour-info-note"></p>
       <ul class="tour-info__list" id="tour-info-list"></ul>
-      <a class="tour-info__cta" id="tour-info-cta" href="magazine.html">예약하기</a>
+      <a class="tour-info__cta" id="tour-info-cta" href="magazine.html" data-i18n="shop.book">예약하기</a>
     </div>
   </div>
 
+  <script src="i18n.js?v=1"></script>
   <script src="config.js?v=2"></script>
-  <script src="home.js?v=14"></script>
+  <script src="home.js?v=15"></script>
   <script src="app.js?v=7"></script>
 </body>
 </html>
