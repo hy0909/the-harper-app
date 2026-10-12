@@ -16,7 +16,7 @@
     "tours": {
       "title": "투어 종류",
       "items": [
-        { "tier": "DAY DROP", "title": "3시간 동행 쇼핑 큐레이션", "price": "128,000원 부터", "open": true },
+        { "tier": "DAY DROP", "title": "3시간 동행 쇼핑 큐레이션", "price": "128,000원~", "open": true },
         { "tier": "CAPSULE", "title": "하루종일 1:1 큐레이션", "price": "", "open": false },
         { "tier": "SIGNATURE", "title": "1박 헤리티지 투어", "price": "", "open": false },
         { "tier": "BESPOKE", "title": "VIP 맞춤 투어", "price": "", "open": false }
