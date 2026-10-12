@@ -20,9 +20,12 @@
     document.title = 'THE HARPER 앱 미리보기 — ' + (m.title || '');
 
     /* 대표 사진 · 배지 */
-    byId('mag-hero').src = img(m.hero || '');
+    var hero = byId('mag-hero');
+    hero.src = img(m.hero || '');
+    /* 칸 비율은 사진 크기에 맞춘다(photo-fit.js). 세로 사진이면 원본 비율로 길게 */
+    window.HARPER_fitPhoto(hero, hero.parentNode);
     /* 사진 초점은 styles.css 의 [data-magazine] 규칙이 쓴다 */
-    byId('mag-hero').parentNode.dataset.magazine = m.id || '';
+    hero.parentNode.dataset.magazine = m.id || '';
     byId('mag-badge').textContent = m.badge || '';
     byId('mag-badge').hidden = !m.badge;
 
@@ -74,6 +77,8 @@
           : '') +
         '</section>';
     }).join('');
+    /* 본문 사진도 같은 규칙으로 칸 비율을 맞춘다 */
+    Array.prototype.forEach.call(list.querySelectorAll('.mag-section__image'), function (im) { window.HARPER_fitPhoto(im); });
 
     /* 관련 샵 · 하단 버튼 */
     var related = byId('mag-related');

@@ -16,11 +16,19 @@ window.HARPER_onShops(function () {
   );
   var track = byId('gallery-track');
   var dots = byId('gallery-dots');
+  /* 트랙 높이 = 지금 보이는 사진 칸 높이. 사진마다 원본 비율이 달라서 넘길 때와 사진이 뜰 때마다 다시 맞춘다 */
+  function fitTrack() {
+    var i = Math.round(track.scrollLeft / track.clientWidth);
+    var slide = track.children[Math.min(Math.max(i, 0), photos.length - 1)];
+    if (slide) track.style.height = slide.offsetHeight + 'px';
+  }
   photos.forEach(function (src, i) {
     var slide = document.createElement('div');
     slide.className = 'gallery__slide photo photo--mag';
     slide.innerHTML = '<img class="photo__img" src="' + window.HARPER_img(src) + '" alt="">';
     track.appendChild(slide);
+    /* 칸 비율은 원본에 맞춘다(세로는 원본 비율, 정사각은 1:1, 가로는 기존 16:9). 사진이 뜨면 트랙 높이도 다시 맞춘다 */
+    window.HARPER_fitPhoto(slide.querySelector('img'), slide, fitTrack);
     var d = document.createElement('span');
     d.className = 'dots__dot' + (i === 0 ? ' dots__dot--on' : '');
     dots.appendChild(d);
@@ -37,6 +45,7 @@ window.HARPER_onShops(function () {
       b.hidden = photos.length < 2;
       b.disabled = dir < 0 ? i <= 0 : i >= photos.length - 1;
     });
+    fitTrack();
   }
   arrows.forEach(function (b) {
     b.addEventListener('click', function () {
@@ -45,6 +54,7 @@ window.HARPER_onShops(function () {
     });
   });
   track.addEventListener('scroll', updateGallery, { passive: true });
+  window.addEventListener('resize', fitTrack);
   updateGallery();
 
   /* ② 이름 · 배지 · 태그 */
