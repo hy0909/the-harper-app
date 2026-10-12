@@ -5,6 +5,7 @@
 - 홈: `index.html`
 - 시작 화면(처음 켤 때만): `onboarding.html` (스플래시 → 언어 → 관심 스타일). 스타일 `onboarding.css`, 동작 `onboarding.js`. 끝내거나 건너뛰면 `index.html` 로 돌아간다. `index.html` 은 `localStorage` 의 `harper:onboarded` 가 없으면 이 페이지로 보낸다. 다시 보려면 `index.html?onboarding=1`
 - 매거진 상세: `magazine.html?id=<글 id>`. 스타일 `magazine.css`, 동작 `magazine.js`
+- 로그인·회원가입: `login.html?from=<돌아갈 페이지>` (SNS 고르기 → 연결 중 → 처음이면 가입 마무리). 스타일 `login.css`, 동작 `login.js`, 상태 저장 `auth.js`. 아래 '로그인' 참고
 - 내 정보: `my.html` (설계서 09: 프로필 · 찜한 매장 · 방문 히스토리 · 언어/알림 설정 · 고객센터 · 로그아웃). 스타일 `my.css`, 동작 `my.js`
 - 스타일: `styles.css`, 동작: `app.js`
 - 언어: `i18n.js`. 시작 화면이나 내 정보의 언어 줄에서 고른 언어(`localStorage` 의 `harper:lang`, ko · en · ja · zh-Hans · zh-Hant)로 모든 화면이 보인다. 아래 '언어' 참고
@@ -27,6 +28,15 @@
 이 내용은 관리자 페이지([the-harper-admin](https://github.com/hy0909/the-harper-admin))에서 고친다. `data/` JSON 은 Supabase 를 못 읽을 때의 대비용이니 지우지 않는다. 사진은 `assets/uploads/` 아래(또는 Supabase Storage)에 올라간다.
 
 JSON을 `fetch` 로 읽기 때문에 파일을 더블클릭해서(`file://`) 열면 내용이 비어 보인다. 로컬에서 볼 때는 저장소 폴더에서 `python3 -m http.server 8787` 을 띄우고 `http://localhost:8787/` 로 연다.
+
+## 로그인(미리보기용)
+
+내 정보 맨 위 '로그인 · 가입' 버튼에서 `login.html` 로 간다. 카카오 · LINE · WeChat 버튼 셋 중 하나를 누르면 잠깐 '연결하는 중' 화면이 뜨고, 이 기기에서 그 SNS 로 가입한 적이 없으면 가입 마무리(닉네임 · 약관 동의)로, 있으면 바로 로그인돼서 원래 화면으로 돌아간다.
+
+- 실제 SNS 서버에는 붙지 않는다. 카카오·LINE·WeChat 로그인을 실제로 붙이려면 각 개발자 콘솔에 앱을 등록해 키와 돌아올 주소를 받고, 서버(Supabase Auth 등)에 연결해야 한다 [확인 필요]
+- 상태는 `localStorage` 에 둔다. `harper:user` 가 지금 로그인한 사람(`provider` · `name` · `marketing` · `joinedAt`), `harper:accounts` 가 이 기기에서 가입한 SNS 별 계정. 로그아웃은 `harper:user` 만 지운다
+- 내 정보는 로그인 전이면 안내 글과 로그인·가입 버튼, 로그인 후면 닉네임과 어느 SNS 인지 보여 준다(`my.js`). 로그아웃 버튼은 로그인했을 때만 보인다
+- 글은 모두 `i18n.js` 사전(`login.*` · `signup.*` · `my.login*` · `provider.*`)에 있어 고른 언어로 보인다
 
 ## 언어
 

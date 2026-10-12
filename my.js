@@ -9,6 +9,40 @@
   }
 })();
 
+/* 로그인 상태(auth.js): 로그인 전이면 안내 글과 로그인·가입 버튼, 로그인 후면 닉네임과 어느 SNS 인지. 로그아웃을 누르면 바로 로그인 전 모습으로 */
+(function () {
+  var t = window.HARPER_t || function (k) { return k; };
+  var sec = document.querySelector('.profile');
+  if (!sec || !window.HARPER_getUser) return;
+  var name = document.getElementById('profile-name');
+  var sub = document.getElementById('profile-sub');
+  var loginBtn = document.getElementById('profile-login');
+  var editBtn = document.getElementById('profile-edit');
+  var logout = document.getElementById('logout');
+  function render() {
+    var u = window.HARPER_getUser();
+    sec.classList.toggle('profile--out', !u);
+    if (u) {
+      name.textContent = u.name;
+      sub.textContent = t('my.via', { p: window.HARPER_providerName(u.provider) });
+    } else {
+      name.textContent = t('my.loginTitle');
+      sub.textContent = t('my.loginSub');
+    }
+    loginBtn.hidden = !!u;
+    editBtn.hidden = !u;
+    logout.hidden = !u;
+  }
+  render();
+  document.getElementById('logout-btn').addEventListener('click', function () {
+    window.HARPER_logOut();
+    render();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+  /* 뒤로 가기로 돌아오면 로그인 화면에서 바뀐 상태를 다시 읽는다 */
+  window.addEventListener('pageshow', render);
+})();
+
 /* 언어: 줄에는 지금 쓰는 언어 이름(i18n.js 의 harper:lang)을 보여 주고, 드로어에서 고르면 저장한 뒤 페이지를 다시 열어
    데이터에서 오는 글(찜한 매장 이름 등)까지 그 언어로 바꾼다 */
 (function () {

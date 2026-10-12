@@ -1,0 +1,104 @@
+/* 로그인·회원가입(login.html). 온보딩 화면 뼈대(onboarding.css 의 .start · .onb · .onb__*)를 그대로 쓰고, SNS 버튼과 가입 입력란만 더한다 */
+
+/* 뒤로 가기 화살표는 왼쪽에 */
+.onb__header--back { justify-content: flex-start; padding-left: 10px; padding-right: 0; }
+a.onb__close { text-decoration: none; }
+
+/* ① 브랜드 + SNS 버튼 */
+.login__body { gap: 40px; padding-top: 24px; }
+.login__brand { display: flex; flex-direction: column; gap: 4px; align-items: center; padding: 24px 0 0; }
+.login__logo {
+  font-family: "Tinos", var(--font-logo);
+  font-size: 28px;
+  line-height: 1.36;
+  letter-spacing: 0.12em;
+  color: var(--cocoa);
+}
+.login__tagline {
+  font-family: var(--font-ui);
+  font-weight: 500;
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  color: var(--ink-50);
+}
+.login__list { display: flex; flex-direction: column; gap: 10px; }
+.sns {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  min-height: 52px;
+  padding: 14px 52px;
+  border-radius: 12px;
+  font-family: var(--font-ui);
+  font-weight: 600;
+  font-size: 15px;
+  line-height: 1.4;
+  letter-spacing: -0.01em;
+}
+.sns__icon { position: absolute; left: 18px; top: 50%; transform: translateY(-50%); width: 24px; height: 24px; }
+.sns:active { filter: brightness(0.95); }
+/* 각 서비스의 공식 바탕색. 카카오는 노랑에 검정 글자, LINE · WeChat 은 초록에 흰 글자 */
+.sns--kakao { background: #fee500; color: #191919; }
+.sns--line { background: #06c755; color: #fff; }
+.sns--wechat { background: #07c160; color: #fff; }
+.login__terms {
+  font-family: var(--font-ui);
+  font-size: 12px;
+  line-height: 1.5;
+  color: var(--ink-50);
+  text-align: center;
+}
+
+/* ② 연결 중: 가운데 작은 원이 돈다 */
+.connecting__body { align-items: center; justify-content: center; gap: 16px; }
+.connecting__spinner {
+  width: 28px;
+  height: 28px;
+  border-radius: 999px;
+  border: 3px solid #e2e2e2;
+  border-top-color: var(--cocoa);
+  animation: connecting-spin 0.8s linear infinite;
+}
+@keyframes connecting-spin { to { transform: rotate(360deg); } }
+.connecting__text {
+  font-family: var(--font-ui);
+  font-size: 14px;
+  color: var(--ink-60);
+}
+
+/* ③ 가입 마무리: 닉네임 입력란 + 약관 */
+.field { display: flex; flex-direction: column; gap: 8px; }
+.field__label {
+  font-family: var(--font-ui);
+  font-weight: 600;
+  font-size: 14px;
+  color: var(--ink);
+}
+.field__input {
+  width: 100%;
+  min-height: 52px;
+  padding: 14px 16px;
+  border: 1px solid #e2e2e2;
+  border-radius: 12px;
+  background: #fff;
+  font: inherit;
+  font-size: 16px;
+  color: var(--ink);
+  outline: none;
+}
+.field__input:focus { border-color: var(--cocoa); }
+.field__hint { font-family: var(--font-ui); font-size: 12px; color: var(--ink-50); }
+.agree .onb__item { padding: 16px 20px; }
+.agree .onb__item > span:first-child { display: flex; align-items: center; gap: 8px; }
+.agree__all { font-weight: 600; color: var(--ink); }
+.agree__tag {
+  flex: 0 0 auto;
+  font-style: normal;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--cocoa);
+}
+.agree__tag--opt { color: var(--ink-50); }

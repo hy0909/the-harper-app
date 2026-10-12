@@ -121,7 +121,34 @@
     'onb.street': ['스트리트', 'Street', 'ストリート', '街头', '街頭'],
     'onb.vintage': ['빈티지', 'Vintage', 'ヴィンテージ', '复古', '復古'],
     'onb.feminine': ['페미닌', 'Feminine', 'フェミニン', '女性风', '女性風'],
-    'onb.start': ['시작하기', 'Get started', 'はじめる', '开始', '開始']
+    'onb.start': ['시작하기', 'Get started', 'はじめる', '开始', '開始'],
+
+    'page.login': ['로그인', 'Log in', 'ログイン', '登录', '登入'],
+    'provider.kakao': ['카카오', 'Kakao', 'Kakao', 'Kakao', 'Kakao'],
+    'provider.line': ['LINE', 'LINE', 'LINE', 'LINE', 'LINE'],
+    'provider.wechat': ['WeChat', 'WeChat', 'WeChat', '微信', 'WeChat'],
+    'login.title': ['SNS 계정으로 시작하세요', 'Continue with your social account', 'SNSアカウントではじめましょう', '使用社交账号开始', '使用社群帳號開始'],
+    'login.sub': ['처음이면 가입, 이미 가입했으면 바로 로그인돼요', "New here? We'll sign you up. Already joined? You'll be logged in.", '初めての方は登録、登録済みの方はそのままログインできます', '首次使用将自动注册，已注册则直接登录', '首次使用將自動註冊，已註冊則直接登入'],
+    'login.kakao': ['카카오로 시작하기', 'Continue with Kakao', 'Kakaoではじめる', '使用 Kakao 开始', '使用 Kakao 開始'],
+    'login.line': ['LINE으로 시작하기', 'Continue with LINE', 'LINEではじめる', '使用 LINE 开始', '使用 LINE 開始'],
+    'login.wechat': ['WeChat으로 시작하기', 'Continue with WeChat', 'WeChatではじめる', '使用微信开始', '使用 WeChat 開始'],
+    'login.terms': ['계속하면 이용약관과 개인정보 처리방침에 동의한 것으로 봅니다.', 'By continuing you agree to the Terms of Service and Privacy Policy.', '続行すると、利用規約とプライバシーポリシーに同意したものとみなされます。', '继续即表示您同意服务条款和隐私政策。', '繼續即表示您同意服務條款與隱私權政策。'],
+    'login.connecting': ['{p}에 연결하는 중…', 'Connecting to {p}…', '{p}に接続しています…', '正在连接 {p}…', '正在連線 {p}…'],
+    'signup.title': ['가입을 마무리할게요', 'Finish signing up', '登録を完了しましょう', '完成注册', '完成註冊'],
+    'signup.sub': ['{p} 계정으로 가입합니다', 'Signing up with your {p} account', '{p}アカウントで登録します', '使用 {p} 账号注册', '使用 {p} 帳號註冊'],
+    'signup.nickname': ['닉네임', 'Nickname', 'ニックネーム', '昵称', '暱稱'],
+    'signup.nicknameHint': ['매장 리뷰에 보이는 이름이에요', 'Shown on your shop reviews', 'ショップのレビューに表示される名前です', '显示在店铺评价中的名字', '顯示在店家評價中的名字'],
+    'signup.all': ['모두 동의', 'Agree to all', 'すべてに同意', '全部同意', '全部同意'],
+    'signup.required': ['필수', 'Required', '必須', '必填', '必填'],
+    'signup.optional': ['선택', 'Optional', '任意', '可选', '選填'],
+    'signup.terms': ['이용약관 동의', 'Terms of Service', '利用規約に同意', '同意服务条款', '同意服務條款'],
+    'signup.privacy': ['개인정보 수집·이용 동의', 'Privacy Policy', '個人情報の収集・利用に同意', '同意收集和使用个人信息', '同意蒐集與使用個人資料'],
+    'signup.marketing': ['새 에디터 픽·투어 소식 받기', 'Get editor picks & tour news', '新着エディターピック・ツアー情報を受け取る', '接收编辑精选和行程消息', '接收編輯精選與行程消息'],
+    'signup.done': ['가입 완료', 'Done', '登録を完了', '完成注册', '完成註冊'],
+    'my.loginTitle': ['로그인이 필요해요', 'Log in to get started', 'ログインが必要です', '请先登录', '請先登入'],
+    'my.loginSub': ['찜한 매장과 방문 기록을 저장해요', 'Save shops and keep your visit history', 'お気に入りと訪問履歴を保存します', '保存收藏的店铺和访问记录', '儲存收藏的店家與造訪紀錄'],
+    'my.loginBtn': ['로그인 · 가입', 'Log in · Sign up', 'ログイン・登録', '登录 · 注册', '登入 · 註冊'],
+    'my.via': ['{p} 계정으로 로그인', 'Logged in with {p}', '{p}でログイン中', '通过 {p} 登录', '透過 {p} 登入']
   };
 
   function read() {
@@ -133,10 +160,13 @@
   var idx = LANGS.indexOf(lang);
   document.documentElement.lang = lang;
 
-  function t(key) {
+  /* t('키') → 현재 언어 글. t('키', { p: 'Kakao' }) 처럼 주면 글 안의 {p} 를 바꾼다 */
+  function t(key, vars) {
     var row = UI[key];
     if (!row) return key;
-    return row[idx] || row[0];
+    var s = row[idx] || row[0];
+    if (vars) Object.keys(vars).forEach(function (k) { s = s.split('{' + k + '}').join(vars[k]); });
+    return s;
   }
 
   /* HTML 에 적힌 data-i18n 표시를 모두 현재 언어로 바꾼다. 언어를 바꾸면 다시 부른다 */

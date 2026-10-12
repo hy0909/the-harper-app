@@ -38,6 +38,20 @@
   letter-spacing: -0.3px;
   color: var(--ink);
 }
+.profile__sub { font-family: var(--font-ui); font-size: 13px; line-height: 1.4; color: var(--ink-60); }
+.profile__sub[hidden] { display: none; }
+/* 로그인 전: 회색 동그라미에 로즈 점이 없고, 오른쪽 버튼은 코코아 바탕 */
+.profile--out .profile__avatar { background: #d6d3cf; }
+.profile--out .profile__avatar::after { display: none; }
+.profile__login {
+  display: inline-flex;
+  align-items: center;
+  text-decoration: none;
+  background: var(--cocoa);
+  border-color: var(--cocoa);
+  color: #fff;
+}
+.profile__login[hidden], .profile__edit[hidden], .logout[hidden] { display: none; }
 .profile__edit {
   flex-shrink: 0;
   height: 32px;
