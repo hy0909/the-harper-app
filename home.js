@@ -212,7 +212,7 @@ window.HARPER_sbWarn = window.HARPER_sbWarn || function (err) {
     }
   }
 
-  /* 매거진·샵 상세처럼 정적으로 적힌 에디터 표시: <div class="editor" data-editor="h"> 를 채운다 */
+  /* 매거진·매장 상세처럼 정적으로 적힌 에디터 표시: <div class="editor" data-editor="h"> 를 채운다 */
   function fillEditors(data) {
     var editors = data.editors || [];
     Array.prototype.forEach.call(document.querySelectorAll('[data-editor]'), function (node) {

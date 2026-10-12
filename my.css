@@ -71,7 +71,7 @@
 }
 .saved, .history, .settings { display: flex; flex-direction: column; gap: 12px; }
 
-/* ② 저장한 샵: 가로로 미는 사진 카드 */
+/* ② 찜한 매장: 가로로 미는 사진 카드 */
 .saved__scroll {
   display: flex;
   gap: 12px;
@@ -83,6 +83,17 @@
   -webkit-overflow-scrolling: touch;
 }
 .saved__scroll::-webkit-scrollbar { display: none; }
+.saved__scroll[hidden] { display: none; }
+.saved__empty {
+  padding: 0 24px;
+  font-family: var(--font-ui);
+  font-size: 14px;
+  line-height: 1.571;
+  letter-spacing: 0.203px;
+  color: var(--ink-60);
+}
+.saved__empty[hidden] { display: none; }
+.saved__empty a { color: var(--cocoa); font-weight: 500; }
 .saved-card {
   flex: 0 0 140px;
   scroll-snap-align: start;

@@ -5,7 +5,7 @@
 - 홈: `index.html`
 - 시작 화면(처음 켤 때만): `onboarding.html` (스플래시 → 언어 → 관심 스타일). 스타일 `onboarding.css`, 동작 `onboarding.js`. 끝내거나 건너뛰면 `index.html` 로 돌아간다. `index.html` 은 `localStorage` 의 `harper:onboarded` 가 없으면 이 페이지로 보낸다. 다시 보려면 `index.html?onboarding=1`
 - 매거진 상세: `magazine.html?id=<글 id>`. 스타일 `magazine.css`, 동작 `magazine.js`
-- 내 정보: `my.html` (설계서 09: 프로필 · 저장한 샵 · 방문 히스토리 · 언어/알림 설정 · 고객센터 · 로그아웃). 스타일 `my.css`, 동작 `my.js`
+- 내 정보: `my.html` (설계서 09: 프로필 · 찜한 매장 · 방문 히스토리 · 언어/알림 설정 · 고객센터 · 로그아웃). 스타일 `my.css`, 동작 `my.js`
 - 스타일: `styles.css`, 동작: `app.js`
 - 배포: GitHub Pages(main 브랜치 루트)
 
@@ -18,7 +18,7 @@
 - 홈의 오늘의 추천 · 피드 · PICK 은 글 id 만 적는다(`{ "magazine": "<글 id>" }`). 제목·사진·에디터는 `magazines` 표(대신 `data/magazines.json`)의 그 글에서 가져오고, 누르면 `magazine.html?id=<글 id>` 로 간다. 오늘의 추천·피드·PICK 에는 가격을 그리지 않는다(투어 카드와 안내 창에는 투어 가격이 있다). 예전처럼 `link` 에 `?id=` 를 적은 값도 읽고, 글을 못 찾는 칸은 숨긴다
 - 오늘의 추천 · 피드 칸에는 `title` 을 적어 줄바꿈을 정할 수 있다(비우면 매거진 제목). 줄바꿈과 공백을 뺀 글자가 매거진 제목과 다르면 매거진 제목을 쓰고 콘솔에 경고를 남긴다
 - 투어 종류 안내(ⓘ 버튼): 제목·설명은 `home.tours.info`, 항목 설명은 `home.tours.items[].desc`
-- 매거진 글(`magazine.html?id=<글 id>`: 대표 사진 · 제목 · 요약 · 안내 · 본문 · 브랜드/사람 묶음 · 관련 샵 · 하단 버튼): Supabase `magazines` 표 → 대신 `data/magazines.json`. `magazine.js` 가 그린다. id 가 없거나 못 찾으면 `sort` 가 가장 앞선 글을 보여 준다. 홈 피드 카드 · 오늘의 추천 · 샵 상세의 상품·드롭 줄이 이 글들로 이어진다
+- 매거진 글(`magazine.html?id=<글 id>`: 대표 사진 · 제목 · 요약 · 안내 · 본문 · 브랜드/사람 묶음 · 관련 매장 · 하단 버튼): Supabase `magazines` 표 → 대신 `data/magazines.json`. `magazine.js` 가 그린다. id 가 없거나 못 찾으면 `sort` 가 가장 앞선 글을 보여 준다. 홈 피드 카드 · 오늘의 추천 · 매장 상세의 상품·드롭 줄이 이 글들로 이어진다
 - 매장 목록과 지역 중심 좌표: Supabase `shops` 표(`area_name` 같은 snake_case 열은 `areaName` 으로 바꿔 쓴다) + `areas` 표 → 대신 `data/shops.json`. `shops.js` 가 읽어 목록(`list.js`) · 지도(`map.js`) · 상세(`shop.js`)가 같이 쓴다
 - Supabase 는 SDK 없이 `fetch` 로 PostgREST(`/rest/v1/…`)를 바로 부른다. 못 읽으면 콘솔에 경고 한 줄만 남기고 JSON 으로 넘어간다
 - 사진 주소는 Supabase Storage 의 절대 주소(`https://…`)여도 되고 저장소 안 상대 경로(`assets/…`)여도 된다. 화면에 사진을 넣는 자리는 모두 `window.HARPER_img()` 를 거친다

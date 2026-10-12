@@ -4,13 +4,13 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>THE HARPER 앱 미리보기 — 내 정보</title>
-  <meta name="description" content="THE HARPER 모바일앱 내 정보(마이페이지) 화면을 웹에서 미리 보는 페이지. 설계서 09 구성(프로필 · 저장한 샵 · 방문 히스토리 · 언어/알림 설정 · 고객센터 · 로그아웃)">
+  <meta name="description" content="THE HARPER 모바일앱 내 정보(마이페이지) 화면을 웹에서 미리 보는 페이지. 설계서 09 구성(프로필 · 찜한 매장 · 방문 히스토리 · 언어/알림 설정 · 고객센터 · 로그아웃)">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500&display=swap" rel="stylesheet">
   <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
   <link rel="stylesheet" href="styles.css?v=39">
-  <link rel="stylesheet" href="my.css?v=1">
+  <link rel="stylesheet" href="my.css?v=2">
 </head>
 <body>
   <main class="phone phone--my" aria-label="THE HARPER 내 정보">
@@ -33,36 +33,14 @@
         <button type="button" class="profile__edit">프로필 수정</button>
       </section>
 
-      <!-- ② 저장한 샵 -->
+      <!-- ② 찜한 매장: 기기에 저장한 매장을 my.js 가 shops.js 데이터로 그린다. 하나도 없으면 한 줄 안내 -->
       <section class="saved" aria-labelledby="saved-title">
         <div class="my-head">
-          <p class="eyebrow" id="saved-title">저장한 샵 <span class="my-head__count">3</span></p>
+          <p class="eyebrow" id="saved-title">찜한 매장 <span class="my-head__count" id="saved-count">0</span></p>
           <a class="my-head__link" href="search.html">전체 보기</a>
         </div>
-        <div class="saved__scroll">
-          <a class="saved-card" href="shop.html?id=0">
-            <div class="saved-card__photo">
-              <img src="assets/photos/seongsu-brick-showroom.jpg" alt="">
-              <span class="badge badge--search">PICK</span>
-            </div>
-            <p class="saved-card__name">썬러브 링크스 성수</p>
-            <p class="saved-card__area">성수</p>
-          </a>
-          <a class="saved-card" href="shop.html?id=4">
-            <div class="saved-card__photo">
-              <img src="assets/photos/hannam-hillside.jpg" alt="">
-            </div>
-            <p class="saved-card__name">비이커 한남</p>
-            <p class="saved-card__area">한남</p>
-          </a>
-          <a class="saved-card" href="shop.html?id=2">
-            <div class="saved-card__photo">
-              <img src="assets/photos/seongsu-alley.jpg" alt="">
-            </div>
-            <p class="saved-card__name">LCDC SEOUL</p>
-            <p class="saved-card__area">성수</p>
-          </a>
-        </div>
+        <div class="saved__scroll" id="saved-list" hidden></div>
+        <p class="saved__empty" id="saved-empty" hidden>아직 찜한 매장이 없어요. <a href="search.html">매장 검색</a></p>
       </section>
 
       <!-- ③ 방문 히스토리 -->
@@ -174,6 +152,8 @@
   </main>
 
   <script src="drawer.js?v=2"></script>
-  <script src="my.js?v=1"></script>
+  <script src="config.js?v=2"></script>
+  <script src="shops.js?v=6"></script>
+  <script src="my.js?v=2"></script>
 </body>
 </html>

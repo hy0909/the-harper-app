@@ -3,27 +3,32 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>THE HARPER 앱 미리보기 — 샵 상세</title>
-  <meta name="description" content="THE HARPER 모바일앱 샵(브랜드) 상세 화면을 웹에서 미리 보는 페이지. 설계서 08 샵 상세 구조(사진 캐러셀 · 브랜드명 · 에디터 노트 · 매장 정보 · 탭 · 리뷰 · 하단 버튼)로 구성">
+  <title>THE HARPER 앱 미리보기 — 매장 상세</title>
+  <meta name="description" content="THE HARPER 모바일앱 매장(브랜드) 상세 화면을 웹에서 미리 보는 페이지. 설계서 08 매장 상세 구조(사진 캐러셀 · 브랜드명 · 에디터 노트 · 매장 정보 · 탭 · 리뷰 · 하단 버튼)로 구성">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500&display=swap" rel="stylesheet">
   <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css" integrity="sha512-h9FcoyWjHcOcmEVkxOfTLnmZFWIH0iZhZT1H2TbOq55xssQGEJHEaIm+PgoUaZbRvQTNTluNOEfb1ZRy6D3BOw==" crossorigin="anonymous" referrerpolicy="no-referrer">
   <link rel="stylesheet" href="styles.css?v=39">
-  <link rel="stylesheet" href="magazine.css?v=9">
-  <link rel="stylesheet" href="shop.css?v=6">
+  <link rel="stylesheet" href="magazine.css?v=10">
+  <link rel="stylesheet" href="shop.css?v=7">
 </head>
 <body class="body--magazine">
-  <main class="phone phone--magazine phone--shop" aria-label="THE HARPER 샵 상세">
+  <main class="phone phone--magazine phone--shop" aria-label="THE HARPER 매장 상세">
 
     <header class="mag-header">
       <a class="mag-header__back" href="search.html" aria-label="뒤로">
         <img src="assets/chevron-left.svg" width="24" height="24" alt="">
       </a>
-      <button type="button" class="mag-header__share" aria-label="공유">
-        <img src="assets/share.svg" width="24" height="24" alt="">
-      </button>
+      <div class="mag-header__tools">
+        <button type="button" class="mag-header__like" id="shop-like-top" aria-pressed="false" aria-label="찜하기">
+          <span class="heart-icon" aria-hidden="true"></span>
+        </button>
+        <button type="button" class="mag-header__share" aria-label="공유">
+          <img src="assets/share.svg" width="24" height="24" alt="">
+        </button>
+      </div>
     </header>
 
     <!-- ① 사진 캐러셀: 옆으로 밀어 넘기고, 오른쪽 위에 몇 번째 사진인지 표시 -->
@@ -117,7 +122,7 @@
         <h2 class="shop-section__title" id="sec-reviews-title">리뷰</h2>
         <div class="review-empty">
           <p class="review-empty__text">아직 방문 후기가 없어요.<br>다녀오셨다면 첫 후기를 남겨 주세요.</p>
-          <button type="button" class="review-empty__btn" disabled>리뷰 쓰기</button>
+          <button type="button" class="review-empty__btn">리뷰 쓰기</button>
         </div>
       </section>
     </article>
@@ -137,8 +142,8 @@
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js" integrity="sha512-puJW3E/qXDqYp9IfhAI54BJEaWIfloJ7JWs7OeD5i6ruC9JZL1gERT1wjtwXFlh7CjE7ZJ+/vcRZRkIYIb6p4g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   <script src="config.js?v=2"></script>
-  <script src="home.js?v=11"></script>
-  <script src="shops.js?v=5"></script>
-  <script src="shop.js?v=10"></script>
+  <script src="home.js?v=12"></script>
+  <script src="shops.js?v=6"></script>
+  <script src="shop.js?v=11"></script>
 </body>
 </html>

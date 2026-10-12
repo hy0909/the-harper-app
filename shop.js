@@ -1,4 +1,4 @@
-/* 샵 상세: ?id=N 매장을 shops.js 데이터로 채운다. 사진 캐러셀 · 탭 고정 · 찜 · 뒤로 가기 경로 */
+/* 매장 상세: ?id=N 매장을 shops.js 데이터로 채운다. 사진 캐러셀 · 탭 고정 · 찜 · 뒤로 가기 경로 */
 /* 위치: 소개 아래 16:9 미니 지도 + 핀 + 주소. 지도는 움직이지 않고, 누르면 map.html?id=N 으로 간다.
    지도는 map.js 와 같은 Leaflet · OpenStreetMap 타일을 쓴다. 좌표가 NaN 이거나 0 이면 지도 칸을 숨기고 주소만 보여 준다 */
 function setupLocation(s) {
@@ -149,12 +149,26 @@ window.HARPER_onShops(function () {
     markTab(cur);
   }, { passive: true });
 
-  /* ⑦ 찜 · 예약 · 길찾기 */
-  var like = byId('shop-like');
-  like.addEventListener('click', function () {
-    var on = like.getAttribute('aria-pressed') !== 'true';
-    like.setAttribute('aria-pressed', on ? 'true' : 'false');
-    like.setAttribute('aria-label', on ? '찜 해제' : '찜하기');
+  /* ⑦ 찜 · 예약: 헤더 하트와 하단 하트는 같은 상태로 움직인다. 찜 목록은 이 기기에 저장한다(shops.js 의 HARPER_getLikes · HARPER_setLikes) */
+  var likeBtns = [byId('shop-like-top'), byId('shop-like')];
+  var sid = String(s.id);
+  function isLiked(list) { return list.some(function (x) { return String(x) === sid; }); }
+  function paintLike(on) {
+    likeBtns.forEach(function (b) {
+      b.setAttribute('aria-pressed', on ? 'true' : 'false');
+      b.setAttribute('aria-label', on ? '찜 해제' : '찜하기');
+    });
+  }
+  paintLike(isLiked(window.HARPER_getLikes()));
+  likeBtns.forEach(function (b) {
+    b.addEventListener('click', function () {
+      var list = window.HARPER_getLikes();
+      var on = !isLiked(list);
+      list = list.filter(function (x) { return String(x) !== sid; });
+      if (on) list.unshift(s.id); /* 나중에 찜한 매장이 내 정보에서 앞에 온다 */
+      window.HARPER_setLikes(list);
+      paintLike(on);
+    });
   });
 
   /* 지도에서 들어왔으면 뒤로 가기도 그 매장이 선택된 지도로, 아니면 목록으로 */

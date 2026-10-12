@@ -75,7 +75,7 @@
         '</section>';
     }).join('');
 
-    /* 관련 샵 · 하단 버튼 */
+    /* 관련 매장 · 하단 버튼 */
     var related = byId('mag-related');
     related.hidden = !m.related_link;
     related.href = m.related_link || '#';

@@ -1,5 +1,19 @@
-/* 샵(브랜드) 상세 — 설계서 08 구조. magazine.css 다음에 불러온다 */
+/* 매장(브랜드) 상세 — 설계서 08 구조. magazine.css 다음에 불러온다 */
 .phone--shop { padding-bottom: 100px; } /* 하단 버튼 바(72) 자리 + 여백 */
+
+/* 헤더 오른쪽: 찜 하트 · 공유 (두 아이콘 사이 16) */
+.mag-header__tools { display: flex; align-items: center; gap: 16px; }
+/* 하트 아이콘: 선 하트를 mask 로 그려 색은 background-color 로만 정한다. 찜 상태에서는 채운 하트 + --blush */
+.heart-icon {
+  display: block;
+  width: 24px;
+  height: 24px;
+  background-color: var(--ink);
+  --heart: url("assets/lucide/heart.svg");
+  -webkit-mask: var(--heart) center / contain no-repeat;
+  mask: var(--heart) center / contain no-repeat;
+}
+.mag-header__like[aria-pressed="true"] .heart-icon { --heart: url("assets/heart-fill.svg"); background-color: var(--blush); }
 
 /* ① 사진 캐러셀 */
 .gallery { position: relative; display: flex; flex-direction: column; gap: 8px; }
@@ -27,6 +41,8 @@
   letter-spacing: 0.3421px;
 }
 .gallery__dots { position: absolute; left: 0; right: 0; bottom: 12px; }
+/* 사진 위에서 점이 안 보이니 연한 회색 테두리(활성 점 포함). 홈의 점(.dots)에는 주지 않는다 */
+.gallery__dots .dots__dot { box-shadow: 0 0 0 1px #d6d3cf; }
 /* 좌우 화살표: 홈 .tours__arrow 와 같은 32 버튼(연회색 바탕·테두리·20px 꺾쇠)을 동그라미로. 좌우 끝에서 20px, 세로 가운데.
    평소에는 60% 로 연하게, 누르거나 올리면 진하게. 끝 사진에서는 더 연하게 */
 .gallery__arrow {
@@ -175,7 +191,9 @@
   letter-spacing: 0.203px;
   color: var(--ink);
 }
-.review-empty__btn:disabled { opacity: 0.5; cursor: default; }
+.review-empty__btn { cursor: pointer; }
+.review-empty__btn:hover { background: #f2f2f2; }
+.review-empty__btn:active { background: #e9e6df; }
 
 /* ⑦ 하단 버튼 바: 찜 · 예약 · 길찾기 */
 .cta-bar {
@@ -213,7 +231,7 @@
 }
 .cta-bar__icon-img--heart { --cta-icon: url("assets/lucide/heart.svg"); }
 .cta-bar__icon[aria-pressed="true"] { border-color: var(--rose); background: #fdf2f3; }
-.cta-bar__icon[aria-pressed="true"] .cta-bar__icon-img { background-color: var(--cocoa); }
+.cta-bar__icon[aria-pressed="true"] .cta-bar__icon-img { background-color: var(--blush); --cta-icon: url("assets/heart-fill.svg"); }
 .cta-bar__main {
   flex: 1 0 0;
   min-width: 0;

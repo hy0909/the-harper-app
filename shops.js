@@ -31,6 +31,18 @@ window.HARPER_sbWarn = window.HARPER_sbWarn || function (err) {
     else document.addEventListener('harper:shops', fn, { once: true });
   };
 
+  /* 찜한 매장: 이 기기(localStorage 'harper:likes')에 매장 id 배열로 저장한다. 나중에 찜한 것이 앞에 온다.
+     저장소를 못 쓰는 환경(사생활 보호 창 등)에서는 빈 목록으로 돌고, 찜은 그 화면에서만 보인다 */
+  window.HARPER_getLikes = function () {
+    try {
+      var v = JSON.parse(localStorage.getItem('harper:likes') || '[]');
+      return Array.isArray(v) ? v : [];
+    } catch (e) { return []; }
+  };
+  window.HARPER_setLikes = function (list) {
+    try { localStorage.setItem('harper:likes', JSON.stringify(list)); } catch (e) {}
+  };
+
   /* Supabase 의 shops 행(snake_case: area_name …)을 화면이 쓰는 모양(areaName …)으로 */
   function toShop(r) {
     var s = {
