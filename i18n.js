@@ -148,7 +148,12 @@
     'my.loginTitle': ['로그인이 필요해요', 'Log in to get started', 'ログインが必要です', '请先登录', '請先登入'],
     'my.loginSub': ['찜한 매장과 방문 기록을 저장해요', 'Save shops and keep your visit history', 'お気に入りと訪問履歴を保存します', '保存收藏的店铺和访问记录', '儲存收藏的店家與造訪紀錄'],
     'my.loginBtn': ['로그인 · 가입', 'Log in · Sign up', 'ログイン・登録', '登录 · 注册', '登入 · 註冊'],
-    'my.via': ['{p} 계정으로 로그인', 'Logged in with {p}', '{p}でログイン中', '通过 {p} 登录', '透過 {p} 登入']
+    'my.via': ['{p} 계정으로 로그인', 'Logged in with {p}', '{p}でログイン中', '通过 {p} 登录', '透過 {p} 登入'],
+    'confirm': ['확인', 'OK', '確認', '确定', '確定'],
+    'profile.photoUpload': ['사진 올리기', 'Upload photo', '写真をアップロード', '上传照片', '上傳照片'],
+    'profile.photoChange': ['사진 바꾸기', 'Change photo', '写真を変更', '更换照片', '更換照片'],
+    'profile.photoRemove': ['사진 지우기', 'Remove photo', '写真を削除', '删除照片', '刪除照片'],
+    'profile.photoHint': ['JPG·PNG, 정사각형으로 자동으로 잘라요', 'JPG or PNG, cropped to a square automatically', 'JPG・PNG、正方形に自動で切り取ります', 'JPG·PNG，自动裁剪为正方形', 'JPG·PNG，自動裁剪為正方形']
   };
 
   function read() {

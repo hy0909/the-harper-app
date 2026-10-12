@@ -36,5 +36,16 @@
     if (acc) write('harper:user', acc);
     return acc;
   };
+  /* 프로필 고치기: 닉네임 · 사진(data URL, 없으면 ''). 로그인한 사람과 계정 목록 둘 다 바꾼다 */
+  window.HARPER_updateUser = function (patch) {
+    var u = window.HARPER_getUser();
+    if (!u) return null;
+    Object.keys(patch || {}).forEach(function (k) { u[k] = patch[k]; });
+    var all = read('harper:accounts') || {};
+    all[u.provider] = u;
+    write('harper:accounts', all);
+    write('harper:user', u);
+    return u;
+  };
   window.HARPER_logOut = function () { write('harper:user', null); };
 })();

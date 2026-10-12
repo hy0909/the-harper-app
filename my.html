@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500&family=Noto+Sans:wght@400..800&family=Noto+Sans+KR:wght@400..800&family=Noto+Sans+JP:wght@400..800&family=Noto+Sans+SC:wght@400..800&family=Noto+Sans+TC:wght@400..800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css?v=44">
-  <link rel="stylesheet" href="my.css?v=3">
+  <link rel="stylesheet" href="my.css?v=4">
 </head>
 <body>
   <main class="phone phone--my" aria-label="THE HARPER 내 정보">
@@ -26,7 +26,7 @@
       <!-- ① 프로필: 이름 · 프로필 이미지 -->
       <!-- 로그인 전: 안내 + 로그인·가입 버튼(login.html). 로그인 후: 닉네임 + 어느 SNS 로 로그인했는지. my.js 가 auth.js 상태를 보고 고른다 -->
       <section class="profile" aria-labelledby="profile-name">
-        <span class="profile__avatar" aria-hidden="true"></span>
+        <span class="profile__avatar" id="profile-avatar" aria-hidden="true"></span>
         <div class="profile__text">
           <h1 class="profile__name" id="profile-name" data-i18n="my.loginTitle">로그인이 필요해요</h1>
           <p class="profile__sub" id="profile-sub" data-i18n="my.loginSub">찜한 매장과 방문 기록을 저장해요</p>
@@ -120,6 +120,33 @@
 
     </div>
 
+    <!-- 프로필 수정 모달: 투어 안내 창(tour-info)과 같은 틀. 사진은 기기에서 골라 정사각형으로 줄여 저장하고, 닉네임을 고친다. 확인은 코코아 버튼(tour-info__cta) -->
+    <div class="tour-info profile-modal" id="profile-modal" hidden>
+      <div class="tour-info__dim" data-modal-close aria-hidden="true"></div>
+      <div class="tour-info__card" role="dialog" aria-modal="true" aria-labelledby="profile-modal-title">
+        <div class="tour-info__head">
+          <h2 class="tour-info__title" id="profile-modal-title" data-i18n="profile.edit">프로필 수정</h2>
+          <button type="button" class="tour-info__close" data-modal-close aria-label="닫기" data-i18n-attrs="aria-label=close">
+            <img src="assets/close.svg" width="24" height="24" alt="">
+          </button>
+        </div>
+        <div class="profile-modal__photo">
+          <span class="profile__avatar profile-modal__avatar" id="profile-modal-avatar" aria-hidden="true"></span>
+          <div class="profile-modal__photo-btns">
+            <button type="button" class="profile-modal__btn" id="profile-photo-pick" data-i18n="profile.photoUpload">사진 올리기</button>
+            <button type="button" class="profile-modal__btn profile-modal__btn--quiet" id="profile-photo-remove" data-i18n="profile.photoRemove" hidden>사진 지우기</button>
+          </div>
+          <p class="profile-modal__hint" data-i18n="profile.photoHint">JPG·PNG, 정사각형으로 자동으로 잘라요</p>
+          <input type="file" id="profile-photo-input" accept="image/*" hidden>
+        </div>
+        <div class="field">
+          <label class="field__label" for="profile-name-input" data-i18n="signup.nickname">닉네임</label>
+          <input class="field__input" id="profile-name-input" type="text" maxlength="20" autocomplete="nickname" autocapitalize="off">
+        </div>
+        <button type="button" class="tour-info__cta profile-modal__ok" id="profile-modal-ok" data-i18n="confirm">확인</button>
+      </div>
+    </div>
+
     <!-- 언어 선택 드로어: 설계서 04의 지원 언어 5개 -->
     <div class="drawer" id="lang-drawer" data-event="langchange" hidden>
       <div class="drawer__dim" data-drawer-close></div>
@@ -153,11 +180,11 @@
     </nav>
   </main>
 
-  <script src="i18n.js?v=4"></script>
-  <script src="auth.js?v=1"></script>
+  <script src="i18n.js?v=5"></script>
+  <script src="auth.js?v=2"></script>
   <script src="drawer.js?v=2"></script>
   <script src="config.js?v=2"></script>
   <script src="shops.js?v=8"></script>
-  <script src="my.js?v=4"></script>
+  <script src="my.js?v=5"></script>
 </body>
 </html>

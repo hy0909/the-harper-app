@@ -250,3 +250,45 @@
   font-weight: 500;
   color: var(--ink-70);
 }
+
+/* 프로필 사진: 아바타 동그라미 안에 사진이 있으면 꽉 채운다 */
+.profile__avatar { overflow: hidden; }
+.profile__avatar img { width: 100%; height: 100%; object-fit: cover; border-radius: 999px; }
+.profile__avatar::after { z-index: 1; }
+
+/* 프로필 수정 모달(my.html): 틀은 styles.css 의 tour-info, 입력란은 가입 화면과 같은 모양 */
+.profile-modal__photo { margin-top: 20px; display: flex; flex-direction: column; align-items: center; gap: 12px; }
+.profile-modal__avatar { width: 96px; height: 96px; flex-basis: 96px; }
+.profile-modal__avatar::after { display: none; }
+.profile-modal__photo-btns { display: flex; gap: 8px; }
+.profile-modal__btn {
+  height: 36px;
+  padding: 0 14px;
+  border-radius: 8px;
+  border: 1px solid #d6d3cf;
+  background: #fff;
+  font-family: var(--font-ui);
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--ink);
+}
+.profile-modal__btn--quiet { background: transparent; color: var(--ink-60); }
+.profile-modal__btn[hidden] { display: none; }
+.profile-modal__hint { font-family: var(--font-ui); font-size: 12px; color: var(--ink-50); }
+.profile-modal .field { margin-top: 24px; display: flex; flex-direction: column; gap: 8px; }
+.profile-modal .field__label { font-family: var(--font-ui); font-weight: 600; font-size: 14px; color: var(--ink); }
+.profile-modal .field__input {
+  width: 100%;
+  min-height: 52px;
+  padding: 14px 16px;
+  border: 1px solid #e2e2e2;
+  border-radius: 12px;
+  background: #fff;
+  font: inherit;
+  font-size: 16px;
+  color: var(--ink);
+  outline: none;
+}
+.profile-modal .field__input:focus { border-color: var(--cocoa); }
+.profile-modal__ok { width: 100%; }
+.profile-modal__ok:disabled { opacity: 0.4; cursor: default; }
