@@ -86,13 +86,17 @@ window.HARPER_sbWarn = window.HARPER_sbWarn || function (err) {
   }
 
   /* 투어 종류 안내 모달: ⓘ 버튼으로 열고, 닫기 X · 바깥 어두운 영역 · Esc 로 닫는다. 열려 있는 동안 뒤 화면은 스크롤하지 않는다 */
-  function renderTourInfo(tours) {
+  function renderTourInfo(tours, magazines) {
     var btn = document.getElementById('tours-info');
     var modal = document.getElementById('tour-info');
     if (!btn || !modal) return;
     var info = tours.info || {};
     var soon = soonLabelOf(tours);
     document.getElementById('tour-info-title').textContent = info.title || '투어 종류 안내';
+    /* 맨 아래 예약하기: 투어(kind=tour) 글이 있으면 그 글로, 없으면 매거진 첫 글로 */
+    var cta = document.getElementById('tour-info-cta');
+    var tourMag = (magazines || []).filter(function (m) { return m.kind === 'tour'; })[0];
+    if (cta) cta.href = tourMag ? 'magazine.html?id=' + encodeURIComponent(tourMag.id) : 'magazine.html';
     var noteEl = document.getElementById('tour-info-note');
     noteEl.textContent = info.note || '';
     noteEl.hidden = !info.note; /* 안내 한 줄이 비어 있으면 줄 자체를 숨긴다 */
@@ -173,7 +177,7 @@ window.HARPER_sbWarn = window.HARPER_sbWarn || function (err) {
           '</article>';
       }).join('');
       el('tours-dots').innerHTML = dotsHTML((tours.items || []).length);
-      renderTourInfo(tours);
+      renderTourInfo(tours, magazines);
     }
 
     /* 에디터 큐레이션 피드: 칸마다 글 하나. 카드 전체가 글로 이어진다 */
@@ -236,7 +240,7 @@ window.HARPER_sbWarn = window.HARPER_sbWarn || function (err) {
       .catch(function () { return []; });
   }
   function loadMagazines() {
-    return window.HARPER_sbGet('magazines?select=id,title,hero,editor,sort&order=sort.asc')
+    return window.HARPER_sbGet('magazines?select=id,title,hero,editor,kind,sort&order=sort.asc')
       .catch(function (err) { window.HARPER_sbWarn(err); return magazinesFromJSON(); });
   }
 
