@@ -15,7 +15,7 @@
 
 - 접속 정보: `config.js` 의 `window.HARPER_SUPABASE = { url, anonKey }`. `anonKey` 가 비어 있으면 Supabase 를 건너뛰고 조용히 JSON 을 읽는다(공개 anon 키라 저장소에 넣어도 된다)
 - 홈 화면(오늘의 추천 · 투어 종류 · 에디터 큐레이션 피드 · 에디터’s PICK)과 에디터 목록: Supabase `editors` 표 + `site_content` 표의 `key = home` 행 → 대신 `data/content.json`. `home.js` 가 그린다
-- 홈의 오늘의 추천 · 피드 · PICK 은 글 id 만 적는다(`{ "magazine": "<글 id>" }`). 제목·사진·에디터는 `magazines` 표(대신 `data/magazines.json`)의 그 글에서 가져오고, 누르면 `magazine.html?id=<글 id>` 로 간다. 홈에는 가격을 그리지 않는다. 예전처럼 `title · image · editor · link` 를 직접 적은 값도 읽는다(`link` 의 `?id=` 로 글을 찾고, 없으면 적힌 값을 그대로 쓴다)
+- 홈의 오늘의 추천 · 피드 · PICK 은 글 id 만 적는다(`{ "magazine": "<글 id>" }`). 제목·사진·에디터는 `magazines` 표(대신 `data/magazines.json`)의 그 글에서 가져오고, 누르면 `magazine.html?id=<글 id>` 로 간다. 오늘의 추천·피드·PICK 에는 가격을 그리지 않는다(투어 카드와 안내 창에는 투어 가격이 있다). 예전처럼 `link` 에 `?id=` 를 적은 값도 읽고, 글을 못 찾는 칸은 숨긴다
 - 투어 종류 안내(ⓘ 버튼): 제목·설명은 `home.tours.info`, 항목 설명은 `home.tours.items[].desc`
 - 매거진 글(`magazine.html?id=<글 id>`: 대표 사진 · 제목 · 요약 · 안내 · 본문 · 브랜드/사람 묶음 · 관련 샵 · 하단 버튼): Supabase `magazines` 표 → 대신 `data/magazines.json`. `magazine.js` 가 그린다. id 가 없거나 못 찾으면 `sort` 가 가장 앞선 글을 보여 준다. 홈 피드 카드 · 오늘의 추천 · 샵 상세의 상품·드롭 줄이 이 글들로 이어진다
 - 매장 목록과 지역 중심 좌표: Supabase `shops` 표(`area_name` 같은 snake_case 열은 `areaName` 으로 바꿔 쓴다) + `areas` 표 → 대신 `data/shops.json`. `shops.js` 가 읽어 목록(`list.js`) · 지도(`map.js`) · 상세(`shop.js`)가 같이 쓴다

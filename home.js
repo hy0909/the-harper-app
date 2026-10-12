@@ -53,10 +53,13 @@ window.HARPER_sbWarn = window.HARPER_sbWarn || function (err) {
     var m = /[?&]id=([^&#]+)/.exec(String(link || ''));
     return m ? decodeURIComponent(m[1]) : '';
   }
-  /* 칸에 보일 값: 매거진 글이 있으면 그 글의 제목·사진·에디터, 못 찾으면 칸에 적힌 값(옛 구조)을 그대로 쓴다 */
+  /* 칸에 보일 값: 매거진 글이 있으면 그 글의 제목·사진·에디터.
+     글을 못 찾으면 null(칸을 숨긴다) — 옛 구조 Supabase 값에 남은 칸이 엉뚱한 글로 열리지 않게.
+     매거진 목록 자체를 하나도 못 읽은 경우에만 칸에 적힌 값(옛 구조)을 그대로 쓴다 */
   function cardOf(item, magazines) {
     var id = item.magazine || idFromLink(item.link);
     var m = id ? (magazines || []).filter(function (x) { return x.id === id; })[0] : null;
+    if (!m && (magazines || []).length) return null;
     return {
       href: id ? 'magazine.html?id=' + encodeURIComponent(id) : (item.link || 'magazine.html'),
       title: m ? m.title : (item.title || ''),
@@ -102,7 +105,18 @@ window.HARPER_sbWarn = window.HARPER_sbWarn || function (err) {
     btn.addEventListener('click', open);
     closeBtn.addEventListener('click', close);
     dim.addEventListener('click', close);
-    document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && !modal.hidden) close(); });
+    document.addEventListener('keydown', function (e) {
+      if (modal.hidden) return;
+      if (e.key === 'Escape') { close(); return; }
+      /* Tab 이 모달 밖으로 나가지 않게 안의 요소끼리만 돈다 */
+      if (e.key === 'Tab') {
+        var f = modal.querySelectorAll('button, [href], [tabindex]:not([tabindex="-1"])');
+        if (!f.length) return;
+        var first = f[0], last = f[f.length - 1];
+        if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+        else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+      }
+    });
   }
 
   function renderHome(data) {
@@ -132,7 +146,7 @@ window.HARPER_sbWarn = window.HARPER_sbWarn || function (err) {
       el('tours-track').innerHTML = (tours.items || []).map(function (c) {
         var right = c.open
           ? '<p class="tour-card__price">' + esc(c.price) + '</p>'
-          : '<p class="tour-card__soon"><span class="tour-card__soon-chip">' + esc(tours.soonLabel) + '</span></p>';
+          : '<p class="tour-card__soon"><span class="tour-card__soon-chip">' + esc(tours.soonLabel || '오픈 예정') + '</span></p>';
         return '<article class="tour-card' + (c.open ? '' : ' tour-card--soon" aria-disabled="true') + '">' +
           '<p class="tour-card__tier">' + esc(c.tier) + '</p>' +
           '<div class="tour-card__row"><h2 class="tour-card__title">' + esc(c.title) + '</h2>' + right + '</div>' +
@@ -148,6 +162,7 @@ window.HARPER_sbWarn = window.HARPER_sbWarn || function (err) {
       el('feed-title').textContent = feed.title || '';
       el('feed-list').innerHTML = (feed.items || []).map(function (item) {
         var c = cardOf(item, magazines);
+        if (!c) return '';
         return '<a class="feed-card feed-card--' + esc(item.color) + '" href="' + esc(c.href) + '">' +
           '<h2 class="feed-card__title">' + lines(c.title) + '</h2>' +
           '<div class="photo photo--card">' +
@@ -165,6 +180,7 @@ window.HARPER_sbWarn = window.HARPER_sbWarn || function (err) {
       el('picks-title').textContent = picks.title || '';
       el('picks-track').innerHTML = (picks.items || []).map(function (item) {
         var c = cardOf(item, magazines);
+        if (!c) return '';
         return '<a class="pick-card" href="' + esc(c.href) + '">' +
           '<div class="photo photo--pick">' +
             '<img class="photo__img" src="' + esc(img(c.image)) + '" alt="">' +
@@ -260,8 +276,9 @@ window.HARPER_sbWarn = window.HARPER_sbWarn || function (err) {
     .catch(function (err) { window.HARPER_sbWarn(err); return fromJSON(); })
     .then(function (data) {
       window.HARPER_CONTENT = data;
-      renderHome(data);
-      fillEditors(data);
+      try { renderHome(data); fillEditors(data); }
+      catch (err) { console.error('홈을 그리다 오류', err); }
+      /* 그리다 오류가 나도 다른 스크립트(캐러셀·에디터 표시)는 계속 돌게 알린다 */
       document.dispatchEvent(new CustomEvent('harper:content', { detail: data }));
     })
     .catch(function (err) { console.error('콘텐츠를 불러오지 못했습니다', err); });
