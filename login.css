@@ -8,7 +8,7 @@ a.onb__close { text-decoration: none; }
 .login__body { gap: 40px; padding-top: 24px; }
 .login__brand { display: flex; flex-direction: column; gap: 4px; align-items: center; padding: 24px 0 0; }
 .login__logo {
-  font-family: "Tinos", var(--font-logo);
+  font-family: var(--font-logo); /* 헤더 로고와 같은 Cormorant Garamond */
   font-size: 28px;
   line-height: 1.36;
   letter-spacing: 0.12em;

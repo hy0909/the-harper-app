@@ -24,7 +24,7 @@ body { background: var(--ground); }
   text-align: center;
 }
 .splash__logo {
-  font-family: "Tinos", var(--font-logo);
+  font-family: var(--font-logo); /* 헤더 로고와 같은 Cormorant Garamond */
   font-weight: 400;
   font-size: 28px;
   line-height: 1.36;
