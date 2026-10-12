@@ -27,6 +27,29 @@
   letter-spacing: 0.3421px;
 }
 .gallery__dots { position: absolute; left: 0; right: 0; bottom: 12px; }
+/* 좌우 화살표: 홈 .tours__arrow 와 같은 32 버튼(연회색 바탕·테두리·20px 꺾쇠)을 동그라미로. 좌우 끝에서 20px, 세로 가운데.
+   평소에는 60% 로 연하게, 누르거나 올리면 진하게. 끝 사진에서는 더 연하게 */
+.gallery__arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  background: #f2f2f2;
+  border: 1px solid #d6d3cf;
+  border-radius: 50%;
+  opacity: 0.6;
+  z-index: 1;
+}
+.gallery__arrow[data-dir="-1"] { left: 20px; padding-right: 2px; }
+.gallery__arrow[data-dir="1"] { right: 20px; padding-left: 2px; }
+.gallery__arrow:hover, .gallery__arrow:active { opacity: 1; }
+.gallery__arrow:disabled { opacity: 0.3; cursor: default; }
+.gallery__arrow[hidden] { display: none; }
 
 /* ② 이름 줄 · 태그 */
 .shop__name-row { display: flex; align-items: center; gap: 8px; }

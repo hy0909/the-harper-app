@@ -11,7 +11,7 @@
   <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
   <link rel="stylesheet" href="styles.css?v=36">
   <link rel="stylesheet" href="magazine.css?v=7">
-  <link rel="stylesheet" href="shop.css?v=4">
+  <link rel="stylesheet" href="shop.css?v=5">
 </head>
 <body class="body--magazine">
   <main class="phone phone--magazine phone--shop" aria-label="THE HARPER 샵 상세">
@@ -30,6 +30,13 @@
       <div class="gallery__track" id="gallery-track"></div>
       <span class="gallery__count" id="gallery-count">1/1</span>
       <div class="dots gallery__dots" id="gallery-dots" aria-hidden="true"></div>
+      <!-- 좌우 화살표: 홈 투어 카드의 화살표 버튼을 동그랗게. 사진이 2장 이상일 때만 보인다 -->
+      <button type="button" class="gallery__arrow" data-dir="-1" aria-label="이전 사진" hidden>
+        <img src="assets/chevron-left-20.svg" width="20" height="20" alt="">
+      </button>
+      <button type="button" class="gallery__arrow" data-dir="1" aria-label="다음 사진" hidden>
+        <img src="assets/chevron-right-20.svg" width="20" height="20" alt="">
+      </button>
     </section>
 
     <article class="mag">
@@ -123,6 +130,6 @@
   <script src="config.js?v=2"></script>
   <script src="home.js?v=6"></script>
   <script src="shops.js?v=5"></script>
-  <script src="shop.js?v=8"></script>
+  <script src="shop.js?v=9"></script>
 </body>
 </html>

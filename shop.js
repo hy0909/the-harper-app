@@ -26,11 +26,24 @@ window.HARPER_onShops(function () {
     dots.appendChild(d);
   });
   var count = byId('gallery-count');
+  var arrows = Array.prototype.slice.call(document.querySelectorAll('.gallery__arrow'));
   function updateGallery() {
     var i = Math.round(track.scrollLeft / track.clientWidth);
     count.textContent = (i + 1) + '/' + photos.length;
     Array.prototype.forEach.call(dots.children, function (d, j) { d.classList.toggle('dots__dot--on', j === i); });
+    /* 좌우 화살표: 사진이 2장 이상일 때만 보이고, 첫·끝 사진에서는 그쪽 화살표를 끈다 */
+    arrows.forEach(function (b) {
+      var dir = Number(b.dataset.dir);
+      b.hidden = photos.length < 2;
+      b.disabled = dir < 0 ? i <= 0 : i >= photos.length - 1;
+    });
   }
+  arrows.forEach(function (b) {
+    b.addEventListener('click', function () {
+      var i = Math.round(track.scrollLeft / track.clientWidth) + Number(b.dataset.dir);
+      track.scrollTo({ left: i * track.clientWidth, behavior: 'smooth' });
+    });
+  });
   track.addEventListener('scroll', updateGallery, { passive: true });
   updateGallery();
 
