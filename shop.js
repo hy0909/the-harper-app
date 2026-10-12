@@ -98,7 +98,10 @@ window.HARPER_onShops(function () {
   /* ② 이름 · 배지 · 태그 */
   set('shop-name', s.name);
   byId('shop-badge').hidden = !s.pick;
-  set('shop-addr', s.addr);
+  /* 주소 왼쪽에 티어 뱃지(목록과 같은 모양). 티어가 없으면 주소만 */
+  var addrEl = byId('shop-addr');
+  addrEl.innerHTML = (s.tier ? '<span class="badge badge--tier">TIER ' + String(s.tier).replace(/[<>&"]/g, '') + '</span>' : '') + '<span></span>';
+  addrEl.lastChild.textContent = s.addr || '';
   var tags = [s.areaName, s.pick ? t('shop.chipPick') : t('shop.chipRec'), t('shop.chipNoJapan')];
   byId('shop-tags').innerHTML = tags.map(function (t, i) {
     return '<span class="shop__chip' + (i === 1 && s.pick ? ' shop__chip--pick' : '') + '">' + t + '</span>';

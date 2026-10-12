@@ -71,6 +71,9 @@
 .shop__name-row { display: flex; align-items: center; gap: 8px; }
 .shop__name-row .mag__title { flex: 1 0 0; min-width: 0; }
 .badge--pick { background: #6f4a3a; color: #e8b4b8; flex-shrink: 0; }
+/* 주소 줄: 목록(shop-row__addr)과 같이 왼쪽에 티어 뱃지 */
+.shop__addr { display: flex; align-items: center; gap: 6px; min-width: 0; }
+.shop__addr > span:last-child { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 
 /* ③ 에디터 노트: 글 아래 에디터 이름 */
 .shop__note { gap: 8px; }

@@ -10,6 +10,7 @@
   --rose: #d6a3ab;     /* 안틱 로즈 */
   --petal: #f2bac3;    /* 밝은 로즈: 헤더 로고·투어 티어 글자(피그마 69:658) */
   --blush: #e8b4b8;
+  --powder: #f8d9de;   /* 파우더 로즈: 티어 뱃지 바탕(목록·매장 상세) */
   --beige: #d8c3a5;
   --jade: #8fa693;
   --terracotta: #c97b5c;
@@ -647,7 +648,7 @@ a.shop-row { color: inherit; text-decoration: none; }
 .shop-row__text { display: flex; flex-direction: column; gap: 4px; }
 /* 티어 뱃지: 주소 왼쪽에 작게. 로즈(--blush) 바탕에 코코아 글자(사진 위 PICK 뱃지의 반대 조합) */
 .badge--tier {
-  background: var(--blush);
+  background: var(--powder);
   color: var(--cocoa);
   padding: 1px 5px;
   font-size: 10px;
