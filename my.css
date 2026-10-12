@@ -292,29 +292,40 @@
 .profile-modal__ok { width: 100%; }
 .profile-modal__ok:disabled { opacity: 0.4; cursor: default; }
 
-/* 전체 보기 · 고객센터 버튼: 링크 자리에 쓰는 버튼이라 테두리·바탕을 지운다 */
-button.my-head__link { padding: 0; border: 0; background: none; cursor: pointer; }
-
-/* 전체 보기 모달(찜한 매장 · 방문 히스토리 · 언어 · 고객센터): 틀은 tour-info, 안쪽 목록만 여기서 맞춘다 */
-.my-modal__list { list-style: none; margin: 16px 0 0; padding: 0; }
-.my-modal__list > li + li { border-top: 1px solid #ece9e3; }
-.my-modal__list[hidden], .my-modal__empty[hidden] { display: none; }
-.my-modal__empty {
-  margin-top: 16px;
-  font-family: var(--font-ui);
-  font-size: 14px;
-  line-height: 1.571;
-  color: var(--ink-60);
+/* 하위 화면(찜한 매장 · 방문 히스토리 · 언어: saved.html · history.html · language.html).
+   상단 바는 매장 상세와 같은 mag-header(높이 48, 뒤로 버튼 왼쪽). 제목은 바 가운데에 절대 위치로 둬서 오른쪽 요소가 없어도 가운데다 */
+.phone--sub { min-height: 100vh; min-height: 100dvh; }
+.sub-head { position: relative; }
+.sub-head__title {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  text-align: center;
+  font-family: var(--font-sans);
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 1.4;
+  letter-spacing: -0.18px;
+  color: var(--ink);
+  pointer-events: none;
 }
-.my-modal__saved {
+.content--sub { gap: 0; padding: 16px 0 40px; }
+.my-card[hidden] { display: none; }
+.my-list .drawer__item { border-bottom: 0; }
+
+/* 찜한 매장 줄: 썸네일 · 이름 · 동네 · 오른쪽 chevron (방문 히스토리 줄과 같은 높이 규칙) */
+.saved-row {
   display: flex;
   align-items: center;
   gap: 14px;
+  min-height: 64px;
   padding: 12px 0;
   color: inherit;
   text-decoration: none;
 }
-.my-modal__thumb {
+.saved-row__thumb {
   flex: 0 0 64px;
   width: 64px;
   height: 64px;
@@ -323,27 +334,6 @@ button.my-head__link { padding: 0; border: 0; background: none; cursor: pointer;
   overflow: hidden;
   background: var(--gray-200);
 }
-.my-modal__thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
-.my-modal__text { flex: 1 0 0; min-width: 0; display: flex; flex-direction: column; gap: 2px; }
-.my-modal__addr { margin-top: 16px; font-family: var(--font-sans); font-size: 15px; font-weight: 600; color: var(--ink); word-break: break-all; }
-.my-modal__addr-label { margin-right: 6px; font-family: var(--font-ui); font-size: 13px; font-weight: 500; color: var(--ink-60); }
-.my-modal__actions { margin-top: 20px; display: flex; flex-direction: column; gap: 8px; }
-.my-modal__actions .tour-info__cta { margin-top: 0; }
-.my-modal__btn {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  min-height: 48px;
-  box-sizing: border-box;
-  text-decoration: none;
-}
-.my-modal__status {
-  min-height: 20px;
-  margin-top: 12px;
-  font-family: var(--font-ui);
-  font-size: 13px;
-  line-height: 1.5;
-  color: var(--cocoa);
-  text-align: center;
-}
+.saved-row__thumb img { width: 100%; height: 100%; object-fit: cover; }
+.saved-row__text { flex: 1 0 0; min-width: 0; display: flex; flex-direction: column; gap: 2px; }
+.saved-row .history-row__chev { flex-shrink: 0; opacity: 0.5; }

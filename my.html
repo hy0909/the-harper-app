@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500&family=Noto+Sans:wght@400..800&family=Noto+Sans+KR:wght@400..800&family=Noto+Sans+JP:wght@400..800&family=Noto+Sans+SC:wght@400..800&family=Noto+Sans+TC:wght@400..800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css?v=47">
-  <link rel="stylesheet" href="my.css?v=6">
+  <link rel="stylesheet" href="my.css?v=7">
 </head>
 <body>
   <main class="phone phone--my" aria-label="THE HARPER 내 정보">
@@ -39,7 +39,7 @@
       <section class="saved" aria-labelledby="saved-title">
         <div class="my-head">
           <p class="eyebrow" id="saved-title"><span data-i18n="saved.title">찜한 매장</span> <span class="my-head__count" id="saved-count">0</span></p>
-          <button type="button" class="my-head__link" id="saved-more" data-i18n="viewAll" aria-haspopup="dialog" aria-expanded="false">전체 보기</button>
+          <a class="my-head__link" href="saved.html" data-i18n="viewAll">전체 보기</a>
         </div>
         <div class="saved__scroll" id="saved-list" hidden></div>
         <p class="saved__empty" id="saved-empty" hidden><span data-i18n="saved.empty">아직 찜한 매장이 없어요.</span> <a href="search.html" data-i18n="tab.search">매장 검색</a></p>
@@ -48,41 +48,10 @@
       <!-- ③ 방문 히스토리 -->
       <section class="history" aria-labelledby="history-title">
         <div class="my-head">
-          <p class="eyebrow" id="history-title"><span data-i18n="history.title">방문 히스토리</span> <span class="my-head__count">5</span></p>
-          <button type="button" class="my-head__link" id="history-more" data-i18n="viewAll" aria-haspopup="dialog" aria-expanded="false">전체 보기</button>
+          <p class="eyebrow" id="history-title"><span data-i18n="history.title">방문 히스토리</span> <span class="my-head__count" id="history-count"></span></p>
+          <a class="my-head__link" href="history.html" data-i18n="viewAll">전체 보기</a>
         </div>
-        <ul class="my-card my-list" id="history-list">
-          <li>
-            <a class="history-row" href="shop.html?id=0">
-              <time class="history-row__date" datetime="2026-09-28">09.28</time>
-              <span class="history-row__text">
-                <span class="history-row__name" data-i18n="history.1.name">썬러브 링크스 성수</span>
-                <span class="history-row__sub" data-i18n="history.1.sub">성수</span>
-              </span>
-              <img class="history-row__chev" src="assets/chevron-right.svg" width="20" height="20" alt="">
-            </a>
-          </li>
-          <li>
-            <a class="history-row" href="shop.html?id=3">
-              <time class="history-row__date" datetime="2026-09-21">09.21</time>
-              <span class="history-row__text">
-                <span class="history-row__name" data-i18n="history.2.name">아더 스페이스 3.0</span>
-                <span class="history-row__sub" data-i18n="history.2.sub">성수</span>
-              </span>
-              <img class="history-row__chev" src="assets/chevron-right.svg" width="20" height="20" alt="">
-            </a>
-          </li>
-          <li>
-            <a class="history-row" href="shop.html?id=4">
-              <time class="history-row__date" datetime="2026-09-14">09.14</time>
-              <span class="history-row__text">
-                <span class="history-row__name" data-i18n="history.3.name">비이커 한남</span>
-                <span class="history-row__sub" data-i18n="history.3.sub">한남</span>
-              </span>
-              <img class="history-row__chev" src="assets/chevron-right.svg" width="20" height="20" alt="">
-            </a>
-          </li>
-        </ul>
+        <ul class="my-card my-list" id="history-list"></ul>
       </section>
 
       <!-- ④ 언어 / 알림 설정 · 고객센터 -->
@@ -90,11 +59,11 @@
         <p class="eyebrow my-head" id="settings-title" data-i18n="settings">설정</p>
         <ul class="my-card my-list">
           <li>
-            <button type="button" class="setting-row" id="lang-toggle" aria-haspopup="dialog" aria-expanded="false">
+            <a class="setting-row" id="lang-link" href="language.html">
               <span class="setting-row__label" data-i18n="settings.lang">언어</span>
               <span class="setting-row__value" id="lang-value">한국어</span>
               <img class="setting-row__chev" src="assets/chevron-right.svg" width="20" height="20" alt="">
-            </button>
+            </a>
           </li>
           <li>
             <div class="setting-row">
@@ -104,7 +73,7 @@
             </div>
           </li>
           <li>
-            <a class="setting-row" id="support-link" href="mailto:contact@theharper.co.kr" aria-haspopup="dialog">
+            <a class="setting-row" id="support-link" href="mailto:contact@theharper.co.kr">
               <span class="setting-row__label" data-i18n="settings.support">고객센터</span>
               <span class="setting-row__value">contact@theharper.co.kr</span>
               <img class="setting-row__chev" src="assets/chevron-right.svg" width="20" height="20" alt="">
@@ -146,76 +115,6 @@
       </div>
     </div>
 
-    <!-- 찜한 매장 전체 보기 모달. 목록은 my.js 가 찜 목록으로 그린다 -->
-    <div class="tour-info my-modal" id="saved-modal" hidden>
-      <div class="tour-info__dim" data-modal-close aria-hidden="true"></div>
-      <div class="tour-info__card" role="dialog" aria-modal="true" aria-labelledby="saved-modal-title">
-        <div class="tour-info__head">
-          <h2 class="tour-info__title" id="saved-modal-title" data-i18n="saved.title">찜한 매장</h2>
-          <button type="button" class="tour-info__close" data-modal-close aria-label="닫기" data-i18n-attrs="aria-label=close">
-            <img src="assets/close.svg" width="24" height="24" alt="">
-          </button>
-        </div>
-        <ul class="my-modal__list" id="saved-modal-list"></ul>
-        <p class="my-modal__empty" id="saved-modal-empty" data-i18n="saved.empty" hidden>아직 찜한 매장이 없어요.</p>
-      </div>
-    </div>
-
-    <!-- 방문 히스토리 전체 보기 모달. 목록은 my.js 가 아래 히스토리 목록을 복사해 넣는다 -->
-    <div class="tour-info my-modal" id="history-modal" hidden>
-      <div class="tour-info__dim" data-modal-close aria-hidden="true"></div>
-      <div class="tour-info__card" role="dialog" aria-modal="true" aria-labelledby="history-modal-title">
-        <div class="tour-info__head">
-          <h2 class="tour-info__title" id="history-modal-title" data-i18n="history.title">방문 히스토리</h2>
-          <button type="button" class="tour-info__close" data-modal-close aria-label="닫기" data-i18n-attrs="aria-label=close">
-            <img src="assets/close.svg" width="24" height="24" alt="">
-          </button>
-        </div>
-        <ul class="my-modal__list" id="history-modal-list"></ul>
-      </div>
-    </div>
-
-    <!-- 언어 선택 모달: 설계서 04의 지원 언어 5개. 고르면 바로 그 언어로 바꾸고 닫는다 -->
-    <div class="tour-info my-modal" id="lang-modal" hidden>
-      <div class="tour-info__dim" data-modal-close aria-hidden="true"></div>
-      <div class="tour-info__card" role="dialog" aria-modal="true" aria-labelledby="lang-modal-title">
-        <div class="tour-info__head">
-          <h2 class="tour-info__title" id="lang-modal-title" data-i18n="settings.lang">언어</h2>
-          <button type="button" class="tour-info__close" data-modal-close aria-label="닫기" data-i18n-attrs="aria-label=close">
-            <img src="assets/close.svg" width="24" height="24" alt="">
-          </button>
-        </div>
-        <ul class="drawer__list my-modal__langs">
-          <li><button type="button" class="drawer__item" aria-selected="true" data-lang="ko">한국어</button></li>
-          <li><button type="button" class="drawer__item" aria-selected="false" data-lang="en">English</button></li>
-          <li><button type="button" class="drawer__item" aria-selected="false" data-lang="ja">日本語</button></li>
-          <li><button type="button" class="drawer__item" aria-selected="false" data-lang="zh-Hans">简体中文</button></li>
-          <li><button type="button" class="drawer__item" aria-selected="false" data-lang="zh-Hant">繁體中文</button></li>
-        </ul>
-      </div>
-    </div>
-
-    <!-- 고객센터 모달: 데스크톱에서만 열린다. 휴대폰은 mailto 링크가 메일 앱을 바로 연다 -->
-    <div class="tour-info my-modal" id="support-modal" hidden>
-      <div class="tour-info__dim" data-modal-close aria-hidden="true"></div>
-      <div class="tour-info__card" role="dialog" aria-modal="true" aria-labelledby="support-modal-title">
-        <div class="tour-info__head">
-          <h2 class="tour-info__title" id="support-modal-title" data-i18n="settings.support">고객센터</h2>
-          <button type="button" class="tour-info__close" data-modal-close aria-label="닫기" data-i18n-attrs="aria-label=close">
-            <img src="assets/close.svg" width="24" height="24" alt="">
-          </button>
-        </div>
-        <p class="tour-info__note" data-i18n="support.desktopHint">컴퓨터에서는 메일 앱이 설정돼 있지 않을 수 있어요. 아래에서 골라 주세요.</p>
-        <p class="my-modal__addr"><span class="my-modal__addr-label" data-i18n="support.addrLabel">메일 주소</span> <span id="support-addr">contact@theharper.co.kr</span></p>
-        <div class="my-modal__actions">
-          <a class="tour-info__cta" id="support-mailto" href="mailto:contact@theharper.co.kr" data-i18n="support.mailApp">메일 앱으로 보내기</a>
-          <a class="profile-modal__btn my-modal__btn" id="support-gmail" href="#" target="_blank" rel="noopener" data-i18n="support.gmail">Gmail로 보내기</a>
-          <button type="button" class="profile-modal__btn my-modal__btn" id="support-copy" data-i18n="support.copy">주소 복사</button>
-        </div>
-        <p class="my-modal__status" id="support-status" role="status" aria-live="polite"></p>
-      </div>
-    </div>
-
     <!-- 하단 탭 -->
     <nav class="tabbar" aria-label="주요 메뉴" data-i18n-attrs="aria-label=nav.main">
       <a class="tab" href="index.html">
@@ -233,10 +132,11 @@
     </nav>
   </main>
 
-  <script src="i18n.js?v=8"></script>
+  <script src="i18n.js?v=9"></script>
   <script src="auth.js?v=2"></script>
   <script src="config.js?v=2"></script>
   <script src="shops.js?v=8"></script>
-  <script src="my.js?v=6"></script>
+  <script src="visits.js?v=1"></script>
+  <script src="my.js?v=7"></script>
 </body>
 </html>

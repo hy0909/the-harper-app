@@ -1,4 +1,4 @@
-/* 내 정보: 알림 스위치 켜고 끄기. 전체 보기 · 언어 · 고객센터 모달은 아래에서 연다 */
+/* 내 정보: 알림 스위치 켜고 끄기. 전체 보기 · 언어 · 고객센터 동작은 아래에서 붙인다 */
 (function () {
   var sw = document.querySelector('.switch');
   if (sw) {
@@ -124,95 +124,33 @@
   });
 })();
 
-/* 모달 공용 틀: 투어 안내 창(tour-info)과 같은 모양을 연다·닫는다. 열면 닫기 X에 초점, 닫으면 여는 버튼으로 초점 되돌림.
-   Esc · 바깥(dim) 클릭 · X로 닫히고, Tab 은 창 안에서만 돈다. 열린 동안 뒤 화면은 is-locked 로 멈춘다 */
-window.myModalKit = function (modal, opener, onOpen) {
-  var closeBtn = modal.querySelector('.tour-info__close');
-  function setExpanded(v) { if (opener && opener.hasAttribute('aria-expanded')) opener.setAttribute('aria-expanded', v); }
-  function focusables() {
-    return Array.prototype.slice.call(modal.querySelectorAll('a[href], button:not([disabled]), input, [tabindex]:not([tabindex="-1"])'))
-      .filter(function (el) { return el.offsetParent !== null; });
-  }
-  function open() {
-    if (!modal.hidden) return;
-    modal.hidden = false;
-    setExpanded('true');
-    document.documentElement.classList.add('is-locked');
-    if (onOpen) onOpen();
-    closeBtn.focus();
-  }
-  function close() {
-    if (modal.hidden) return;
-    modal.hidden = true;
-    setExpanded('false');
-    document.documentElement.classList.remove('is-locked');
-    if (opener) opener.focus();
-  }
-  Array.prototype.forEach.call(modal.querySelectorAll('[data-modal-close]'), function (el) { el.addEventListener('click', close); });
-  document.addEventListener('keydown', function (e) {
-    if (modal.hidden) return;
-    if (e.key === 'Escape') { close(); return; }
-    if (e.key !== 'Tab') return;
-    var f = focusables();
-    if (!f.length) return;
-    var first = f[0], last = f[f.length - 1];
-    var inside = modal.contains(document.activeElement);
-    if (e.shiftKey && (!inside || document.activeElement === first)) { e.preventDefault(); last.focus(); }
-    else if (!e.shiftKey && (!inside || document.activeElement === last)) { e.preventDefault(); first.focus(); }
-  });
-  return { open: open, close: close };
-};
-
-/* 언어: 줄에는 지금 쓰는 언어 이름(i18n.js 의 harper:lang)을 보여 준다. 모달에서 고르면 바로 그 언어로 바꾸고 닫은 뒤,
-   데이터에서 오는 글(찜한 매장 이름 등)까지 그 언어로 바꾸려고 페이지를 다시 연다 */
+/* 언어 줄: 지금 쓰는 언어 이름(i18n.js 의 harper:lang)을 보여 준다. 누르면 language.html 로 간다.
+   뒤로 가기 캐시로 돌아오면 언어가 바뀌었을 수 있어 다시 그린다 */
 (function () {
-  var toggle = document.getElementById('lang-toggle');
-  var modal = document.getElementById('lang-modal');
-  if (!toggle || !modal) return;
+  var value = document.getElementById('lang-value');
+  if (!value) return;
   var names = window.HARPER_LANG_NAMES || {};
   var lang = window.HARPER_LANG || 'ko';
-  var value = document.getElementById('lang-value');
-  var items = Array.prototype.slice.call(modal.querySelectorAll('.drawer__item'));
-  function paint() {
-    value.textContent = names[lang] || '';
-    items.forEach(function (b) { b.setAttribute('aria-selected', b.dataset.lang === lang ? 'true' : 'false'); });
-  }
-  var kit = window.myModalKit(modal, toggle, paint);
-  paint();
-  toggle.addEventListener('click', kit.open);
-  items.forEach(function (b) {
-    b.addEventListener('click', function () {
-      var v = b.dataset.lang;
-      kit.close();
-      if (v === lang || !window.HARPER_setLang) return;
-      window.HARPER_setLang(v);
-      location.reload();
-    });
-  });
+  value.textContent = names[lang] || '';
+  window.addEventListener('pageshow', function (e) { if (e.persisted) location.reload(); });
 })();
 
 /* 찜한 매장: harper:likes 에 든 매장 id 를 shops.js 데이터(HARPER_SHOPS)에서 찾아 카드로 그린다.
-   데이터 순서가 아니라 찜한 순서(최근이 앞)로 보여 준다. 하나도 없으면 한 줄 안내.
-   가로로 미는 카드(화면)와 '전체 보기' 모달 목록을 같은 데이터로 그린다 */
+   데이터 순서가 아니라 찜한 순서(최근이 앞)로 보여 준다. 하나도 없으면 한 줄 안내. 전체 목록은 saved.html */
 (function () {
   var list = document.getElementById('saved-list');
   var count = document.getElementById('saved-count');
   var empty = document.getElementById('saved-empty');
-  var mList = document.getElementById('saved-modal-list');
-  var mEmpty = document.getElementById('saved-modal-empty');
   if (!list) return;
   var esc = function (s) {
     return String(s == null ? '' : s)
       .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
   };
-  function savedShops() {
+  function render() {
     var shops = window.HARPER_SHOPS || [];
-    return window.HARPER_getLikes().map(function (id) {
+    var saved = window.HARPER_getLikes().map(function (id) {
       return shops.filter(function (s) { return String(s.id) === String(id); })[0];
     }).filter(Boolean);
-  }
-  function render() {
-    var saved = savedShops();
     list.innerHTML = saved.map(function (s) {
       return '<a class="saved-card" href="shop.html?id=' + encodeURIComponent(s.id) + '">' +
         '<div class="saved-card__photo">' +
@@ -226,59 +164,31 @@ window.myModalKit = function (modal, opener, onOpen) {
     list.hidden = !saved.length;
     empty.hidden = saved.length > 0;
     count.textContent = String(saved.length);
-    if (mList) {
-      mList.innerHTML = saved.map(function (s) {
-        return '<li><a class="my-modal__saved" href="shop.html?id=' + encodeURIComponent(s.id) + '">' +
-          '<span class="my-modal__thumb">' + (s.photo ? '<img src="' + esc(window.HARPER_img(s.photo)) + '" alt="">' : '') + '</span>' +
-          '<span class="my-modal__text">' +
-            '<span class="saved-card__name">' + esc(s.name) + '</span>' +
-            '<span class="saved-card__area">' + esc(s.areaName) + '</span>' +
-          '</span>' +
-        '</a></li>';
-      }).join('');
-      mList.hidden = !saved.length;
-      mEmpty.hidden = saved.length > 0;
-    }
   }
   window.HARPER_onShops(render);
   /* 뒤로 가기로 돌아오면 상세에서 바뀐 찜 상태를 다시 읽는다 */
   window.addEventListener('pageshow', function () { if (window.HARPER_SHOPS) render(); });
-
-  var modal = document.getElementById('saved-modal');
-  var more = document.getElementById('saved-more');
-  if (modal && more) {
-    var kit = window.myModalKit(modal, more, render);
-    more.addEventListener('click', kit.open);
-  }
 })();
 
-/* 방문 히스토리 전체 보기: 목록은 화면의 히스토리 줄을 그대로 복사해 넣는다(글은 같은 data-i18n 으로 함께 바뀜) */
+/* 방문 히스토리: 미리보기는 앞의 3줄, 개수는 전체 기록 수(visits.js). 전체 목록은 history.html */
 (function () {
-  var source = document.getElementById('history-list');
-  var target = document.getElementById('history-modal-list');
-  var modal = document.getElementById('history-modal');
-  var more = document.getElementById('history-more');
-  if (!source || !target || !modal || !more) return;
-  target.innerHTML = source.innerHTML;
-  var kit = window.myModalKit(modal, more);
-  more.addEventListener('click', kit.open);
+  var list = document.getElementById('history-list');
+  var count = document.getElementById('history-count');
+  if (!list || !window.HARPER_renderVisits) return;
+  window.HARPER_renderVisits(list, 3);
+  if (count) count.textContent = String(window.HARPER_VISITS.length);
 })();
 
-/* 고객센터: 휴대폰은 mailto 링크가 메일 앱을 바로 연다(제목·짧은 본문 포함). 컴퓨터는 mailto 가 안 열릴 수 있어서
-   메일 앱 · Gmail · 주소 복사를 고르는 창을 연다 */
+/* 고객센터: 모달 없이 메일로 바로 연다. 휴대폰(iPhone · iPad · Android)은 mailto 기본 동작으로 메일 앱이 열리고,
+   컴퓨터는 Gmail 작성 창을 새 탭으로 연다. href 는 mailto 로 두어 길게 누르기·복사와 자바스크립트 없이도 맞게 동작한다 */
 (function () {
   var EMAIL = 'contact@theharper.co.kr';
   var link = document.getElementById('support-link');
-  var modal = document.getElementById('support-modal');
-  var mailBtn = document.getElementById('support-mailto');
-  var gmailBtn = document.getElementById('support-gmail');
-  var copyBtn = document.getElementById('support-copy');
-  var status = document.getElementById('support-status');
-  if (!link || !modal) return;
+  if (!link) return;
   var t = window.HARPER_t || function (k) { return k; };
   var ua = navigator.userAgent || '';
   var uad = navigator.userAgentData;
-  /* 휴대폰 판별: userAgentData.mobile 이 있으면 그 값, 없으면 UA(아이폰 · 안드로이드 · 아이패드) 와 iPadOS(맥 UA + 터치) */
+  /* 휴대폰 판별: userAgentData.mobile 이 있으면 그 값, 없으면 UA(아이폰 · 안드로이드 · 아이패드)와 iPadOS(맥 UA + 터치) */
   var isMobile = (uad && typeof uad.mobile === 'boolean')
     ? uad.mobile
     : (/Android|iPhone|iPad|iPod/.test(ua) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1));
@@ -307,37 +217,10 @@ window.myModalKit = function (modal, opener, onOpen) {
       '&su=' + encodeURIComponent(m.subject) + '&body=' + encodeURIComponent(m.body);
   }
   link.href = mailtoUrl();
-  mailBtn.href = mailtoUrl();
-  gmailBtn.href = gmailUrl();
-
-  /* 주소 복사: 클립보드 API 가 없거나 막히면 숨긴 입력칸으로 복사한다 */
-  function fallbackCopy(text) {
-    var ta = document.createElement('textarea');
-    ta.value = text;
-    ta.setAttribute('readonly', '');
-    ta.style.position = 'fixed';
-    ta.style.opacity = '0';
-    document.body.appendChild(ta);
-    ta.select();
-    var ok = false;
-    try { ok = document.execCommand('copy'); } catch (e) {}
-    document.body.removeChild(ta);
-    return ok;
-  }
-  function copyText(text) {
-    if (navigator.clipboard && window.isSecureContext) {
-      return navigator.clipboard.writeText(text).then(function () { return true; }, function () { return fallbackCopy(text); });
-    }
-    return Promise.resolve(fallbackCopy(text));
-  }
-
-  var kit = window.myModalKit(modal, link, function () { status.textContent = ''; });
   link.addEventListener('click', function (e) {
     if (isMobile) return; /* 휴대폰: 기본 동작(mailto)으로 메일 앱을 연다 */
     e.preventDefault();
-    kit.open();
-  });
-  copyBtn.addEventListener('click', function () {
-    copyText(EMAIL).then(function (ok) { status.textContent = t(ok ? 'support.copied' : 'support.copyFail'); });
+    /* 컴퓨터: 누른 것이 직접 여는 동작이라 팝업 차단에 걸리지 않는다. noopener 로 새 탭과 연결을 끊는다 */
+    window.open(gmailUrl(), '_blank', 'noopener');
   });
 })();

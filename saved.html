@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title data-i18n-page="saved.title">THE HARPER 앱 미리보기 — 찜한 매장</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500&family=Noto+Sans:wght@400..800&family=Noto+Sans+KR:wght@400..800&family=Noto+Sans+JP:wght@400..800&family=Noto+Sans+SC:wght@400..800&family=Noto+Sans+TC:wght@400..800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css?v=47">
+  <link rel="stylesheet" href="magazine.css?v=12">
+  <link rel="stylesheet" href="my.css?v=7">
+</head>
+<body>
+  <main class="phone phone--sub" aria-label="THE HARPER 찜한 매장">
+
+    <!-- 상단 바: 매장 상세와 같은 mag-header(48px). 제목은 바 가운데에 절대 위치로 둔다 -->
+    <header class="mag-header sub-head">
+      <a class="mag-header__back sub-back" href="my.html" aria-label="뒤로" data-i18n-attrs="aria-label=back">
+        <img src="assets/chevron-left.svg" width="24" height="24" alt="">
+      </a>
+      <h1 class="sub-head__title" data-i18n="saved.title">찜한 매장</h1>
+    </header>
+
+    <div class="content content--sub">
+      <!-- 찜한 매장 전체 목록: my-sub.js 가 harper:likes 와 shops.js 데이터로 그린다 -->
+      <ul class="my-card my-list" id="saved-list" hidden></ul>
+      <p class="saved__empty" id="saved-empty" data-i18n="saved.empty" hidden>아직 찜한 매장이 없어요.</p>
+    </div>
+  </main>
+
+  <script src="i18n.js?v=9"></script>
+  <script src="config.js?v=2"></script>
+  <script src="shops.js?v=8"></script>
+  <script src="my-sub.js?v=1"></script>
+</body>
+</html>
