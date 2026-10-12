@@ -2,8 +2,8 @@
 .phone--shop { padding-bottom: 100px; } /* 하단 버튼 바(72) 자리 + 여백 */
 
 /* 헤더 오른쪽: 찜 하트 · 공유 (두 아이콘 사이 16) */
-.mag-header__tools { display: flex; align-items: center; gap: 16px; }
-/* 하트 아이콘: 선 하트를 mask 로 그려 색은 background-color 로만 정한다. 찜 상태에서는 채운 하트 + --blush */
+.mag-header__tools { display: flex; align-items: center; gap: 20px; } /* 하트 ↔ 공유 20 */
+/* 하트 아이콘: 선 하트를 mask 로 그려 색은 background-color 로만 정한다. 평소엔 공유 아이콘과 같은 --ink, 찜 상태에서는 채운 하트 + 밝은 빨강 */
 .heart-icon {
   display: block;
   width: 24px;
@@ -13,7 +13,7 @@
   -webkit-mask: var(--heart) center / contain no-repeat;
   mask: var(--heart) center / contain no-repeat;
 }
-.mag-header__like[aria-pressed="true"] .heart-icon { --heart: url("assets/heart-fill.svg"); background-color: var(--blush); }
+.mag-header__like[aria-pressed="true"] .heart-icon { --heart: url("assets/heart-fill.svg"); background-color: #e63946; }
 
 /* ① 사진 캐러셀 */
 .gallery { position: relative; display: flex; flex-direction: column; gap: 8px; }
@@ -128,6 +128,7 @@
 /* 위치: 소개 글 아래 제목 · 16:9 미니 지도 · 주소 */
 .shop-map { display: flex; flex-direction: column; gap: 8px; }
 .shop-map__title {
+  margin: 0; /* h3 기본 여백 제거: 제목 ↔ 지도 8px */
   font-family: var(--font-sans);
   font-weight: 600;
   font-size: 16px;
@@ -229,9 +230,6 @@
   -webkit-mask: var(--cta-icon) center / contain no-repeat;
   mask: var(--cta-icon) center / contain no-repeat;
 }
-.cta-bar__icon-img--heart { --cta-icon: url("assets/lucide/heart.svg"); }
-.cta-bar__icon[aria-pressed="true"] { border-color: var(--rose); background: #fdf2f3; }
-.cta-bar__icon[aria-pressed="true"] .cta-bar__icon-img { background-color: var(--blush); --cta-icon: url("assets/heart-fill.svg"); }
 .cta-bar__main {
   flex: 1 0 0;
   min-width: 0;

@@ -149,8 +149,8 @@ window.HARPER_onShops(function () {
     markTab(cur);
   }, { passive: true });
 
-  /* ⑦ 찜 · 예약: 헤더 하트와 하단 하트는 같은 상태로 움직인다. 찜 목록은 이 기기에 저장한다(shops.js 의 HARPER_getLikes · HARPER_setLikes) */
-  var likeBtns = [byId('shop-like-top'), byId('shop-like')];
+  /* ⑦ 찜(헤더 하트) · 예약. 찜 목록은 이 기기에 저장한다(shops.js 의 HARPER_getLikes · HARPER_setLikes) */
+  var likeBtns = [byId('shop-like-top'), byId('shop-like')].filter(Boolean);
   var sid = String(s.id);
   function isLiked(list) { return list.some(function (x) { return String(x) === sid; }); }
   function paintLike(on) {
