@@ -71,6 +71,7 @@ window.HARPER_sbWarn = window.HARPER_sbWarn || function (err) {
     var m = id ? (magazines || []).filter(function (x) { return x.id === id; })[0] : null;
     if (!m && (magazines || []).length) return null;
     return {
+      id: id,
       href: id ? 'magazine.html?id=' + encodeURIComponent(id) : (item.link || 'magazine.html'),
       title: m ? titleOf(item, id, m) : (item.title || ''),
       image: m ? m.hero : (item.image || ''),
@@ -149,6 +150,7 @@ window.HARPER_sbWarn = window.HARPER_sbWarn || function (err) {
       el('today-headline').href = today.href;
       el('today-headline').innerHTML = lines(today.title);
       el('today-link').href = today.href;
+      el('today-photo').dataset.magazine = today.id || '';
       el('today-photo').innerHTML =
         '<img class="photo__img" src="' + esc(img(today.image)) + '" alt="">' +
         '<div class="photo__shade" aria-hidden="true"></div>';
@@ -179,7 +181,7 @@ window.HARPER_sbWarn = window.HARPER_sbWarn || function (err) {
       el('feed-list').innerHTML = (feed.items || []).map(function (item) {
         var c = cardOf(item, magazines);
         if (!c) return '';
-        return '<a class="feed-card feed-card--' + esc(item.color) + '" href="' + esc(c.href) + '">' +
+        return '<a class="feed-card feed-card--' + esc(item.color) + '" data-magazine="' + esc(c.id) + '" href="' + esc(c.href) + '">' +
           '<h2 class="feed-card__title">' + lines(c.title) + '</h2>' +
           '<div class="photo photo--card">' +
             '<img class="photo__img" src="' + esc(img(c.image)) + '" alt="">' +
@@ -197,7 +199,7 @@ window.HARPER_sbWarn = window.HARPER_sbWarn || function (err) {
       el('picks-track').innerHTML = (picks.items || []).map(function (item) {
         var c = cardOf(item, magazines);
         if (!c) return '';
-        return '<a class="pick-card" href="' + esc(c.href) + '">' +
+        return '<a class="pick-card" data-magazine="' + esc(c.id) + '" href="' + esc(c.href) + '">' +
           '<div class="photo photo--pick">' +
             '<img class="photo__img" src="' + esc(img(c.image)) + '" alt="">' +
             '<div class="photo__shade" aria-hidden="true"></div>' +

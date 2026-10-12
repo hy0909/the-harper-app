@@ -21,6 +21,8 @@
 
     /* 대표 사진 · 배지 */
     byId('mag-hero').src = img(m.hero || '');
+    /* 사진 초점은 styles.css 의 [data-magazine] 규칙이 쓴다 */
+    byId('mag-hero').parentNode.dataset.magazine = m.id || '';
     byId('mag-badge').textContent = m.badge || '';
     byId('mag-badge').hidden = !m.badge;
 
