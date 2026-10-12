@@ -19,7 +19,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500&family=Tinos&display=swap" rel="stylesheet">
   <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
-  <link rel="stylesheet" href="styles.css?v=36">
+  <link rel="stylesheet" href="styles.css?v=37">
 </head>
 <body>
   <main class="phone" aria-label="THE HARPER 앱 홈">
@@ -33,27 +33,27 @@
 
     <div class="content">
 
-      <!-- 오늘의 추천 (내용은 data/content.json → home.js 가 채운다) -->
+      <!-- 오늘의 추천 (제목·사진·에디터는 home.js 가 매거진 글에서 가져온다) -->
       <section class="today" aria-labelledby="today-title" id="today-section">
         <div class="today__head">
           <p class="eyebrow" id="today-title"></p>
-          <h1 class="today__headline" id="today-headline"></h1>
+          <h1 class="today__headline"><a id="today-headline" href="magazine.html"></a></h1>
         </div>
-        <div class="today__media">
+        <a class="today__media" id="today-link" href="magazine.html">
           <div class="photo photo--hero" id="today-photo"></div>
-          <div class="today__price-row">
-            <div class="price">
-              <p class="price__value" id="today-price"></p>
-              <p class="price__note" id="today-note"></p>
-            </div>
-          </div>
-        </div>
+          <div class="today__bar" id="today-editor"></div>
+        </a>
       </section>
 
       <!-- 투어 종류 -->
       <section class="tours" aria-labelledby="tours-title">
         <div class="tours__head">
-          <p class="eyebrow" id="tours-title"></p>
+          <div class="tours__title">
+            <p class="eyebrow" id="tours-title"></p>
+            <button type="button" class="tours__info" id="tours-info" aria-label="투어 종류 안내 보기" aria-haspopup="dialog" aria-expanded="false">
+              <img src="assets/info.svg" width="20" height="20" alt="">
+            </button>
+          </div>
           <div class="tours__nav">
             <button type="button" class="tours__arrow" data-dir="-1" aria-label="이전 투어">
               <img src="assets/chevron-left-20.svg" width="20" height="20" alt="">
@@ -111,8 +111,23 @@
     </nav>
   </main>
 
+  <!-- 투어 종류 안내 (ⓘ 버튼으로 연다). 제목·설명·항목은 home.js 가 home.tours 값으로 채운다 -->
+  <div class="tour-info" id="tour-info" hidden>
+    <div class="tour-info__dim" aria-hidden="true"></div>
+    <div class="tour-info__card" role="dialog" aria-modal="true" aria-labelledby="tour-info-title">
+      <div class="tour-info__head">
+        <h2 class="tour-info__title" id="tour-info-title"></h2>
+        <button type="button" class="tour-info__close" aria-label="닫기">
+          <img src="assets/close.svg" width="24" height="24" alt="">
+        </button>
+      </div>
+      <p class="tour-info__note" id="tour-info-note"></p>
+      <ul class="tour-info__list" id="tour-info-list"></ul>
+    </div>
+  </div>
+
   <script src="config.js?v=2"></script>
-  <script src="home.js?v=6"></script>
+  <script src="home.js?v=7"></script>
   <script src="app.js?v=7"></script>
 </body>
 </html>
