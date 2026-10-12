@@ -78,13 +78,19 @@ window.HARPER_sbWarn = window.HARPER_sbWarn || function (err) {
     };
   }
 
+  /* 아직 안 연 투어의 칩 글자. Supabase 에 남은 옛 글자 '추후 확장'은 '오픈 예정'으로 보여 준다 */
+  function soonLabelOf(tours) {
+    var v = (tours && tours.soonLabel) || '';
+    return (!v || v === '추후 확장') ? '오픈 예정' : v;
+  }
+
   /* 투어 종류 안내 모달: ⓘ 버튼으로 열고, 닫기 X · 바깥 어두운 영역 · Esc 로 닫는다. 열려 있는 동안 뒤 화면은 스크롤하지 않는다 */
   function renderTourInfo(tours) {
     var btn = document.getElementById('tours-info');
     var modal = document.getElementById('tour-info');
     if (!btn || !modal) return;
     var info = tours.info || {};
-    var soon = tours.soonLabel || '오픈 예정';
+    var soon = soonLabelOf(tours);
     document.getElementById('tour-info-title').textContent = info.title || '투어 종류 안내';
     document.getElementById('tour-info-note').textContent = info.note || '';
     document.getElementById('tour-info-list').innerHTML = (tours.items || []).map(function (c) {
@@ -156,7 +162,7 @@ window.HARPER_sbWarn = window.HARPER_sbWarn || function (err) {
       el('tours-track').innerHTML = (tours.items || []).map(function (c) {
         var right = c.open
           ? '<p class="tour-card__price">' + esc(c.price) + '</p>'
-          : '<p class="tour-card__soon"><span class="tour-card__soon-chip">' + esc(tours.soonLabel || '오픈 예정') + '</span></p>';
+          : '<p class="tour-card__soon"><span class="tour-card__soon-chip">' + esc(soonLabelOf(tours)) + '</span></p>';
         return '<article class="tour-card' + (c.open ? '' : ' tour-card--soon" aria-disabled="true') + '">' +
           '<p class="tour-card__tier">' + esc(c.tier) + '</p>' +
           '<div class="tour-card__row"><h2 class="tour-card__title">' + esc(c.title) + '</h2>' + right + '</div>' +
@@ -241,11 +247,11 @@ window.HARPER_sbWarn = window.HARPER_sbWarn || function (err) {
   }
   function borrowFromJSON(home, jh) {
     var needs = function (x) { return x && !x.magazine && !idFromLink(x.link); };
-    /* 글 id 를 빌릴 때 칸 제목도 같이 빌린다(비어 있을 때만). 옛 제목이 남아 있으면 cardOf 의 비교가 걸러 준다 */
+    /* 글 id 를 빌릴 때 칸 제목(줄바꿈 제목)도 같이 빌린다. 옛 칸에 남은 제목은 옛 글의 것이라 빌린 글과 맞지 않으므로 덮어쓴다 */
     var borrow = function (x, jx) {
       if (needs(x) && jx && jx.magazine) {
         x.magazine = jx.magazine;
-        if (!x.title && jx.title) x.title = jx.title;
+        x.title = jx.title || '';
       }
     };
     if (home.today) borrow(home.today, jh.today);
