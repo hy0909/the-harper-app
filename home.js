@@ -53,6 +53,16 @@ window.HARPER_sbWarn = window.HARPER_sbWarn || function (err) {
     var m = /[?&]id=([^&#]+)/.exec(String(link || ''));
     return m ? decodeURIComponent(m[1]) : '';
   }
+  /* 제목 비교용: 줄바꿈과 공백을 뺀 글자 */
+  var plain = function (s) { return String(s == null ? '' : s).replace(/\s/g, ''); };
+  /* 칸의 제목(item.title, 줄바꿈 있음)을 쓴다. 글자(줄바꿈·공백 뺀 것)가 매거진 제목과 다르면 매거진 제목을 쓰고 알린다 */
+  function titleOf(item, id, m) {
+    var own = String(item.title || '');
+    if (!own.trim()) return m.title;
+    if (plain(own) === plain(m.title)) return own;
+    console.warn('홈 카드 제목이 매거진 제목과 달라 매거진 제목을 씁니다: ' + id + ' (칸: ' + own.replace(/\n/g, ' / ') + ', 글: ' + m.title + ')');
+    return m.title;
+  }
   /* 칸에 보일 값: 매거진 글이 있으면 그 글의 제목·사진·에디터.
      글을 못 찾으면 null(칸을 숨긴다) — 옛 구조 Supabase 값에 남은 칸이 엉뚱한 글로 열리지 않게.
      매거진 목록 자체를 하나도 못 읽은 경우에만 칸에 적힌 값(옛 구조)을 그대로 쓴다 */
@@ -62,7 +72,7 @@ window.HARPER_sbWarn = window.HARPER_sbWarn || function (err) {
     if (!m && (magazines || []).length) return null;
     return {
       href: id ? 'magazine.html?id=' + encodeURIComponent(id) : (item.link || 'magazine.html'),
-      title: m ? m.title : (item.title || ''),
+      title: m ? titleOf(item, id, m) : (item.title || ''),
       image: m ? m.hero : (item.image || ''),
       editor: m ? m.editor : (item.editor || '')
     };
@@ -231,7 +241,13 @@ window.HARPER_sbWarn = window.HARPER_sbWarn || function (err) {
   }
   function borrowFromJSON(home, jh) {
     var needs = function (x) { return x && !x.magazine && !idFromLink(x.link); };
-    var borrow = function (x, jx) { if (needs(x) && jx && jx.magazine) x.magazine = jx.magazine; };
+    /* 글 id 를 빌릴 때 칸 제목도 같이 빌린다(비어 있을 때만). 옛 제목이 남아 있으면 cardOf 의 비교가 걸러 준다 */
+    var borrow = function (x, jx) {
+      if (needs(x) && jx && jx.magazine) {
+        x.magazine = jx.magazine;
+        if (!x.title && jx.title) x.title = jx.title;
+      }
+    };
     if (home.today) borrow(home.today, jh.today);
     ((home.feed || {}).items || []).forEach(function (x, i) { borrow(x, ((jh.feed || {}).items || [])[i]); });
     ((home.picks || {}).items || []).forEach(function (x, i) { borrow(x, ((jh.picks || {}).items || [])[i]); });
