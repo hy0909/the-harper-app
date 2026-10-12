@@ -249,10 +249,9 @@ window.HARPER_sbWarn = window.HARPER_sbWarn || function (err) {
   /* Supabase 의 home 값이 옛 구조라 글 id(magazine)나 투어 안내 글이 빠져 있으면, 저장소 JSON 의 같은 자리 값을 빌려 쓴다.
      칸은 순서대로 맞추고(피드·PICK), 투어는 등급(tier)으로 맞춘다. 관리자 SQL 을 돌려 Supabase 가 새 구조가 되면 빌릴 일이 없다.
      안 그러면 피드·PICK 카드가 전부 첫 글로만 열린다 */
-  function fetchJSONHome() {
+  function fetchJSONContent() {
     return fetch('data/content.json', { cache: 'no-store' })
       .then(function (r) { if (!r.ok) throw new Error('content.json ' + r.status); return r.json(); })
-      .then(function (j) { return j.home || {}; })
       .catch(function () { return {}; });
   }
   function borrowFromJSON(home, jh) {
@@ -285,12 +284,15 @@ window.HARPER_sbWarn = window.HARPER_sbWarn || function (err) {
       window.HARPER_sbGet('editors?select=*&order=sort.asc'),
       window.HARPER_sbGet('site_content?select=value&key=eq.home'),
       loadMagazines(),
-      fetchJSONHome()
+      fetchJSONContent()
     ]).then(function (res) {
-      var editors = (res[0] || []).map(function (e) { return { id: e.id, name: e.name || '', avatar: e.avatar || '' }; });
+      var json = res[3] || {};
+      /* Supabase 에 에디터 사진이 비어 있으면 content.json 의 같은 id 사진을 빌린다(관리자에서 사진을 올리면 그쪽이 먼저) */
+      var jsonAvatar = function (id) { var x = (json.editors || []).filter(function (e) { return e.id === id; })[0]; return (x && x.avatar) || ''; };
+      var editors = (res[0] || []).map(function (e) { return { id: e.id, name: e.name || '', avatar: e.avatar || jsonAvatar(e.id) }; });
       var row = (res[1] || [])[0];
       if (!row || !row.value) throw new Error('site_content 에 home 이 없음');
-      return { editors: editors, home: borrowFromJSON(row.value, res[3]), magazines: res[2] || [] };
+      return { editors: editors, home: borrowFromJSON(row.value, json.home || {}), magazines: res[2] || [] };
     });
   }
   /* ② 못 읽으면 저장소 안 JSON 파일 (content.json: editors · home, magazines.json: 글 목록) */
