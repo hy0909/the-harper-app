@@ -152,7 +152,19 @@
     'confirm': ['확인', 'OK', '確認', '确定', '確定'],
     'profile.photoUpload': ['사진 올리기', 'Upload photo', '写真をアップロード', '上传照片', '上傳照片'],
     'profile.photoChange': ['사진 바꾸기', 'Change photo', '写真を変更', '更换照片', '更換照片'],
-    'profile.photoRemove': ['사진 지우기', 'Remove photo', '写真を削除', '删除照片', '刪除照片']
+    'profile.photoRemove': ['사진 지우기', 'Remove photo', '写真を削除', '删除照片', '刪除照片'],
+
+    'support.subject': ['[THE HARPER] 문의', '[THE HARPER] Inquiry', '[THE HARPER] お問い合わせ', '[THE HARPER] 咨询', '[THE HARPER] 諮詢'],
+    'support.bodyHead': ['문의 내용을 적어 주세요.', 'Please write your question here.', 'お問い合わせ内容をご記入ください。', '请在此填写咨询内容。', '請在此填寫諮詢內容。'],
+    'support.version': ['앱 버전', 'App version', 'アプリ版', '应用版本', '應用程式版本'],
+    'support.device': ['기기', 'Device', '端末', '设备', '裝置'],
+    'support.desktopHint': ['컴퓨터에서는 메일 앱이 설정돼 있지 않을 수 있어요. 아래에서 골라 주세요.', 'Your computer may not have a mail app set up. Choose an option below.', 'パソコンにメールアプリが設定されていない場合があります。下から選んでください。', '电脑上可能没有设置邮件应用，请在下方选择。', '電腦上可能沒有設定郵件應用程式，請在下方選擇。'],
+    'support.addrLabel': ['메일 주소', 'Email', 'メール', '邮箱', '電子郵件'],
+    'support.mailApp': ['메일 앱으로 보내기', 'Send with mail app', 'メールアプリで送る', '用邮件应用发送', '用郵件應用程式寄送'],
+    'support.gmail': ['Gmail로 보내기', 'Send with Gmail', 'Gmailで送る', '用 Gmail 发送', '用 Gmail 寄送'],
+    'support.copy': ['주소 복사', 'Copy address', 'アドレスをコピー', '复制地址', '複製地址'],
+    'support.copied': ['복사했어요', 'Copied', 'コピーしました', '已复制', '已複製'],
+    'support.copyFail': ['복사하지 못했어요. 주소를 길게 눌러 복사해 주세요.', "Couldn't copy. Please select the address and copy it.", 'コピーできませんでした。アドレスを選んでコピーしてください。', '复制失败，请选中地址后手动复制。', '複製失敗，請選取地址後手動複製。']
   };
 
   function read() {
