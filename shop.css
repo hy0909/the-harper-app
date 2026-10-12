@@ -109,6 +109,41 @@
 .shop-section .shop-list { padding: 0; }
 .shop-section .mag__body p + p { margin-top: 26px; }
 
+/* 위치: 소개 글 아래 제목 · 16:9 미니 지도 · 주소 */
+.shop-map { display: flex; flex-direction: column; gap: 8px; }
+.shop-map__title {
+  font-family: var(--font-sans);
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 1.5;
+  letter-spacing: 0.0912px;
+  color: var(--ink);
+}
+.shop-map__frame {
+  position: relative;
+  z-index: 0; /* 지도 안의 칸(페인·컨트롤)이 탭 줄 위로 올라오지 않게 */
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border-radius: 12px;
+  overflow: hidden;
+  background: #e9e6df;
+}
+.shop-map__frame[hidden] { display: none; }
+.shop-map__canvas { position: absolute; inset: 0; }
+.shop-map__canvas .leaflet-container { font-family: var(--font-ui); background: #e9e6df; }
+.shop-map__canvas .leaflet-control-attribution { font-size: 9px; color: var(--ink-60); background: rgba(250, 249, 246, 0.8); }
+.shop-map__canvas .leaflet-control-attribution a { color: var(--ink-60); }
+/* 지도 위를 덮는 투명 링크: 누르면 지도 화면으로 */
+.shop-map__link { position: absolute; inset: 0; z-index: 1; }
+.shop-map__addr {
+  font-family: var(--font-ui);
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.571;
+  letter-spacing: 0.203px;
+  color: var(--ink-70);
+}
+
 /* ⑥ 리뷰 없음 */
 .review-empty {
   background: var(--gray-10);
@@ -177,7 +212,6 @@
   mask: var(--cta-icon) center / contain no-repeat;
 }
 .cta-bar__icon-img--heart { --cta-icon: url("assets/lucide/heart.svg"); }
-.cta-bar__icon-img--nav { --cta-icon: url("assets/lucide/navigation.svg"); }
 .cta-bar__icon[aria-pressed="true"] { border-color: var(--rose); background: #fdf2f3; }
 .cta-bar__icon[aria-pressed="true"] .cta-bar__icon-img { background-color: var(--cocoa); }
 .cta-bar__main {

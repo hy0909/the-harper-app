@@ -9,9 +9,10 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500&display=swap" rel="stylesheet">
   <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css" integrity="sha512-h9FcoyWjHcOcmEVkxOfTLnmZFWIH0iZhZT1H2TbOq55xssQGEJHEaIm+PgoUaZbRvQTNTluNOEfb1ZRy6D3BOw==" crossorigin="anonymous" referrerpolicy="no-referrer">
   <link rel="stylesheet" href="styles.css?v=39">
   <link rel="stylesheet" href="magazine.css?v=9">
-  <link rel="stylesheet" href="shop.css?v=5">
+  <link rel="stylesheet" href="shop.css?v=6">
 </head>
 <body class="body--magazine">
   <main class="phone phone--magazine phone--shop" aria-label="THE HARPER 샵 상세">
@@ -93,6 +94,16 @@
       <section class="shop-section" id="sec-intro" aria-labelledby="sec-intro-title">
         <h2 class="shop-section__title" id="sec-intro-title">소개</h2>
         <div class="mag__body" id="shop-intro"></div>
+
+        <!-- 위치: 16:9 미니 지도(누르면 지도 화면) + 주소. 좌표가 없으면 지도 칸을 숨기고 주소만 -->
+        <div class="shop-map" id="shop-map-block">
+          <h3 class="shop-map__title">위치</h3>
+          <div class="shop-map__frame" id="shop-map-frame">
+            <div class="shop-map__canvas" id="shop-map" aria-hidden="true"></div>
+            <a class="shop-map__link" id="shop-map-link" href="map.html" aria-label="지도 화면에서 이 매장 위치 보기"></a>
+          </div>
+          <p class="shop-map__addr" id="shop-map-addr"></p>
+        </div>
       </section>
 
       <section class="shop-section" id="sec-drops" aria-labelledby="sec-drops-title">
@@ -111,7 +122,7 @@
       </section>
     </article>
 
-    <!-- ⑦ 찜하기 · 예약하기 · 길찾기 -->
+    <!-- ⑦ 찜하기 · 예약하기 -->
     <div class="cta-bar">
       <button type="button" class="cta-bar__icon" id="shop-like" aria-pressed="false" aria-label="찜하기">
         <span class="cta-bar__icon-img cta-bar__icon-img--heart" aria-hidden="true"></span>
@@ -120,16 +131,14 @@
         <span class="cta-bar__main-label">예약하기</span>
         <span class="cta-bar__main-price">128,000원~ <small>4인 기준</small></span>
       </a>
-      <a class="cta-bar__icon" id="shop-route" href="map.html" aria-label="길찾기">
-        <span class="cta-bar__icon-img cta-bar__icon-img--nav" aria-hidden="true"></span>
-      </a>
     </div>
 
   </main>
 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js" integrity="sha512-puJW3E/qXDqYp9IfhAI54BJEaWIfloJ7JWs7OeD5i6ruC9JZL1gERT1wjtwXFlh7CjE7ZJ+/vcRZRkIYIb6p4g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   <script src="config.js?v=2"></script>
   <script src="home.js?v=11"></script>
   <script src="shops.js?v=5"></script>
-  <script src="shop.js?v=9"></script>
+  <script src="shop.js?v=10"></script>
 </body>
 </html>

@@ -1,4 +1,51 @@
 /* 샵 상세: ?id=N 매장을 shops.js 데이터로 채운다. 사진 캐러셀 · 탭 고정 · 찜 · 뒤로 가기 경로 */
+/* 위치: 소개 아래 16:9 미니 지도 + 핀 + 주소. 지도는 움직이지 않고, 누르면 map.html?id=N 으로 간다.
+   지도는 map.js 와 같은 Leaflet · OpenStreetMap 타일을 쓴다. 좌표가 NaN 이거나 0 이면 지도 칸을 숨기고 주소만 보여 준다 */
+function setupLocation(s) {
+  var block = document.getElementById('shop-map-block');
+  var frame = document.getElementById('shop-map-frame');
+  var addrEl = document.getElementById('shop-map-addr');
+  var lat = Number(s.lat);
+  var lng = Number(s.lng);
+  var hasPos = isFinite(lat) && isFinite(lng) && lat !== 0 && lng !== 0;
+  if (addrEl) addrEl.textContent = s.addr || '';
+  var canMap = hasPos && typeof L !== 'undefined';
+  frame.hidden = !canMap;
+  if (!canMap && !s.addr && block) { block.hidden = true; return; }
+  if (!canMap) return;
+
+  var link = document.getElementById('shop-map-link');
+  link.href = 'map.html?id=' + s.id;
+
+  var mini = L.map(document.getElementById('shop-map'), {
+    zoomControl: false,
+    scrollWheelZoom: false,
+    dragging: false,
+    touchZoom: false,
+    doubleClickZoom: false,
+    boxZoom: false,
+    keyboard: false
+  }).setView([lat, lng], 16);
+  L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    maxZoom: 19,
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+  }).addTo(mini);
+
+  /* 핀은 map.js 와 같은 모양(코코아 점 + 매장명). 이 매장 하나만 있으니 강조된 상태로 */
+  var pin = document.createElement('div');
+  pin.className = 'map-pin map-pin--active' + (s.pick ? ' map-pin--pick' : '');
+  pin.innerHTML = '<span class="map-pin__dot"></span><span class="map-pin__label"></span>';
+  pin.querySelector('.map-pin__label').textContent = s.name;
+  L.marker([lat, lng], {
+    icon: L.divIcon({ className: 'map-pin-icon', iconSize: [0, 0], iconAnchor: [0, 0], html: pin }),
+    interactive: false,
+    keyboard: false
+  }).addTo(mini);
+
+  mini.invalidateSize();
+  window.addEventListener('resize', function () { mini.invalidateSize(); });
+}
+
 window.HARPER_onShops(function () {
   var shops = window.HARPER_SHOPS || [];
   var params = new URLSearchParams(location.search);
@@ -63,10 +110,11 @@ window.HARPER_onShops(function () {
   if (s.closed) set('shop-info-closed', s.closed);
   if (s.phone) set('shop-info-phone', s.phone);
 
-  /* ⑤ 소개 · 상품·드롭 */
+  /* ⑤ 소개 · 위치 · 상품·드롭 */
   var body = byId('shop-intro');
   body.innerHTML = '';
   (s.intro || []).forEach(function (t) { var p = document.createElement('p'); p.textContent = t; body.appendChild(p); });
+  setupLocation(s);
   byId('shop-drops').innerHTML =
     '<a class="shop-row" href="magazine.html?id=seongsu-daydrop">' +
       '<div class="shop-row__thumb"><img class="photo__img" src="assets/photos/seongsu-brick-showroom.jpg" alt=""><div class="photo__shade" aria-hidden="true"></div><span class="badge badge--search">DAY DROP</span></div>' +
@@ -108,7 +156,6 @@ window.HARPER_onShops(function () {
     like.setAttribute('aria-pressed', on ? 'true' : 'false');
     like.setAttribute('aria-label', on ? '찜 해제' : '찜하기');
   });
-  byId('shop-route').href = 'map.html?id=' + s.id;
 
   /* 지도에서 들어왔으면 뒤로 가기도 그 매장이 선택된 지도로, 아니면 목록으로 */
   var back = document.querySelector('.mag-header__back');
