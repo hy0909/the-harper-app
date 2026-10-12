@@ -834,7 +834,7 @@ a.shop-row { color: inherit; text-decoration: none; }
   font-weight: 600;
   font-size: 13px;
   line-height: 1.385;
-  color: var(--cocoa);
+  color: var(--rose); /* 안틱 로즈: 디자인 시스템 핑크 중 가장 진한 색. 홈 투어 카드 티어 글자와 같음 */
 }
 .tour-info__row { margin-top: 2px; display: flex; align-items: center; justify-content: space-between; gap: 12px; }
 .tour-info__name {
