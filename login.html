@@ -11,7 +11,7 @@
   <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
   <link rel="stylesheet" href="styles.css?v=42">
   <link rel="stylesheet" href="onboarding.css?v=2">
-  <link rel="stylesheet" href="login.css?v=2">
+  <link rel="stylesheet" href="login.css?v=3">
 </head>
 <body>
   <!-- 로그인·회원가입: SNS 버튼(카카오 · LINE · WeChat) → 처음이면 가입 마무리(닉네임 · 약관) → 돌아갈 화면(?from=, 기본 my.html).
@@ -72,20 +72,20 @@
         <div class="field">
           <label class="field__label" for="signup-name" data-i18n="signup.nickname">닉네임</label>
           <input class="field__input" id="signup-name" type="text" maxlength="20" autocomplete="nickname" autocapitalize="off">
-          <p class="field__hint" data-i18n="signup.nicknameHint">매장 리뷰에 보이는 이름이에요</p>
         </div>
-        <div class="onb__list agree" role="group" aria-label="약관 동의">
-          <button type="button" class="onb__item agree__all" role="checkbox" aria-checked="false" data-agree="all">
-            <span data-i18n="signup.all">모두 동의</span><img src="assets/check-circle.svg" alt="">
+        <!-- 약관: 왼쪽 네모 체크박스. '모두 동의'는 맨 위 굵은 줄, 아래 항목을 다 켜면 같이 켜진다 -->
+        <div class="agree" role="group" aria-label="약관 동의">
+          <button type="button" class="agree__row agree__all" role="checkbox" aria-checked="false" data-agree="all">
+            <span class="agree__box" aria-hidden="true"></span><span class="agree__text" data-i18n="signup.all">모두 동의</span>
           </button>
-          <button type="button" class="onb__item agree__item" role="checkbox" aria-checked="false" data-agree="terms" data-required>
-            <span><em class="agree__tag" data-i18n="signup.required">필수</em><span data-i18n="signup.terms">이용약관 동의</span></span><img src="assets/check-circle.svg" alt="">
+          <button type="button" class="agree__row agree__item" role="checkbox" aria-checked="false" data-agree="terms" data-required>
+            <span class="agree__box" aria-hidden="true"></span><span class="agree__text"><em class="agree__tag" data-i18n="signup.required">필수</em><span data-i18n="signup.terms">이용약관 동의</span></span>
           </button>
-          <button type="button" class="onb__item agree__item" role="checkbox" aria-checked="false" data-agree="privacy" data-required>
-            <span><em class="agree__tag" data-i18n="signup.required">필수</em><span data-i18n="signup.privacy">개인정보 수집·이용 동의</span></span><img src="assets/check-circle.svg" alt="">
+          <button type="button" class="agree__row agree__item" role="checkbox" aria-checked="false" data-agree="privacy" data-required>
+            <span class="agree__box" aria-hidden="true"></span><span class="agree__text"><em class="agree__tag" data-i18n="signup.required">필수</em><span data-i18n="signup.privacy">개인정보 수집·이용 동의</span></span>
           </button>
-          <button type="button" class="onb__item agree__item" role="checkbox" aria-checked="false" data-agree="marketing">
-            <span><em class="agree__tag agree__tag--opt" data-i18n="signup.optional">선택</em><span data-i18n="signup.marketing">새 에디터 픽·투어 소식 받기</span></span><img src="assets/check-circle.svg" alt="">
+          <button type="button" class="agree__row agree__item" role="checkbox" aria-checked="false" data-agree="marketing">
+            <span class="agree__box" aria-hidden="true"></span><span class="agree__text"><em class="agree__tag agree__tag--opt" data-i18n="signup.optional">선택</em><span data-i18n="signup.marketing">새 에디터 픽·투어 소식 받기</span></span>
           </button>
         </div>
       </div>

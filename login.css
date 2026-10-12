@@ -93,9 +93,46 @@ a.onb__close { text-decoration: none; }
 }
 .field__input:focus { border-color: var(--cocoa); }
 .field__hint { font-family: var(--font-ui); font-size: 12px; color: var(--ink-50); }
-.agree .onb__item { padding: 16px 20px; }
-.agree .onb__item > span:first-child { display: flex; align-items: center; gap: 8px; }
-.agree__all { font-weight: 600; color: var(--ink); }
+/* 약관: 왼쪽 네모 체크박스(비면 테두리만, 켜면 코코아 바탕에 흰 체크) */
+.agree { display: flex; flex-direction: column; }
+.agree__row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  min-height: 48px;
+  padding: 12px 4px;
+  text-align: left;
+  font-family: var(--font-ui);
+  font-size: 15px;
+  line-height: 1.4;
+  color: var(--ink-70);
+}
+.agree__all {
+  font-weight: 700;
+  color: var(--ink);
+  border-bottom: 1px solid #e2e2e2;
+  margin-bottom: 4px;
+}
+.agree__box {
+  flex: 0 0 22px;
+  width: 22px;
+  height: 22px;
+  border-radius: 6px;
+  border: 1.5px solid #c9c5bf;
+  background: #fff;
+}
+.agree__box { display: flex; align-items: center; justify-content: center; }
+.agree__row[aria-checked="true"] .agree__box { border-color: var(--cocoa); background: var(--cocoa); }
+.agree__row[aria-checked="true"] .agree__box::after {
+  content: "";
+  width: 16px;
+  height: 16px;
+  background-color: #fff; /* check.svg 는 검정 선이라 마스크로 흰색을 입힌다 */
+  -webkit-mask: url("assets/check.svg") center / contain no-repeat;
+  mask: url("assets/check.svg") center / contain no-repeat;
+}
+.agree__text { display: flex; align-items: center; gap: 8px; min-width: 0; }
 .agree__tag {
   flex: 0 0 auto;
   font-style: normal;
