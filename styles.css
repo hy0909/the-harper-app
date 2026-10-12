@@ -713,6 +713,8 @@ a.shop-row { color: inherit; text-decoration: none; }
 .map .leaflet-control-attribution { font-size: 9px; color: var(--ink-60); background: rgba(250, 249, 246, 0.8); }
 .map .leaflet-control-attribution a { color: var(--ink-60); }
 .map .leaflet-control-zoom { display: none; } /* 손가락으로 확대·축소 */
+/* 단순 지도: 회색 지도에 따뜻한 브라운 톤을 살짝 입힌다(핀·카드는 그대로) */
+.map--simple .leaflet-gl-layer { filter: grayscale(0.4) sepia(0.15) saturate(0.6) brightness(0.98); }
 
 /* 핀: 코코아 점 + 매장명 */
 .map-pin { display: flex; flex-direction: column; align-items: center; gap: 4px; width: max-content; transform: translate(-50%, -100%); cursor: pointer; }
