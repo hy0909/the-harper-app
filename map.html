@@ -10,7 +10,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500&family=Noto+Sans:wght@400..800&family=Noto+Sans+KR:wght@400..800&family=Noto+Sans+JP:wght@400..800&family=Noto+Sans+SC:wght@400..800&family=Noto+Sans+TC:wght@400..800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css" integrity="sha512-h9FcoyWjHcOcmEVkxOfTLnmZFWIH0iZhZT1H2TbOq55xssQGEJHEaIm+PgoUaZbRvQTNTluNOEfb1ZRy6D3BOw==" crossorigin="anonymous" referrerpolicy="no-referrer">
   <link rel="stylesheet" href="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.css">
-  <link rel="stylesheet" href="styles.css?v=44">
+  <link rel="stylesheet" href="styles.css?v=45">
 </head>
 <body>
   <main class="phone phone--explore phone--map" aria-label="THE HARPER 지도">
@@ -46,7 +46,7 @@
           </div>
         </div>
 
-        <!-- 지도: 피그마 31:9779의 회색 자리에 실제 지도(Leaflet + OpenStreetMap 타일)를 올림. 핀을 누르면 아래에 매장 카드 -->
+        <!-- 지도: 피그마 31:9779의 회색 자리에 실제 지도(벡터 지도, 홈페이지 v2와 같은 모양)를 올림. 핀을 누르면 아래에 매장 카드 -->
         <div class="map" id="map" role="region" aria-label="성수 편집샵 지도" data-i18n-attrs="aria-label=map.aria">
           <div class="map__card" id="map-card" hidden>
             <a class="shop-row" id="map-card-link" href="shop.html?id=0">
@@ -120,9 +120,10 @@
   <script src="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.js"></script>
   <script src="https://unpkg.com/@maplibre/maplibre-gl-leaflet@0.1.3/leaflet-maplibre-gl.js"></script>
   <script src="i18n.js?v=5"></script>
+  <script src="map-style.js?v=1"></script>
   <script src="drawer.js?v=2"></script>
   <script src="config.js?v=2"></script>
   <script src="shops.js?v=8"></script>
-  <script src="map.js?v=11"></script>
+  <script src="map.js?v=12"></script>
 </body>
 </html>

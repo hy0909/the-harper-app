@@ -1,6 +1,6 @@
 /* 매장 상세: ?id=N 매장을 shops.js 데이터로 채운다. 사진 캐러셀 · 탭 고정 · 찜 · 뒤로 가기 경로 */
 /* 위치: 소개 아래 16:9 미니 지도 + 핀 + 주소. 지도는 움직이지 않고, 누르면 map.html?id=N 으로 간다.
-   지도는 map.js 와 같은 Leaflet · OpenStreetMap 타일을 쓴다. 좌표가 NaN 이거나 0 이면 지도 칸을 숨기고 주소만 보여 준다 */
+   지도는 map.js 와 같은 벡터 지도(map-style.js, 홈페이지 v2와 같은 모양)를 쓰고, 못 불러오면 OpenStreetMap 타일로. 좌표가 NaN 이거나 0 이면 지도 칸을 숨기고 주소만 보여 준다 */
 function setupLocation(s) {
   var block = document.getElementById('shop-map-block');
   var frame = document.getElementById('shop-map-frame');
@@ -26,10 +26,14 @@ function setupLocation(s) {
     boxZoom: false,
     keyboard: false
   }).setView([lat, lng], 16);
-  L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    maxZoom: 19,
-    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-  }).addTo(mini);
+  var vector = window.HARPER_mapStyle ? window.HARPER_mapStyle.addTo(mini, window.HARPER_LANG) : Promise.resolve(false);
+  vector.then(function (ok) {
+    if (ok) return;
+    L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      maxZoom: 19,
+      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+    }).addTo(mini);
+  });
 
   /* 핀은 map.js 와 같은 모양(코코아 점 + 매장명). 이 매장 하나만 있으니 강조된 상태로 */
   var pin = document.createElement('div');

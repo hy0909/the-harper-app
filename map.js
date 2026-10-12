@@ -1,4 +1,4 @@
-/* 지도: Leaflet + OpenFreeMap 단순 회색 지도(positron, 키 없이 쓸 수 있음, 출처 표기 필수). 못 불러오면 OpenStreetMap 타일로.
+/* 지도: Leaflet 위에 벡터 지도(map-style.js, 홈페이지 v2와 같은 모양). 못 불러오면 OpenStreetMap 타일로.
    핀을 누르면 아래 카드에 매장 정보, 카드를 누르면 상세로 */
 window.HARPER_onShops(function () {
   var el = document.getElementById('map');
@@ -8,25 +8,15 @@ window.HARPER_onShops(function () {
 
   var map = L.map(el, { zoomControl: false, attributionControl: true, scrollWheelZoom: false })
     .setView(areas.seongsu || [37.5428, 127.0555], 15);
-  var osmAttr = '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors';
-  if (L.maplibreGL && window.maplibregl) {
-    var gl = L.maplibreGL({
-      style: 'https://tiles.openfreemap.org/styles/positron',
-      attribution: '<a href="https://openfreemap.org">OpenFreeMap</a> ' + osmAttr
+  /* 홈페이지 v2와 같은 벡터 지도(map-style.js). 못 불러오면 OpenStreetMap 타일로 */
+  var vector = window.HARPER_mapStyle ? window.HARPER_mapStyle.addTo(map, window.HARPER_LANG) : Promise.resolve(false);
+  vector.then(function (ok) {
+    if (ok) return;
+    L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      maxZoom: 19,
+      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
     }).addTo(map);
-    /* 더 단순하게: 지도 위 글자·아이콘(도시·강·도로 이름, 번호판)과 행정 경계는 모두 숨기고 길·물·녹지 모양만 남긴다 */
-    var glMap = gl.getMaplibreMap();
-    glMap.on('styledata', function () {
-      (glMap.getStyle().layers || []).forEach(function (layer) {
-        if ((layer.type === 'symbol' || /boundary|aeroway|transit/i.test(layer.id)) && glMap.getLayoutProperty(layer.id, 'visibility') !== 'none') {
-          glMap.setLayoutProperty(layer.id, 'visibility', 'none');
-        }
-      });
-    });
-    el.classList.add('map--simple');
-  } else {
-    L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', { maxZoom: 19, attribution: osmAttr }).addTo(map);
-  }
+  });
   /* 지도 높이가 화면에 맞춰 늘어나므로, 크기가 바뀌면 타일을 다시 맞춘다 */
   window.addEventListener('resize', function () { map.invalidateSize(); });
   setTimeout(function () { map.invalidateSize(); }, 0);
