@@ -307,7 +307,10 @@ window.HARPER_sbWarn = window.HARPER_sbWarn || function (err) {
   /* 언어가 한국어가 아니면 data/i18n/<lang>.json 의 홈 글 · 에디터 이름 · 매거진 제목을 덮어씌운다(i18n.js) */
   function translate(data) {
     var ready = window.HARPER_i18nReady || Promise.resolve(null);
-    return ready.then(function (tr) { return (tr && window.HARPER_trHome) ? window.HARPER_trHome(data, tr) : data; });
+    return ready.then(function (tr) {
+      if (tr && window.HARPER_trHome) window.HARPER_trHome(data, tr);
+      return window.HARPER_curlyDeep ? window.HARPER_curlyDeep(data) : data; /* 곧은 따옴표 → 둥근 따옴표 */
+    });
   }
 
   fromSupabase()

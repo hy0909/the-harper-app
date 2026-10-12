@@ -15,10 +15,15 @@
   --jade: #8fa693;
   --terracotta: #c97b5c;
   --amber: #c9a15c;
-  --font-ui: "Pretendard", -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
-  --font-sans: "Pretendard", -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+  /* 본문 서체: 영문은 Noto Sans, 한글은 Noto Sans KR. 일본어·중국어는 아래 :lang 규칙에서 그 나라 Noto Sans 로 */
+  --font-cjk: "Noto Sans KR";
+  --font-ui: "Noto Sans", var(--font-cjk), -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+  --font-sans: "Noto Sans", var(--font-cjk), -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
   --font-logo: "Cormorant Garamond", "Times New Roman", Times, serif;
 }
+html:lang(ja) { --font-cjk: "Noto Sans JP"; }
+html:lang(zh-Hans) { --font-cjk: "Noto Sans SC"; }
+html:lang(zh-Hant) { --font-cjk: "Noto Sans TC"; }
 
 * { box-sizing: border-box; }
 html {

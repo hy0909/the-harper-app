@@ -103,10 +103,10 @@
     'shop.book': ['예약하기', 'Book now', '予約する', '立即预约', '立即預約'],
     'shop.bookPrice': ['128,000원~', '₩128,000~', '₩128,000〜', '₩128,000起', '₩128,000起'],
     'shop.bookPer': ['4인 기준', 'for 4 people', '4名基準', '4人标准', '4人標準'],
-    'shop.chipPick': ['에디터 PICK', "Editor's PICK", 'エディターPICK', '编辑PICK', '編輯PICK'],
-    'shop.chipRec': ['에디터 추천', "Editor's choice", 'エディターおすすめ', '编辑推荐', '編輯推薦'],
+    'shop.chipPick': ['에디터 PICK', "Editor’s PICK", 'エディターPICK', '编辑PICK', '編輯PICK'],
+    'shop.chipRec': ['에디터 추천', "Editor’s choice", 'エディターおすすめ', '编辑推荐', '編輯推薦'],
     'shop.chipNoJapan': ['일본 미입점', 'Not in Japan', '日本未上陸', '日本未进驻', '日本未進駐'],
-    'shop.dropTitle': ['성수 창고 쇼룸에서 고르는 한국 브랜드', "Korean brands from Seongsu's warehouse showrooms", '聖水の倉庫ショールームで選ぶ韓国ブランド', '在圣水仓库展厅挑选韩国品牌', '在聖水倉庫展示間挑選韓國品牌'],
+    'shop.dropTitle': ['성수 창고 쇼룸에서 고르는 한국 브랜드', "Korean brands from Seongsu’s warehouse showrooms", '聖水の倉庫ショールームで選ぶ韓国ブランド', '在圣水仓库展厅挑选韩国品牌', '在聖水倉庫展示間挑選韓國品牌'],
     'shop.dropPrice': ['128,000원~ · 4인 기준', '₩128,000~ · for 4 people', '₩128,000〜 · 4名基準', '₩128,000起 · 4人标准', '₩128,000起 · 4人標準'],
     'shop.dropNote': ['에디터와 함께 5곳을 돌아보는 투어', 'A tour of 5 shops with the editor', 'エディターと5軒をめぐるツアー', '与编辑同行探访5家店铺', '與編輯同行探訪5家店家'],
     'mag.more': ['자세히 보기', 'See more', '詳しく見る', '查看详情', '查看更多'],
@@ -128,7 +128,7 @@
     'provider.line': ['LINE', 'LINE', 'LINE', 'LINE', 'LINE'],
     'provider.wechat': ['WeChat', 'WeChat', 'WeChat', '微信', 'WeChat'],
     'login.title': ['SNS 계정으로 시작하세요', 'Continue with your social account', 'SNSアカウントではじめましょう', '使用社交账号开始', '使用社群帳號開始'],
-    'login.sub': ['처음이면 가입, 이미 가입했으면 바로 로그인돼요', "New here? We'll sign you up. Already joined? You'll be logged in.", '初めての方は登録、登録済みの方はそのままログインできます', '首次使用将自动注册，已注册则直接登录', '首次使用將自動註冊，已註冊則直接登入'],
+    'login.sub': ['처음이면 가입, 이미 가입했으면 바로 로그인돼요', "New here? We’ll sign you up. Already joined? You’ll be logged in.", '初めての方は登録、登録済みの方はそのままログインできます', '首次使用将自动注册，已注册则直接登录', '首次使用將自動註冊，已註冊則直接登入'],
     'login.kakao': ['카카오로 시작하기', 'Continue with Kakao', 'Kakaoではじめる', '使用 Kakao 开始', '使用 Kakao 開始'],
     'login.line': ['LINE으로 시작하기', 'Continue with LINE', 'LINEではじめる', '使用 LINE 开始', '使用 LINE 開始'],
     'login.wechat': ['WeChat으로 시작하기', 'Continue with WeChat', 'WeChatではじめる', '使用微信开始', '使用 WeChat 開始'],
@@ -232,6 +232,26 @@
     if (h.picks) put(h.picks, th.picks, ['title']);
     return data;
   }
+
+  /* 곧은 따옴표(" ')를 둥근 따옴표(“ ” ‘ ’)로. Supabase 나 JSON 에서 온 글을 화면에 그리기 전에 거친다 */
+  function curly(s) {
+    return String(s).replace(/["']/g, function (ch, i, str) {
+      var prev = i > 0 ? str[i - 1] : '';
+      var next = str[i + 1] || '';
+      var open = !prev || /[\s([{\n]/.test(prev);
+      if (ch === '"') return open ? '“' : '”';
+      if (prev && /[\p{L}\p{N}]/u.test(prev)) return '’';
+      return (next && !/\s/.test(next)) ? '‘' : '’';
+    });
+  }
+  function curlyDeep(v) {
+    if (typeof v === 'string') return curly(v);
+    if (Array.isArray(v)) { v.forEach(function (x, i) { v[i] = curlyDeep(x); }); return v; }
+    if (v && typeof v === 'object') { Object.keys(v).forEach(function (k) { v[k] = curlyDeep(v[k]); }); return v; }
+    return v;
+  }
+  window.HARPER_curly = curly;
+  window.HARPER_curlyDeep = curlyDeep;
 
   window.HARPER_LANG = lang;
   window.HARPER_LANGS = LANGS;

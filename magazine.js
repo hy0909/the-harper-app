@@ -116,6 +116,7 @@
       var ready = window.HARPER_i18nReady || Promise.resolve(null);
       return ready.then(function (tr) {
         if (tr && window.HARPER_trMagazine) window.HARPER_trMagazine(m, tr);
+        if (window.HARPER_curlyDeep) window.HARPER_curlyDeep(m); /* 곧은 따옴표 → 둥근 따옴표 */
         window.HARPER_MAGAZINE = m;
         render(m);
       });
