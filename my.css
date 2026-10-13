@@ -17,18 +17,6 @@
   background: var(--ink-60); /* 사진 자리. 에디터 표시와 같은 색 */
   position: relative;
 }
-.profile__avatar::after {
-  /* 안틱 로즈 점: 로그인 상태 표시(작은 면적 강조) */
-  content: "";
-  position: absolute;
-  right: 2px;
-  bottom: 2px;
-  width: 14px;
-  height: 14px;
-  border-radius: 999px;
-  background: var(--rose);
-  border: 2px solid #efede9;
-}
 .profile__text { flex: 1 0 0; min-width: 0; display: flex; flex-direction: column; gap: 2px; }
 .profile__name {
   font-family: var(--font-sans);
@@ -42,7 +30,6 @@
 .profile__sub[hidden] { display: none; }
 /* 로그인 전: 회색 동그라미에 로즈 점이 없고, 오른쪽 버튼은 코코아 바탕 */
 .profile--out .profile__avatar { background: #d6d3cf; }
-.profile--out .profile__avatar::after { display: none; }
 .profile__login {
   display: inline-flex;
   align-items: center;
@@ -254,12 +241,10 @@
 /* 프로필 사진: 아바타 동그라미 안에 사진이 있으면 꽉 채운다 */
 .profile__avatar { overflow: hidden; }
 .profile__avatar img { width: 100%; height: 100%; object-fit: cover; border-radius: 999px; }
-.profile__avatar::after { z-index: 1; }
 
 /* 프로필 수정 모달(my.html): 틀은 styles.css 의 tour-info, 입력란은 가입 화면과 같은 모양 */
 .profile-modal__photo { margin-top: 20px; display: flex; flex-direction: column; align-items: center; gap: 12px; }
 .profile-modal__avatar { width: 96px; height: 96px; flex-basis: 96px; }
-.profile-modal__avatar::after { display: none; }
 .profile-modal__photo-btns { display: flex; gap: 8px; }
 .profile-modal__btn {
   height: 36px;
