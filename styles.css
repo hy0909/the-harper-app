@@ -153,6 +153,7 @@ img { display: block; }
 /* 매거진별 사진 초점: 카드·히어로·상세의 [data-magazine] 칸 안 사진 위치. 얼굴이 잘리는 사진만 여기 한 줄씩 준다 */
 [data-magazine="k-brand-interview"] .photo__img { object-position: 50% 0%; }
 [data-magazine="k-brand-series-001"] .photo__img { object-position: 50% 0%; }
+[data-magazine="k-brand-celeb"] .photo__img { object-position: 50% 20%; } /* 오픈와이와이 자매 사진: 얼굴이 보이게 */
 .photo__shade {
   position: absolute;
   inset: 0;
@@ -370,7 +371,7 @@ img.editor__avatar { display: block; object-fit: cover; }
 .feed-card--jade .feed-card__title { color: #2c4831; }
 .feed-card--terracotta .feed-card__title { color: #582f1e; }
 /* 피드 사진: 왼쪽 위에 에디터, 위가 어두운 그라데이션 */
-.photo--card, .photo--hero { justify-content: flex-start; } /* 에디터를 사진 왼쪽 위에 */
+.photo--card { justify-content: flex-start; } /* 에디터를 사진 왼쪽 위에. 오늘의 추천(.photo--hero)은 왼쪽 아래 */
 .photo__shade--top { background: rgba(0, 0, 0, 0.21); } /* 피드 카드: 그라데이션 대신 사진 전체에 검정. 진하기 56% → 41% → 21%(투명도 15%p, 20%p 더 줌) */
 .photo--card .editor__name { font-size: 13px; letter-spacing: -0.13px; }
 

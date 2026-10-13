@@ -41,7 +41,7 @@
     "kind": "magazine",
     "badge": "K-BRAND",
     "title": "셀럽이 입어서 유명한 브랜드",
-    "hero": "assets/photos/seongsu-contemporary.jpg",
+    "hero": "assets/magazine/openyy-directors.jpg",
     "editor": "h",
     "date": "10. 12",
     "price": "",
@@ -51,19 +51,19 @@
     "intro": "요즘 서울에서 “그 옷 어디 거야?”라는 말이 제일 많이 나오는 브랜드만 모았어요. 셀럽이 입고 나와서 하루 만에 품절된 니트부터, 해외 패션 피플이 먼저 알아본 테크웨어까지. 공통점은 하나예요. 서울에서 사면 제일 싸고, 제일 빠르고, 제일 많이 볼 수 있다는 것.\n\n아래 아홉 브랜드는 THE HARPER 에디터가 실제로 쇼룸을 돌며 추린 리스트예요. 마음에 드는 브랜드가 있으면 저장해 두세요. Day Drop에서 같이 들러 드릴게요.",
     "sections": [
       {
-        "heading": "GLOWNY 글로니",
-        "sub": "서울 기반 여성복 · 20대의 압도적 지지",
-        "image": "assets/magazine/glowny-directors.jpg",
-        "body": "20대 여성 팬덤이 가장 단단한 서울 브랜드예요. 사랑스럽고 빈티지한 무드에 건강한 여성성을 얹은 스타일이 시그니처. 슬림한 톱과 니트, 미니 드레스, 데님처럼 매일 손이 가는 데일리웨어가 특히 강해요. “글로니 니트”는 서울 여자들의 기본템이라고 보시면 돼요.",
-        "link": "https://www.instagram.com/glownystore/",
-        "link_label": "Instagram"
-      },
-      {
         "heading": "OPEN YY 오픈와이와이",
         "sub": "자매 디렉터의 컨템포러리 · PUMA·KEEN 협업",
         "image": "assets/magazine/openyy-directors.jpg",
         "body": "지영·보영 자매가 이끄는 컨템포러리 브랜드. 국내 젊은 패션층에서 “개성 있는 여성복” 하면 가장 먼저 나오는 이름이에요. 여성복과 유니섹스를 넘나드는 실험적인 실루엣이 특징이고, PUMA·KEEN 같은 글로벌 브랜드와의 협업도 꾸준해서 매 시즌 화제가 끊이지 않아요.",
         "link": "https://www.instagram.com/openyy_official/",
+        "link_label": "Instagram"
+      },
+      {
+        "heading": "GLOWNY 글로니",
+        "sub": "서울 기반 여성복 · 20대의 압도적 지지",
+        "image": "assets/magazine/glowny-directors.jpg",
+        "body": "20대 여성 팬덤이 가장 단단한 서울 브랜드예요. 사랑스럽고 빈티지한 무드에 건강한 여성성을 얹은 스타일이 시그니처. 슬림한 톱과 니트, 미니 드레스, 데님처럼 매일 손이 가는 데일리웨어가 특히 강해요. “글로니 니트”는 서울 여자들의 기본템이라고 보시면 돼요.",
+        "link": "https://www.instagram.com/glownystore/",
         "link_label": "Instagram"
       },
       {
