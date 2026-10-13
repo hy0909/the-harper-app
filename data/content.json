@@ -53,6 +53,11 @@
       "title": "에디터 큐레이션 피드",
       "items": [
         {
+          "magazine": "k-brand-celeb",
+          "color": "jade",
+          "title": "셀럽이 입어서\n유명한 브랜드"
+        },
+        {
           "magazine": "k-brand-interview",
           "color": "blush",
           "title": "K-BRAND\n디자이너 인터뷰"

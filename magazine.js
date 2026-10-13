@@ -14,10 +14,13 @@
       .map(function (p) { return '<p>' + esc(p).split('\n').join('<br>') + '</p>'; })
       .join('');
   }
+  /* 제목: 줄바꿈(\n)은 <br> 로(먼저 글자를 이스케이프한 뒤 바꾼다) */
+  var titleHTML = function (text) { return esc(text).split('\n').join('<br>'); };
   var byId = function (i) { return document.getElementById(i); };
 
   function render(m) {
-    document.title = (window.HARPER_t ? window.HARPER_t('title.prefix') : 'THE HARPER 앱 미리보기 — ') + (m.title || '');
+    /* 브라우저 탭 제목은 한 줄로(줄바꿈은 공백으로) */
+    document.title = (window.HARPER_t ? window.HARPER_t('title.prefix') : 'THE HARPER 앱 미리보기 — ') + String(m.title || '').replace(/\s*\n\s*/g, ' ');
 
     /* 대표 사진 · 배지 */
     byId('mag-hero').src = img(m.hero || '');
@@ -27,7 +30,7 @@
     byId('mag-badge').hidden = !m.badge;
 
     /* 제목 · 에디터 · 날짜 */
-    byId('mag-title').textContent = m.title || '';
+    byId('mag-title').innerHTML = titleHTML(m.title || '');
     var editor = byId('mag-editor');
     editor.dataset.editor = m.editor || '';
     if (window.HARPER_fillEditors) window.HARPER_fillEditors();

@@ -42,6 +42,9 @@
     "feed": {
       "title": "Editor’s Curation Feed",
       "items": {
+        "k-brand-celeb": {
+          "title": "Brands Made Famous\nby Celebrities"
+        },
         "k-brand-interview": {
           "title": "K-BRAND\nDesigner Interviews"
         },
@@ -239,7 +242,7 @@
     },
     "k-brand-series-001": {
       "badge": "K-BRAND",
-      "title": "K-BRAND SERIES 001 OPEN YY",
+      "title": "K-BRAND\nSERIES 001\nOPEN YY",
       "price": "",
       "note": "",
       "summary": "",

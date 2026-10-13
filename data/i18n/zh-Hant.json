@@ -42,6 +42,9 @@
     "feed": {
       "title": "編輯策展動態",
       "items": {
+        "k-brand-celeb": {
+          "title": "因名人穿搭\n而爆紅的品牌"
+        },
         "k-brand-interview": {
           "title": "K-BRAND\n設計師專訪"
         },
@@ -239,7 +242,7 @@
     },
     "k-brand-series-001": {
       "badge": "K-BRAND",
-      "title": "K-BRAND SERIES 001 OPEN YY",
+      "title": "K-BRAND\nSERIES 001\nOPEN YY",
       "price": "",
       "note": "",
       "summary": "",
