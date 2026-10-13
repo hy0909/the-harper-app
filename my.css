@@ -7,7 +7,7 @@
   padding: 8px 24px 0;
   display: flex;
   align-items: center;
-  gap: 16px;
+  gap: 12px; /* 프로필 사진과 오른쪽 글 사이 */
 }
 .profile__avatar {
   flex: 0 0 64px;
