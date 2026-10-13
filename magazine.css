@@ -86,7 +86,7 @@
 .mag__title {
   font-family: var(--font-sans);
   font-weight: 800; /* 피그마: ExtraBold */
-  font-size: 22px;
+  font-size: 28px; /* 22px에서 6px 키움. 제목의 줄바꿈(\n)은 그대로 두 줄로 */
   line-height: 1.364;
   letter-spacing: -0.4268px;
   color: var(--ink);

@@ -63,7 +63,7 @@
   "magazines": {
     "seongsu-daydrop": {
       "badge": "Day Drop",
-      "title": "성수 창고 쇼룸에서 고르는 한국 브랜드",
+      "title": "성수 창고 쇼룸에서\n고르는 한국 브랜드",
       "price": "128,000원~",
       "note": "4인 기준",
       "summary": "에디터와 함께 성수 숨은 디자이너 브랜드 스튜디오 5곳을 돌아보는 투어",
@@ -92,7 +92,7 @@
     },
     "k-brand-celeb": {
       "badge": "K-BRAND",
-      "title": "셀럽이 입어서 유명한 브랜드",
+      "title": "셀럽이 입어서\n유명한 브랜드",
       "price": "",
       "note": "",
       "summary": "셀럽의 선택부터 독보적인 디자인까지, 지금 패션 신에서 가장 뜨거운 K-브랜드 9",
@@ -159,7 +159,7 @@
     },
     "k-brand-interview": {
       "badge": "K-BRAND",
-      "title": "K-BRAND 디자이너 인터뷰",
+      "title": "K-BRAND\n디자이너 인터뷰",
       "price": "",
       "note": "",
       "summary": "해외에서 뜨겁게 주목받는 한국 브랜드, 그 뒤에 선 자매 디렉터들의 이야기",
@@ -184,7 +184,7 @@
     },
     "k-brand-showroom": {
       "badge": "K-BRAND",
-      "title": "K-BRAND 쇼룸 소개",
+      "title": "K-BRAND\n쇼룸 소개",
       "price": "",
       "note": "",
       "summary": "지금 가장 뜨거운 동네 압구정·도산, K-브랜드 쇼룸을 따라 걷는 하루 코스",

@@ -151,9 +151,10 @@ window.HARPER_sbWarn = window.HARPER_sbWarn || function (err) {
       el('today-headline').innerHTML = lines(today.title);
       el('today-link').href = today.href;
       el('today-photo').dataset.magazine = today.id || '';
-      /* 에디터는 피드 카드처럼 사진 안 왼쪽 위에. 그라데이션 없음 */
+      /* 에디터는 사진 안 왼쪽 아래. 사진 위 덮개는 피드 카드와 같은 검정 21% */
       el('today-photo').innerHTML =
         '<img class="photo__img" src="' + esc(img(today.image)) + '" alt="">' +
+        '<div class="photo__shade photo__shade--top" aria-hidden="true"></div>' + /* 피드 카드와 같은 검정 21% */
         editorHTML(editors, today.editor);
     }
 
@@ -181,9 +182,7 @@ window.HARPER_sbWarn = window.HARPER_sbWarn || function (err) {
       el('feed-list').innerHTML = (feed.items || []).map(function (item) {
         var c = cardOf(item, magazines);
         if (!c) return '';
-        /* 피드에서 연 상세는 맨 위 대표 사진 없이 글부터(magazine.js 가 from=feed 를 본다) */
-        var href = c.id ? c.href + '&from=feed' : c.href;
-        return '<a class="feed-card feed-card--' + esc(item.color) + '" data-magazine="' + esc(c.id) + '" href="' + esc(href) + '">' +
+        return '<a class="feed-card feed-card--' + esc(item.color) + '" data-magazine="' + esc(c.id) + '" href="' + esc(c.href) + '">' +
           '<h2 class="feed-card__title">' + lines(c.title) + '</h2>' +
           '<div class="photo photo--card">' +
             '<img class="photo__img" src="' + esc(img(c.image)) + '" alt="">' +

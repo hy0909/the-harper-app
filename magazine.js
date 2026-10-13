@@ -23,9 +23,8 @@
     document.title = (window.HARPER_t ? window.HARPER_t('title.prefix') : 'THE HARPER 앱 미리보기 — ') + String(m.title || '').replace(/\s*\n\s*/g, ' ');
 
     /* 대표 사진 · 배지 */
-    /* 에디터 큐레이션 피드 카드로 들어오면(?from=feed) 대표 사진·배지 칸을 숨기고 글부터 보여 준다 */
-    var fromFeed = new URLSearchParams(location.search).get('from') === 'feed';
-    byId('mag-hero').parentNode.hidden = fromFeed;
+    /* 상세는 맨 위 대표 사진·배지 없이 제목부터 보여 준다(사진은 홈 카드에서만) */
+    byId('mag-hero').parentNode.hidden = true;
     byId('mag-hero').src = img(m.hero || '');
     /* 사진 초점은 styles.css 의 [data-magazine] 규칙이 쓴다 */
     byId('mag-hero').parentNode.dataset.magazine = m.id || '';
