@@ -42,9 +42,6 @@
     "feed": {
       "title": "エディターのキュレーションフィード",
       "items": {
-        "k-brand-celeb": {
-          "title": "セレブが着て\n話題になったブランド"
-        },
         "k-brand-interview": {
           "title": "K-BRAND\nデザイナーインタビュー"
         },

@@ -42,9 +42,6 @@
     "feed": {
       "title": "Editor’s Curation Feed",
       "items": {
-        "k-brand-celeb": {
-          "title": "Brands Made Famous\nby Celebrities"
-        },
         "k-brand-interview": {
           "title": "K-BRAND\nDesigner Interviews"
         },
