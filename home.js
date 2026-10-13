@@ -156,10 +156,10 @@ window.HARPER_sbWarn = window.HARPER_sbWarn || function (err) {
       el('today-headline').innerHTML = lines(today.title);
       el('today-link').href = today.href;
       el('today-photo').dataset.magazine = today.id || '';
+      /* 에디터는 피드 카드처럼 사진 안 왼쪽 위에. 그라데이션 없음 */
       el('today-photo').innerHTML =
         '<img class="photo__img" src="' + esc(img(today.image)) + '" alt="">' +
-        '<div class="photo__shade" aria-hidden="true"></div>';
-      el('today-editor').innerHTML = editorHTML(editors, today.editor);
+        editorHTML(editors, today.editor);
     }
 
     /* 투어 종류 */

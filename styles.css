@@ -127,14 +127,9 @@ img { display: block; }
 .today__media { color: inherit; text-decoration: none; } /* 제목 · 사진 묶음 전체가 매거진 글로 이어진다 */
 .today__media { padding: 0 24px; display: flex; flex-direction: column; }
 /* 사진 높이는 피그마 29:5687 고정값: 히어로 246, 피드 카드 230, 픽 카드 252 */
-.photo--hero { height: 246px; border-radius: 16px 16px 0 0; }
-/* 사진 아래 어두운 바: 에디터 한 줄 */
-.today__bar {
-  padding: 12px 24px;
-  background: var(--ink);
-  border-radius: 0 0 16px 16px; /* 사진과 바 사이 선 없음 */
-}
-.today__bar .editor__name { font-size: 13px; letter-spacing: -0.13px; }
+/* 아래 어두운 바 없이 네 모서리 모두 둥글게. 에디터는 피드 카드(.photo--card)와 같은 안쪽 여백·위치 */
+.photo--hero { height: 246px; padding: 16px; border-radius: 16px; }
+.photo--hero .editor__name { font-size: 13px; letter-spacing: -0.13px; }
 
 /* 사진 블록: 아래쪽 어둡게 + 에디터 표시 */
 .photo {
@@ -375,7 +370,7 @@ img.editor__avatar { display: block; object-fit: cover; }
 .feed-card--jade .feed-card__title { color: #2c4831; }
 .feed-card--terracotta .feed-card__title { color: #582f1e; }
 /* 피드 사진: 왼쪽 위에 에디터, 위가 어두운 그라데이션 */
-.photo--card { justify-content: flex-start; }
+.photo--card, .photo--hero { justify-content: flex-start; } /* 에디터를 사진 왼쪽 위에 */
 .photo__shade--top { background: rgba(0, 0, 0, 0.21); } /* 피드 카드: 그라데이션 대신 사진 전체에 검정. 진하기 56% → 41% → 21%(투명도 15%p, 20%p 더 줌) */
 .photo--card .editor__name { font-size: 13px; letter-spacing: -0.13px; }
 
