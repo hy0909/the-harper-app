@@ -295,6 +295,8 @@ a.mag__related { text-decoration: none; color: inherit; }
 /* 얼굴이 있는 사진만 위치를 맞춘다(16:9 칸에서 얼굴이 잘리지 않게). 나머지 사진은 가운데 */
 .mag-section__image[src$="glowny-directors.jpg"] { object-position: 50% 0%; }
 .mag-section__image[src$="openyy-directors.jpg"] { object-position: 50% 20%; }
+/* 인스타그램 콘텐츠에서 잘라 온 사진(K-BRAND SERIES)은 원래 비율 그대로 보여 준다 */
+.mag__sections[data-magazine="k-brand-interview"] .mag-section__image { aspect-ratio: auto; height: auto; }
 .mag-section__head { display: flex; flex-direction: column; gap: 4px; }
 .mag-section__heading {
   font-family: var(--font-sans);

@@ -57,6 +57,7 @@
     var sections = Array.isArray(m.sections) ? m.sections : [];
     var list = byId('mag-sections');
     list.hidden = !sections.length;
+    list.dataset.magazine = m.id || ''; /* 글마다 사진 비율을 다르게 쓸 수 있게(magazine.css) */
     list.innerHTML = sections.map(function (s) {
       return '<section class="mag-section">' +
         (s.image ? '<img class="mag-section__image" src="' + esc(img(s.image)) + '" alt="" loading="lazy">' : '') +
