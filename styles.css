@@ -157,6 +157,7 @@ img { display: block; }
 }
 /* 매거진별 사진 초점: 카드·히어로·상세의 [data-magazine] 칸 안 사진 위치. 얼굴이 잘리는 사진만 여기 한 줄씩 준다 */
 [data-magazine="k-brand-interview"] .photo__img { object-position: 50% 0%; }
+[data-magazine="k-brand-series-001"] .photo__img { object-position: 50% 0%; }
 .photo__shade {
   position: absolute;
   inset: 0;
@@ -375,7 +376,7 @@ img.editor__avatar { display: block; object-fit: cover; }
 .feed-card--terracotta .feed-card__title { color: #582f1e; }
 /* 피드 사진: 왼쪽 위에 에디터, 위가 어두운 그라데이션 */
 .photo--card { justify-content: flex-start; }
-.photo__shade--top { background: linear-gradient(to bottom, rgba(48, 34, 28, 0.56) 0%, rgba(48, 34, 28, 0) 77.8%); } /* 피그마 0.8 에서 30% 연하게 */
+.photo__shade--top { background: rgba(0, 0, 0, 0.41); } /* 피드 카드: 그라데이션 대신 사진 전체에 검정. 진하기 56%에서 투명도 15%p 더 줌 */
 .photo--card .editor__name { font-size: 13px; letter-spacing: -0.13px; }
 
 /* 에디터's PICK */

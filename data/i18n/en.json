@@ -43,13 +43,13 @@
       "title": "Editor’s Curation Feed",
       "items": {
         "k-brand-interview": {
-          "title": "K-BRAND SERIES 001\nOPEN YY"
+          "title": "K-BRAND\nDesigner Interviews"
         },
         "k-brand-showroom": {
           "title": "K-BRAND\nShowroom Guide"
         },
-        "seongsu-daydrop": {
-          "title": "Korean Brands to Discover\nat a Seongsu Warehouse Showroom"
+        "k-brand-series-001": {
+          "title": "K-BRAND SERIES 001\nOPEN YY"
         }
       }
     },
@@ -156,52 +156,24 @@
     },
     "k-brand-interview": {
       "badge": "K-BRAND",
-      "title": "K-BRAND SERIES 001: OPEN YY",
+      "title": "K-BRAND Designer Interviews",
       "price": "",
       "note": "",
-      "summary": "A Seoul label where two sisters' distinct tastes add unexpected twists to everyday clothes",
+      "summary": "The sister directors behind two Korean brands drawing intense attention overseas",
       "info": [],
-      "intro": "The first brand in THE HARPER K-BRAND SERIES is OPEN YY. Just like the cover line says, it's not your ordinary label: a Seoul brand that makes familiar clothes feel anything but ordinary.\n\nWe introduce it in eight parts, from how the two sisters started the brand and the meaning behind its name to this season's collection and the flagship store in Hannam-dong.",
+      "intro": "When overseas fashion people talk about “Seoul brands,” two names always come up: GLOWNY and OPEN YY. What’s interesting is that both brands are led by sisters. One handles the business, the other handles the creative side. The synergy came from different tastes and senses colliding and blending, and that’s what built the brands you see today.\n\nIn this issue, we look at how the two sister directors got started, where they are now, and how they make “the clothes we want to wear.”",
       "sections": [
         {
-          "heading": "01. A Fashion Label Born from Two Sisters",
-          "sub": "",
-          "body": "Founded in Seoul in 2020 by sisters Jiyoung and Boyoung, OPEN YY is a contemporary fashion label originally known as TheOpen Product. Bringing together their distinct tastes and personalities, the brand reimagines everyday wardrobe staples with unexpected twists."
+          "heading": "GLOWNY Directors & Designers",
+          "sub": "CEO Choi Jein · Creative Director Choi Jiho",
+          "body": "GLOWNY’s creative director is Choi Jiho (right in the photo). Together with her older sister, CEO Choi Jein (left), she launched GLOWNY in 2020 as a sister founding team. The roles are clear. Choi Jein oversees the whole business, while Choi Jiho takes charge of GLOWNY’s creative side, from product design to content and visuals.\n\n“My sister reads the numbers, I look at the clothes.” That setup is the secret behind what makes GLOWNY feel so much like GLOWNY. The balance between lovely but not lightweight, and vintage but not dated, came from the two of them clashing and creating every day.",
+          "link_label": "View brand story"
         },
         {
-          "heading": "02. The Meaning Behind OPEN YY",
-          "sub": "",
-          "body": "The \"YY\" in OPEN YY comes from \"Young,\" a syllable shared by both sisters' names. Though pronounced the same, the two names carry different meanings: \"brightness\" and \"flower bud.\" Together, they reflect the individuality and diversity at the heart of the brand."
-        },
-        {
-          "heading": "03. Making the Familiar Feel Unexpected",
-          "sub": "",
-          "body": "OPEN YY transforms familiar wardrobe essentials through unconventional proportions and unexpected details. From sweatshirts and knitwear to tailored jackets, the brand reinterprets everyday pieces with a fresh perspective, embracing a fluid approach to womenswear and gender-neutral dressing."
-        },
-        {
-          "heading": "04. A Favorite Among K-pop Stars",
-          "sub": "",
-          "body": "OPEN YY has made its way into the wardrobes of K stars. Spotted in everything from stage outfits to off-duty looks, the brand continues to attract attention from fashion enthusiasts around the world."
-        },
-        {
-          "heading": "05. Seoul, Reimagined in Fashion",
-          "sub": "",
-          "body": "Titled \"WHEN IN SEOUL,\" OPEN YY's F/W 2026 collection draws inspiration from the city's ever-changing landscape. Blending old and new, structure and spontaneity, the collection captures Seoul's dynamic energy through concrete greys, deep blacks, muted neutrals, and flashes of neon."
-        },
-        {
-          "heading": "06. Details Worth a Closer Look",
-          "sub": "",
-          "body": "Fluid cargo bomber jackets, pin-tucked trench coats, and relaxed knitwear define the season. Distinctive accessories, including wire-detailed beanies and long boots, add a playful edge. The collection balances effortless silhouettes with considered details, encouraging a more individual approach to dressing."
-        },
-        {
-          "heading": "07. Where to Find OPEN YY in Seoul",
-          "sub": "1F, 16, Itaewon-ro 36-gil, Yongsan-gu, Seoul, South Korea",
-          "body": "Located in Hannam-dong, OPEN YY's flagship store offers a closer look at the brand's latest collections and distinctive aesthetic. The space also features a specialty coffee café, making it a destination for both shopping and a leisurely break."
-        },
-        {
-          "heading": "08. A K-fashion Label to Remember",
-          "sub": "",
-          "body": "Fashion is one of the simplest ways to express individuality. Born from two sisters' distinct creative visions, OPEN YY captures the spirit of Seoul today. A K-fashion label worth knowing."
+          "heading": "OPEN YY Directors & Designers",
+          "sub": "Sister directors Kim Jiyoung and Kim Boyoung",
+          "body": "OPEN YY’s creative directors are also sisters, Kim Jiyoung and Kim Boyoung. Neither of them trained as a fashion designer. They are people who love clothes and have watched them closely for a long time. They started the brand with one wish: to make clothes they themselves would love to wear and feel excited about.\n\nThey had been running a label called THE OPEN PRODUCT, and in 2023 they renamed it OPEN YY, opening a new chapter. Today, with silhouettes that move between women’s wear and unisex, it’s a brand that overseas buyers seek out first.",
+          "link_label": "Instagram"
         }
       ],
       "related_label": "View Related Shops",
@@ -257,6 +229,59 @@
           "sub": "3 Seolleung-ro 160-gil, Gangnam-gu, Seoul",
           "body": "The end of the route. The minimalist space has clothes hung sparsely, so it’s a good place to sort through everything you’ve seen all day and pick one last piece.",
           "link_label": "View map"
+        }
+      ],
+      "related_label": "View Related Shops",
+      "cta_label": "View on Instagram"
+    },
+    "k-brand-series-001": {
+      "badge": "K-BRAND",
+      "title": "K-BRAND SERIES 001 OPEN YY",
+      "price": "",
+      "note": "",
+      "summary": "",
+      "info": [],
+      "intro": "",
+      "sections": [
+        {
+          "heading": "01. A Fashion Label Born from Two Sisters",
+          "sub": "",
+          "body": "Founded in Seoul in 2020 by sisters Jiyoung and Boyoung, OPEN YY is a contemporary fashion label originally known as TheOpen Product. Bringing together their distinct tastes and personalities, the brand reimagines everyday wardrobe staples with unexpected twists."
+        },
+        {
+          "heading": "02. The Meaning Behind OPEN YY",
+          "sub": "",
+          "body": "The \"YY\" in OPEN YY comes from \"Young,\" a syllable shared by both sisters' names. Though pronounced the same, the two names carry different meanings: \"brightness\" and \"flower bud.\" Together, they reflect the individuality and diversity at the heart of the brand."
+        },
+        {
+          "heading": "03. Making the Familiar Feel Unexpected",
+          "sub": "",
+          "body": "OPEN YY transforms familiar wardrobe essentials through unconventional proportions and unexpected details. From sweatshirts and knitwear to tailored jackets, the brand reinterprets everyday pieces with a fresh perspective, embracing a fluid approach to womenswear and gender-neutral dressing."
+        },
+        {
+          "heading": "04. A Favorite Among K-pop Stars",
+          "sub": "",
+          "body": "OPEN YY has made its way into the wardrobes of K stars. Spotted in everything from stage outfits to off-duty looks, the brand continues to attract attention from fashion enthusiasts around the world."
+        },
+        {
+          "heading": "05. Seoul, Reimagined in Fashion",
+          "sub": "",
+          "body": "Titled \"WHEN IN SEOUL,\" OPEN YY's F/W 2026 collection draws inspiration from the city's ever-changing landscape. Blending old and new, structure and spontaneity, the collection captures Seoul's dynamic energy through concrete greys, deep blacks, muted neutrals, and flashes of neon."
+        },
+        {
+          "heading": "06. Details Worth a Closer Look",
+          "sub": "",
+          "body": "Fluid cargo bomber jackets, pin-tucked trench coats, and relaxed knitwear define the season. Distinctive accessories, including wire-detailed beanies and long boots, add a playful edge. The collection balances effortless silhouettes with considered details, encouraging a more individual approach to dressing."
+        },
+        {
+          "heading": "07. Where to Find OPEN YY in Seoul",
+          "sub": "1F, 16, Itaewon-ro 36-gil, Yongsan-gu, Seoul, South Korea",
+          "body": "Located in Hannam-dong, OPEN YY's flagship store offers a closer look at the brand's latest collections and distinctive aesthetic. The space also features a specialty coffee café, making it a destination for both shopping and a leisurely break."
+        },
+        {
+          "heading": "08. A K-fashion Label to Remember",
+          "sub": "",
+          "body": "Fashion is one of the simplest ways to express individuality. Born from two sisters' distinct creative visions, OPEN YY captures the spirit of Seoul today. A K-fashion label worth knowing."
         }
       ],
       "related_label": "View Related Shops",
