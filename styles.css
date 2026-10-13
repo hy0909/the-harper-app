@@ -874,3 +874,21 @@ a.shop-row { color: inherit; text-decoration: none; }
 
 /* 모달이 열린 동안 뒤 화면 스크롤 잠금 */
 html.is-locked { overflow: hidden; }
+
+/* 한국어 화면(html:lang(ko))의 글자 자간은 -2%(-0.02em)로 맞춘다.
+   이 규칙이 페이지별 CSS의 px 자간보다 이기도록 선택자를 길게 썼다(magazine.css 등은 뒤에 불러오므로).
+   영문·숫자만 있는 고정 라벨은 예외로 두고 원래 자간을 그대로 쓴다.
+   데이터에서 오는 글(매장 이름, 매거진 제목 등)은 한글이 섞일 수 있어서 예외로 빼지 않는다. */
+html:lang(ko) body,
+html:lang(ko) body *:not(.header__logo):not(.login__logo):not(.login__tagline):not(.splash__logo):not(.splash__tagline):not(.tour-card__tier):not(.badge--pick):not(.badge--tier):not(.badge--search):not(.mag__date):not(.history-row__date):not(.gallery__count):not(.filter__count-num):not(.my-head__count):not(.drawer__item[data-lang]:not([data-lang="ko"])):not(.drawer__item[data-lang]:not([data-lang="ko"]) *):not(.onb__item[data-value]:not([data-value="ko"])):not(.onb__item[data-value]:not([data-value="ko"]) *):not(.leaflet-control-attribution):not(.leaflet-control-attribution *) {
+  letter-spacing: -0.02em;
+}
+/* 지도 출처 표기(Leaflet · OpenFreeMap 등)는 원래 기본값(normal) 그대로 둔다 */
+html:lang(ko) .leaflet-control-attribution,
+html:lang(ko) .leaflet-control-attribution * {
+  letter-spacing: normal;
+}
+/* 방문 수·찜 수 숫자는 부모(.eyebrow)에서 물려받던 원래 자간(-0.24px)을 그대로 쓴다 */
+html:lang(ko) .my-head__count {
+  letter-spacing: -0.24px;
+}
