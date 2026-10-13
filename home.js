@@ -53,15 +53,10 @@ window.HARPER_sbWarn = window.HARPER_sbWarn || function (err) {
     var m = /[?&]id=([^&#]+)/.exec(String(link || ''));
     return m ? decodeURIComponent(m[1]) : '';
   }
-  /* 제목 비교용: 줄바꿈과 공백을 뺀 글자 */
-  var plain = function (s) { return String(s == null ? '' : s).replace(/\s/g, ''); };
-  /* 칸의 제목(item.title, 줄바꿈 있음)을 쓴다. 글자(줄바꿈·공백 뺀 것)가 매거진 제목과 다르면 매거진 제목을 쓰고 알린다 */
+  /* 칸의 제목(item.title, 줄바꿈 있음)이 있으면 매거진 제목과 달라도 그대로 쓴다(예: 성수 Day Drop 칸 'K-BRAND 소개'). 비어 있으면 매거진 제목 */
   function titleOf(item, id, m) {
     var own = String(item.title || '');
-    if (!own.trim()) return m.title;
-    if (plain(own) === plain(m.title)) return own;
-    console.warn('홈 카드 제목이 매거진 제목과 달라 매거진 제목을 씁니다: ' + id + ' (칸: ' + own.replace(/\n/g, ' / ') + ', 글: ' + m.title + ')');
-    return m.title;
+    return own.trim() ? own : m.title;
   }
   /* 칸에 보일 값: 매거진 글이 있으면 그 글의 제목·사진·에디터.
      글을 못 찾으면 null(칸을 숨긴다) — 옛 구조 Supabase 값에 남은 칸이 엉뚱한 글로 열리지 않게.
