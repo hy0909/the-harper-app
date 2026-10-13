@@ -1,4 +1,14 @@
 /* THE HARPER 앱 홈 화면 미리보기 — 피그마 w:340 프레임을 웹으로 옮김 */
+/* 따옴표 전용 서체: Noto Sans 의 ’ “ ” ‘ 는 비스듬한 쐐기 모양이라, 둥근 쉼표 모양의 Nunito Sans 라틴 글자(Google Fonts 파일)에서 U+2018–201D 만 빌린다.
+   unicode-range 로 따옴표 네 종류에만 걸리므로 글자·숫자·한글은 기존 서체 그대로다 */
+@font-face {
+  font-family: "Harper Quote";
+  font-style: normal;
+  font-weight: 400 800;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/nunitosans/v19/pe0TMImSLYBIv1o4X1M8ce2xCx3yop4tQpF_MeTm0lfGWVpNn64CL7U8upHZIbMV51Q42ptCp7t1R-tQKr51.woff2) format("woff2");
+  unicode-range: U+2018-201D;
+}
 :root {
   --ink: #3a362f;      /* 100 */
   --ink-70: #5b5650;   /* 70 */
@@ -16,10 +26,10 @@
   --jade: #8fa693;
   --terracotta: #c97b5c;
   --amber: #c9a15c;
-  /* 본문 서체: 영문은 Noto Sans, 한글은 Noto Sans KR. 일본어·중국어는 아래 :lang 규칙에서 그 나라 Noto Sans 로 */
+  /* 본문 서체: 따옴표만 Harper Quote(위), 영문은 Noto Sans, 한글은 Noto Sans KR. 일본어·중국어는 아래 :lang 규칙에서 그 나라 Noto Sans 로 */
   --font-cjk: "Noto Sans KR";
-  --font-ui: "Noto Sans", var(--font-cjk), -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
-  --font-sans: "Noto Sans", var(--font-cjk), -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+  --font-ui: "Harper Quote", "Noto Sans", var(--font-cjk), -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+  --font-sans: "Harper Quote", "Noto Sans", var(--font-cjk), -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
   --font-logo: "Cormorant Garamond", "Times New Roman", Times, serif;
 }
 html:lang(ja) { --font-cjk: "Noto Sans JP"; }
