@@ -11,7 +11,7 @@
     },
     "tours": {
       "title": "ツアーの種類",
-      "soonLabel": "近日オープン",
+      "soonLabel": "後日公開",
       "info": {
         "title": "ツアー種類のご案内",
         "note": ""

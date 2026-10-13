@@ -301,7 +301,7 @@ img.editor__avatar { display: block; object-fit: cover; }
   color: var(--ink-70);
 }
 
-/* 아직 열리지 않은 투어(CAPSULE·SIGNATURE·BESPOKE): 글자를 옅게, 가격 자리에 '오픈 예정' 칩 */
+/* 아직 열리지 않은 투어(CAPSULE·SIGNATURE·BESPOKE): 글자를 옅게, 가격 자리에 '추후 공개' 칩 */
 .tour-card--soon .tour-card__tier,
 .tour-card--soon .tour-card__title { color: var(--ink-50); }
 .tour-card--soon .tour-card__row { align-items: center; }

@@ -79,13 +79,13 @@ window.HARPER_sbWarn = window.HARPER_sbWarn || function (err) {
     };
   }
 
-  /* 아직 안 연 투어의 칩 글자. Supabase 에 남은 옛 글자 '추후 확장'은 '오픈 예정'으로 보여 준다 */
+  /* 아직 안 연 투어의 칩 글자. Supabase 에 남은 옛 글자 '추후 확장'·'오픈 예정'은 '추후 공개'로 보여 준다 */
   function soonLabelOf(tours) {
     var v = (tours && tours.soonLabel) || '';
-    return (!v || v === '추후 확장') ? t('tours.soon') : v;
+    return (!v || v === '추후 확장' || v === '오픈 예정') ? t('tours.soon') : v;
   }
   /* 화면에 박힌 글자(사전, i18n.js). i18n.js 를 안 읽은 페이지면 한국어 그대로 */
-  var t = window.HARPER_t || function (k) { return ({ 'tours.soon': '오픈 예정', 'tours.infoSoon': '추후 공개', 'tours.infoTitle': '투어 종류 안내' })[k] || k; };
+  var t = window.HARPER_t || function (k) { return ({ 'tours.soon': '추후 공개', 'tours.infoSoon': '추후 공개', 'tours.infoTitle': '투어 종류 안내' })[k] || k; };
 
   /* 투어 종류 안내 모달: ⓘ 버튼으로 열고, 닫기 X · 바깥 어두운 영역 · Esc 로 닫는다. 열려 있는 동안 뒤 화면은 스크롤하지 않는다 */
   function renderTourInfo(tours, magazines) {
@@ -93,7 +93,7 @@ window.HARPER_sbWarn = window.HARPER_sbWarn || function (err) {
     var modal = document.getElementById('tour-info');
     if (!btn || !modal) return;
     var info = tours.info || {};
-    var soon = t('tours.infoSoon'); /* 안내 창 칩은 ‘추후 공개’(홈 투어 카드의 ‘오픈 예정’과 따로) */
+    var soon = t('tours.infoSoon'); /* 안내 창 칩도 ‘추후 공개’ */
     document.getElementById('tour-info-title').textContent = info.title || t('tours.infoTitle');
     /* 맨 아래 예약하기: 투어(kind=tour) 글이 있으면 그 글로, 없으면 매거진 첫 글로 */
     var cta = document.getElementById('tour-info-cta');

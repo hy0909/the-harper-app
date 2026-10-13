@@ -27,7 +27,7 @@
 
     'tours.infoBtn': ['투어 종류 안내 보기', 'About tour types', 'ツアー種類の案内を見る', '查看行程类型说明', '查看行程類型說明'],
     'tours.infoTitle': ['투어 종류 안내', 'Tour types', 'ツアーの種類', '行程类型说明', '行程類型說明'],
-    'tours.soon': ['오픈 예정', 'Coming soon', '近日オープン', '即将开放', '即將開放'],
+    'tours.soon': ['추후 공개', 'To be announced', '後日公開', '敬请期待', '敬請期待'],
     'tours.infoSoon': ['추후 공개', 'To be announced', '後日公開', '敬请期待', '敬請期待'],
     'tours.prev': ['이전 투어', 'Previous tour', '前のツアー', '上一个行程', '上一個行程'],
     'tours.next': ['다음 투어', 'Next tour', '次のツアー', '下一个行程', '下一個行程'],
