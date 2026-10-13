@@ -355,4 +355,4 @@ a.mag__related { text-decoration: none; color: inherit; }
 .mag-section__link:active { background: var(--gray-10); }
 
 /* 글이 비면 자리도 없앤다 */
-.mag [hidden], .mag__cta-bar[hidden] { display: none; }
+.mag [hidden], .mag__cta-bar[hidden], .photo--mag[hidden] { display: none; }

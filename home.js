@@ -181,7 +181,9 @@ window.HARPER_sbWarn = window.HARPER_sbWarn || function (err) {
       el('feed-list').innerHTML = (feed.items || []).map(function (item) {
         var c = cardOf(item, magazines);
         if (!c) return '';
-        return '<a class="feed-card feed-card--' + esc(item.color) + '" data-magazine="' + esc(c.id) + '" href="' + esc(c.href) + '">' +
+        /* 피드에서 연 상세는 맨 위 대표 사진 없이 글부터(magazine.js 가 from=feed 를 본다) */
+        var href = c.id ? c.href + '&from=feed' : c.href;
+        return '<a class="feed-card feed-card--' + esc(item.color) + '" data-magazine="' + esc(c.id) + '" href="' + esc(href) + '">' +
           '<h2 class="feed-card__title">' + lines(c.title) + '</h2>' +
           '<div class="photo photo--card">' +
             '<img class="photo__img" src="' + esc(img(c.image)) + '" alt="">' +
