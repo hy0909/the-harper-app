@@ -247,6 +247,10 @@
 .profile-modal__avatar { width: 96px; height: 96px; flex-basis: 96px; }
 .profile-modal__photo-btns { display: flex; gap: 8px; }
 .profile-modal__btn {
+  display: inline-flex; /* 글자를 버튼 높이의 세로 가운데에 */
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
   height: 36px;
   padding: 0 14px;
   border-radius: 8px;
@@ -257,7 +261,7 @@
   font-weight: 500;
   color: var(--ink);
 }
-.profile-modal__btn--quiet { background: transparent; color: var(--ink-60); }
+.profile-modal__btn--quiet { background: #fff; color: var(--heart-red); } /* 삭제: 흰 바탕에 하트와 같은 빨강 글자 */
 .profile-modal__btn[hidden] { display: none; }
 .profile-modal .field { margin-top: 24px; display: flex; flex-direction: column; gap: 8px; }
 .profile-modal .field__label { font-family: var(--font-ui); font-weight: 600; font-size: 14px; color: var(--ink); }

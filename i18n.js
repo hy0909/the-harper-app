@@ -151,9 +151,9 @@
     'my.loginBtn': ['로그인', 'Log in', 'ログイン', '登录', '登入'],
     'my.via': ['{p} 계정으로 로그인', 'Logged in with {p}', '{p}でログイン中', '通过 {p} 登录', '透過 {p} 登入'],
     'confirm': ['확인', 'OK', '確認', '确定', '確定'],
-    'profile.photoUpload': ['사진 올리기', 'Upload photo', '写真をアップロード', '上传照片', '上傳照片'],
-    'profile.photoChange': ['사진 바꾸기', 'Change photo', '写真を変更', '更换照片', '更換照片'],
-    'profile.photoRemove': ['사진 지우기', 'Remove photo', '写真を削除', '删除照片', '刪除照片'],
+    'profile.photoUpload': ['사진 변경', 'Change photo', '写真を変更', '更换照片', '更換照片'],
+    'profile.photoChange': ['사진 변경', 'Change photo', '写真を変更', '更换照片', '更換照片'],
+    'profile.photoRemove': ['삭제', 'Delete', '削除', '删除', '刪除'],
 
     'support.subject': ['[THE HARPER] 문의', '[THE HARPER] Inquiry', '[THE HARPER] お問い合わせ', '[THE HARPER] 咨询', '[THE HARPER] 諮詢'],
     'support.bodyHead': ['문의 내용을 적어 주세요.', 'Please write your question here.', 'お問い合わせ内容をご記入ください。', '请在此填写咨询内容。', '請在此填寫諮詢內容。'],

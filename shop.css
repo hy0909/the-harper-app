@@ -13,7 +13,7 @@
   -webkit-mask: var(--heart) center / contain no-repeat;
   mask: var(--heart) center / contain no-repeat;
 }
-.mag-header__like[aria-pressed="true"] .heart-icon { --heart: url("assets/heart-fill.svg"); background-color: #e63946; }
+.mag-header__like[aria-pressed="true"] .heart-icon { --heart: url("assets/heart-fill.svg"); background-color: var(--heart-red); }
 
 /* ① 사진 캐러셀 */
 .gallery { position: relative; display: flex; flex-direction: column; gap: 8px; }
