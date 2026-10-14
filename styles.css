@@ -714,7 +714,7 @@ a.shop-row { color: inherit; text-decoration: none; }
 .phone--explore .shop-row__name { font-size: 18px; line-height: 1.39; }
 .phone--explore .shop-row__addr { font-size: 13px; line-height: 1.39; }
 .phone--explore .shop-row__note span { font-size: 12px; line-height: 16px; } /* 줄 높이를 아이콘(16px)과 같게: 소수점 자리에 그려져 1px 어긋나 보이던 것 정리 */
-.phone--explore .shop-row__note { padding-left: 6px; } /* 왼쪽 안쪽 여백 8→6px */
+.phone--explore .shop-row__note { padding-left: 6px; border-radius: 4px; } /* 왼쪽 안쪽 여백 8→6px, 모서리 8→4px */
 .shop-row__note img { flex: 0 0 16px; } /* 아이콘은 16px 그대로, 글자와 세로 가운데 */
 
 /* 지도 자리: 피그마 31:9779 */
