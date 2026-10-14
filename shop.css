@@ -131,7 +131,7 @@
 /* 간격 조정(이 화면에만): 핑크 노트 ↔ 매장 정보 카드 20 → 12 (.mag__block 의 flex gap 을 이 블록만 줄인다) */
 .mag__block.shop__note-block { gap: 12px; }
 /* 상품·드롭 카드: 제목 ↔ 아래 가격 줄 24 → 4. 제목의 기본 아래 여백 20(h3 UA 여백)만 뺀다. 위쪽 여백과 다른 목록(검색)은 그대로 */
-#shop-drops .shop-row__name { margin-bottom: 0; }
+#shop-drops .shop-row__name { margin-bottom: 0; font-size: 16px; font-weight: 600; line-height: 1.5; } /* 드롭 이름: 글자 단계 2단계 아래(소제목 20 → 작은 소제목 16 SemiBold) */
 /* 매장명은 22px 그대로(매거진 상세 제목만 28px로 키움) */
 .phone--shop .mag__title { font-size: 22px; }
 
@@ -141,9 +141,9 @@
   margin: 0; /* h3 기본 여백 제거: 제목 ↔ 지도 8px */
   font-family: var(--font-sans);
   font-weight: 600;
-  font-size: 16px;
-  line-height: 1.5;
-  letter-spacing: 0.0912px;
+  font-size: 20px; /* '소개'·'상품·드롭' 섹션 제목(.shop-section__title)과 같은 단계 */
+  line-height: 1.4;
+  letter-spacing: -0.24px;
   color: var(--ink);
 }
 .shop-map__frame {
