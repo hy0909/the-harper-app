@@ -6,7 +6,7 @@
 - 시작 화면(처음 켤 때만): `onboarding.html` (스플래시 → 언어 → 관심 스타일). 스타일 `onboarding.css`, 동작 `onboarding.js`. 끝내거나 건너뛰면 `index.html` 로 돌아간다. `index.html` 은 `localStorage` 의 `harper:onboarded` 가 없으면 이 페이지로 보낸다. 다시 보려면 `index.html?onboarding=1`
 - 매거진 상세: `magazine.html?id=<글 id>`. 스타일 `magazine.css`, 동작 `magazine.js`
 - 로그인·회원가입: `login.html?from=<돌아갈 페이지>` (SNS 고르기 → 연결 중 → 처음이면 가입 마무리). 스타일 `login.css`, 동작 `login.js`, 상태 저장 `auth.js`. 아래 '로그인' 참고
-- 내 정보: `my.html` (설계서 09: 프로필 · 찜한 매장 · 방문 히스토리 · 언어/알림 설정 · 고객센터 · 로그아웃). 스타일 `my.css`, 동작 `my.js`
+- 내 정보: `my.html` (설계서 09: 프로필 · 찜한 매장 · 방문 기록 · 언어/알림 설정 · 고객센터 · 로그아웃). 스타일 `my.css`, 동작 `my.js`
 - 스타일: `styles.css`, 동작: `app.js`
 - 언어: `i18n.js`. 시작 화면이나 내 정보의 언어 줄에서 고른 언어(`localStorage` 의 `harper:lang`, ko · en · ja · zh-Hans · zh-Hant)로 모든 화면이 보인다. 아래 '언어' 참고
 - 배포: GitHub Pages(main 브랜치 루트)

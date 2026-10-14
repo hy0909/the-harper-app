@@ -55,7 +55,7 @@
     'saved.title': ['찜한 매장', 'Saved shops', 'お気に入り', '收藏的店铺', '收藏的店家'],
     'viewAll': ['전체 보기', 'View all', 'すべて見る', '查看全部', '查看全部'],
     'saved.empty': ['아직 찜한 매장이 없어요.', 'No saved shops yet.', 'まだお気に入りがありません。', '还没有收藏的店铺。', '還沒有收藏的店家。'],
-    'history.title': ['방문 히스토리', 'Visit history', '訪問履歴', '访问记录', '造訪紀錄'],
+    'history.title': ['방문 기록', 'Visit history', '訪問履歴', '访问记录', '造訪紀錄'],
     'history.1.name': ['썬러브 링크스 성수', 'Sunlove Links Seongsu', 'Sunlove Links 聖水', 'Sunlove Links 圣水', 'Sunlove Links 聖水'],
     'history.1.sub': ['성수', 'Seongsu', '聖水', '圣水', '聖水'],
     'history.2.name': ['아더 스페이스 3.0', 'ADER SPACE 3.0', 'ADER SPACE 3.0', 'ADER SPACE 3.0', 'ADER SPACE 3.0'],

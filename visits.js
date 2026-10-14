@@ -1,4 +1,4 @@
-/* 방문 히스토리 데이터(미리보기용 고정 값). 내 정보 미리보기(my.html)와 전체 목록(history.html)이 같이 쓴다.
+/* 방문 기록 데이터(미리보기용 고정 값). 내 정보 미리보기(my.html)와 전체 목록(history.html)이 같이 쓴다.
    date: 방문일, shop: 매장 id(shops.js), n: 글 키 번호(i18n.js 의 history.<n>.name · history.<n>.sub).
    HARPER_renderVisits(ul, limit) 는 ul 에 줄을 그리고 그린 개수를 돌려준다. limit 을 주면 앞에서 그만큼만 */
 (function () {

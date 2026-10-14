@@ -170,7 +170,7 @@
   window.addEventListener('pageshow', function () { if (window.HARPER_SHOPS) render(); });
 })();
 
-/* 방문 히스토리: 미리보기는 앞의 3줄, 개수는 전체 기록 수(visits.js). 전체 목록은 history.html */
+/* 방문 기록: 미리보기는 앞의 3줄, 개수는 전체 기록 수(visits.js). 전체 목록은 history.html */
 (function () {
   var list = document.getElementById('history-list');
   var count = document.getElementById('history-count');

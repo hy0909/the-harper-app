@@ -1,7 +1,7 @@
 /* 내 정보 하위 화면 3개(saved.html · history.html · language.html)의 동작.
    - 뒤로: 같은 사이트에서 왔으면 history.back(), 아니면 링크(my.html)로 간다
    - 찜한 매장: harper:likes 의 매장을 찜한 순서(최근이 앞)로 목록에 그린다. 줄을 누르면 shop.html?id=
-   - 방문 히스토리: visits.js 의 전체 목록과 개수
+   - 방문 기록: visits.js 의 전체 목록과 개수
    - 언어: 고르면 harper:lang 에 저장하고 이 화면 글을 바로 그 언어로 바꾼다. 체크 표시도 옮기고 화면에 머문다 */
 (function () {
   /* 뒤로 가기: 같은 사이트에서 온 기록이 있으면 브라우저 뒤로 가기, 없으면 my.html 링크를 그대로 따른다 */
@@ -47,7 +47,7 @@
     window.HARPER_onShops(render);
   }
 
-  /* 방문 히스토리: visits.js 의 전체 목록을 그린다 */
+  /* 방문 기록: visits.js 의 전체 목록을 그린다 */
   var historyList = document.getElementById('history-list');
   if (historyList && window.HARPER_renderVisits) {
     window.HARPER_renderVisits(historyList);

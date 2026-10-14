@@ -139,7 +139,7 @@
 }
 .my-list > li + li { border-top: 1px solid #ece9e3; }
 
-/* ③ 방문 히스토리 줄 */
+/* ③ 방문 기록 줄 */
 .history-row {
   display: flex;
   align-items: center;
@@ -277,7 +277,7 @@
 .profile-modal__ok { width: 100%; }
 .profile-modal__ok:disabled { opacity: 0.4; cursor: default; }
 
-/* 하위 화면(찜한 매장 · 방문 히스토리 · 언어: saved.html · history.html · language.html).
+/* 하위 화면(찜한 매장 · 방문 기록 · 언어: saved.html · history.html · language.html).
    상단 바는 매장 상세와 같은 mag-header(높이 48, 뒤로 버튼 왼쪽). 제목은 바 가운데에 절대 위치로 둬서 오른쪽 요소가 없어도 가운데다 */
 .phone--sub { min-height: 100vh; min-height: 100dvh; gap: 12px; } /* 하위 페이지만: 상단 바와 내용 사이 48px → 28px(20px 줄임) */
 .sub-head { position: relative; }
@@ -300,7 +300,7 @@
 .my-card[hidden] { display: none; }
 .my-list .drawer__item { border-bottom: 0; }
 
-/* 찜한 매장 줄: 썸네일 · 이름 · 동네 · 오른쪽 chevron (방문 히스토리 줄과 같은 높이 규칙) */
+/* 찜한 매장 줄: 썸네일 · 이름 · 동네 · 오른쪽 chevron (방문 기록 줄과 같은 높이 규칙) */
 .saved-row {
   display: flex;
   align-items: center;
