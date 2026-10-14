@@ -358,7 +358,7 @@ img.editor__avatar { display: block; object-fit: cover; }
 /* 카드는 아래 카드가 위 카드 아래 40px 를 덮는다. 마지막 카드만 겹침이 없다 */
 .feed-card:not(:last-child) { margin-bottom: -40px; }
 /* 두 번째 카드부터 위쪽으로 그림자 */
-.feed-card + .feed-card { box-shadow: 0 -4px 8px 0 rgba(0, 0, 0, 0.2); }
+.feed-card + .feed-card { box-shadow: 0 -4px 8px 0 rgba(111, 74, 58, 0.24); } /* 그림자는 코코아 브라운(--cocoa #6f4a3a) 계열. 검정 20%와 비슷한 진하기 */
 .feed-card--blush { background: var(--blush); }
 .feed-card--beige { background: var(--beige); }
 .feed-card--jade { background: var(--jade); }
