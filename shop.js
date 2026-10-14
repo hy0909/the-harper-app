@@ -46,8 +46,15 @@ function setupLocation(s) {
     keyboard: false
   }).addTo(mini);
 
-  mini.invalidateSize();
-  window.addEventListener('resize', function () { mini.invalidateSize(); });
+  /* 핀(점 + 매장명) 묶음이 지도 칸 한가운데 오게. 마커 기준점이 매장명 아래 끝이라, 묶음 높이의 절반만큼 지도를 위로 옮긴다 */
+  function centerPin() {
+    mini.invalidateSize();
+    mini.setView([lat, lng], 16, { animate: false });
+    mini.panBy([0, -pin.offsetHeight / 2], { animate: false });
+  }
+  centerPin();
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(centerPin);
+  window.addEventListener('resize', centerPin);
 }
 
 window.HARPER_onShops(function () {

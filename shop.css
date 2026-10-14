@@ -107,7 +107,7 @@
 .shop-tabs__tab[aria-current="true"] { color: var(--ink); border-bottom-color: var(--ink); }
 
 /* 탭 아래 묶음 */
-.mag--sections { gap: 32px; padding-top: 24px; min-height: calc(100vh - 48px); } /* 마지막 탭도 위까지 올라오게 */
+.mag--sections { gap: 52px; padding-top: 24px; min-height: calc(100vh - 48px); } /* 마지막 탭도 위까지 올라오게 */
 .shop-section { display: flex; flex-direction: column; gap: 12px; scroll-margin-top: 56px; }
 .shop-section__title {
   font-family: var(--font-sans);
@@ -136,7 +136,7 @@
 .phone--shop .mag__title { font-size: 22px; }
 
 /* 위치: 소개 글 아래 제목 · 16:9 미니 지도 · 주소 */
-.shop-map { display: flex; flex-direction: column; gap: 8px; margin-top: 20px; } /* '위치'도 섹션 제목 단계라 위 간격을 섹션 사이(32)와 맞춤: 소개 글 ↔ 위치 12 + 20 */
+.shop-map { display: flex; flex-direction: column; gap: 8px; margin-top: 40px; } /* '위치'도 섹션 제목 단계라 위 간격을 섹션 사이(52)와 맞춤: 소개 글 ↔ 위치 12 + 40 */
 .shop-map__title {
   margin: 0 0 4px; /* 제목 ↔ 지도 12px(묶음 gap 8 + 4): 다른 섹션 제목 ↔ 내용 12와 같음. 지도 ↔ 주소는 8 그대로 */
   font-family: var(--font-sans);

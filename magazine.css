@@ -277,7 +277,7 @@ a.mag__related { text-decoration: none; color: inherit; }
 .mag__sections {
   display: flex;
   flex-direction: column;
-  gap: 28px;
+  gap: 48px; /* 브랜드 묶음 사이 28 → 48 */
 }
 .mag-section {
   display: flex;
