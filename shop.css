@@ -136,9 +136,9 @@
 .phone--shop .mag__title { font-size: 22px; }
 
 /* 위치: 소개 글 아래 제목 · 16:9 미니 지도 · 주소 */
-.shop-map { display: flex; flex-direction: column; gap: 8px; }
+.shop-map { display: flex; flex-direction: column; gap: 8px; margin-top: 20px; } /* '위치'도 섹션 제목 단계라 위 간격을 섹션 사이(32)와 맞춤: 소개 글 ↔ 위치 12 + 20 */
 .shop-map__title {
-  margin: 0; /* h3 기본 여백 제거: 제목 ↔ 지도 8px */
+  margin: 0 0 4px; /* 제목 ↔ 지도 12px(묶음 gap 8 + 4): 다른 섹션 제목 ↔ 내용 12와 같음. 지도 ↔ 주소는 8 그대로 */
   font-family: var(--font-sans);
   font-weight: 600;
   font-size: 20px; /* '소개'·'상품·드롭' 섹션 제목(.shop-section__title)과 같은 단계 */
